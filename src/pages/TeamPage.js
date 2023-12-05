@@ -1,12 +1,15 @@
-import HomeSection from "../components/LandingPage/HomeSection";
+import { Box, Stack, Typography } from "@mui/material";
 import AnimatedPage from "./AnimatedPage";
-import background from "../assets/images/UAVs-help2.jpg";
-import { Box, Typography } from "@mui/material";
+import background from "../assets/images/卖点2-scaled.jpg";
+import HomeSection from "../components/HomeSection/HomeSection";
 import Footer from "../components/Footer/Footer";
 import Background from "../components/Background/Background";
 import TeamMembers from "../components/TeamPage/TeamMembers";
+import useAnimate from "../hooks/use-animate";
 
-function TeamPage() {
+const TeamPage = () => {
+	const elementRef = useAnimate("animate", false);
+
 	return (
 		<>
 			<AnimatedPage>
@@ -17,35 +20,45 @@ function TeamPage() {
 				/>
 				<Box
 					sx={{
-						// height: "100vh",
 						backgroundColor: "white",
 						px: window.innerWidth > 600 ? 10 : 2,
 						py: 5,
+						display: "flex",
+						flexDirection: "column",
+						justifyItems: "center",
+						alignItems: "center",
 					}}>
-					<Typography
-						variant="h4"
+					<Stack
+						ref={elementRef}
 						sx={{
-							textAlign: "center",
-							fontWeight: 400,
-							mb: 2,
+							opacity: 0,
+							transition: "all 2s ease",
 						}}>
-						Our Team
-					</Typography>
-					<Typography
-						variant="h6"
-						sx={{
-							textAlign: "center",
-							fontWeight: 300,
-							mb: 4,
-						}}>
-						Meet the team who make the magic happen.
-					</Typography>
+						<Typography
+							variant="h4"
+							sx={{
+								textAlign: "center",
+								fontWeight: 400,
+								mb: 2,
+							}}>
+							Our Team
+						</Typography>
+						<Typography
+							variant="h6"
+							sx={{
+								textAlign: "center",
+								fontWeight: 300,
+								mb: 4,
+							}}>
+							Meet the team who make the magic happen.
+						</Typography>
+					</Stack>
 					<TeamMembers />
 				</Box>
 				<Footer />
 			</AnimatedPage>
 		</>
 	);
-}
+};
 
 export default TeamPage;

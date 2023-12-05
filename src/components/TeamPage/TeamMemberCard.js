@@ -1,11 +1,14 @@
 import { Card, CardContent, Typography, Avatar, Stack } from "@mui/material";
 import { LinkedIn, GitHub, EmailOutlined } from "@mui/icons-material";
+import useAnimate from "../../hooks/use-animate";
 
 const TeamMemberCard = (props) => {
 	const { name, role, image, email, linkedInLink, gitHubLink } = props;
+	const elementRef = useAnimate("animate", false);
 
 	return (
 		<Card
+			ref={elementRef}
 			sx={{
 				maxWidth: 150,
 				mx: window.innerWidth > 600 ? 4 : 0,
@@ -15,6 +18,8 @@ const TeamMemberCard = (props) => {
 				flexDirection: "column",
 				alignItems: "center",
 				justifyContent: "center",
+				opacity: 0,
+				transition: "all 1s ease",
 			}}>
 			<Avatar
 				alt={name}

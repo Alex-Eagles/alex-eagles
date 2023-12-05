@@ -12,12 +12,12 @@ import {
 	Stack,
 } from "@mui/material";
 import { Menu as MenuIcon } from "@mui/icons-material";
-import useAnimate from "../hooks/use-animate";
-import logo from "../assets/icons/Logo.webp";
+import useAnimate from "../../hooks/use-animate";
+import logo from "../../assets/icons/Logo.webp";
 import { NavLink } from "react-router-dom";
 import { styled } from "@mui/material/styles";
 
-const pages = ["History", "Team", "Sponsors", "Contact"];
+const pages = ["History", "Publications", "Team", "Sponsors", "Contact"];
 
 const StyledNavLink = styled(NavLink)((theme) => ({
 	color: "inherit",

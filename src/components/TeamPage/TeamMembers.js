@@ -5,6 +5,7 @@ import teamMemberData from "../../assets/data/teamMemberData";
 const TeamMembers = () => {
 	return (
 		<Box
+			maxWidth="lg"
 			sx={{
 				mt: 4,
 				display: "flex",

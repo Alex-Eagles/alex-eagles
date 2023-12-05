@@ -1,13 +1,17 @@
 import "./App.css";
-import NavBar from "./components/NavBar";
-import LandingPage from "./pages/LandingPage";
-import TeamPage from "./pages/TeamPage";
 import { Box } from "@mui/material";
 import { Routes, Route, useLocation } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
+import NavBar from "./components/NavBar/NavBar";
+import LandingPage from "./pages/LandingPage";
+import TeamPage from "./pages/TeamPage";
+import HistoryPage from "./pages/HistoryPage";
+import PublicationsPage from "./pages/PublicationsPage";
+import SponsorsPage from "./pages/SponsorsPage";
+import ContactPage from "./pages/ContactPage";
 
-function App() {
+const App = () => {
 	const theme = createTheme({
 		palette: {
 			primary: {
@@ -59,7 +63,6 @@ function App() {
 	return (
 		<ThemeProvider theme={theme}>
 			<Box sx={{ minWidth: "100vw !important", overflowX: "hidden" }}>
-				{/* <Background background={background} /> */}
 				<NavBar />
 				<AnimatePresence mode="wait">
 					<Routes
@@ -67,13 +70,32 @@ function App() {
 						location={useLocation()}>
 						<Route path="/" element={<LandingPage />} exact />
 						<Route path="/team" element={<TeamPage />} exact />
-						{/* <Route path="/contact" element={<ContactPage />} exact /> */}
+						<Route
+							path="/history"
+							element={<HistoryPage />}
+							exact
+						/>
+						<Route
+							path="/publications"
+							element={<PublicationsPage />}
+							exact
+						/>
+						<Route
+							path="/sponsors"
+							element={<SponsorsPage />}
+							exact
+						/>
+						<Route
+							path="/contact"
+							element={<ContactPage />}
+							exact
+						/>
 						<Route path="*" element={<LandingPage />} />
 					</Routes>
 				</AnimatePresence>
 			</Box>
 		</ThemeProvider>
 	);
-}
+};
 
 export default App;

@@ -34,6 +34,7 @@ const HomeSection = (props) => {
 						opacity: "0",
 						transition: "all 1.75s ease",
 						transitionDelay: "1s",
+						mb: 2,
 					}}>
 					{title}
 				</Typography>

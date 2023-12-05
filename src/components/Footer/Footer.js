@@ -2,7 +2,14 @@ import React from "react";
 import { Box, Container, Grid, Typography, Stack } from "@mui/material";
 import { NavLink } from "react-router-dom";
 import { styled } from "@mui/material/styles";
-import { Facebook, GitHub, Instagram, LinkedIn } from "@mui/icons-material";
+import {
+	EmailOutlined,
+	Facebook,
+	GitHub,
+	Instagram,
+	LinkedIn,
+	PhoneAndroidOutlined,
+} from "@mui/icons-material";
 
 const StyledNavLink = styled(NavLink)((theme) => ({
 	color: " #000000",
@@ -67,14 +74,14 @@ const Footer = () => {
 									Our History
 								</StyledNavLink>
 							</li>
-							{/* <li>
+							<li>
 								<StyledNavLink
-									to="/careers"
+									to="/team"
 									color="inherit"
 									exact="true">
-									Careers
+									Our Publications
 								</StyledNavLink>
-							</li> */}
+							</li>
 							<li>
 								<StyledNavLink
 									to="/team"
@@ -83,14 +90,6 @@ const Footer = () => {
 									Our Team
 								</StyledNavLink>
 							</li>
-							{/* <li>
-							<StyledNavLink
-								to="/contact"
-								color="inherit"
-								exact="true">
-								Contact Us
-							</StyledNavLink>
-						</li> */}
 							<li>
 								<StyledNavLink
 									to="/sponsors"
@@ -118,13 +117,33 @@ const Footer = () => {
 						</Typography>
 						<StyledList>
 							<li>
-								<StyledNavLink to="/about" color="inherit">
-									alexeagles@gmail.com
+								<StyledNavLink to="mailto:" color="inherit">
+									<Stack direction="row" spacing={1}>
+										<EmailOutlined />
+										<Typography
+											variant="body1"
+											sx={{
+												fontWeight: 300,
+												fontSize: "1.1rem",
+											}}>
+											alex_eagles@alexu.edu.eg
+										</Typography>
+									</Stack>
 								</StyledNavLink>
 							</li>
 							<li>
-								<StyledNavLink to="/contact" color="inherit">
-									+201010101010
+								<StyledNavLink to="tel:" color="inherit">
+									<Stack direction="row" spacing={1}>
+										<PhoneAndroidOutlined />
+										<Typography
+											variant="body1"
+											sx={{
+												fontWeight: 300,
+												fontSize: "1.1rem",
+											}}>
+											+20 1001427585
+										</Typography>
+									</Stack>
 								</StyledNavLink>
 							</li>
 						</StyledList>

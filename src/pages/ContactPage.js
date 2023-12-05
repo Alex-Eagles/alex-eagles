@@ -1,19 +1,18 @@
 import HomeSection from "../components/HomeSection/HomeSection";
 import AnimatedPage from "./AnimatedPage";
-import background from "../assets/images/卖点2-scaled.jpg";
+import background from "../assets/images/UAVs-help2.jpg";
 import { Box, Typography } from "@mui/material";
 import Footer from "../components/Footer/Footer";
 import Background from "../components/Background/Background";
 
-const LandingPage = () => {
+const ContactPage = () => {
 	return (
 		<>
 			<AnimatedPage>
 				<Background background={background} />
 				<HomeSection
-					title="Design. Build. Innovate."
-					subtitle="Soar like an eagle."
-					callToAction={true}
+					title="Get in Touch."
+					subtitle="Want to join our team, become a sponsor, ask a question or just say hi? Reach out now."
 				/>
 				<Box
 					sx={{
@@ -31,4 +30,4 @@ const LandingPage = () => {
 	);
 };
 
-export default LandingPage;
+export default ContactPage;
