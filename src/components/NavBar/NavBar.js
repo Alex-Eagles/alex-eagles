@@ -123,7 +123,7 @@ const NavBar = () => {
 									color: "primary.main",
 									textDecoration: "none",
 								}}>
-								SAE AERO DESIGN
+								AERO DESIGN
 							</Typography>
 						</Stack>
 					</NavLink>
@@ -193,6 +193,7 @@ const NavBar = () => {
 							sx={{
 								gap: 0,
 								borderLeft: "1px solid #000000",
+								mr: 1,
 							}}>
 							<Typography
 								variant="h6"
@@ -222,7 +223,7 @@ const NavBar = () => {
 									color: "primary.main",
 									textDecoration: "none",
 								}}>
-								SAE AERO DESIGN
+								AERO DESIGN
 							</Typography>
 						</Stack>
 					</NavLink>

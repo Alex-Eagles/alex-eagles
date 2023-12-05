@@ -155,49 +155,73 @@ const Footer = () => {
 					alignItems="center"
 					spacing={1}
 					sx={{ mt: 6, mb: 0, py: 0 }}>
-					<GitHub
-						sx={{
-							transform: "scale(0.95)",
-							transition: "all 0.5s ease",
-							"&:hover": {
-								transform: "translateY(-10%) scale(0.95)",
-								color: "#305fb0",
-							},
-						}}
-					/>
-					<LinkedIn
-						sx={{
-							transform: "scale(1.1)",
-							transition: "all 0.5s ease",
-							"&:hover": {
-								transform: "translateY(-10%) scale(1.1)",
-								color: "#305fb0",
-							},
-						}}
-					/>
-					<Facebook
-						sx={{
-							transform: "scale(1.1)",
-							transition: "all 0.5s ease",
-							"&:hover": {
-								transform: "translateY(-10%) scale(1.1)",
-								color: "#305fb0",
-							},
-						}}
-					/>
-					<Instagram
-						sx={{
-							transition: "all 0.5s ease",
-							"&:hover": {
-								transform: "translateY(-10%) ",
-								color: "#305fb0",
-							},
-						}}
-					/>
+					<StyledNavLink
+						to="https://github.com/Alex-Eagles"
+						target="_blank"
+						rel="noopener noreferrer"
+						color="inherit">
+						<GitHub
+							sx={{
+								transform: "scale(0.95)",
+								transition: "all 0.5s ease",
+								"&:hover": {
+									transform: "translateY(-10%) scale(0.95)",
+									color: "#305fb0",
+								},
+							}}
+						/>
+					</StyledNavLink>
+					<StyledNavLink
+						to="https://www.linkedin.com/company/alex-eagles-aerodesign-team/"
+						color="inherit"
+						target="_blank"
+						rel="noopener noreferrer">
+						<LinkedIn
+							sx={{
+								transform: "scale(1.1)",
+								transition: "all 0.5s ease",
+								"&:hover": {
+									transform: "translateY(-10%) scale(1.1)",
+									color: "#305fb0",
+								},
+							}}
+						/>
+					</StyledNavLink>
+					<StyledNavLink
+						to="https://www.facebook.com/alexeagles2015/"
+						color="inherit"
+						target="_blank"
+						rel="noopener noreferrer">
+						<Facebook
+							sx={{
+								transform: "scale(1.1)",
+								transition: "all 0.5s ease",
+								"&:hover": {
+									transform: "translateY(-10%) scale(1.1)",
+									color: "#305fb0",
+								},
+							}}
+						/>
+					</StyledNavLink>
+					<StyledNavLink
+						to="/"
+						color="inherit"
+						target="_blank"
+						rel="noopener noreferrer">
+						<Instagram
+							sx={{
+								transition: "all 0.5s ease",
+								"&:hover": {
+									transform: "translateY(-10%) ",
+									color: "#305fb0",
+								},
+							}}
+						/>
+					</StyledNavLink>
 				</Stack>
 				<Typography variant="body2" sx={{ marginTop: 6 }}>
-					&copy; {currentYear} Alex Eagles - SAE Aero Design. All
-					rights reserved.
+					&copy; {currentYear} Alex Eagles Aero Design. All rights
+					reserved.
 				</Typography>
 			</Container>
 		</Box>
