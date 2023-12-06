@@ -1,12 +1,14 @@
 import { Typography, Stack, Container } from "@mui/material";
 import useAnimate from "../../hooks/use-animate";
+import PublicationCard from "./PublicationCard";
+import publicationData from "../../assets/data/publicationData";
 
 const PublicationsSection = () => {
 	const elementRef = useAnimate("animate", false);
 
 	return (
 		<Container maxWidth="lg">
-			{/* <Stack
+			<Stack
 				ref={elementRef}
 				sx={{
 					opacity: 0,
@@ -28,10 +30,27 @@ const PublicationsSection = () => {
 						fontWeight: 300,
 						mb: 4,
 					}}>
-					We've written publications that on XX have been published in
-					journals and presented at conferences.
+					We've written and contributed to publications that have been
+					published in journals and presented at conferences.
 				</Typography>
-			</Stack> */}
+			</Stack>
+			<Stack
+				sx={{
+					display: "flex",
+					flexDirection: "column",
+					justifyContent: "center",
+					alignItems: "center",
+					flexWrap: "wrap",
+				}}>
+				{publicationData.map((publication) => (
+					<PublicationCard
+						title={publication.title}
+						image={publication.image}
+						abstract={publication.abstract}
+						link={publication.link}
+					/>
+				))}
+			</Stack>
 		</Container>
 	);
 };

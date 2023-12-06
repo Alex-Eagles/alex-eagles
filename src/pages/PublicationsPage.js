@@ -5,11 +5,8 @@ import { Box, Typography, Stack } from "@mui/material";
 import Footer from "../components/Footer/Footer";
 import Background from "../components/Background/Background";
 import PublicationsSection from "../components/PublicationsPage/PublicationsSection";
-import useAnimate from "../hooks/use-animate";
 
 const PublicationsPage = () => {
-	const elementRef = useAnimate("animate", false);
-
 	return (
 		<>
 			<AnimatedPage>
