@@ -1,18 +1,22 @@
 import HomeSection from "../components/HomeSection/HomeSection";
 import AnimatedPage from "./AnimatedPage";
 import background from "../assets/images/UAVs-help2.jpg";
-import { Box, Typography } from "@mui/material";
+import { Box, Typography, Stack } from "@mui/material";
 import Footer from "../components/Footer/Footer";
 import Background from "../components/Background/Background";
+import PublicationsSection from "../components/PublicationsPage/PublicationsSection";
+import useAnimate from "../hooks/use-animate";
 
 const PublicationsPage = () => {
+	const elementRef = useAnimate("animate", false);
+
 	return (
 		<>
 			<AnimatedPage>
 				<Background background={background} />
 				<HomeSection
-					title="Our Contributions."
-					subtitle="Read our publications."
+					title="Our Written Work."
+					subtitle="Read our contributions."
 				/>
 				<Box
 					sx={{
@@ -23,7 +27,9 @@ const PublicationsPage = () => {
 						flexDirection: "column",
 						justifyItems: "center",
 						alignItems: "center",
-					}}></Box>
+					}}>
+					<PublicationsSection />
+				</Box>
 				<Footer />
 			</AnimatedPage>
 		</>

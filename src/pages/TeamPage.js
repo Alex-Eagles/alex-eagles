@@ -4,19 +4,16 @@ import background from "../assets/images/卖点2-scaled.jpg";
 import HomeSection from "../components/HomeSection/HomeSection";
 import Footer from "../components/Footer/Footer";
 import Background from "../components/Background/Background";
-import TeamMembers from "../components/TeamPage/TeamMembers";
-import useAnimate from "../hooks/use-animate";
+import TeamMembersSection from "../components/TeamPage/TeamMembersSection";
 
 const TeamPage = () => {
-	const elementRef = useAnimate("animate", false);
-
 	return (
 		<>
 			<AnimatedPage>
 				<Background background={background} />
 				<HomeSection
 					title="The Eagles"
-					subtitle="Our team are ambitious, creative and innovative engineers who are passionate about what they do."
+					subtitle="Meet the team who make the magic happen. Our team are ambitious, creative and innovative engineers who are passionate about what they do."
 				/>
 				<Box
 					sx={{
@@ -28,32 +25,7 @@ const TeamPage = () => {
 						justifyItems: "center",
 						alignItems: "center",
 					}}>
-					<Stack
-						ref={elementRef}
-						sx={{
-							opacity: 0,
-							transition: "all 2s ease",
-						}}>
-						<Typography
-							variant="h4"
-							sx={{
-								textAlign: "center",
-								fontWeight: 400,
-								mb: 2,
-							}}>
-							Our Team
-						</Typography>
-						<Typography
-							variant="h6"
-							sx={{
-								textAlign: "center",
-								fontWeight: 300,
-								mb: 4,
-							}}>
-							Meet the team who make the magic happen.
-						</Typography>
-					</Stack>
-					<TeamMembers />
+					<TeamMembersSection />
 				</Box>
 				<Footer />
 			</AnimatedPage>

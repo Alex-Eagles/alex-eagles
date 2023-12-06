@@ -4,6 +4,7 @@ import background from "../assets/images/UAVs-help2.jpg";
 import { Box, Typography } from "@mui/material";
 import Footer from "../components/Footer/Footer";
 import Background from "../components/Background/Background";
+import ContactSection from "../components/ContactPage/ContactSection";
 
 const ContactPage = () => {
 	return (
@@ -23,7 +24,9 @@ const ContactPage = () => {
 						flexDirection: "column",
 						justifyItems: "center",
 						alignItems: "center",
-					}}></Box>
+					}}>
+					<ContactSection />
+				</Box>
 				<Footer />
 			</AnimatedPage>
 		</>

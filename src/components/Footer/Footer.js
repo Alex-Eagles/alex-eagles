@@ -62,7 +62,7 @@ const Footer = () => {
 						<Typography
 							variant="h6"
 							// color="primary"
-							sx={{ fontWeight: 400, marginBottom: 2 }}>
+							sx={{ fontWeight: 500, marginBottom: 2 }}>
 							Useful Links
 						</Typography>
 						<StyledList>
@@ -112,13 +112,18 @@ const Footer = () => {
 						<Typography
 							variant="h6"
 							// color="primary"
-							sx={{ fontWeight: 400, marginBottom: 2 }}>
+							sx={{ fontWeight: 500, marginBottom: 2 }}>
 							Contact Us
 						</Typography>
 						<StyledList>
 							<li>
-								<StyledNavLink to="mailto:" color="inherit">
-									<Stack direction="row" spacing={1}>
+								<StyledNavLink
+									to="mailto:alex_eagles@alexu.edu.eg"
+									color="inherit">
+									<Stack
+										direction="row"
+										spacing={1}
+										alignItems="center">
 										<EmailOutlined />
 										<Typography
 											variant="body1"
@@ -132,8 +137,13 @@ const Footer = () => {
 								</StyledNavLink>
 							</li>
 							<li>
-								<StyledNavLink to="tel:" color="inherit">
-									<Stack direction="row" spacing={1}>
+								<StyledNavLink
+									to="tel:+20 1001427585"
+									color="inherit">
+									<Stack
+										direction="row"
+										spacing={1}
+										alignItems="center">
 										<PhoneAndroidOutlined />
 										<Typography
 											variant="body1"

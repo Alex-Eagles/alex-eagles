@@ -11,7 +11,7 @@ const SponsorsPage = () => {
 			<AnimatedPage>
 				<Background background={background} />
 				<HomeSection
-					title="Our Sponsors."
+					title="Our Backers."
 					subtitle="Our sponsors help us every step of the way."
 				/>
 				<Box
