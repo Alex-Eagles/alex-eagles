@@ -4,6 +4,8 @@ import background from "../assets/images/kXUY9hyetVzhZ2scwJP7p3-1200-80.jpg";
 import { Box, Typography } from "@mui/material";
 import Footer from "../components/Footer/Footer";
 import Background from "../components/Background/Background";
+import SponsorsSection from "../components/SponsorsPage/SponsorsSection";
+import CallToAction from "../components/SponsorsPage/CallToAction";
 
 const SponsorsPage = () => {
 	return (
@@ -23,7 +25,10 @@ const SponsorsPage = () => {
 						flexDirection: "column",
 						justifyItems: "center",
 						alignItems: "center",
-					}}></Box>
+					}}>
+					<SponsorsSection />
+					<CallToAction />
+				</Box>
 				<Footer />
 			</AnimatedPage>
 		</>

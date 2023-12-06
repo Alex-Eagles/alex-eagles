@@ -13,7 +13,7 @@ const TeamPage = () => {
 				<Background background={background} />
 				<HomeSection
 					title="The Eagles"
-					subtitle="Meet the team who make the magic happen. Our team are ambitious, creative and innovative engineers who are passionate about what they do."
+					subtitle="Our team are ambitious, creative and innovative engineers who are passionate about what they do."
 				/>
 				<Box
 					sx={{

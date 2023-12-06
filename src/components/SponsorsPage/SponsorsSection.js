@@ -1,11 +1,10 @@
-import { Box, Typography, Stack, Container } from "@mui/material";
-import TeamMemberCard from "./TeamMemberCard";
-import teamMemberData from "../../assets/data/teamMemberData";
+import { Container, Stack, Typography, Box } from "@mui/material";
+import SponsorCard from "./SponsorCard";
+import sponsorData from "../../assets/data/sponsorData";
 import useAnimate from "../../hooks/use-animate";
 
-const TeamMembersSection = () => {
+const SponsorsSection = () => {
 	const elementRef = useAnimate("animate", false);
-
 	return (
 		<Container maxWidth="lg">
 			<Stack
@@ -21,7 +20,7 @@ const TeamMembersSection = () => {
 						fontWeight: 400,
 						mb: 2,
 					}}>
-					Our Team
+					Our Sponsors
 				</Typography>
 				<Typography
 					variant="h6"
@@ -30,7 +29,7 @@ const TeamMembersSection = () => {
 						fontWeight: 300,
 						mb: 4,
 					}}>
-					Meet the team who make the magic happen.
+					Partners who make our work possible.
 				</Typography>
 			</Stack>
 			<Box
@@ -39,18 +38,19 @@ const TeamMembersSection = () => {
 					display: "flex",
 					flexWrap: "wrap",
 					justifyContent:
-						window.innerWidth > 600 ? "center" : "space-between",
+						window.innerWidth > 600 ? "center" : "space-around",
+					alignItems: window.innerWidth > 600 ? "start" : "center",
+					placeContent: "center",
+					placeItems: "center",
+					mb: 8,
 				}}>
-				{teamMemberData.map((member, index) => {
+				{sponsorData.map((sponsor, index) => {
 					return (
-						<TeamMemberCard
+						<SponsorCard
 							key={index}
-							name={member.name}
-							role={member.role}
-							image={member.image}
-							email={member.email}
-							linkedInLink={member.linkedInLink}
-							gitHubLink={member.gitHubLink}
+							name={sponsor.name}
+							image={sponsor.image}
+							link={sponsor.link}
 						/>
 					);
 				})}
@@ -59,4 +59,4 @@ const TeamMembersSection = () => {
 	);
 };
 
-export default TeamMembersSection;
+export default SponsorsSection;

@@ -9,6 +9,7 @@ import {
 } from "@mui/icons-material";
 import { styled } from "@mui/material/styles";
 import { NavLink } from "react-router-dom";
+import useAnimate from "../../hooks/use-animate";
 
 const StyledNavLink = styled(NavLink)((theme) => ({
 	color: " #000000",
@@ -32,10 +33,16 @@ const StyledList = styled("ul")((theme) => ({
 }));
 
 const ContactInformation = () => {
+	const elementRef = useAnimate("animate", false);
+
 	return (
 		<Stack
+			ref={elementRef}
 			direction="column"
 			sx={{
+				opacity: 0,
+				transition: "all 2s ease",
+
 				p: 4,
 			}}>
 			<Typography

@@ -10,6 +10,8 @@ import HistoryPage from "./pages/HistoryPage";
 import PublicationsPage from "./pages/PublicationsPage";
 import SponsorsPage from "./pages/SponsorsPage";
 import ContactPage from "./pages/ContactPage";
+// import Background from "./components/Background/Background";
+// import background from "./assets/images/UAVs-help2.jpg";
 
 const App = () => {
 	const theme = createTheme({
@@ -63,6 +65,7 @@ const App = () => {
 	return (
 		<ThemeProvider theme={theme}>
 			<Box sx={{ minWidth: "100vw !important", overflowX: "hidden" }}>
+				{/* <Background background={background} /> */}
 				<NavBar />
 				<AnimatePresence mode="wait">
 					<Routes

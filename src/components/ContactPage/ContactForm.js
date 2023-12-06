@@ -1,25 +1,29 @@
-import React, { useState } from "react";
-import { TextField, Button, Container } from "@mui/material";
+import React from "react";
+import { TextField, Button, Container, Box } from "@mui/material";
+import { useForm, Controller } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { z } from "zod";
+import useAnimate from "../../hooks/use-animate";
+
+const schema = z.object({
+	name: z.string(),
+	email: z.string().email("Invalid email!"),
+	message: z.string(),
+});
 
 const ContactForm = () => {
-	const [formData, setFormData] = useState({
-		name: "",
-		email: "",
-		message: "",
+	const elementRef = useAnimate("animate", false);
+	const {
+		control,
+		handleSubmit,
+		formState: { errors },
+	} = useForm({
+		mode: "onTouched",
+		resolver: zodResolver(schema),
 	});
 
-	const handleChange = (e) => {
-		const { name, value } = e.target;
-		setFormData((prevData) => ({
-			...prevData,
-			[name]: value,
-		}));
-	};
-
-	const handleSubmit = (e) => {
-		e.preventDefault();
-
-		const { name, email, message } = formData;
+	const onSubmit = (data) => {
+		const { name, email, message } = data;
 
 		// Constructing the mailto link
 		const mailtoLink = `mailto:alex_eagles@alexu.edu.eg?subject=Message from ${name}&body=${message}%0D%0A%0D%0AContact Email: ${email}`;
@@ -29,50 +33,76 @@ const ContactForm = () => {
 	};
 
 	return (
-		<Container
+		<Box
+			ref={elementRef}
 			sx={{
-				p: 4,
+				px: window.innerWidth > 600 ? 10 : 2,
+				py: 4,
 				borderLeft:
 					window.innerWidth > 600 ? "1px solid #cccccc" : "none",
 				borderTop:
 					window.innerWidth < 600 ? "1px solid #cccccc" : "none",
+				opacity: 0,
+				transition: "all 2s ease",
+				transitionDelay: "1s",
 			}}>
-			<form onSubmit={handleSubmit}>
-				<TextField
-					label="Name"
+			<form onSubmit={handleSubmit(onSubmit)}>
+				<Controller
 					name="name"
-					value={formData.name}
-					onChange={handleChange}
-					fullWidth
-					margin="normal"
-					variant="outlined"
-					required
+					control={control}
+					defaultValue=""
+					render={({ field }) => (
+						<TextField
+							label="Name"
+							{...field}
+							fullWidth
+							margin="normal"
+							variant="outlined"
+							error={!!errors.name}
+							helperText={errors.name?.message}
+							required
+						/>
+					)}
 				/>
-				<TextField
-					label="Email"
+				<Controller
 					name="email"
-					value={formData.email}
-					onChange={handleChange}
-					fullWidth
-					margin="normal"
-					variant="outlined"
-					required
-					type="email"
+					control={control}
+					defaultValue=""
+					render={({ field }) => (
+						<TextField
+							label="Email"
+							{...field}
+							fullWidth
+							margin="normal"
+							variant="outlined"
+							error={!!errors.email}
+							helperText={errors.email?.message}
+							required
+							type="email"
+						/>
+					)}
 				/>
-				<TextField
-					label="Message"
+				<Controller
 					name="message"
-					value={formData.message}
-					onChange={handleChange}
-					fullWidth
-					multiline
-					rows={4}
-					margin="normal"
-					variant="outlined"
-					required
-					sx={{
-						mb: 3,
-					}}
+					control={control}
+					defaultValue=""
+					render={({ field }) => (
+						<TextField
+							label="Message"
+							{...field}
+							fullWidth
+							multiline
+							rows={4}
+							margin="normal"
+							variant="outlined"
+							error={!!errors.message}
+							helperText={errors.message?.message}
+							required
+							sx={{
+								mb: 3,
+							}}
+						/>
+					)}
 				/>
 				<Button
 					type="submit"
@@ -84,7 +114,7 @@ const ContactForm = () => {
 					Send
 				</Button>
 			</form>
-		</Container>
+		</Box>
 	);
 };
 
