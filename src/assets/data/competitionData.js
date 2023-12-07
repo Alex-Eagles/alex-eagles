@@ -18,7 +18,7 @@ const competitionData = [
 	{
 		name: "UAVC - Unmanned Aerial Vehicle Challenge",
 		description:
-			"UAVC, organized by the Military Technical College and held in Egypt, stands for the Unmanned Aerial Vehicle Challenge. This competition engages student teams in the realm of unmanned aerial systems (UAS) or drones. Throughout the challenge, participating teams undertake the intricate process of designing, constructing, and operating autonomous aerial vehicles tailored for complex missions within competitive settings. The missions assigned in UAVC mirror real-world scenarios, encompassing tasks such as precision navigation, obstacle avoidance, payload delivery, and environmental monitoring. This challenge not only provides a platform for showcasing technological innovation but also contributes to the development of practical skills and solutions in the field of unmanned aerial systems.",
+			"This competition engages student teams in the realm of unmanned aerial systems (UAS) or drones. Throughout the challenge, participating teams undertake the intricate process of designing, constructing, and operating autonomous aerial vehicles tailored for complex missions within competitive settings. The missions assigned in UAVC mirror real-world scenarios, encompassing tasks such as precision navigation, obstacle avoidance, payload delivery, and environmental monitoring. This challenge not only provides a platform for showcasing technological innovation but also contributes to the development of practical skills and solutions in the field of unmanned aerial systems.",
 		image: uavc,
 	},
 ];

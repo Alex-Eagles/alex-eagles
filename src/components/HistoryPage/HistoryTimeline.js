@@ -26,6 +26,7 @@ const HistoryTimeline = () => {
 					flex: 0.2,
 				},
 				mb: 8,
+				ml: window.innerWidth > 600 ? 0 : -6,
 			}}>
 			{achievementData.map((year) => (
 				<HistoryTimelineItem key={year.year} year={year} />

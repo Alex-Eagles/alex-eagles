@@ -13,7 +13,7 @@ import FastfoodIcon from "@mui/icons-material/Fastfood";
 import LaptopMacIcon from "@mui/icons-material/LaptopMac";
 import HotelIcon from "@mui/icons-material/Hotel";
 import RepeatIcon from "@mui/icons-material/Repeat";
-import { Typography, Box } from "@mui/material";
+import { Typography, Box, Stack } from "@mui/material";
 import useAnimate from "../../hooks/use-animate";
 
 const HistoryTimelineItem = (props) => {
@@ -54,7 +54,41 @@ const HistoryTimelineItem = (props) => {
 						<Typography variant="h5" component="span">
 							{achievement.title}
 						</Typography>
-						<Typography>{achievement.competition}</Typography>
+						<Typography
+							sx={{
+								mb: 2,
+							}}>
+							{achievement.competition}
+						</Typography>
+						<Stack
+							display="flex"
+							flexWrap="wrap"
+							direction={
+								window.innerWidth > 600 ? "row" : "column"
+							}
+							spacing={2}>
+							{achievement?.images?.map((image, index) => (
+								<img
+									key={index}
+									src={image}
+									alt={achievement.title}
+									style={{
+										transition: "all 0.5s ease",
+										width:
+											window.innerWidth > 600
+												? "200px"
+												: "100%",
+										borderRadius: "20px",
+										"&:hover": {
+											width:
+												window.innerWidth > 600
+													? "250px"
+													: "105%",
+										},
+									}}
+								/>
+							))}
+						</Stack>
 					</Box>
 				))}
 			</TimelineContent>

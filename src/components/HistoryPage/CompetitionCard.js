@@ -18,6 +18,7 @@ const CompetitionCard = (props) => {
 			alignItems="center"
 			sx={{
 				my: 4,
+				mx: window.innerWidth > 600 ? 4 : 0,
 				borderBottom: "3px solid #305fb0",
 				py: 4,
 				opacity: 0,
