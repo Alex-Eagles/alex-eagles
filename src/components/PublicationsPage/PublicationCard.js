@@ -29,6 +29,7 @@ const PublicationCard = (props) => {
 				transform: "translatex(-50%)",
 				transition: "all 1s ease",
 				borderRadius: 0,
+				borderBottom: "3px solid #305fb0",
 			}}>
 			<CardMedia
 				component="img"
@@ -49,7 +50,7 @@ const PublicationCard = (props) => {
 					alignItems: window.innerWidth > 600 ? "left" : "center",
 					justifyContent: "center",
 					textAlign: window.innerWidth > 600 ? "left" : "center",
-					borderBottom: "3px solid #305fb0",
+					// borderBottom: "3px solid #305fb0",
 					py: 4,
 					px: window.innerWidth > 600 ? 4 : 0,
 				}}>
