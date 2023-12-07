@@ -219,22 +219,22 @@ const Footer = () => {
 							}}
 						/>
 					</StyledNavLink>
-					{/* <StyledNavLink
-						to="/"
+					<StyledNavLink
+						to="https://www.instagram.com/ae_alexuaero/"
 						color="inherit"
 						target="_blank"
-						rel="noopener noreferrer"> */}
-					<Instagram
-						sx={{
-							transition: "all 0.5s ease",
-							transform: "translateY(-8%) ", //
-							"&:hover": {
-								transform: "translateY(-20%) ", //"translateY(-10%) ",
-								color: "#305fb0",
-							},
-						}}
-					/>
-					{/* </StyledNavLink> */}
+						rel="noopener noreferrer">
+						<Instagram
+							sx={{
+								transition: "all 0.5s ease",
+								// transform: "translateY(-8%) ", //
+								"&:hover": {
+									transform: "translateY(-10%) ", //"translateY(-20%) ",
+									color: "#305fb0",
+								},
+							}}
+						/>
+					</StyledNavLink>
 				</Stack>
 				<Typography variant="body2" sx={{ marginTop: 6 }}>
 					&copy; {currentYear} Alex Eagles Aero Design. All rights
