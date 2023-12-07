@@ -142,21 +142,22 @@ const ContactInformation = () => {
 						}}
 					/>
 				</StyledNavLink>
-				<StyledNavLink
-					to="/"
-					color="inherit"
-					target="_blank"
-					rel="noopener noreferrer">
-					<Instagram
-						sx={{
-							transition: "all 0.5s ease",
-							"&:hover": {
-								transform: "translateY(-10%) ",
-								color: "#305fb0",
-							},
-						}}
-					/>
-				</StyledNavLink>
+				{/* <StyledNavLink
+						to="/"
+						color="inherit"
+						target="_blank"
+						rel="noopener noreferrer"> */}
+				<Instagram
+					sx={{
+						transition: "all 0.5s ease",
+						transform: "translateY(-8%) ", //
+						"&:hover": {
+							transform: "translateY(-20%) ", //"translateY(-10%) ",
+							color: "#305fb0",
+						},
+					}}
+				/>
+				{/* </StyledNavLink> */}
 			</Stack>
 		</Stack>
 	);

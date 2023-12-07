@@ -17,7 +17,7 @@ const HomeSection = (props) => {
 	return (
 		<Box
 			sx={{
-				bgcolor: "rgba(0, 0, 0, 0.3)",
+				bgcolor: "rgba(0, 0, 0, 0.6)",
 				pt: 25,
 				pb: 15,
 				minWidth: "100vw !important",

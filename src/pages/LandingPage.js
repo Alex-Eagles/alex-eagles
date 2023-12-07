@@ -1,13 +1,15 @@
 import HomeSection from "../components/HomeSection/HomeSection";
 import AnimatedPage from "./AnimatedPage";
-import background from "../assets/images/卖点2-scaled.jpg";
+import background from "../assets/images/eagles1.png";
 import { Box, Typography, Stack } from "@mui/material";
 import Footer from "../components/Footer/Footer";
 import Background from "../components/Background/Background";
 import useAnimate from "../hooks/use-animate";
 
 const LandingPage = () => {
-	const elementRef = useAnimate("animate", false);
+	const element1Ref = useAnimate("animate", false);
+	const element2Ref = useAnimate("animate", false);
+	const element3Ref = useAnimate("animate", false);
 
 	return (
 		<>
@@ -29,7 +31,7 @@ const LandingPage = () => {
 						alignItems: "center",
 					}}>
 					<Stack
-						ref={elementRef}
+						ref={element1Ref}
 						sx={{
 							opacity: 0,
 							transition: "all 2s ease",
@@ -54,7 +56,7 @@ const LandingPage = () => {
 						</Typography>
 					</Stack>
 					<Stack
-						ref={elementRef}
+						ref={element2Ref}
 						sx={{
 							opacity: 0,
 							transition: "all 2s ease",
@@ -79,7 +81,7 @@ const LandingPage = () => {
 						</Typography>
 					</Stack>
 					<Stack
-						ref={elementRef}
+						ref={element3Ref}
 						sx={{
 							opacity: 0,
 							transition: "all 2s ease",

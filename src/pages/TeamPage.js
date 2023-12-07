@@ -1,6 +1,6 @@
 import { Box, Stack, Typography } from "@mui/material";
 import AnimatedPage from "./AnimatedPage";
-import background from "../assets/images/卖点2-scaled.jpg";
+import background from "../assets/images/eagles4.png";
 import HomeSection from "../components/HomeSection/HomeSection";
 import Footer from "../components/Footer/Footer";
 import Background from "../components/Background/Background";

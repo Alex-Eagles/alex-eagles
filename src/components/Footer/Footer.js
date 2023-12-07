@@ -62,7 +62,10 @@ const Footer = () => {
 						<Typography
 							variant="h6"
 							// color="primary"
-							sx={{ fontWeight: 500, marginBottom: 2 }}>
+							sx={{
+								fontWeight: 500, // 400,
+								marginBottom: 2,
+							}}>
 							Useful Links
 						</Typography>
 						<StyledList>
@@ -112,7 +115,10 @@ const Footer = () => {
 						<Typography
 							variant="h6"
 							// color="primary"
-							sx={{ fontWeight: 500, marginBottom: 2 }}>
+							sx={{
+								fontWeight: 500, //400,
+								marginBottom: 2,
+							}}>
 							Contact Us
 						</Typography>
 						<StyledList>
@@ -213,21 +219,22 @@ const Footer = () => {
 							}}
 						/>
 					</StyledNavLink>
-					<StyledNavLink
+					{/* <StyledNavLink
 						to="/"
 						color="inherit"
 						target="_blank"
-						rel="noopener noreferrer">
-						<Instagram
-							sx={{
-								transition: "all 0.5s ease",
-								"&:hover": {
-									transform: "translateY(-10%) ",
-									color: "#305fb0",
-								},
-							}}
-						/>
-					</StyledNavLink>
+						rel="noopener noreferrer"> */}
+					<Instagram
+						sx={{
+							transition: "all 0.5s ease",
+							transform: "translateY(-8%) ", //
+							"&:hover": {
+								transform: "translateY(-20%) ", //"translateY(-10%) ",
+								color: "#305fb0",
+							},
+						}}
+					/>
+					{/* </StyledNavLink> */}
 				</Stack>
 				<Typography variant="body2" sx={{ marginTop: 6 }}>
 					&copy; {currentYear} Alex Eagles Aero Design. All rights

@@ -1,6 +1,6 @@
 import HomeSection from "../components/HomeSection/HomeSection";
 import AnimatedPage from "./AnimatedPage";
-import background from "../assets/images/UAVs-help2.jpg";
+import background from "../assets/images/eagles3.png";
 import { Box, Typography, Stack } from "@mui/material";
 import Footer from "../components/Footer/Footer";
 import Background from "../components/Background/Background";
