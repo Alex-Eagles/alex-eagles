@@ -1,6 +1,6 @@
-import { Card, CardContent, CardMedia, Typography } from "@mui/material";
+import { Card, CardContent, CardMedia, Typography, Box } from "@mui/material";
 import { NavLink } from "react-router-dom";
-import { ArrowForward } from "@mui/icons-material";
+import { ArrowForward, Launch } from "@mui/icons-material";
 import useAnimate from "../../../hooks/use-animate";
 
 const MediaCoverageCard = (props) => {
@@ -65,38 +65,43 @@ const MediaCoverageCard = (props) => {
 						sx={{
 							position: "relative",
 						}}>
-						<CardMedia
-							component="img"
-							alt="Media Coverage"
-							src={mediaItem.image}
+						<Box
 							sx={{
+								display: "flex",
+								flexDirection: "column",
+								alignItems: "center",
+								justifyContent: "center",
 								width:
 									window.innerWidth > 600 ? "350px" : "100%",
 								// maxHeight:
 								// 	window.innerWidth > 600 ? "150px" : "auto",
 								aspectRatio: "16/9",
-								borderRadius: "20px",
+								// borderRadius: "20px",
 								transition: "all 1s ease",
 								"&:hover": {
 									transform: "translateY(-10px)",
-									filter: "brightness(0.5)",
 								},
-							}}
-						/>
-						{/* <Typography
-							variant="caption"
-							sx={{
-								color: "#fff",
-								position: "absolute",
-								top: "50%",
-								left: "50%",
-								transform: "translate(-50%, -50%)",
-								textAlign: "center",
-								width: "80%", // Adjust the width as needed
-								// display: "none", // Initially hide the caption
 							}}>
-							Click to view
-						</Typography> */}
+							<CardMedia
+								component="img"
+								alt="Media Coverage"
+								src={mediaItem.image}
+								sx={{
+									width: "100%",
+									height: "100%",
+									borderRadius: "20px",
+									transition: "all 1s ease",
+									objectFit: "cover",
+									filter: "brightness(0.8)",
+									"&:hover": {
+										filter: "brightness(0.5)",
+									},
+								}}
+							/>
+							<Launch
+								sx={{ position: "absolute", color: "white" }}
+							/>
+						</Box>
 					</NavLink>
 				))}
 			</CardContent>

@@ -202,7 +202,7 @@ const NavBar = () => {
 						<Box
 							sx={{
 								display: { xs: "flex", md: "none" },
-								mr: -2,
+								mr: 2,
 								height: "40px",
 								aspectRatio: "1/1",
 								right: "0%",

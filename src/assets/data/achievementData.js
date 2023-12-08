@@ -72,6 +72,16 @@ const achievementData = [
 		],
 		year: "2017",
 	},
+	{
+		year: "2013",
+		achievements: [
+			{
+				title: "Alex Eagles is Established",
+				competition:
+					"Established in 2013, Alex Eagles is a dynamic and diverse group of 40 engineering students from Alexandria University, specializing in various fields, including computer and communications, mechatronics, mechanical, and electro-mechanical engineering.",
+			},
+		],
+	},
 ];
 
 export default achievementData;

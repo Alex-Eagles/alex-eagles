@@ -38,7 +38,7 @@ const GoalsSection = () => {
 						display: "flex",
 						justifyContent: "center",
 						alignItems: "center",
-						width: window.innerWidth > 850 ? "700px" : "100%",
+						width: window.innerWidth > 850 ? "700px" : "50%",
 						my: 2,
 						opacity: 0,
 						transform: "scale(0.5)",
@@ -104,8 +104,7 @@ const GoalsSection = () => {
 							}}
 						/>
 						<Typography variant="h6">
-							Specializing in UAV (Unmanned Aerial Vehicle)
-							development.
+							Specializing in UAV design and development.
 						</Typography>
 					</Stack>
 					<Stack
@@ -128,9 +127,8 @@ const GoalsSection = () => {
 						/>
 						<Typography variant="h6">
 							Elevating proficiency in aerodynamics to advance
-							technical knowledge, design, and manufacturing
-							skills in both mechanical and software engineering
-							domains.
+							technical knowledge and design skills in both
+							mechanical and software engineering domains.
 						</Typography>
 					</Stack>
 					<Stack

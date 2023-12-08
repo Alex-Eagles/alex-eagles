@@ -4,9 +4,9 @@ import background from "../assets/images/eagles1.png";
 import { Box } from "@mui/material";
 import Footer from "../components/Footer/Footer";
 import Background from "../components/Background/Background";
-import SectionHeading from "../components/SectionHeading/SectionHeading";
 import ProjectsSection from "../components/LandingPage/ProjectsSection/ProjectsSection";
 import GoalsSection from "../components/LandingPage/GoalsSection/GoalsSection";
+import MissionSection from "../components/LandingPage/MissionSection/MissionSection";
 
 const LandingPage = () => {
 	return (
@@ -28,10 +28,7 @@ const LandingPage = () => {
 						justifyItems: "center",
 						alignItems: "center",
 					}}>
-					<SectionHeading
-						title="Our Mission"
-						subtitle="We strive for excellence in everything we do."
-					/>
+					<MissionSection />
 					<GoalsSection />
 					<ProjectsSection />
 				</Box>
