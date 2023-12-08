@@ -9,7 +9,7 @@ const CompetitionCard = (props) => {
 		<Stack
 			ref={elementRef}
 			direction={
-				window.innerWidth < 600
+				window.innerWidth < 850
 					? "column"
 					: index == 1
 					? "row-reverse"
@@ -34,7 +34,7 @@ const CompetitionCard = (props) => {
 					src={image}
 					alt="SAE Aero Design"
 					style={{
-						width: window.innerWidth > 600 ? "500px" : "100%",
+						width: window.innerWidth > 600 ? "350px" : "100%",
 						borderRadius: "20px",
 					}}
 				/>

@@ -36,7 +36,7 @@ const ContactForm = () => {
 		<Box
 			ref={elementRef}
 			sx={{
-				px: window.innerWidth > 600 ? 10 : 2,
+				px: window.innerWidth > 600 ? 8 : 2,
 				py: 4,
 				borderLeft:
 					window.innerWidth > 600 ? "1px solid #cccccc" : "none",

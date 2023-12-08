@@ -22,9 +22,9 @@ const PublicationCard = (props) => {
 				my: 4,
 				boxShadow: "none",
 				display: "flex",
-				flexDirection: window.innerWidth > 600 ? "row" : "column",
+				flexDirection: window.innerWidth > 850 ? "row" : "column",
 				alignItems: "center",
-				justifyContent: "center",
+				justifyContent: "space-around",
 				opacity: 0,
 				transform: "translatex(-50%)",
 				transition: "all 1s ease",
@@ -38,7 +38,8 @@ const PublicationCard = (props) => {
 				sx={{
 					width: 300,
 					height: 300,
-					mx: "auto",
+					// mx: "auto",
+					ml: window.innerWidth > 850 ? 4 : "",
 					// border: "3px solid #305fb0",
 					// borderRadius: "50px",
 				}}

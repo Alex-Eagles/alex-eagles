@@ -19,7 +19,7 @@ const SponsorsPage = () => {
 				<Box
 					sx={{
 						backgroundColor: "white",
-						px: window.innerWidth > 600 ? 10 : 2,
+						px: 2,
 						py: 5,
 						display: "flex",
 						flexDirection: "column",

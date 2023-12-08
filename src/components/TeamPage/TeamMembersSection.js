@@ -38,6 +38,7 @@ const TeamMembersSection = () => {
 					// mt: 4,
 					display: "flex",
 					flexWrap: "wrap",
+					flexDirection: "row",
 					justifyContent:
 						window.innerWidth > 600 ? "center" : "space-between",
 				}}>
