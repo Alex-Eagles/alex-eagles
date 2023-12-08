@@ -62,31 +62,44 @@ const HistoryTimelineItem = (props) => {
 						</Typography>
 						<Stack
 							display="flex"
-							flexWrap="wrap"
+							// flexWrap="wrap"
 							direction={
 								window.innerWidth > 600 ? "row" : "column"
 							}
+							justifyContent="flex-start"
+							alignItems="center"
+							alignContent="flex-start"
+							// gap={2}
 							spacing={2}>
 							{achievement?.images?.map((image, index) => (
-								<img
-									key={index}
-									src={image}
-									alt={achievement.title}
-									style={{
+								<Box
+									sx={{
 										transition: "all 0.5s ease",
 										width:
 											window.innerWidth > 600
-												? "200px"
+												? "400px"
 												: "100%",
+										aspectRatio: "16/9",
 										borderRadius: "20px",
 										"&:hover": {
 											width:
 												window.innerWidth > 600
-													? "250px"
+													? "450px"
 													: "105%",
 										},
-									}}
-								/>
+									}}>
+									<img
+										key={index}
+										src={image}
+										alt={achievement.title}
+										style={{
+											width: "100%",
+											height: "100%",
+											objectFit: "cover",
+											borderRadius: "20px",
+										}}
+									/>
+								</Box>
 							))}
 						</Stack>
 					</Box>
