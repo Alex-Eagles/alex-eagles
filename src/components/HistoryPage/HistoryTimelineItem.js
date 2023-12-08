@@ -14,11 +14,13 @@ import LaptopMacIcon from "@mui/icons-material/LaptopMac";
 import HotelIcon from "@mui/icons-material/Hotel";
 import RepeatIcon from "@mui/icons-material/Repeat";
 import { Typography, Box, Stack } from "@mui/material";
+import HistoryTimelineItemImage from "./HistoryTimelineItemImage";
 import useAnimate from "../../hooks/use-animate";
 
 const HistoryTimelineItem = (props) => {
 	const { year } = props;
 	const itemRef = useAnimate("animate", false);
+	const imageRef = useAnimate("animate", false);
 
 	return (
 		<TimelineItem>
@@ -76,34 +78,12 @@ const HistoryTimelineItem = (props) => {
 							// gap={2}
 							spacing={2}>
 							{achievement?.images?.map((image, index) => (
-								<Box
-									sx={{
-										transition: "all 0.5s ease",
-										width:
-											window.innerWidth > 600
-												? "400px"
-												: "100%",
-										aspectRatio: "16/9",
-										borderRadius: "20px",
-										"&:hover": {
-											width:
-												window.innerWidth > 600
-													? "450px"
-													: "110%",
-										},
-									}}>
-									<img
-										key={index}
-										src={image}
-										alt={achievement.title}
-										style={{
-											width: "100%",
-											height: "100%",
-											objectFit: "cover",
-											borderRadius: "20px",
-										}}
-									/>
-								</Box>
+								<HistoryTimelineItemImage
+									key={index}
+									index={index}
+									image={image}
+									title={achievement.title}
+								/>
 							))}
 						</Stack>
 					</Box>
