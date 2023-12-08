@@ -1,6 +1,6 @@
-import publication1 from "../images/publication1.png";
-import publication2 from "../images/publication2.png";
-import publication3 from "../images/publication3.png";
+import publication1 from "../images/publication-1.png";
+import publication2 from "../images/publication-2.png";
+import publication3 from "../images/publication-3.png";
 
 const publicationData = [
 	{

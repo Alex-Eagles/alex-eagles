@@ -9,7 +9,7 @@ import {
 } from "@mui/material";
 import SectionHeading from "../../SectionHeading/SectionHeading";
 import useAnimate from "../../../hooks/use-animate";
-import teamPhoto from "../../../assets/images/award-picture.png";
+import teamPhoto from "../../../assets/images/team-photo.png";
 
 const MissionSection = () => {
 	const cardRef = useAnimate("animate", false);

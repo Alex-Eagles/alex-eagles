@@ -1,6 +1,6 @@
 import { Stack, Container, Typography, Box } from "@mui/material";
 import SectionHeading from "../../SectionHeading/SectionHeading";
-import blackLogo from "../../../assets/icons/logo-black-3.png";
+import blackLogo from "../../../assets/icons/logo-black.png";
 import {
 	School,
 	Engineering,
