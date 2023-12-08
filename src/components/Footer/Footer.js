@@ -93,7 +93,7 @@ const Footer = () => {
 							</li>
 							<li>
 								<StyledNavLink
-									to="/team"
+									to="/publications"
 									color="inherit"
 									exact="true">
 									Our Publications
