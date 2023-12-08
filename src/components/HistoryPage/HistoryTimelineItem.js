@@ -50,9 +50,11 @@ const HistoryTimelineItem = (props) => {
 				{year.achievements.map((achievement, index) => (
 					<Box
 						key={index}
-						sx={{
-							my: 4,
-						}}>
+						sx={
+							{
+								// my: 4,
+							}
+						}>
 						<Typography variant="h5" component="span">
 							{achievement.title}
 						</Typography>
