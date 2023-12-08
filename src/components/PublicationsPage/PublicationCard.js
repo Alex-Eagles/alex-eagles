@@ -11,11 +11,13 @@ import useAnimate from "../../hooks/use-animate";
 
 const PublicationCard = (props) => {
 	const { title, image, abstract, link } = props;
-	const elementRef = useAnimate("animate", false);
+	const cardRef = useAnimate("animate", false);
+	const imageRef = useAnimate("animate", false);
+	const contentRef = useAnimate("animate", false);
 
 	return (
 		<Card
-			ref={elementRef}
+			ref={cardRef}
 			sx={{
 				// maxWidth: 150,
 				mx: window.innerWidth > 600 ? 4 : 0,
@@ -32,6 +34,7 @@ const PublicationCard = (props) => {
 				borderBottom: "3px solid #305fb0",
 			}}>
 			<CardMedia
+				ref={imageRef}
 				component="img"
 				alt={title}
 				src={image}
@@ -42,9 +45,14 @@ const PublicationCard = (props) => {
 					ml: window.innerWidth > 850 ? 4 : "",
 					// border: "3px solid #305fb0",
 					// borderRadius: "50px",
+					opacity: 0,
+					transform: "translateX(-50%)",
+					transition: "all 1s ease",
+					transitionDelay: "0.4s",
 				}}
 			/>
 			<CardContent
+				ref={contentRef}
 				sx={{
 					display: "flex",
 					flexDirection: "column",
@@ -54,6 +62,10 @@ const PublicationCard = (props) => {
 					// borderBottom: "3px solid #305fb0",
 					py: 4,
 					px: window.innerWidth > 600 ? 4 : 0,
+					opacity: 0,
+					transform: "translateX(-50%)",
+					transition: "all 1s ease",
+					transitionDelay: "0.2s",
 				}}>
 				<Typography gutterBottom variant="h5">
 					{title}

@@ -33,28 +33,35 @@ const StyledList = styled("ul")((theme) => ({
 }));
 
 const ContactInformation = () => {
-	const elementRef = useAnimate("animate", false);
+	const paragraphRef = useAnimate("animate", false);
+	const listRef = useAnimate("animate", false);
+	const stackRef = useAnimate("animate", false);
 
 	return (
 		<Stack
-			ref={elementRef}
 			direction="column"
 			sx={{
-				opacity: 0,
-				transition: "all 2s ease",
-
 				p: 4,
 			}}>
 			<Typography
+				ref={paragraphRef}
 				variant="h6"
 				sx={{
 					textAlign: window.innerWidth > 600 ? "left" : "center",
 					mb: 4,
+					opacity: 0,
+					transition: "all 2s ease",
 				}}>
 				We are always happy to hear from you. Give us a call, send an
 				email or fill out this form.
 			</Typography>
-			<StyledList>
+			<StyledList
+				ref={listRef}
+				sx={{
+					opacity: 0,
+					transition: "all 2s ease",
+					transitionDelay: "0.4s",
+				}}>
 				<li>
 					<StyledNavLink
 						to="mailto:alex_eagles@alexu.edu.eg"
@@ -89,11 +96,19 @@ const ContactInformation = () => {
 				</li>
 			</StyledList>
 			<Stack
+				ref={stackRef}
 				direction="row"
 				justifyContent={window.innerWidth > 600 ? "left" : "center"}
 				alignItems="center"
 				spacing={1}
-				sx={{ mt: 6, mb: 0, py: 0 }}>
+				sx={{
+					mt: 6,
+					mb: 0,
+					py: 0,
+					opacity: 0,
+					transition: "all 2s ease",
+					transitionDelay: "0.8s",
+				}}>
 				<StyledNavLink
 					to="https://github.com/Alex-Eagles"
 					target="_blank"

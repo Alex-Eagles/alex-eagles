@@ -3,11 +3,13 @@ import useAnimate from "../../hooks/use-animate";
 
 const CompetitionCard = (props) => {
 	const { index, name, image, description } = props;
-	const elementRef = useAnimate("animate", false);
+	const stackRef = useAnimate("animate", false);
+	const imageRef = useAnimate("animate", false);
+	const contentRef = useAnimate("animate", false);
 
 	return (
 		<Stack
-			ref={elementRef}
+			ref={stackRef}
 			direction={
 				window.innerWidth < 850
 					? "column"
@@ -27,8 +29,14 @@ const CompetitionCard = (props) => {
 				transition: "all 1s ease",
 			}}>
 			<Box
+				ref={imageRef}
 				sx={{
 					height: "100%",
+					opacity: 0,
+					transform:
+						index == 1 ? "translateX(100%)" : "translateX(-100%)",
+					transition: "all 1s ease",
+					transitionDelay: "0.4s",
 				}}>
 				<img
 					src={image}
@@ -40,10 +48,16 @@ const CompetitionCard = (props) => {
 				/>
 			</Box>
 			<Box
+				ref={contentRef}
 				sx={{
 					pt: 4,
 					px: window.innerWidth > 600 ? 4 : 0,
 					// borderBottom: "2px solid #305fb0",
+					opacity: 0,
+					transform:
+						index == 1 ? "translateX(100%)" : "translateX(-100%)",
+					transition: "all 1s ease",
+					transitionDelay: "0.2s",
 				}}>
 				<Typography
 					variant="h5"

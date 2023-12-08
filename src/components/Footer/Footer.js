@@ -10,6 +10,7 @@ import {
 	LinkedIn,
 	PhoneAndroidOutlined,
 } from "@mui/icons-material";
+import useAnimate from "../../hooks/use-animate";
 
 const StyledNavLink = styled(NavLink)((theme) => ({
 	color: " #000000",
@@ -34,6 +35,10 @@ const StyledList = styled("ul")((theme) => ({
 
 const Footer = () => {
 	const currentYear = new Date().getFullYear();
+	const grid1Ref = useAnimate("animate", false);
+	const grid2Ref = useAnimate("animate", false);
+	const stackRef = useAnimate("animate", false);
+	const copyRightRef = useAnimate("animate", false);
 
 	return (
 		<Box
@@ -58,7 +63,16 @@ const Footer = () => {
 					</Typography>
 				</StyledNavLink> */}
 				<Grid container spacing={2}>
-					<Grid item xs={12} sm={4}>
+					<Grid
+						item
+						xs={12}
+						sm={4}
+						ref={grid1Ref}
+						sx={{
+							opacity: 0,
+							transition: "all 2s ease",
+							// transitionDelay: "0.2s",
+						}}>
 						<Typography
 							variant="h6"
 							// color="primary"
@@ -111,7 +125,16 @@ const Footer = () => {
 							</li>
 						</StyledList>
 					</Grid>
-					<Grid item xs={12} sm={4}>
+					<Grid
+						item
+						xs={12}
+						sm={4}
+						ref={grid2Ref}
+						sx={{
+							opacity: 0,
+							transition: "all 2s ease",
+							transitionDelay: "0.4s",
+						}}>
 						<Typography
 							variant="h6"
 							// color="primary"
@@ -166,11 +189,19 @@ const Footer = () => {
 					</Grid>
 				</Grid>
 				<Stack
+					ref={stackRef}
 					direction="row"
 					justifyContent="left"
 					alignItems="center"
 					spacing={1}
-					sx={{ mt: 6, mb: 0, py: 0 }}>
+					sx={{
+						mt: 6,
+						mb: 0,
+						py: 0,
+						opacity: 0,
+						transition: "all 2s ease",
+						transitionDelay: "0.8s",
+					}}>
 					<StyledNavLink
 						to="https://github.com/Alex-Eagles"
 						target="_blank"
@@ -236,7 +267,15 @@ const Footer = () => {
 						/>
 					</StyledNavLink>
 				</Stack>
-				<Typography variant="body2" sx={{ marginTop: 6 }}>
+				<Typography
+					ref={copyRightRef}
+					variant="body2"
+					sx={{
+						marginTop: 6,
+						opacity: 0,
+						transition: "all 2s ease",
+						transitionDelay: "1.2s",
+					}}>
 					&copy; {currentYear} Alex Eagles Aero Design. All rights
 					reserved.
 				</Typography>

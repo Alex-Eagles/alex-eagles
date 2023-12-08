@@ -21,6 +21,7 @@ const MediaCoverageCard = (props) => {
 				opacity: 0,
 				transform: "translateY(50%)",
 				transition: "all 1s ease",
+				transitionDelay: `${index * 0.2}s`,
 				borderRadius: 0,
 				borderBottom: "3px solid #305fb0",
 				p: 0,
