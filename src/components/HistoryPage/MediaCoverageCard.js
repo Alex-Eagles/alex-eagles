@@ -5,11 +5,13 @@ import useAnimate from "../../hooks/use-animate";
 
 const MediaCoverageCard = (props) => {
 	const { index, image, media } = props;
-	const elementRef = useAnimate("animate", false);
+	const cardRef = useAnimate("animate", false);
+	const imageRef = useAnimate("animate", false);
+	const contentRef = useAnimate("animate", false);
 
 	return (
 		<Card
-			ref={elementRef}
+			ref={cardRef}
 			sx={{
 				mx: window.innerWidth > 600 ? 4 : 0,
 				my: 4,
@@ -27,14 +29,20 @@ const MediaCoverageCard = (props) => {
 				p: 0,
 			}}>
 			<CardMedia
+				ref={imageRef}
 				component="img"
 				alt="Media Coverage"
 				src={image}
 				sx={{
 					width: 75,
+					opacity: 0,
+					transform: "translateY(50%)",
+					transition: "all 1s ease",
+					transitionDelay: `${index * 0.2}s`,
 				}}
 			/>
 			<CardContent
+				ref={contentRef}
 				sx={{
 					display: "flex",
 					flexDirection: window.innerWidth > 600 ? "row" : "column",
@@ -43,6 +51,10 @@ const MediaCoverageCard = (props) => {
 					textAlign: window.innerWidth > 600 ? "left" : "center",
 					gap: 2,
 					px: 0,
+					opacity: 0,
+					transform: "translateY(50%)",
+					transition: "all 1s ease",
+					// transitionDelay: `${index * 0.2}s`,
 				}}>
 				{media?.map((mediaItem, index) => (
 					<NavLink
@@ -60,8 +72,9 @@ const MediaCoverageCard = (props) => {
 							sx={{
 								width:
 									window.innerWidth > 600 ? "350px" : "100%",
-								maxHeight:
-									window.innerWidth > 600 ? "150px" : "auto",
+								// maxHeight:
+								// 	window.innerWidth > 600 ? "150px" : "auto",
+								aspectRatio: "16/9",
 								borderRadius: "20px",
 								transition: "all 1s ease",
 								"&:hover": {
