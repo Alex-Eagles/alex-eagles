@@ -3,7 +3,7 @@ import { Typography, Box, Stack } from "@mui/material";
 import useAnimate from "../../hooks/use-animate";
 
 const HistoryTimelineItemImage = (props) => {
-	const { index, image, title } = props;
+	const { index, position, image, title } = props;
 	const imageRef = useAnimate("animate", false);
 
 	return (
@@ -20,7 +20,13 @@ const HistoryTimelineItemImage = (props) => {
 					width: window.innerWidth > 600 ? "450px" : "110%",
 				},
 				opacity: 0,
-				transform: "translateX(50%)",
+				transform:
+					window.innerWidth < 1200
+						? "translateX(50%)"
+						: position == "left"
+						? "translateX(50%)"
+						: "translateX(-50%)",
+				// backgroundImage: `url(${image})`,
 			}}>
 			<img
 				key={index}
@@ -30,6 +36,7 @@ const HistoryTimelineItemImage = (props) => {
 					width: "100%",
 					height: "100%",
 					objectFit: "cover",
+
 					borderRadius: "20px",
 				}}
 			/>

@@ -20,16 +20,23 @@ import achievementData from "../../assets/data/achievementData";
 const HistoryTimeline = () => {
 	return (
 		<Timeline
-			// position="alternate"
+			position={window.innerWidth > 1200 ? "alternate" : ""}
 			sx={{
-				[`& .${timelineOppositeContentClasses.root}`]: {
-					flex: 0.2,
-				},
+				[`& .${timelineOppositeContentClasses.root}`]:
+					window.innerWidth < 1200
+						? {
+								flex: 0.2,
+						  }
+						: {},
 				mb: 8,
 				ml: window.innerWidth > 600 ? 0 : -6,
 			}}>
-			{achievementData.map((year) => (
-				<HistoryTimelineItem key={year.year} year={year} />
+			{achievementData.map((year, index) => (
+				<HistoryTimelineItem
+					key={year.year}
+					index={index}
+					year={year}
+				/>
 			))}
 		</Timeline>
 	);

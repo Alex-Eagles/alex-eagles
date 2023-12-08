@@ -18,7 +18,7 @@ import HistoryTimelineItemImage from "./HistoryTimelineItemImage";
 import useAnimate from "../../hooks/use-animate";
 
 const HistoryTimelineItem = (props) => {
-	const { year } = props;
+	const { year, index } = props;
 	const itemRef = useAnimate("animate", false);
 	const imageRef = useAnimate("animate", false);
 
@@ -47,9 +47,9 @@ const HistoryTimelineItem = (props) => {
 					px: 2,
 					// borderBottom: "2px solid #305fb0",
 				}}>
-				{year.achievements.map((achievement, index) => (
+				{year.achievements.map((achievement, idx) => (
 					<Box
-						key={index}
+						key={idx}
 						sx={
 							{
 								// my: 4,
@@ -70,20 +70,24 @@ const HistoryTimelineItem = (props) => {
 							direction={
 								window.innerWidth > 1200 ? "row" : "column"
 							}
-							justifyContent="flex-start"
+							justifyContent={
+								index % 2 == 0 ? "flex-start" : "flex-end"
+							}
 							alignItems={
 								window.innerWidth > 1200
 									? "center"
 									: "flex-start"
 							}
 							alignContent="flex-start"
-							// gap={2}
-							spacing={2}>
-							{achievement?.images?.map((image, index) => (
+							gap={2}
+							// spacing={2}
+						>
+							{achievement?.images?.map((image, idx) => (
 								<HistoryTimelineItemImage
-									key={index}
-									index={index}
+									key={idx}
+									index={idx}
 									image={image}
+									position={index % 2 == 0 ? "left" : "right"}
 									title={achievement.title}
 								/>
 							))}
