@@ -12,6 +12,7 @@ import SponsorsPage from "./pages/SponsorsPage";
 import ContactPage from "./pages/ContactPage";
 // import Background from "./components/Background/Background";
 // import background from "./assets/images/UAVs-help2.jpg";
+import ScrollToTop from "./pages/ScrollToTop";
 
 const App = () => {
 	const theme = createTheme({
@@ -68,6 +69,7 @@ const App = () => {
 				{/* <Background background={background} /> */}
 				<NavBar />
 				<AnimatePresence mode="wait">
+					<ScrollToTop />
 					<Routes
 						key={useLocation().pathname}
 						location={useLocation()}>

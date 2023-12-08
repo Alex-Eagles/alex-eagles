@@ -5,6 +5,8 @@ import { Box } from "@mui/material";
 import Footer from "../components/Footer/Footer";
 import Background from "../components/Background/Background";
 import SectionHeading from "../components/SectionHeading/SectionHeading";
+import ProjectsSection from "../components/LandingPage/ProjectsSection/ProjectsSection";
+import GoalsSection from "../components/LandingPage/GoalsSection/GoalsSection";
 
 const LandingPage = () => {
 	return (
@@ -30,11 +32,8 @@ const LandingPage = () => {
 						title="Our Mission"
 						subtitle="We strive for excellence in everything we do."
 					/>
-					<SectionHeading title="Our Goals" subtitle="We aim high." />
-					<SectionHeading
-						title="Our Work"
-						subtitle="We build the future."
-					/>
+					<GoalsSection />
+					<ProjectsSection />
 				</Box>
 				<Footer />
 			</AnimatedPage>

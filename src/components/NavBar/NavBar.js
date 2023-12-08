@@ -90,8 +90,18 @@ const NavBar = () => {
 								display: { xs: "none", md: "flex" },
 								mr: 2,
 								height: "40px",
+								width: "40px",
+								aspectRatio: "1/1",
 							}}>
-							<img src={logo} alt="logo" />
+							<img
+								src={logo}
+								alt="logo"
+								style={{
+									height: "100%",
+									width: "100%",
+									objectFit: "contain",
+								}}
+							/>
 						</Box>
 						<Stack
 							direction="column"
@@ -187,17 +197,25 @@ const NavBar = () => {
 							color: "inherit",
 							alignContent: "center",
 							justifyContent: "center",
-							height: "40px",
+							// height: "40px",
 						}}>
 						<Box
 							sx={{
 								display: { xs: "flex", md: "none" },
-								mr: 2,
+								mr: -2,
 								height: "40px",
-								width: "40px",
+								aspectRatio: "1/1",
 								right: "0%",
 							}}>
-							<img src={logo} alt="logo" />
+							<img
+								src={logo}
+								alt="logo"
+								style={{
+									height: "100%",
+									width: "100%",
+									objectFit: "contain",
+								}}
+							/>
 						</Box>
 						<Stack
 							direction="column"

@@ -45,7 +45,7 @@ const MediaCoverageCard = (props) => {
 				ref={contentRef}
 				sx={{
 					display: "flex",
-					flexDirection: window.innerWidth > 600 ? "row" : "column",
+					flexDirection: window.innerWidth > 850 ? "row" : "column",
 					alignItems: window.innerWidth > 600 ? "left" : "center",
 					justifyContent: "center",
 					textAlign: window.innerWidth > 600 ? "left" : "center",
