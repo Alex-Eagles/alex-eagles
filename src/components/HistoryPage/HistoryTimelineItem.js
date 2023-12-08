@@ -62,12 +62,16 @@ const HistoryTimelineItem = (props) => {
 						</Typography>
 						<Stack
 							display="flex"
-							// flexWrap="wrap"
+							flexWrap="wrap"
 							direction={
-								window.innerWidth > 600 ? "row" : "column"
+								window.innerWidth > 1200 ? "row" : "column"
 							}
 							justifyContent="flex-start"
-							alignItems="center"
+							alignItems={
+								window.innerWidth > 1200
+									? "center"
+									: "flex-start"
+							}
 							alignContent="flex-start"
 							// gap={2}
 							spacing={2}>
@@ -85,7 +89,7 @@ const HistoryTimelineItem = (props) => {
 											width:
 												window.innerWidth > 600
 													? "450px"
-													: "105%",
+													: "110%",
 										},
 									}}>
 									<img
