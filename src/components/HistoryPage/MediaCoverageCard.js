@@ -1,23 +1,16 @@
-import {
-	Card,
-	CardContent,
-	Typography,
-	Avatar,
-	Stack,
-	CardMedia,
-} from "@mui/material";
-import { LinkedIn, GitHub, EmailOutlined } from "@mui/icons-material";
+import { Card, CardContent, CardMedia, Typography } from "@mui/material";
+import { NavLink } from "react-router-dom";
+import { ArrowForward } from "@mui/icons-material";
 import useAnimate from "../../hooks/use-animate";
 
 const MediaCoverageCard = (props) => {
-	const { image, videoLinks, articleLinks } = props;
+	const { index, image, media } = props;
 	const elementRef = useAnimate("animate", false);
 
 	return (
 		<Card
 			ref={elementRef}
 			sx={{
-				// maxWidth: 150,
 				mx: window.innerWidth > 600 ? 4 : 0,
 				my: 4,
 				boxShadow: "none",
@@ -25,14 +18,12 @@ const MediaCoverageCard = (props) => {
 				flexDirection: "column",
 				alignItems: "center",
 				justifyContent: "space-between",
-				justifyItems: "center",
-				alignContent: "center",
 				opacity: 0,
-				transform: "translatex(-50%)",
+				transform: "translateY(50%)",
 				transition: "all 1s ease",
 				borderRadius: 0,
 				borderBottom: "3px solid #305fb0",
-				// minWidth: "100% !important",
+				p: 0,
 			}}>
 			<CardMedia
 				component="img"
@@ -40,10 +31,6 @@ const MediaCoverageCard = (props) => {
 				src={image}
 				sx={{
 					width: 75,
-					// height: 75,
-					mx: "auto",
-					// border: "3px solid #305fb0",
-					// borderRadius: "50px",
 				}}
 			/>
 			<CardContent
@@ -53,46 +40,50 @@ const MediaCoverageCard = (props) => {
 					alignItems: window.innerWidth > 600 ? "left" : "center",
 					justifyContent: "center",
 					textAlign: window.innerWidth > 600 ? "left" : "center",
-					// borderBottom: "3px solid #305fb0",
-					py: 4,
-					px: window.innerWidth > 600 ? 4 : 0,
+					gap: 2,
+					px: 0,
 				}}>
-				{videoLinks?.map((link, index) => (
-					<video
+				{media?.map((mediaItem, index) => (
+					<NavLink
 						key={index}
-						src={link}
-						controls
-						style={{
-							width: "100%",
-							height: "100%",
-							margin: 4,
-						}}
-					/>
-				))}
-				{articleLinks?.map((link, index) => (
-					<Typography
-						key={index}
-						variant="body2"
-						color="text.secondary"
+						to={mediaItem.link}
+						target="_blank"
+						rel="noopener noreferrer"
 						sx={{
-							mt: 2,
-							textDecoration: "underline",
-							"&:hover": {
-								// textDecoration: "underline",
-								color: "#305fb0 !important",
-							},
+							position: "relative",
 						}}>
-						<a
-							href={link}
-							target="_blank"
-							rel="noopener noreferrer"
-							style={{
-								textDecoration: "none",
-								color: "inherit",
+						<CardMedia
+							component="img"
+							alt="Media Coverage"
+							src={mediaItem.image}
+							sx={{
+								width:
+									window.innerWidth > 600 ? "350px" : "100%",
+								maxHeight:
+									window.innerWidth > 600 ? "150px" : "auto",
+								borderRadius: "20px",
+								transition: "all 1s ease",
+								"&:hover": {
+									transform: "translateY(-10px)",
+									filter: "brightness(0.5)",
+								},
+							}}
+						/>
+						{/* <Typography
+							variant="caption"
+							sx={{
+								color: "#fff",
+								position: "absolute",
+								top: "50%",
+								left: "50%",
+								transform: "translate(-50%, -50%)",
+								textAlign: "center",
+								width: "80%", // Adjust the width as needed
+								// display: "none", // Initially hide the caption
 							}}>
-							Read Article
-						</a>
-					</Typography>
+							Click to view
+						</Typography> */}
+					</NavLink>
 				))}
 			</CardContent>
 		</Card>

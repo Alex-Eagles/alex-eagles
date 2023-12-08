@@ -39,18 +39,17 @@ const MediaCoverageSection = () => {
 					flexDirection: window.innerWidth > 600 ? "row" : "column",
 					flexWrap: "wrap",
 					justifyContent:
-						window.innerWidth > 600 ? "space-between" : "center",
+						window.innerWidth > 600 ? "space-around" : "center",
 					alignItems: window.innerWidth > 600 ? "left" : "center",
-					// flexWrap: "wrap",
-					px: 4,
+					// px: 4,
 					mb: 8,
 				}}>
 				{mediaCoverageData.map((mediaCoverage, index) => (
 					<MediaCoverageCard
 						key={index}
+						index={index}
 						image={mediaCoverage.image}
-						videoLinks={mediaCoverage.videoLinks}
-						articleLinks={mediaCoverage.articleLinks}
+						media={mediaCoverage.media}
 					/>
 				))}
 			</Stack>
