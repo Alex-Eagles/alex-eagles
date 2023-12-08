@@ -1,7 +1,7 @@
 import { Card, CardContent, CardMedia, Typography } from "@mui/material";
 import { NavLink } from "react-router-dom";
 import { ArrowForward } from "@mui/icons-material";
-import useAnimate from "../../hooks/use-animate";
+import useAnimate from "../../../hooks/use-animate";
 
 const MediaCoverageCard = (props) => {
 	const { index, image, media } = props;

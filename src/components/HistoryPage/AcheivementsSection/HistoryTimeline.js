@@ -15,7 +15,7 @@ import HotelIcon from "@mui/icons-material/Hotel";
 import RepeatIcon from "@mui/icons-material/Repeat";
 import { Typography, Box } from "@mui/material";
 import HistoryTimelineItem from "./HistoryTimelineItem";
-import achievementData from "../../assets/data/achievementData";
+import achievementData from "../../../assets/data/achievementData";
 
 const HistoryTimeline = () => {
 	return (

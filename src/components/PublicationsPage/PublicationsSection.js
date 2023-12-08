@@ -1,39 +1,15 @@
-import { Typography, Stack, Container } from "@mui/material";
-import useAnimate from "../../hooks/use-animate";
+import { Stack, Container } from "@mui/material";
 import PublicationCard from "./PublicationCard";
 import publicationData from "../../assets/data/publicationData";
+import SectionHeading from "../SectionHeading/SectionHeading";
 
 const PublicationsSection = () => {
-	const elementRef = useAnimate("animate", false);
-
 	return (
 		<Container maxWidth="lg">
-			<Stack
-				ref={elementRef}
-				sx={{
-					opacity: 0,
-					transition: "all 2s ease",
-				}}>
-				<Typography
-					variant="h4"
-					sx={{
-						textAlign: "center",
-						fontWeight: 400,
-						mb: 2,
-					}}>
-					Our Publications
-				</Typography>
-				<Typography
-					variant="h6"
-					sx={{
-						textAlign: "center",
-						fontWeight: 300,
-						mb: 4,
-					}}>
-					We've written and contributed to publications that have been
-					published in journals and presented at conferences.
-				</Typography>
-			</Stack>
+			<SectionHeading
+				title="Our Publications"
+				subtitle="We've written and contributed to publications that have been published in journals and presented at conferences."
+			/>
 			<Stack
 				sx={{
 					display: "flex",

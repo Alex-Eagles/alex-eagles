@@ -4,9 +4,9 @@ import background from "../assets/images/eagles2.png";
 import { Box, Typography } from "@mui/material";
 import Footer from "../components/Footer/Footer";
 import Background from "../components/Background/Background";
-import AchievmentsSection from "../components/HistoryPage/AchievementsSection";
-import CompetitionsSection from "../components/HistoryPage/CompetitionsSection";
-import MediaCoverageSection from "../components/HistoryPage/MediaCoverageSection";
+import AchievmentsSection from "../components/HistoryPage/AcheivementsSection/AchievementsSection";
+import CompetitionsSection from "../components/HistoryPage/CompetitionsSection/CompetitionsSection";
+import MediaCoverageSection from "../components/HistoryPage/MediaCoverageSection/MediaCoverageSection";
 
 const HistoryPage = () => {
 	return (

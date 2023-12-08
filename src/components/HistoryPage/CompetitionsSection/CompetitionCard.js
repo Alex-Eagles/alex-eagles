@@ -1,5 +1,5 @@
 import { Typography, Stack, Container, Box } from "@mui/material";
-import useAnimate from "../../hooks/use-animate";
+import useAnimate from "../../../hooks/use-animate";
 
 const CompetitionCard = (props) => {
 	const { index, name, image, description } = props;

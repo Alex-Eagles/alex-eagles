@@ -75,25 +75,32 @@ const NavBar = () => {
 					transitionDelay: "1.5s",
 				}}>
 				<Toolbar disableGutters>
-					<Box
-						sx={{
-							display: { xs: "none", md: "flex" },
-							mr: 2,
-							height: "45px",
-						}}>
-						<img src={logo} alt="logo" />
-					</Box>
 					<NavLink
 						to="/"
 						style={{
 							textDecoration: "none",
 							color: "inherit",
+							display: "flex",
+							alignContent: "center",
+							justifyContent: "center",
+							height: "40px",
 						}}>
+						<Box
+							sx={{
+								display: { xs: "none", md: "flex" },
+								mr: 2,
+								height: "40px",
+							}}>
+							<img src={logo} alt="logo" />
+						</Box>
 						<Stack
 							direction="column"
+							justifyContent="center"
 							sx={{
 								gap: 0,
 								borderLeft: "1px solid #000000",
+								display: { xs: "none", md: "flex" },
+								// my: 2,
 							}}>
 							<Typography
 								variant="h6"
@@ -172,27 +179,32 @@ const NavBar = () => {
 							))}
 						</Menu>
 					</Box>
-					<Box
-						sx={{
-							display: { xs: "flex", md: "none" },
-							mr: 2,
-							height: "45px",
-							width: "45px",
-							right: "0%",
-						}}>
-						<img src={logo} alt="logo" />
-					</Box>
 					<NavLink
 						to="/"
 						style={{
+							display: "flex",
 							textDecoration: "none",
 							color: "inherit",
+							alignContent: "center",
+							justifyContent: "center",
+							height: "40px",
 						}}>
+						<Box
+							sx={{
+								display: { xs: "flex", md: "none" },
+								mr: 2,
+								height: "40px",
+								width: "40px",
+								right: "0%",
+							}}>
+							<img src={logo} alt="logo" />
+						</Box>
 						<Stack
 							direction="column"
 							sx={{
 								gap: 0,
 								borderLeft: "1px solid #000000",
+								display: { xs: "flex", md: "none" },
 								mr: 1,
 							}}>
 							<Typography

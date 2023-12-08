@@ -15,7 +15,7 @@ import HotelIcon from "@mui/icons-material/Hotel";
 import RepeatIcon from "@mui/icons-material/Repeat";
 import { Typography, Box, Stack } from "@mui/material";
 import HistoryTimelineItemImage from "./HistoryTimelineItemImage";
-import useAnimate from "../../hooks/use-animate";
+import useAnimate from "../../../hooks/use-animate";
 
 const HistoryTimelineItem = (props) => {
 	const { year, index } = props;

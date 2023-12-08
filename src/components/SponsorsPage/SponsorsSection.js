@@ -1,37 +1,15 @@
-import { Container, Stack, Typography, Box } from "@mui/material";
+import { Container, Box } from "@mui/material";
 import SponsorCard from "./SponsorCard";
 import sponsorData from "../../assets/data/sponsorData";
-import useAnimate from "../../hooks/use-animate";
+import SectionHeading from "../SectionHeading/SectionHeading";
 
 const SponsorsSection = () => {
-	const elementRef = useAnimate("animate", false);
 	return (
 		<Container maxWidth="lg">
-			<Stack
-				ref={elementRef}
-				sx={{
-					opacity: 0,
-					transition: "all 2s ease",
-				}}>
-				<Typography
-					variant="h4"
-					sx={{
-						textAlign: "center",
-						fontWeight: 400,
-						mb: 2,
-					}}>
-					Our Sponsors
-				</Typography>
-				<Typography
-					variant="h6"
-					sx={{
-						textAlign: "center",
-						fontWeight: 300,
-						mb: 4,
-					}}>
-					Partners who make our work possible.
-				</Typography>
-			</Stack>
+			<SectionHeading
+				title="Our Sponsors"
+				subtitle="Partners who make our success possible"
+			/>
 			<Box
 				sx={{
 					// mt: 4,

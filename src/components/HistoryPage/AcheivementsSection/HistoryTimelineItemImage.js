@@ -1,6 +1,6 @@
 import * as React from "react";
 import { Typography, Box, Stack } from "@mui/material";
-import useAnimate from "../../hooks/use-animate";
+import useAnimate from "../../../hooks/use-animate";
 
 const HistoryTimelineItemImage = (props) => {
 	const { index, position, image, title } = props;
