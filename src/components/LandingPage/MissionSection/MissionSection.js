@@ -60,14 +60,14 @@ const MissionSection = () => {
 						transitionDelay: "0.4s",
 					}}>
 					<Typography variant="body1" color="text.secondary">
-						Our mission is clear: conceive, design, and manufacture
-						high-efficiency Unmanned Aerial Vehicles (UAVs) for
-						complex tasks like object detection, localization, and
-						precise payload deployment. Our UAVs redefine
-						international standards and compete in prestigious
-						events such as SAE Aero Design, SUAS, and UAVC. With a
-						vision to transition into a pioneering startup, we aim
-						to drive innovation in UAV technology.
+						Our mission is crystal clear: conceive, design, and
+						manufacture high-efficiency Unmanned Aerial Vehicles
+						(UAVs) for complex tasks like object detection,
+						localization, and precise payload deployment. Our UAVs
+						redefine international standards and compete in
+						prestigious events such as SAE Aero Design, SUAS, and
+						UAVC. With a vision to transition into a pioneering
+						startup, we aim to drive innovation in UAV technology.
 					</Typography>
 				</CardContent>
 				<CardMedia
