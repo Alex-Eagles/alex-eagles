@@ -80,7 +80,7 @@ const ContactInformation = () => {
 					</StyledNavLink>
 				</li>
 				<li>
-					<StyledNavLink to="tel:+20 1001427585" color="inherit">
+					<StyledNavLink to="tel:+20 109 448 6922" color="inherit">
 						<Stack direction="row" spacing={1} alignItems="center">
 							<PhoneAndroidOutlined />
 							<Typography
@@ -89,7 +89,7 @@ const ContactInformation = () => {
 									fontWeight: 300,
 									fontSize: "1.1rem",
 								}}>
-								+20 1001427585
+								+20 109 448 6922
 							</Typography>
 						</Stack>
 					</StyledNavLink>
