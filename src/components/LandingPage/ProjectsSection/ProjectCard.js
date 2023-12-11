@@ -85,7 +85,7 @@ const PublicationCard = (props) => {
 				</Typography>
 				<Typography
 					variant="h6"
-					color="text.secondary"
+					color="primary"
 					sx={{
 						mb: 4,
 					}}>

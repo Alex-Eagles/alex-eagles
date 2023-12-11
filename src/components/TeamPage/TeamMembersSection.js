@@ -1,4 +1,4 @@
-import { Box, Container } from "@mui/material";
+import { Box, Container, Typography } from "@mui/material";
 import TeamMemberCard from "./TeamMemberCard";
 import teamMemberData from "../../assets/data/teamMemberData";
 import SectionHeading from "../SectionHeading/SectionHeading";
@@ -19,6 +19,19 @@ const TeamMembersSection = () => {
 					justifyContent:
 						window.innerWidth > 600 ? "center" : "space-between",
 				}}>
+				{/* TODO: Remove after adding team member data */}
+				<Typography
+					variant="h5"
+					component="span"
+					color="primary"
+					sx={{
+						textAlign: "center",
+						width: "100%",
+						my: 8,
+					}}>
+					Coming Soon!
+				</Typography>
+				{/* TODO: Remove after adding team member data */}
 				{teamMemberData.map((member, index) => {
 					return (
 						<TeamMemberCard

@@ -25,6 +25,7 @@ const App = () => {
 			},
 		},
 		typography: {
+			// fontFamily: "Archivo, Roboto, sans-serif",
 			fontFamily: "Montserrat, Roboto, sans-serif",
 			h1: {
 				fontWeight: 500,

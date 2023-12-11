@@ -59,6 +59,7 @@ const HistoryTimelineItem = (props) => {
 							{achievement.title}
 						</Typography>
 						<Typography
+							color="text.secondary"
 							sx={{
 								mb: 2,
 							}}>

@@ -70,6 +70,7 @@ const CompetitionCard = (props) => {
 				</Typography>
 				<Typography
 					variant="body2"
+					color="text.secondary"
 					sx={{
 						textAlign: window.innerWidth > 600 ? "left" : "center",
 						fontWeight: 300,
