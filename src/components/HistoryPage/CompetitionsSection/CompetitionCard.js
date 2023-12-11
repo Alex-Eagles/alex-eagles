@@ -63,17 +63,15 @@ const CompetitionCard = (props) => {
 					variant="h5"
 					sx={{
 						textAlign: window.innerWidth > 600 ? "left" : "center",
-						fontWeight: 400,
 						mb: 2,
 					}}>
 					{name}
 				</Typography>
 				<Typography
-					variant="body2"
+					variant="body1"
 					color="text.secondary"
 					sx={{
 						textAlign: window.innerWidth > 600 ? "left" : "center",
-						fontWeight: 300,
 						mb: 4,
 					}}>
 					{description}

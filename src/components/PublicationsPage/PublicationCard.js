@@ -70,8 +70,10 @@ const PublicationCard = (props) => {
 				<Typography gutterBottom variant="h5">
 					{title}
 				</Typography>
-				<Typography variant="body2" color="text.secondary">
-					{abstract}
+				<Typography variant="body1" color="text.secondary">
+					{abstract.length > 750
+						? abstract.substring(0, 747) + "..."
+						: abstract}
 				</Typography>
 				<Typography
 					variant="body2"

@@ -6,19 +6,19 @@ const competitionData = [
 	{
 		name: "SAE Aero Design",
 		description:
-			"A prestigious international event in aerospace engineering is held under the supervision of Lockheed Martin Co. The challenge presented to participating students involves designing and constructing radio-controlled aircraft. Stringent criteria are in place, requiring the aircraft to meet strict performance, payload requirements, and power consumption standards. The competition serves as a platform that fosters innovation and practical engineering skills. Over the years, it has inspired students to create efficient solutions for complex problems. The event attracts an average of approximately 60 to 80 teams from around the world annually. Significantly recognized within the aerospace industry, the competition is considered to be the most advanced in this field.",
+			"An esteemed international aerospace engineering event, conducted under the supervision of Lockheed Martin Co., challenges aspiring students to design and construct cutting-edge aircraft. Imposing stringent criteria, this competition mandates standards for performance, payload capacity, and power consumption, thereby serving as a catalyst for innovation and fostering inspiration in the creation of resource-efficient solutions. This event is a profoundly acclaimed and advanced competition within the aerospace industry.",
 		image: sae,
 	},
 	{
 		name: "SUAS - Student Unmanned Aerial Systems",
 		description:
-			"An arena for student teams specializing in unmanned aerial systems (UAS) or drones. In this competition, teams are tasked with the comprehensive process of designing, building, and operating autonomous aerial vehicles tailored for diverse and challenging missions. These missions encompass real-world scenarios, including aerial reconnaissance, surveillance, search and rescue operations, and data collection. Participation in this prestigious competition is global, attracting over 80 teams from various corners of the world annually. Notably, this competition has been held annually in the USA since 2002, signifying its longstanding tradition and international appeal within the field of unmanned aerial systems.",
+			"An arena for student teams in unmanned aerial systems (UAS) or drones, this competition involves designing, building, and operating autonomous aerial vehicles for diverse and challenging missions. These missions simulate real-world scenarios such as aerial reconnaissance, surveillance, search and rescue, and data collection. With global participation exceeding 80 teams annually, this prestigious competition has been a tradition in the USA since 2002, highlighting its enduring appeal in the field of unmanned aerial systems.",
 		image: suas,
 	},
 	{
 		name: "UAVC - Unmanned Aerial Vehicle Challenge",
 		description:
-			"This competition engages student teams in the realm of unmanned aerial systems (UAS) or drones. Throughout the challenge, participating teams undertake the intricate process of designing, constructing, and operating autonomous aerial vehicles tailored for complex missions within competitive settings. The missions assigned in UAVC mirror real-world scenarios, encompassing tasks such as precision navigation, obstacle avoidance, payload delivery, and environmental monitoring. This challenge not only provides a platform for showcasing technological innovation but also contributes to the development of practical skills and solutions in the field of unmanned aerial systems.",
+			"This competition immerses student teams in the domain of unmanned aerial systems (UAS) or drones. Teams engage in the intricate process of designing, constructing, and operating autonomous aerial vehicles for competitive missions. These missions replicate real-world scenarios, including precision navigation, obstacle avoidance, payload delivery, and environmental monitoring. Beyond showcasing technological innovation, UAVC fosters the development of practical skills and solutions in the realm of unmanned aerial systems.",
 		image: uavc,
 	},
 ];
