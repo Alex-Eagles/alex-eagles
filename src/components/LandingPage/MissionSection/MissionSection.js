@@ -59,7 +59,7 @@ const MissionSection = () => {
 						transition: "all 1s ease",
 						transitionDelay: "0.4s",
 					}}>
-					<Typography variant="body1" color="text.secondary">
+					<Typography variant="body1">
 						Our mission is crystal clear: conceive, design, and
 						manufacture high-efficiency Unmanned Aerial Vehicles
 						(UAVs) for complex tasks like object detection,
