@@ -23,18 +23,18 @@ const sponsorData = [
 		name: "Tyto Robotics",
 		image: tytoRobotics,
 	},
-	{
-		name: "T-Motor",
-		image: tMotor,
-	},
+	// {
+	// 	name: "T-Motor",
+	// 	image: tMotor,
+	// },
 	{
 		name: "Scorpion",
 		image: scorpion,
 	},
-	{
-		name: "Egyptian Air Defence College",
-		image: airDefenceCollege,
-	},
+	// {
+	// 	name: "Egyptian Air Defence College",
+	// 	image: airDefenceCollege,
+	// },
 ];
 
 export default sponsorData;
