@@ -1,6 +1,7 @@
 import publication1 from "../images/publication-1.png";
 import publication2 from "../images/publication-2.png";
 import publication3 from "../images/publication-3.png";
+import publication4 from "../images/publication-4.png";
 
 const publicationData = [
 	{
@@ -23,6 +24,13 @@ const publicationData = [
 		abstract:
 			"Lens flare is a common image artifact that can significantly degrade image quality and affect the performance of computer vision systems due to a strong light source pointing at the camera. This survey provides a comprehensive overview of the multifaceted domain of lens flare, encompassing its underlying physics, influencing factors, types, and characteristics. It delves into the complex optics of flare formation, arising from factors like internal reflection, scattering, diffraction, and dispersion within the camera lens system. The diverse categories of flare are explored, including scattering, reflective, glare, orb, and starburst types. Key properties such as shape, color, and localization are analyzed. The numerous factors impacting flare appearance are discussed, spanning light source attributes, lens features, camera settings, and scene content. The survey extensively covers the wide range of methods proposed for flare removal, including hardware optimization strategies, classical image processing techniques, and learning-based methods using deep learning. It not only describes pioneering flare datasets created for training and evaluation purposes but also how they were created. Commonly employed performance metrics such as PSNR, SSIM, and LPIPS are explored. Challenges posed by flare's complex and data-dependent characteristics are highlighted. The survey provides insights into best practices, limitations, and promising future directions for flare removal research. Reviewing the state-of-the-art enables an in-depth understanding of the inherent complexities of the flare phenomenon and the capabilities of existing solutions. This can inform and inspire new innovations for handling lens flare artifacts and improving visual quality across various applications.",
 		link: "https://www.researchgate.net/publication/374924443_Pre-Print_Toward_Flare-Free_Images_A_Survey",
+	},
+	{
+		title: "FLare-Free Vision: Empowering Uformer with Depth Insights : ICASSP2024",
+		image: publication4,
+		abstract:
+			"Image flare is a common problem that occurs when a camera lens is pointed at a strong light source. It can manifest as ghosting, blooming, or other artifacts that can degrade the image quality. We propose a novel deep learning approach for flare removal that uses a combination of depth estimation and image restoration. We use a Dense Vision Transformer to estimate the depth of the scene. This depth map is then concate-nated to the input image, which is then fed into a Uformer, a general U-shaped transformer for image restoration. Our proposed method demonstrates state-of-the-art performance on the Flare7K++ test dataset, demonstrating its effectiveness in removing flare artifacts from images. Our approach also demonstrates robustness and generalization to real-world images with various types of flare. We believe that our work opens up new possibilities for using depth information for image restoration. The code is available on GitHub.",
+		link: "https://www.researchgate.net/publication/376586936_FLARE-FREE_VISION_EMPOWERING_UFORMER_WITH_DEPTH_INSIGHTS_ICASSP2024",
 	},
 ];
 

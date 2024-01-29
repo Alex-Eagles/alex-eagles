@@ -23,10 +23,10 @@ const sponsorData = [
 		name: "Tyto Robotics",
 		image: tytoRobotics,
 	},
-	// {
-	// 	name: "T-Motor",
-	// 	image: tMotor,
-	// },
+	{
+		name: "T-Motor",
+		image: tMotor,
+	},
 	{
 		name: "Scorpion",
 		image: scorpion,
