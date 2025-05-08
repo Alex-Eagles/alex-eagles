@@ -2,8 +2,7 @@ import { Box, Container, Typography } from "@mui/material";
 import TeamMemberCard from "./TeamMemberCard";
 import teamMemberData from "../../assets/data/teamMemberData";
 import SectionHeading from "../SectionHeading/SectionHeading";
-import React from "react";
-import TeamGrid from "./TeamGrid";
+import logo from "../../assets/icons/logo.webp";
 
 const TeamMembersSection = () => {
 	return (
@@ -31,6 +30,7 @@ const TeamMembersSection = () => {
 						width: "100%",
 						my: 8,
 					}}>
+					Coming Soon!
 				</Typography>
 				{/* TODO: Remove after adding team member data */}
 				{teamMemberData.map((member, index) => {
@@ -39,7 +39,8 @@ const TeamMembersSection = () => {
 							key={index}
 							name={member.name}
 							role={member.role}
-							image={member.image}
+							mainImage={member.mainImage}
+							SecondaryImage={logo}
 							email={member.email}
 							linkedInLink={member.linkedInLink}
 							gitHubLink={member.gitHubLink}
@@ -47,7 +48,6 @@ const TeamMembersSection = () => {
 					);
 				})}
 			</Box>
-			
 		</Container>
 	);
 };

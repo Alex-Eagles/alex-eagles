@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState } from 'react';
+import "./TeamMembersCard.css";
 
 const iconStyle = {
 	width: 24,
@@ -59,9 +60,19 @@ const InlineIcon = ({ type }) => {
 	}
 };
 
-const TeamMemberCard = ({ name, role, image, email, linkedInLink, gitHubLink }) => {
+const TeamMemberCard = ({ name, role, mainImage, SecondaryImage, email, linkedInLink, gitHubLink }) => {
+	const [isHovered, setIsHovered] = useState(false);
+	const handleMouseEnter = () => {
+		setIsHovered(true);
+	};
+
+	const handleMouseLeave = () => {
+		setIsHovered(false);
+	};
+
 	return (
 		<div
+			className="container"
 			style={{
 				width: 180,
 				margin: 16,
@@ -69,10 +80,10 @@ const TeamMemberCard = ({ name, role, image, email, linkedInLink, gitHubLink }) 
 				display: "flex",
 				flexDirection: "column",
 				alignItems: "center",
-				transition: "opacity 1s ease",
+				// transition: "opacity 1s ease",
 			}}>
 			<img
-				src={image}
+				src={isHovered ? SecondaryImage : mainImage}
 				alt={name}
 				style={{
 					width: 150,
@@ -80,6 +91,8 @@ const TeamMemberCard = ({ name, role, image, email, linkedInLink, gitHubLink }) 
 					borderRadius: "50%",
 					objectFit: "cover",
 				}}
+				onMouseEnter={handleMouseEnter}
+				onMouseLeave={handleMouseLeave}
 			/>
 			<div style={{ marginTop: 12 }}>
 				<h3 style={{ margin: 4 }}>{name}</h3>
