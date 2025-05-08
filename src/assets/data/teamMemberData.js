@@ -2,7 +2,8 @@ const teamMemberData = [
 	{
 		name: "Amanda",
 		role: "Co-Founder",
-		image: "https://i.pravatar.cc/300",
+		mainImage: "https://i.pravatar.cc/300",
+		secondaryImage: "https://i.pravatar.cc/300",
 		email: "",
 		linkedInLink: "https://www.linkedin.com/in/amanda-chen-9a9b1a1b6/",
 		gitHubLink: "",
@@ -10,7 +11,8 @@ const teamMemberData = [
 	{
 		name: "Amanda",
 		role: "Co-Founder",
-		image: "https://i.pravatar.cc/300",
+		mainImage: "https://i.pravatar.cc/300",
+		secondaryImage: "https://i.pravatar.cc/300",
 		email: "",
 		linkedInLink: "https://www.linkedin.com/in/amanda-chen-9a9b1a1b6/",
 		gitHubLink: "",
@@ -18,7 +20,8 @@ const teamMemberData = [
 	{
 		name: "Amanda",
 		role: "Co-Founder",
-		image: "https://i.pravatar.cc/300",
+		mainImage: "https://i.pravatar.cc/300",
+		secondaryImage: "https://i.pravatar.cc/300",
 		email: "",
 		linkedInLink: "https://www.linkedin.com/in/amanda-chen-9a9b1a1b6/",
 		gitHubLink: "",
@@ -26,7 +29,8 @@ const teamMemberData = [
 	{
 		name: "Amanda",
 		role: "Co-Founder",
-		image: "https://i.pravatar.cc/300",
+		mainImage: "https://i.pravatar.cc/300",
+		secondaryImage: "https://i.pravatar.cc/300",
 		email: "",
 		linkedInLink: "https://www.linkedin.com/in/amanda-chen-9a9b1a1b6/",
 		gitHubLink: "",
@@ -34,7 +38,8 @@ const teamMemberData = [
 	{
 		name: "Amanda",
 		role: "Co-Founder",
-		image: "https://i.pravatar.cc/300",
+		mainImage: "https://i.pravatar.cc/300",
+		secondaryImage: "https://i.pravatar.cc/300",
 		email: "",
 		linkedInLink: "https://www.linkedin.com/in/amanda-chen-9a9b1a1b6/",
 		gitHubLink: "",
@@ -42,7 +47,8 @@ const teamMemberData = [
 	{
 		name: "Amanda",
 		role: "Co-Founder",
-		image: "https://i.pravatar.cc/300",
+		mainImage: "https://i.pravatar.cc/300",
+		secondaryImage: "https://i.pravatar.cc/300",
 		email: "",
 		linkedInLink: "https://www.linkedin.com/in/amanda-chen-9a9b1a1b6/",
 		gitHubLink: "",
@@ -50,7 +56,8 @@ const teamMemberData = [
 	{
 		name: "Amanda",
 		role: "Co-Founder",
-		image: "https://i.pravatar.cc/300",
+		mainImage: "https://i.pravatar.cc/300",
+		secondaryImage: "https://i.pravatar.cc/300",
 		email: "",
 		linkedInLink: "https://www.linkedin.com/in/amanda-chen-9a9b1a1b6/",
 		gitHubLink: "",
@@ -58,7 +65,8 @@ const teamMemberData = [
 	{
 		name: "Amanda",
 		role: "Co-Founder",
-		image: "https://i.pravatar.cc/300",
+		mainImage: "https://i.pravatar.cc/300",
+		secondaryImage: "https://i.pravatar.cc/300",
 		email: "",
 		linkedInLink: "https://www.linkedin.com/in/amanda-chen-9a9b1a1b6/",
 		gitHubLink: "",
@@ -66,7 +74,8 @@ const teamMemberData = [
 	{
 		name: "Amanda",
 		role: "Co-Founder",
-		image: "https://i.pravatar.cc/300",
+		mainImage: "https://i.pravatar.cc/300",
+		secondaryImage: "https://i.pravatar.cc/300",
 		email: "",
 		linkedInLink: "https://www.linkedin.com/in/amanda-chen-9a9b1a1b6/",
 		gitHubLink: "",
@@ -74,7 +83,8 @@ const teamMemberData = [
 	{
 		name: "Amanda",
 		role: "Co-Founder",
-		image: "https://i.pravatar.cc/300",
+		mainImage: "https://i.pravatar.cc/300",
+		secondaryImage: "https://i.pravatar.cc/300",
 		email: "",
 		linkedInLink: "https://www.linkedin.com/in/amanda-chen-9a9b1a1b6/",
 		gitHubLink: "",
@@ -82,7 +92,8 @@ const teamMemberData = [
 	{
 		name: "Amanda",
 		role: "Co-Founder",
-		image: "https://i.pravatar.cc/300",
+		mainImage: "https://i.pravatar.cc/300",
+		secondaryImage: "https://i.pravatar.cc/300",
 		email: "",
 		linkedInLink: "https://www.linkedin.com/in/amanda-chen-9a9b1a1b6/",
 		gitHubLink: "",
@@ -90,7 +101,8 @@ const teamMemberData = [
 	{
 		name: "Amanda",
 		role: "Co-Founder",
-		image: "https://i.pravatar.cc/300",
+		mainImage: "https://i.pravatar.cc/300",
+		secondaryImage: "https://i.pravatar.cc/300",
 		email: "",
 		linkedInLink: "https://www.linkedin.com/in/amanda-chen-9a9b1a1b6/",
 		gitHubLink: "",
@@ -98,7 +110,8 @@ const teamMemberData = [
 	{
 		name: "Amanda",
 		role: "Co-Founder",
-		image: "https://i.pravatar.cc/300",
+		mainImage: "https://i.pravatar.cc/300",
+		secondaryImage: "https://i.pravatar.cc/300",
 		email: "",
 		linkedInLink: "https://www.linkedin.com/in/amanda-chen-9a9b1a1b6/",
 		gitHubLink: "",
@@ -106,7 +119,8 @@ const teamMemberData = [
 	{
 		name: "Amanda",
 		role: "Co-Founder",
-		image: "https://i.pravatar.cc/300",
+		mainImage: "https://i.pravatar.cc/300",
+		secondaryImage: "https://i.pravatar.cc/300",
 		email: "",
 		linkedInLink: "https://www.linkedin.com/in/amanda-chen-9a9b1a1b6/",
 		gitHubLink: "",
@@ -114,7 +128,8 @@ const teamMemberData = [
 	{
 		name: "Amanda",
 		role: "Co-Founder",
-		image: "https://i.pravatar.cc/300",
+		mainImage: "https://i.pravatar.cc/300",
+		secondaryImage: "https://i.pravatar.cc/300",
 		email: "",
 		linkedInLink: "https://www.linkedin.com/in/amanda-chen-9a9b1a1b6/",
 		gitHubLink: "",
@@ -122,7 +137,8 @@ const teamMemberData = [
 	{
 		name: "Amanda",
 		role: "Co-Founder",
-		image: "https://i.pravatar.cc/300",
+		mainImage: "https://i.pravatar.cc/300",
+		secondaryImage: "https://i.pravatar.cc/300",
 		email: "",
 		linkedInLink: "https://www.linkedin.com/in/amanda-chen-9a9b1a1b6/",
 		gitHubLink: "",
@@ -130,7 +146,8 @@ const teamMemberData = [
 	{
 		name: "Amanda",
 		role: "Co-Founder",
-		image: "https://i.pravatar.cc/300",
+		mainImage: "https://i.pravatar.cc/300",
+		secondaryImage: "https://i.pravatar.cc/300",
 		email: "",
 		linkedInLink: "https://www.linkedin.com/in/amanda-chen-9a9b1a1b6/",
 		gitHubLink: "",
@@ -138,7 +155,8 @@ const teamMemberData = [
 	{
 		name: "Amanda",
 		role: "Co-Founder",
-		image: "https://i.pravatar.cc/300",
+		mainImage: "https://i.pravatar.cc/300",
+		secondaryImage: "https://i.pravatar.cc/300",
 		email: "",
 		linkedInLink: "https://www.linkedin.com/in/amanda-chen-9a9b1a1b6/",
 		gitHubLink: "",
@@ -146,7 +164,8 @@ const teamMemberData = [
 	{
 		name: "Amanda",
 		role: "Co-Founder",
-		image: "https://i.pravatar.cc/300",
+		mainImage: "https://i.pravatar.cc/300",
+		secondaryImage: "https://i.pravatar.cc/300",
 		email: "",
 		linkedInLink: "https://www.linkedin.com/in/amanda-chen-9a9b1a1b6/",
 		gitHubLink: "",
@@ -154,7 +173,8 @@ const teamMemberData = [
 	{
 		name: "Amanda",
 		role: "Co-Founder",
-		image: "https://i.pravatar.cc/300",
+		mainImage: "https://i.pravatar.cc/300",
+		secondaryImage: "https://i.pravatar.cc/300",
 		email: "",
 		linkedInLink: "https://www.linkedin.com/in/amanda-chen-9a9b1a1b6/",
 		gitHubLink: "",

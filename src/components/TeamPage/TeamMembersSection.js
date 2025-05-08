@@ -2,6 +2,7 @@ import { Box, Container, Typography } from "@mui/material";
 import TeamMemberCard from "./TeamMemberCard";
 import teamMemberData from "../../assets/data/teamMemberData";
 import SectionHeading from "../SectionHeading/SectionHeading";
+import logo from "../../assets/icons/logo.webp";
 
 const TeamMembersSection = () => {
 	return (
@@ -38,7 +39,8 @@ const TeamMembersSection = () => {
 							key={index}
 							name={member.name}
 							role={member.role}
-							image={member.image}
+							mainImage={member.mainImage}
+							SecondaryImage={logo}
 							email={member.email}
 							linkedInLink={member.linkedInLink}
 							gitHubLink={member.gitHubLink}
