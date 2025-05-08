@@ -15,7 +15,7 @@
 		"ansi-html": "^0.0.8",
 		"core-js": "^3.23.3",
 		"eta": "^3.5.0",
-		"framer-motion": "^10.16.12",
+		"framer-motion": "^10.18.0",
 		"html-minifier-terser": "^7.2.0",
 		"react": "^18.2.0",
 		"react-dom": "^18.2.0",
