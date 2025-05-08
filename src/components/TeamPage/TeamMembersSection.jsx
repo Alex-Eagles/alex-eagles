@@ -14,7 +14,7 @@ const TeamMembersSection = () => {
 	// Shuffle team members periodically at random intervals
 	useEffect(() => {
 		const shufflePeriodically = () => {
-			const delay = Math.random() * 3000 + 3000; // Between 3s and 6s
+			const delay = Math.random() * 30000 + 3000; // Between 3s and 6s
 			const timeoutId = setTimeout(() => {
 				setShuffledMembers(shuffleArray);
 				shufflePeriodically(); // Repeat
@@ -27,7 +27,7 @@ const TeamMembersSection = () => {
 	}, []);
 
 	return (
-		<Container maxWidth="lg">
+		<Container maxWidth="falsw">
 			<SectionHeading
 				title="Our Team"
 				subtitle="Meet the team who make the magic happen."
@@ -57,17 +57,16 @@ const TeamMembersSection = () => {
 				)}
 				{/* TODO: Remove after adding team member data */}
 				{shuffledMembers.map((member, index) => (
-					<TeamMemberCard
-						key={index}
-						name={member.name}
-						role={member.role}
-						mainImage={member.mainImage}
-						SecondaryImage={logo}
-						email={member.email}
-						linkedInLink={member.linkedInLink}
-						gitHubLink={member.gitHubLink}
-					/>
-				))}
+  				<TeamMemberCard
+  				  key={index}
+  				  name={member.name}
+  				  role={member.role}
+  				  image={member.image}
+  				  email={member.email}
+  				  linkedInLink={member.linkedInLink}
+  				  gitHubLink={member.gitHubLink}
+  				/>
+))}
 			</Box>
 		</Container>
 	);
