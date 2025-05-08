@@ -3,8 +3,29 @@ import TeamMemberCard from "./TeamMemberCard";
 import teamMemberData from "../../assets/data/teamMemberData";
 import SectionHeading from "../SectionHeading/SectionHeading";
 import logo from "../../assets/icons/logo.webp";
+import { useEffect, useState } from "react";
+
+const shuffleArray = (array) => {
+	return [...array].sort(() => Math.random() - 0.5);
+};
 
 const TeamMembersSection = () => {
+	const [shuffledMembers, setShuffledMembers] = useState(teamMemberData);
+	// Shuffle team members periodically at random intervals
+	useEffect(() => {
+		const shufflePeriodically = () => {
+			const delay = Math.random() * 3000 + 3000; // Between 3s and 6s
+			const timeoutId = setTimeout(() => {
+				setShuffledMembers(shuffleArray);
+				shufflePeriodically(); // Repeat
+			}, delay);
+			return () => clearTimeout(timeoutId);
+		};
+
+		const cancel = shufflePeriodically();
+		return cancel;
+	}, []);
+
 	return (
 		<Container maxWidth="lg">
 			<SectionHeading
@@ -21,32 +42,32 @@ const TeamMembersSection = () => {
 						window.innerWidth > 600 ? "center" : "space-between",
 				}}>
 				{/* TODO: Remove after adding team member data */}
-				<Typography
-					variant="h5"
-					component="span"
-					color="primary"
-					sx={{
-						textAlign: "center",
-						width: "100%",
-						my: 8,
-					}}>
-					Coming Soon!
-				</Typography>
+				{shuffledMembers.length === 0 && (
+					<Typography
+						variant="h5"
+						component="span"
+						color="primary"
+						sx={{
+							textAlign: "center",
+							width: "100%",
+							my: 8,
+						}}>
+						Coming Soon!
+					</Typography>
+				)}
 				{/* TODO: Remove after adding team member data */}
-				{teamMemberData.map((member, index) => {
-					return (
-						<TeamMemberCard
-							key={index}
-							name={member.name}
-							role={member.role}
-							mainImage={member.mainImage}
-							SecondaryImage={logo}
-							email={member.email}
-							linkedInLink={member.linkedInLink}
-							gitHubLink={member.gitHubLink}
-						/>
-					);
-				})}
+				{shuffledMembers.map((member, index) => (
+					<TeamMemberCard
+						key={index}
+						name={member.name}
+						role={member.role}
+						mainImage={member.mainImage}
+						SecondaryImage={logo}
+						email={member.email}
+						linkedInLink={member.linkedInLink}
+						gitHubLink={member.gitHubLink}
+					/>
+				))}
 			</Box>
 		</Container>
 	);
