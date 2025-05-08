@@ -2,11 +2,10 @@ import { Box, Container, Typography } from "@mui/material";
 import TeamMemberCard from "./TeamMemberCard";
 import teamMemberData from "../../assets/data/teamMemberData";
 import SectionHeading from "../SectionHeading/SectionHeading";
-import logo from "../../assets/icons/logo.webp";
 
 const TeamMembersSection = () => {
 	return (
-		<Container maxWidth="lg">
+		<Container maxWidth="falsw">
 			<SectionHeading
 				title="Our Team"
 				subtitle="Meet the team who make the magic happen."
@@ -21,7 +20,7 @@ const TeamMembersSection = () => {
 						window.innerWidth > 600 ? "center" : "space-between",
 				}}>
 				{/* TODO: Remove after adding team member data */}
-				<Typography
+				{/* <Typography
 					variant="h5"
 					component="span"
 					color="primary"
@@ -31,7 +30,7 @@ const TeamMembersSection = () => {
 						my: 8,
 					}}>
 					Coming Soon!
-				</Typography>
+				</Typography> */}
 				{/* TODO: Remove after adding team member data */}
 				{teamMemberData.map((member, index) => {
 					return (
@@ -39,8 +38,7 @@ const TeamMembersSection = () => {
 							key={index}
 							name={member.name}
 							role={member.role}
-							mainImage={member.mainImage}
-							SecondaryImage={logo}
+							image={member.image}
 							email={member.email}
 							linkedInLink={member.linkedInLink}
 							gitHubLink={member.gitHubLink}
