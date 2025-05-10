@@ -42,16 +42,15 @@ const NavBar = () => {
 		setAnchorElNav(null);
 	};
 
-	 // Don't render navbar on home page
-    if (location.pathname === '/') {
-        return null;
-    }
+	
+  
 
 	return (
 		<AppBar
 			ref={navBarRef}
 			position="fixed"
 			sx={{
+				zIndex: (theme) => theme.zIndex.modal + 1,   // or theme.zIndex.drawer + 1
 				backgroundColor: "transparent",
 				boxShadow: "none",
 				transition: "all 0.5s ease",
@@ -92,7 +91,7 @@ const NavBar = () => {
 						}}>
 						<Box
 							sx={{
-								display: { xs: "none", md: "flex" },
+								display: { xs: "flex", md: "flex" },
 								mr: 2,
 								height: "40px",
 								width: "40px",

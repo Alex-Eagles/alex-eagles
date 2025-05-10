@@ -20,7 +20,7 @@ function Logo() {
 						}}>
 						<Box
 							sx={{
-								display: { xs: "none", md: "flex" },
+								display: { xs: "flex", md: "flex" },
 								mr: 2,
 								height: "40px",
 								width: "40px",

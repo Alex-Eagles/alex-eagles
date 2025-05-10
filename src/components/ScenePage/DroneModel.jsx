@@ -21,6 +21,8 @@ function DroneModel({position, onClick, setScrollEnabled, ScrollEnabled}) {
   const { camera } = useThree(); // Access the camera
   const [selectedMesh, setSelectedMesh] = useState(null); // Track the clicked part
   
+   // Define interactive components
+  const interactiveParts = ['camera', 'hub', 'propeller', 'lidar', 'herelink', 'body4'];
   // states for info panels pop ups
   const [clickedMesh, setClickedMesh] = useState(null);
   const [showInfoPanel, setShowInfoPanel] = useState(false);
@@ -251,6 +253,14 @@ function DroneModel({position, onClick, setScrollEnabled, ScrollEnabled}) {
   function onPointerOver(e) {
     e.stopPropagation();
     const mesh = e.object;
+
+       // Check if this is one of our interactive parts
+    const isInteractive = interactiveParts.some(part => 
+      mesh.name.toLowerCase().includes(part.toLowerCase())
+    );
+    
+    if (!isInteractive) return;
+
     const worldPos = new THREE.Vector3();
     mesh.getWorldPosition(worldPos);
     setHoverPos(worldPos);
@@ -268,6 +278,13 @@ function DroneModel({position, onClick, setScrollEnabled, ScrollEnabled}) {
   function onPointerOut(e) {
     e.stopPropagation();
     const mesh = e.object;
+
+        // Check if this is one of our interactive parts
+    const isInteractive = interactiveParts.some(part => 
+      mesh.name.toLowerCase().includes(part.toLowerCase())
+    );
+    
+    if (!isInteractive) return;
     // restore emissive
     const old = prevEmissives.current.get(mesh);
     if (old) mesh.material.emissive.copy(old);
@@ -278,6 +295,15 @@ function DroneModel({position, onClick, setScrollEnabled, ScrollEnabled}) {
   const handleClick = (e) => {
     e.stopPropagation();
     const mesh = e.object;
+
+    // Check if this is one of our interactive parts
+    const isInteractive = interactiveParts.some(part => 
+      mesh.name.toLowerCase().includes(part.toLowerCase())
+    );
+    
+    if (!isInteractive) return;
+
+    
     setClickedMesh(mesh); // Store the clicked mesh
     setSelectedMesh(mesh); // Store the selected mesh
     // Calculate target position and look-at position

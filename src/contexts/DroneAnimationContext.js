@@ -1,8 +1,8 @@
 import React, { createContext, useContext, useState, useEffect, useRef } from 'react';
 // Configuration constants
 export const CONFIG = {
-  modelPath: '/drone_model/AE_Drone9.gltf',
-  fixedwingmodelPath: '/drone_model/AE_Fixed.gltf',
+  modelPath: '/drone_model/Itay.gltf',
+  fixedwingmodelPath: '/drone_model/AE_Fixed2.gltf',
   takeoffDuration: 2.5, // seconds
   hoverHeight: 2,
   transitionDuration: 0.8,

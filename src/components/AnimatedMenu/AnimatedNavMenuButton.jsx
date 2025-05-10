@@ -36,28 +36,47 @@ function AnimatedNavMenuButton() {
   return (
     <div className={`animated-menu-nav ${isOpen ? 'open' : ''}`}>
       {/* Header with the toggle button */}
-      <div className="menu-header">
+      <div className="menu-header-nav">
         <button
-          className={`menu-toggle-button ${isOpen ? 'is-open' : ''}`}
+          className={`menu-toggle-button-nav ${isOpen ? 'is-open' : ''}`}
           onClick={toggleMenu}
         >
           {isOpen ? (
-            <span className="button-text">Close</span>
+             <>
+      <span className="button-text-nav">Close</span>
+
+      {/* Cross Icon only visible on small screens */}
+      <svg
+        className="close-icon-nav"
+        xmlns="http://www.w3.org/2000/svg"
+        width="16"
+        height="16"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="#2d2c2c"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
+        <line x1="18" y1="6" x2="6" y2="18" />
+        <line x1="6" y1="6" x2="18" y2="18" />
+      </svg>
+    </>
           ) : (
             <>
-              <img src="/menu2.svg" alt="Menu Icon" className="menu-icon" />
-              <span className="button-text">Menu</span>
+              <img src="/menu2.svg" alt="Menu Icon" className="menu-icon-nav" />
+              <span className="button-text-nav">Menu</span>
             </>
           )}
         </button>
       </div>
 
-      <div className="menu-content">
-        <ul className="menu-items">
+      <div className="menu-content-nav">
+        <ul className="menu-items-nav">
           {menuItems.map((item, i) => (
             <li
               key={i}
-              className="menu-item"
+              className="menu-item-nav"
               style={{ transitionDelay: `${i * 75}ms` }}
             >
               <NavLink
@@ -65,12 +84,12 @@ function AnimatedNavMenuButton() {
                 onClick={handleNavClick(item.link, item.external)}
                 target={item.external ? '_blank' : undefined}
                 rel={item.external ? 'noopener noreferrer' : undefined}
-                className="menu-link"
+                className="menu-link-nav"
               >
-                <span className="item-index">{item.index}</span>
-                <span className="item-text">{item.text}</span>
+                <span className="item-index-nav">{item.index}</span>
+                <span className="item-text-nav">{item.text}</span>
                 {item.external && (
-                  <svg className="external-icon" viewBox="0 0 21 22">
+                  <svg className="external-icon-nav" viewBox="0 0 21 22">
                     <path d="M21 1.667v15.166a1.167 1.167 0 11-2.333 0V4.483L1.993 21.158a1.167 1.167 0 11-1.651-1.65L17.017 2.832H4.667a1.167 1.167 0 110-2.333h15.166A1.167 1.167 0 0121 1.667z" />
                   </svg>
                 )}
@@ -79,10 +98,10 @@ function AnimatedNavMenuButton() {
           ))}
         </ul>
 
-        <div className="footer">
+        <div className="footer-nav">
           {/* Static social link as before (remains an <a>) */}
           <div
-            className="social-link"
+            className="social-link-nav"
             style={{ transitionDelay: `${(menuItems.length + footerLinks.length) * 75}ms` }}
           >
             <a

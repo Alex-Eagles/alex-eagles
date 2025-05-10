@@ -171,3 +171,47 @@
 }
 
 
+.close-icon {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .animated-menu.open {
+    width: 50vw;
+    height: 50vh;
+  }
+
+  .menu-item a {
+    font-size: 1.5rem;
+  }
+
+  .button-text {
+    font-size: 12px;
+  }
+
+  .menu-icon {
+    width: 14px;
+    height: 14px;
+  }
+   .button-text {
+    display: none;
+  }
+   .close-icon {
+    display: inline;
+    margin-left: 0.25rem;
+  }
+}
+
+@media (max-width: 480px) {
+
+  .menu-item a {
+    font-size: 1.2rem;
+  }
+
+  .button-text {
+    font-size: 10px;
+  }
+   .button-text {
+    display: none;
+  }
+}
