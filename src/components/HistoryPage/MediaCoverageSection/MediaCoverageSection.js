@@ -1,4 +1,4 @@
-import { Stack, Container } from "@mui/material";
+import { Stack, Container, Box } from "@mui/material";
 import mediaCoverageData from "../../../assets/data/mediaCoverageData";
 import MediaCoverageCard from "./MediaCoverageCard";
 import SectionHeading from "../../SectionHeading/SectionHeading";
@@ -13,21 +13,31 @@ const MediaCoverageSection = () => {
 			<Stack
 				sx={{
 					display: "flex",
-					flexDirection: window.innerWidth > 600 ? "row" : "column",
+					flexDirection: "row",
 					flexWrap: "wrap",
-					justifyContent:
-						window.innerWidth > 600 ? "space-around" : "center",
-					alignItems: window.innerWidth > 600 ? "left" : "center",
-					// px: 4,
+					justifyContent: "center",
+					alignItems: "center",
+					gap: 2, // Add spacing between items
 					mb: 8,
 				}}>
 				{mediaCoverageData.map((mediaCoverage, index) => (
-					<MediaCoverageCard
+					<Box
 						key={index}
-						index={index}
-						image={mediaCoverage.image}
-						media={mediaCoverage.media}
-					/>
+						sx={{
+							backgroundColor: "#FFFFFF",
+							borderRadius: 3,
+							p: 2,
+							mb: 2,
+							boxShadow: 3,
+							//maxWidth: "calc(50% - 16px)",
+						}}
+					>
+						<MediaCoverageCard
+							index={index}
+							image={mediaCoverage.image}
+							media={mediaCoverage.media}
+						/>
+					</Box>
 				))}
 			</Stack>
 		</Container>
