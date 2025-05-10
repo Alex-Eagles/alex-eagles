@@ -2,46 +2,58 @@ import { Card, CardContent, Typography, CardMedia } from "@mui/material";
 import useAnimate from "../../hooks/use-animate";
 
 const SponsorCard = (props) => {
-	const { name, image } = props;
-	const elementRef = useAnimate("animate", false);
+    const { name, image } = props;
+    const elementRef = useAnimate("animate", false);
 
-	return (
-		<Card
-			ref={elementRef}
-			sx={{
-				width: 250,
-				mx: window.innerWidth > 600 ? 4 : 0,
-				my: 4,
-				boxShadow: "none",
-				display: "flex",
-				flexDirection: "column",
-				alignItems: "center",
-				justifyContent: "center",
-				opacity: 0,
-				transform: "scale(0.85)",
-				transition: "all 1s ease",
-				// height: "300px",
-			}}>
-			<CardMedia
-				component="img" // Use 'component="img"' for images
-				alt={name}
-				src={image} // Make sure 'image' is a valid URL or path
-				sx={{ width: "100%", mx: "auto" }}
-			/>
-			{/* <CardContent
-				sx={{
-					display: "flex",
-					flexDirection: "column",
-					alignItems: "center",
-					justifyContent: "center",
-					textAlign: "center",
-				}}>
-				<Typography gutterBottom variant="h5">
-					{name}
-				</Typography>
-			</CardContent> */}
-		</Card>
-	);
+    return (
+        <Card
+            ref={elementRef}
+            sx={{
+                width: 250,
+                mx: window.innerWidth > 600 ? 4 : 0,
+                my: 4,
+                boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.1)", // Subtle shadow
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                justifyContent: "center",
+                opacity: 0,
+                transform: "scale(0.85)",
+                transition: "all 1s ease",
+                backgroundColor: "#FFFFFF", // White background
+                borderRadius: "16px", // Rounded corners
+                padding: 2, // Add padding inside the card
+            }}>
+            <CardMedia
+                component="img"
+                alt={name}
+                src={image}
+                sx={{
+                    width: "80%", // Adjust image size
+                    height: "auto",
+                    objectFit: "contain",
+                    borderRadius: "8px", // Optional: round the image corners slightly
+                }}
+            />
+            <CardContent
+                sx={{
+                    display: "flex",
+                    flexDirection: "column",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    textAlign: "center",
+                }}>
+                <Typography
+                    variant="h6"
+                    sx={{
+                        fontWeight: 500,
+                        color: "#000000", // Black text for contrast
+                    }}>
+                    {name}
+                </Typography>
+            </CardContent>
+        </Card>
+    );
 };
 
 export default SponsorCard;

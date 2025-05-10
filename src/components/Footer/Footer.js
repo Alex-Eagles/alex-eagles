@@ -44,8 +44,8 @@ const Footer = () => {
 		<Box
 			component="footer"
 			sx={{
-				backgroundColor: "white",
-				color: "#000000",
+				backgroundColor: "#03101c",
+				color: "#FFFFFF", // Set all text color to white
 				padding: "50px 0",
 			}}>
 			<Container maxWidth="lg">
@@ -79,6 +79,7 @@ const Footer = () => {
 							sx={{
 								fontWeight: 500, // 400,
 								marginBottom: 2,
+								color: "#FFFFFF", // Set text color to white
 							}}>
 							Useful Links
 						</Typography>
@@ -87,7 +88,8 @@ const Footer = () => {
 								<StyledNavLink
 									to="/history"
 									color="inherit"
-									exact="true">
+									exact="true"
+									sx={{ color: "#FFFFFF" }}> {/* Set link color to white */}
 									Our History
 								</StyledNavLink>
 							</li>
@@ -95,7 +97,8 @@ const Footer = () => {
 								<StyledNavLink
 									to="/publications"
 									color="inherit"
-									exact="true">
+									exact="true"
+									sx={{ color: "#FFFFFF" }}> {/* Set link color to white */}
 									Our Publications
 								</StyledNavLink>
 							</li>
@@ -103,7 +106,8 @@ const Footer = () => {
 								<StyledNavLink
 									to="/team"
 									color="inherit"
-									exact="true">
+									exact="true"
+									sx={{ color: "#FFFFFF" }}> {/* Set link color to white */}
 									Our Team
 								</StyledNavLink>
 							</li>
@@ -111,7 +115,8 @@ const Footer = () => {
 								<StyledNavLink
 									to="/sponsors"
 									color="inherit"
-									exact="true">
+									exact="true"
+									sx={{ color: "#FFFFFF" }}> {/* Set link color to white */}
 									Our Sponsors
 								</StyledNavLink>
 							</li>
@@ -119,7 +124,8 @@ const Footer = () => {
 								<StyledNavLink
 									to="/contact"
 									color="inherit"
-									exact="true">
+									exact="true"
+									sx={{ color: "#FFFFFF" }}> {/* Set link color to white */}
 									Contact Us
 								</StyledNavLink>
 							</li>
@@ -139,8 +145,9 @@ const Footer = () => {
 							variant="h6"
 							// color="primary"
 							sx={{
-								fontWeight: 500, //400,
+								fontWeight: 500,
 								marginBottom: 2,
+								color: "#FFFFFF", // Set text color to white
 							}}>
 							Contact Us
 						</Typography>
@@ -148,17 +155,19 @@ const Footer = () => {
 							<li>
 								<StyledNavLink
 									to="mailto:alex_eagles@alexu.edu.eg"
-									color="inherit">
+									color="inherit"
+									sx={{ color: "#FFFFFF" }}> {/* Set link color to white */}
 									<Stack
 										direction="row"
 										spacing={1}
 										alignItems="center">
-										<EmailOutlined />
+										<EmailOutlined sx={{ color: "#FFFFFF" }} /> {/* Icon color */}
 										<Typography
 											variant="body1"
 											sx={{
 												fontWeight: 300,
 												fontSize: "1.1rem",
+												color: "#FFFFFF", // Set text color to white
 											}}>
 											alex_eagles@alexu.edu.eg
 										</Typography>
@@ -168,17 +177,19 @@ const Footer = () => {
 							<li>
 								<StyledNavLink
 									to="tel:+20 109 448 6922"
-									color="inherit">
+									color="inherit"
+									sx={{ color: "#FFFFFF" }}> {/* Set link color to white */}
 									<Stack
 										direction="row"
 										spacing={1}
 										alignItems="center">
-										<PhoneAndroidOutlined />
+										<PhoneAndroidOutlined sx={{ color: "#FFFFFF" }} /> {/* Icon color */}
 										<Typography
 											variant="body1"
 											sx={{
 												fontWeight: 300,
 												fontSize: "1.1rem",
+												color: "#FFFFFF", // Set text color to white
 											}}>
 											+20 109 448 6922
 										</Typography>
@@ -211,6 +222,7 @@ const Footer = () => {
 							sx={{
 								transform: "scale(0.95)",
 								transition: "all 0.5s ease",
+								color: "#FFFFFF", // Icon color
 								"&:hover": {
 									transform: "translateY(-10%) scale(0.95)",
 									color: "#305fb0",
@@ -227,6 +239,7 @@ const Footer = () => {
 							sx={{
 								transform: "scale(1.1)",
 								transition: "all 0.5s ease",
+								color: "#FFFFFF", // Icon color
 								"&:hover": {
 									transform: "translateY(-10%) scale(1.1)",
 									color: "#305fb0",
@@ -243,6 +256,7 @@ const Footer = () => {
 							sx={{
 								transform: "scale(1.1)",
 								transition: "all 0.5s ease",
+								color: "#FFFFFF", // Icon color
 								"&:hover": {
 									transform: "translateY(-10%) scale(1.1)",
 									color: "#305fb0",
@@ -258,11 +272,11 @@ const Footer = () => {
 						<Instagram
 							sx={{
 								transition: "all 0.5s ease",
-								// transform: "translateY(-8%) ", //
+								color: "#FFFFFF", // Icon color
 								"&:hover": {
 									transform: "translateY(-10%) ", //"translateY(-20%) ",
 									color: "#305fb0",
-								},
+							 },
 							}}
 						/>
 					</StyledNavLink>
@@ -275,6 +289,7 @@ const Footer = () => {
 						opacity: 0,
 						transition: "all 2s ease",
 						transitionDelay: "1.2s",
+						color: "#FFFFFF", // Set text color to white
 					}}>
 					&copy; {currentYear} Alex Eagles Aero Design. All rights
 					reserved.

@@ -1,4 +1,4 @@
-import { Typography, Stack, Container, Box } from "@mui/material";
+import { Typography, Stack, Box } from "@mui/material";
 import useAnimate from "../../../hooks/use-animate";
 
 const CompetitionCard = (props) => {
@@ -7,16 +7,16 @@ const CompetitionCard = (props) => {
 	const imageRef = useAnimate("animate", false);
 	const contentRef = useAnimate("animate", false);
 
+	// Determine layout direction and animation direction
+	const isReversed = index === 1;
+	const isMobile = window.innerWidth < 850;
+	const direction = isMobile ? "column" : isReversed ? "row-reverse" : "row";
+	const transformDirection = isReversed ? "translateX(100%)" : "translateX(-100%)";
+
 	return (
 		<Stack
 			ref={stackRef}
-			direction={
-				window.innerWidth < 850
-					? "column"
-					: index == 1
-					? "row-reverse"
-					: "row"
-			}
+			direction={direction}
 			alignItems="center"
 			sx={{
 				my: 4,
@@ -24,8 +24,7 @@ const CompetitionCard = (props) => {
 				borderBottom: "3px solid #305fb0",
 				py: 4,
 				opacity: 0,
-				transform:
-					index == 1 ? "translateX(100%)" : "translateX(-100%)",
+				transform: transformDirection,
 				transition: "all 1s ease",
 			}}>
 			<Box
@@ -33,14 +32,13 @@ const CompetitionCard = (props) => {
 				sx={{
 					height: "100%",
 					opacity: 0,
-					transform:
-						index == 1 ? "translateX(100%)" : "translateX(-100%)",
+					transform: transformDirection,
 					transition: "all 1s ease",
 					transitionDelay: "0.4s",
 				}}>
 				<img
 					src={image}
-					alt="SAE Aero Design"
+					alt={name}
 					style={{
 						width: window.innerWidth > 600 ? "350px" : "100%",
 						borderRadius: "20px",
@@ -52,18 +50,18 @@ const CompetitionCard = (props) => {
 				sx={{
 					pt: 4,
 					px: window.innerWidth > 600 ? 4 : 0,
-					// borderBottom: "2px solid #305fb0",
 					opacity: 0,
-					transform:
-						index == 1 ? "translateX(100%)" : "translateX(-100%)",
+					transform: transformDirection,
 					transition: "all 1s ease",
 					transitionDelay: "0.2s",
+					color: "#FFFFFF",
 				}}>
 				<Typography
 					variant="h5"
 					sx={{
 						textAlign: window.innerWidth > 600 ? "left" : "center",
 						mb: 2,
+						color: "#FFFFFF",
 					}}>
 					{name}
 				</Typography>

@@ -39,12 +39,13 @@ const ContactForm = () => {
 				px: window.innerWidth > 600 ? 8 : 2,
 				py: 4,
 				borderLeft:
-					window.innerWidth > 600 ? "1px solid #cccccc" : "none",
+					window.innerWidth > 600 ? "1px solid #FFFFFF" : "none", // White border
 				borderTop:
-					window.innerWidth < 600 ? "1px solid #cccccc" : "none",
+					window.innerWidth < 600 ? "1px solid #FFFFFF" : "none", // White border
 				opacity: 0,
 				transition: "all 2s ease",
 				transitionDelay: "1s",
+				color: "#FFFFFF", // Set text color to white
 			}}>
 			<form onSubmit={handleSubmit(onSubmit)}>
 				<Controller
@@ -61,6 +62,25 @@ const ContactForm = () => {
 							error={!!errors.name}
 							helperText={errors.name?.message}
 							required
+							InputProps={{
+								style: { color: "#FFFFFF" }, // Text color
+							}}
+							InputLabelProps={{
+								style: { color: "#FFFFFF" }, // Label color
+							}}
+							sx={{
+								"& .MuiOutlinedInput-root": {
+									"& fieldset": {
+										borderColor: "#FFFFFF", // White outline
+									},
+									"&:hover fieldset": {
+										borderColor: "#FFFFFF", // White outline on hover
+									},
+									"&.Mui-focused fieldset": {
+										borderColor: "#FFFFFF", // White outline when focused
+									},
+								},
+							}}
 						/>
 					)}
 				/>
@@ -79,6 +99,25 @@ const ContactForm = () => {
 							helperText={errors.email?.message}
 							required
 							type="email"
+							InputProps={{
+								style: { color: "#FFFFFF" }, // Text color
+							}}
+							InputLabelProps={{
+								style: { color: "#FFFFFF" }, // Label color
+							}}
+							sx={{
+								"& .MuiOutlinedInput-root": {
+									"& fieldset": {
+										borderColor: "#FFFFFF", // White outline
+									},
+									"&:hover fieldset": {
+										borderColor: "#FFFFFF", // White outline on hover
+									},
+									"&.Mui-focused fieldset": {
+										borderColor: "#FFFFFF", // White outline when focused
+									},
+								},
+							}}
 						/>
 					)}
 				/>
@@ -100,6 +139,23 @@ const ContactForm = () => {
 							required
 							sx={{
 								mb: 3,
+								"& .MuiOutlinedInput-root": {
+									"& fieldset": {
+										borderColor: "#FFFFFF", // White outline
+									},
+									"&:hover fieldset": {
+										borderColor: "#FFFFFF", // White outline on hover
+									},
+									"&.Mui-focused fieldset": {
+										borderColor: "#FFFFFF", // White outline when focused
+									},
+								},
+							}}
+							InputProps={{
+								style: { color: "#FFFFFF" }, // Text color
+							}}
+							InputLabelProps={{
+								style: { color: "#FFFFFF" }, // Label color
 							}}
 						/>
 					)}

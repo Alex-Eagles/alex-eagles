@@ -25,9 +25,11 @@ const HistoryTimelineItem = (props) => {
 	return (
 		<TimelineItem>
 			<TimelineOppositeContent
-				sx={{ m: "auto 0" }}
-				variant="body2"
-				color="text.secondary">
+				sx={{
+					m: "auto 0",
+					color: "#FFFFFF", // Set year text color to white
+				}}
+				variant="body2">
 				{year.year}
 			</TimelineOppositeContent>
 			<TimelineSeparator>
@@ -38,6 +40,7 @@ const HistoryTimelineItem = (props) => {
 			<TimelineContent
 				ref={itemRef}
 				sx={{
+					color: "#FFFFFF", // Set text color to white
 					opacity: 0,
 					transform: "translateY(50%)",
 					transition: "all 1s ease",

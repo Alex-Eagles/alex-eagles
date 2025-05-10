@@ -51,6 +51,7 @@ const ContactInformation = () => {
 					mb: 4,
 					opacity: 0,
 					transition: "all 2s ease",
+					color: "#FFFFFF", // Set text color to white
 				}}>
 				We are always happy to hear from you. Give us a call, send an
 				email or fill out this form.
@@ -61,18 +62,20 @@ const ContactInformation = () => {
 					opacity: 0,
 					transition: "all 2s ease",
 					transitionDelay: "0.4s",
+					color: "#FFFFFF", // Set text color to white
 				}}>
 				<li>
 					<StyledNavLink
 						to="mailto:alex_eagles@alexu.edu.eg"
 						color="inherit">
 						<Stack direction="row" spacing={1} alignItems="center">
-							<EmailOutlined />
+							<EmailOutlined sx={{ color: "#FFFFFF" }} /> {/* Icon color */}
 							<Typography
 								variant="body1"
 								sx={{
 									fontWeight: 300,
 									fontSize: "1.1rem",
+									color: "#FFFFFF", // Set text color to white
 								}}>
 								alex_eagles@alexu.edu.eg
 							</Typography>
@@ -82,12 +85,13 @@ const ContactInformation = () => {
 				<li>
 					<StyledNavLink to="tel:+20 109 448 6922" color="inherit">
 						<Stack direction="row" spacing={1} alignItems="center">
-							<PhoneAndroidOutlined />
+							<PhoneAndroidOutlined sx={{ color: "#FFFFFF" }} /> {/* Icon color */}
 							<Typography
 								variant="body1"
 								sx={{
 									fontWeight: 300,
 									fontSize: "1.1rem",
+									color: "#FFFFFF", // Set text color to white
 								}}>
 								+20 109 448 6922
 							</Typography>
@@ -118,6 +122,7 @@ const ContactInformation = () => {
 						sx={{
 							transform: "scale(0.95)",
 							transition: "all 0.5s ease",
+							color: "#FFFFFF", // Icon color
 							"&:hover": {
 								transform: "translateY(-10%) scale(0.95)",
 								color: "#305fb0",
@@ -134,6 +139,7 @@ const ContactInformation = () => {
 						sx={{
 							transform: "scale(1.1)",
 							transition: "all 0.5s ease",
+							color: "#FFFFFF", // Icon color
 							"&:hover": {
 								transform: "translateY(-10%) scale(1.1)",
 								color: "#305fb0",
@@ -150,6 +156,7 @@ const ContactInformation = () => {
 						sx={{
 							transform: "scale(1.1)",
 							transition: "all 0.5s ease",
+							color: "#FFFFFF", // Icon color
 							"&:hover": {
 								transform: "translateY(-10%) scale(1.1)",
 								color: "#305fb0",
@@ -165,9 +172,9 @@ const ContactInformation = () => {
 					<Instagram
 						sx={{
 							transition: "all 0.5s ease",
-							// transform: "translateY(-8%) ", //
+							color: "#FFFFFF", // Icon color
 							"&:hover": {
-								transform: "translateY(-10%) ", //"translateY(-20%) ",
+								transform: "translateY(-10%)",
 								color: "#305fb0",
 							},
 						}}

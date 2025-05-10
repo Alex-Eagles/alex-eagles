@@ -5,7 +5,11 @@ import SectionHeading from "../../SectionHeading/SectionHeading";
 
 const CompetitionsSection = () => {
 	return (
-		<Container maxWidth="lg">
+		<Container
+			maxWidth="lg"
+			sx={{
+				color: "#FFFFFF", // Set text color to white
+			}}>
 			<SectionHeading
 				title="The Competitions"
 				subtitle="Where we compete to showcase our innovations"

@@ -30,7 +30,7 @@ const PublicationCard = (props) => {
 				opacity: 0,
 				transform: "translatex(-50%)",
 				transition: "all 1s ease",
-				borderRadius: 0,
+				borderRadius: "16px", // Rounded edges for the card
 				borderBottom: "3px solid #305fb0",
 			}}>
 			<CardMedia
@@ -45,6 +45,7 @@ const PublicationCard = (props) => {
 					ml: window.innerWidth > 850 ? 4 : "",
 					// border: "3px solid #305fb0",
 					// borderRadius: "50px",
+					borderRadius: "16px", // Rounded edges for the image
 					opacity: 0,
 					transform: "translateX(-50%)",
 					transition: "all 1s ease",

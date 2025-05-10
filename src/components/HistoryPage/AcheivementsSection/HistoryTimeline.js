@@ -22,6 +22,7 @@ const HistoryTimeline = () => {
 		<Timeline
 			position={window.innerWidth > 1200 ? "alternate" : ""}
 			sx={{
+				color: "#FFFFFF", // Set text color to white
 				[`& .${timelineOppositeContentClasses.root}`]:
 					window.innerWidth < 1200
 						? {
