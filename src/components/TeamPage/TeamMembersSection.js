@@ -1,12 +1,12 @@
 import { Box, Container, Typography } from "@mui/material";
 import { motion, AnimatePresence } from "framer-motion";
 import TeamMemberCard from "./TeamMemberCard";
-import teamMemberData from "../../assets/data/teamMemberData";
 import SectionHeading from "../SectionHeading/SectionHeading";
 import { useEffect, useState } from "react";
 
-const TeamMembersSection = () => {
-	const [shuffledMembers, setShuffledMembers] = useState(teamMemberData);
+
+const TeamMembersSection = ({ title, subtitle, members }) => {
+	const [shuffledMembers, setShuffledMembers] = useState(members);
 	const [animatingIds, setAnimatingIds] = useState([]);
 
 	useEffect(() => {
@@ -38,10 +38,10 @@ const TeamMembersSection = () => {
 	}, [shuffledMembers]);
 
 	return (
-		<Container maxWidth="false">
+		<Container maxWidth="false" >
 			<SectionHeading
-				title="Our Team"
-				subtitle="Meet the team who make the magic happen."
+				title={title}
+				subtitle={subtitle}
 			/>
 			<Box
 				sx={{
@@ -80,8 +80,6 @@ const TeamMembersSection = () => {
 									name={member.name}
 									role={member.role}
 									image={member.image}
-									email={member.email}
-									graduationYear={member.GraduationYear}
 								/>
 							</motion.div>
 						);
