@@ -1,7 +1,7 @@
 import "./App.css";
 import { Box } from "@mui/material";
 import { Routes, Route, useLocation } from "react-router-dom";
-import { AnimatePresence } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import NavBar from "./components/NavBar/NavBar";
 import LandingPage from "./pages/LandingPage";
@@ -16,6 +16,8 @@ import ScenePage from "./pages/ScenePage";
 import ScrollToTop from "./pages/ScrollToTop";
 
 const App = () => {
+	 const location = useLocation();
+
 	const theme = createTheme({
 		palette: {
 			primary: {
@@ -69,7 +71,9 @@ const App = () => {
 		<ThemeProvider theme={theme}>
 			<Box sx={{ minWidth: "100vw !important", overflowX: "hidden" }}>
 				{/* <Background background={background} /> */}
-				<NavBar />
+				{/* only show NavBar on non‑home routes */}
+        		{location.pathname !== "/" && <NavBar />}
+
 				<AnimatePresence mode="wait">
 					<ScrollToTop />
 					<Routes
@@ -97,7 +101,7 @@ const App = () => {
 							element={<ContactPage />}
 							exact
 						/>
-						<Route path="*" element={<LandingPage />} />
+						<Route path="*" element={<ScenePage />} />
 					</Routes>
 				</AnimatePresence>
 			</Box>
