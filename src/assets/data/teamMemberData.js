@@ -25,6 +25,7 @@ import Adham from '../Members/Adham.jpeg';
 import AhmedIbrahimAnan from '../Members/Ahmed Ibrahim Anan.jpg';
 import AhmedSaeed from '../Members/Ahmed Saeed.jpg';
 import AhmedSaleh from '../Members/Ahmed Saleh.jpeg';
+import AnnTarek from '../Members/Ann Tarek.jpeg';
 import EhdaaFarahat from '../Members/Ehdaa Farahat.jpg';
 import EsraaAhmed from '../Members/Esraa Ahmed.jpeg';
 import EyadAshraf from '../Members/eyad ashraf.jpg';
@@ -54,6 +55,7 @@ const teamMemberData = [
   { name: "Ahmed Anan", role: "Hardware team lead", image: AhmedIbrahimAnan, email: "ahmed.anan301001@gmail.com", GraduationYear: "2025" }, // last edited entry
   { name: "Ahmed Saeed", role: "Team Member", image: AhmedSaeed, email: "abdelrahmanarafat84@gmail.com", GraduationYear: "2024" },
   { name: "Ahmed Saleh", role: "Team Member", image: AhmedSaleh, email: "abdelrahmanarafat84@gmail.com", GraduationYear: "2024" },
+  { name: "Ann Tarek", role: "Software Vice Lead", image: AnnTarek, email: "anntarek125@gmail.com ", GraduationYear: "2025" },
   { name: "Ehdaa Farahat", role: "Team Member", image: EhdaaFarahat, email: "abdelrahmanarafat84@gmail.com", GraduationYear: "2024" },
   { name: "Esraa Ahmed", role: "Team Member", image: EsraaAhmed, email: "abdelrahmanarafat84@gmail.com", GraduationYear: "2024" },
   { name: "Eyad Ashraf", role: "Team Member", image: EyadAshraf, email: "abdelrahmanarafat84@gmail.com", GraduationYear: "2024" },
