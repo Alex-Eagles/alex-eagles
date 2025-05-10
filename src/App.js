@@ -10,6 +10,7 @@ import HistoryPage from "./pages/HistoryPage";
 import PublicationsPage from "./pages/PublicationsPage";
 import SponsorsPage from "./pages/SponsorsPage";
 import ContactPage from "./pages/ContactPage";
+import ScenePage from "./pages/ScenePage";
 // import Background from "./components/Background/Background";
 // import background from "./assets/images/UAVs-help2.jpg";
 import ScrollToTop from "./pages/ScrollToTop";
@@ -74,7 +75,7 @@ const App = () => {
 					<Routes
 						key={useLocation().pathname}
 						location={useLocation()}>
-						<Route path="/" element={<LandingPage />} exact />
+						<Route path="/" element={<ScenePage/>} exact />
 						<Route path="/team" element={<TeamPage />} exact />
 						<Route
 							path="/history"

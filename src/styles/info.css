@@ -1,0 +1,208 @@
+
+.canopy-panel {
+    background: transparent;
+    backdrop-filter: blur(5px);
+    padding: 40px 30px;
+    min-width: 400px;
+    min-height: 200px; 
+    position: relative; /* Ensure proper positioning of child elements */
+    overflow: visible; /* Allow content to be visible */
+  }
+  
+  /* Animated borders */
+  .border-top, .border-right, .border-bottom, .border-left {
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0.3);
+  }
+  
+  .border-top, .border-bottom {
+    height: 5px;
+    width: 100%;
+    transform: scaleX(0);
+  }
+  
+  .border-left, .border-right {
+    width: 5px;
+    height: 100%;
+    transform: scaleY(0);
+  }
+  
+  .border-top {
+    top: 0;
+    left: 0;
+    transform-origin: left;
+    animation: draw-horizontal 0.3s ease-out forwards;
+    animation-delay: 0.3s;
+  }
+  
+  .border-right {
+    top: 0;
+    right: 0;
+    transform-origin: top;
+    animation: draw-vertical 0.3s ease-out forwards;
+    animation-delay: 0.2s;
+  }
+  
+  .border-bottom {
+    bottom: 0;
+    right: 0;
+    transform-origin: right;
+    animation: draw-horizontal 0.3s ease-out forwards;
+    animation-delay: 0.3s;
+  }
+  
+  .border-left {
+    bottom: 0;
+    left: 0;
+    transform-origin: bottom;
+    animation: draw-vertical 0.3s ease-out forwards;
+    animation-delay: 0.2s;
+  }
+  
+  @keyframes draw-horizontal {
+    from { transform: scaleX(0); }
+    to { transform: scaleX(1); }
+  }
+  
+  @keyframes draw-vertical {
+    from { transform: scaleY(0); }
+    to { transform: scaleY(1); }
+  }
+  
+  /* Cut border corners */
+  .corner-top-left, .corner-bottom-right {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    opacity: 0;
+  }
+  
+  .corner-top-left {
+    top: 0;
+    left: 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.3);
+    border-left: 1px solid rgba(255, 255, 255, 0.3);
+    animation: fade-in 0.5s ease-out forwards;
+    animation-delay: 6s;
+  }
+  
+  .corner-bottom-right {
+    bottom: 0;
+    right: 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    border-right: 1px solid rgba(255, 255, 255, 0.3);
+    animation: fade-in 0.5s ease-out forwards;
+    animation-delay: 6s;
+  }
+  
+  @keyframes fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  
+  
+  
+  /* Orange status box */
+  .status-box {
+    position: absolute;
+    top: -10px;
+    left: 40px;
+    background-color: #d9dcde; 
+    color: #2d2c2c;
+    padding: 8px 20px;
+    font-family: 'Audiowide', sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: slide-up 0.8s ease-out forwards;
+    animation-delay: 1s;
+  }
+  
+  @keyframes slide-up {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Content styling */
+  .content-area {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    opacity: 0;
+    animation: fade-in 1s ease-out forwards;
+    animation-delay: 7.5s;
+  }
+  
+ 
+  
+  .image-area {
+    width: 100%;
+    height: 150px;
+    background-color: rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden; /* This prevents the image from spilling outside */
+    position: relative; /* For positioning the child image */
+    animation: fade-in 1s ease-out forwards;
+    animation-delay: 0s;
+  }
+  
+  .image-area img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* This makes the image cover the entire container */
+    display: block; /* Removes any extra space below the image */
+    position: absolute; /* Position absolutely within the container */
+    top: 0;
+    left: 0;
+  }
+  .description {
+    font-size: 16px;
+    line-height: 1.6;
+    font-weight: 800;
+    color: #2d2c2c;
+    font-family: 'Montserrat', sans-serif;
+  }
+  
+  /* Restart animation button */
+  .restart-btn {
+    background-color: #d9dcde; 
+    color: #2d2c2c;
+    border: none;
+    padding: 10px 20px;
+    margin-top: 20px;
+    cursor: pointer;
+    font-weight: bold;
+  }
+  
+  .restart-btn:hover {
+    background-color: #2d2c2c; 
+    color: #d9dcde; 
+  }
+
+  .typewriter-wrapper {
+    display: inline;
+  }
+  
+  .typewriter-cursor {
+    color: #FFB347;
+    animation: blink 1s step-end infinite;
+  }
+  
+  @keyframes blink {
+    from, to { opacity: 1; }
+    50% { opacity: 0; }
+  }

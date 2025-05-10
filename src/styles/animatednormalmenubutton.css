@@ -1,0 +1,178 @@
+/* AnimatedMenuButton.css */
+.animated-menu-nav {
+  position: fixed;
+  top: 5px;
+  right: 0px;
+  left: 160vh;
+  z-index: 1000;
+  background: transparent;
+  
+  border-radius: 0.375rem;
+  overflow: hidden;
+  transition: width 0.5s ease-in-out, height 0.5s ease-in-out, border 0.5s ease-in-out;
+  width: 6rem;
+  height: 3rem;
+}
+
+.animated-menu-nav.open {
+  width: 20rem;
+  height: 100vh;
+  background-color: #d9dcde;
+}
+
+.menu-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 3rem;
+  /* background-color: #d9dcde; */
+   background-color: #d9dcde;
+  color: #2d2c2c;
+}
+
+
+.menu-toggle-button {
+ 
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.3rem;
+  border-radius: 0.25rem;
+  /* color: #2d2c2c; Default text/icon color */
+  transition: all 0.3s ease;
+  
+  
+}
+
+/* Only apply hover effect when menu is closed */
+.menu-toggle-button:not(.is-open):hover  {
+  
+  background-color: #2d2c2c; /* Inverted background */
+  color: #d9dcde; /* Inverted text color */
+  transform: scale(1.05);
+}
+
+
+
+/* Menu icon styles */
+.menu-icon {
+  width: 16px;
+  height: 16px;
+  transition: filter 0.3s ease;
+}
+
+/* This will invert the SVG colors when hovering */
+.menu-toggle-button:not(.is-open):hover .menu-icon {
+  filter: invert(100%);
+}
+
+
+.button-text {
+  font-size: 14px;
+  font-family: 'Montserrat', sans-serif;
+ 
+}
+
+
+
+
+.menu-content {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  padding: 0 1rem;
+}
+
+.animated-menu.open .menu-content {
+  opacity: 1;
+  pointer-events: auto;
+  background-color: #d9dcde;
+}
+
+
+
+.menu-item {
+  display: flex;
+  align-items: baseline;
+  transform: translateY(-1rem);
+  opacity: 0;
+  transition: transform 0.5s ease, opacity 0.5s ease;
+  list-style: none;
+  margin: 0.5rem 0;
+  padding: 0;
+}
+
+.animated-menu.open .menu-item {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.menu-item a {
+  text-decoration: none;
+  color: #2d2c2c;
+  font-size: 2rem;
+  margin-bottom: 20px;
+  font-family: 'Audiowide', sans-serif;
+}
+
+.menu-item a:hover {
+  
+  text-decoration: underline;
+}
+
+.item-index {
+  margin-right: 0.5rem;
+  color: #888;
+  font-size: 0.75rem;
+}
+
+.footer {
+  padding-top: 1rem;
+  border-top: 1px solid #444;
+}
+
+.footer-links {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  list-style: none;
+  padding: 0;
+}
+
+.footer-link {
+  font-size: 0.75rem;
+  color: #888;
+  transform: translateY(1rem);
+  opacity: 0;
+  transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+.animated-menu.open .footer-link {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.social-link {
+  display: flex;
+  justify-content: flex-end;
+  transform: translateY(1rem);
+  opacity: 0;
+  transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+.animated-menu.open .social-link {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.external-icon {
+  width: 0.75rem;
+  height: 0.75rem;
+  
+  fill: #ccc;
+}
+
+
