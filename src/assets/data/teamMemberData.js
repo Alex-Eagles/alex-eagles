@@ -1,6 +1,7 @@
 import AbdelghfourAlaa from '../Members/Abdelghfour Alaa.jpg';
 import AbdelrahmanArafat from '../Members/Abdelrahman Arafat.jpg';
 import Adham from '../Members/Adham.jpeg';
+import AhmedBaheyeldin from '../Members/Ahmed Baheyeldin.jpeg';
 import AhmedIbrahimAnan from '../Members/Ahmed Ibrahim Anan.jpg';
 import AhmedSaeed from '../Members/Ahmed Saeed.jpg';
 import AhmedSaleh from '../Members/Ahmed Saleh.jpeg';
@@ -32,9 +33,10 @@ import YoussefHozayen from '../Members/Youssef Hozayen.jpeg';
 import YoussefIbrahim from '../Members/Youssef Ibrahim.jpeg';
 
 const headsAndLeads = [
-  { name: "Bor3e", role: "wing team lead - CFD", image: AbdelghfourAlaa },
-  { name: "Abdelrahman", role: "Head of wing subteam", image: AbdelrahmanArafat },
-  { name: "Doma", role: "Head of propulsion sub-team", image: Adham },
+  { name: "Abdelghfour Alaa", role: "wing team lead - CFD", image: AbdelghfourAlaa },
+  { name: "Abdelrahman Arafat", role: "Head of wing subteam", image: AbdelrahmanArafat },
+  { name: "Adham", role: "Head of propulsion sub-team", image: Adham },
+  { name: "Ahmed Baheyeldin", role: "CEO", image: AhmedBaheyeldin },
   { name: "Ahmed Anan", role: "Hardware team lead", image: AhmedIbrahimAnan },
   { name: "Ahmed Saleh", role: "Autonomous Lead", image: AhmedSaleh },
   { name: "Ann Tarek", role: "Software Vice Lead", image: AnnTarek },
