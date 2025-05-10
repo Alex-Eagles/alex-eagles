@@ -1,0 +1,43 @@
+.desc{
+    color: azure;
+    margin: 0;
+    padding: 0;
+    font-size: 1.2rem; /* Adjust font size */
+    line-height: 1.5;  /* Adjust line spacing */
+    display: flex;
+    flex-direction: column;
+    border: 1px;
+    
+   
+}
+
+.details-content {
+    white-space: pre-line; /* Preserves line breaks in the text */
+  }
+  
+  button {
+    background-color: #495570;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    font-weight: 600;
+    cursor: pointer;
+    max-width: 200px;
+    transition: background-color 0.2s;
+    
+  }
+  
+  button:hover {
+    background-color: #1d4ed8;
+  }
+  
+  button:active {
+    background-color: #1e40af;
+  }
+
+
+  .info{
+    
+    margin-left: 20px;
+  }

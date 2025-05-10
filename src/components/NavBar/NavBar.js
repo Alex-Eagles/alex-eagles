@@ -14,9 +14,9 @@ import {
 import { Menu as MenuIcon } from "@mui/icons-material";
 import useAnimate from "../../hooks/use-animate";
 import logo from "../../assets/icons/logo.webp";
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import { styled } from "@mui/material/styles";
-
+import AnimatedNavMenuButton from "../AnimatedMenu/AnimatedNavMenuButton";
 const pages = ["History", "Publications", "Team", "Sponsors", "Contact"];
 
 const StyledNavLink = styled(NavLink)((theme) => ({
@@ -33,7 +33,7 @@ const NavBar = () => {
 	const [anchorElNav, setAnchorElNav] = React.useState(null);
 	const navBarRef = useAnimate("animate-navbar", false);
 	const contentRef = useAnimate("animate", false);
-
+	const location = useLocation();
 	const handleOpenNavMenu = (event) => {
 		setAnchorElNav(event.currentTarget);
 	};
@@ -42,11 +42,15 @@ const NavBar = () => {
 		setAnchorElNav(null);
 	};
 
+	
+  
+
 	return (
 		<AppBar
 			ref={navBarRef}
 			position="fixed"
 			sx={{
+				zIndex: (theme) => theme.zIndex.modal + 1,   // or theme.zIndex.drawer + 1
 				backgroundColor: "transparent",
 				boxShadow: "none",
 				transition: "all 0.5s ease",
@@ -87,7 +91,7 @@ const NavBar = () => {
 						}}>
 						<Box
 							sx={{
-								display: { xs: "none", md: "flex" },
+								display: { xs: "flex", md: "flex" },
 								mr: 2,
 								height: "40px",
 								width: "40px",
@@ -144,140 +148,7 @@ const NavBar = () => {
 							</Typography>
 						</Stack>
 					</NavLink>
-					<Box
-						sx={{
-							flexGrow: 1,
-							display: { xs: "flex", md: "none" },
-						}}>
-						<IconButton
-							size="large"
-							aria-label="account of current user"
-							aria-controls="menu-appbar"
-							aria-haspopup="true"
-							onClick={handleOpenNavMenu}
-							color="inherit">
-							<MenuIcon />
-						</IconButton>
-						<Menu
-							id="menu-appbar"
-							anchorEl={anchorElNav}
-							anchorOrigin={{
-								vertical: "bottom",
-								horizontal: "right",
-							}}
-							keepMounted
-							transformOrigin={{
-								vertical: "top",
-								horizontal: "right",
-							}}
-							open={Boolean(anchorElNav)}
-							onClose={handleCloseNavMenu}
-							sx={{
-								display: { xs: "block", md: "none" },
-							}}>
-							{pages.map((page) => (
-								<MenuItem
-									key={page}
-									onClick={handleCloseNavMenu}>
-									<Typography textAlign="center">
-										<StyledNavLink
-											to={`/${page.toLowerCase()}`}>
-											{page}
-										</StyledNavLink>
-									</Typography>
-								</MenuItem>
-							))}
-						</Menu>
-					</Box>
-					<NavLink
-						to="/"
-						style={{
-							display: "flex",
-							textDecoration: "none",
-							color: "inherit",
-							alignContent: "center",
-							justifyContent: "center",
-							// height: "40px",
-						}}>
-						<Box
-							sx={{
-								display: { xs: "flex", md: "none" },
-								mr: 2,
-								height: "40px",
-								aspectRatio: "1/1",
-								right: "0%",
-							}}>
-							<img
-								src={logo}
-								alt="logo"
-								style={{
-									height: "100%",
-									width: "100%",
-									objectFit: "contain",
-								}}
-							/>
-						</Box>
-						<Stack
-							direction="column"
-							sx={{
-								gap: 0,
-								borderLeft: "1px solid #000000",
-								display: { xs: "flex", md: "none" },
-								mr: 1,
-							}}>
-							<Typography
-								variant="h6"
-								noWrap
-								sx={{
-									mx: 2,
-									my: 0,
-									display: { xs: "flex", md: "none" },
-									fontWeight: 600,
-									lineHeight: 0.95,
-									// letterSpacing: ".1rem",
-									color: "inherit",
-									textDecoration: "none",
-								}}>
-								ALEX EAGLES
-							</Typography>
-							<Typography
-								variant="h6"
-								noWrap
-								sx={{
-									mx: 2,
-									my: 0,
-									display: { xs: "flex", md: "none" },
-									fontWeight: 300,
-									lineHeight: 0.95,
-									// letterSpacing: ".1rem",
-									color: "primary.main",
-									textDecoration: "none",
-								}}>
-								AERO DESIGN
-							</Typography>
-						</Stack>
-					</NavLink>
-					<Box
-						sx={{
-							flexGrow: 1,
-							display: { xs: "none", md: "flex" },
-							justifyContent: "flex-end",
-						}}>
-						{pages.map((page) => (
-							<StyledNavLink to={`/${page.toLowerCase()}`}>
-								<Button
-									key={page}
-									onClick={handleCloseNavMenu}
-									sx={{
-										my: 2,
-										color: "inherit",
-										display: "block",
-									}}>
-									{page}
-								</Button>
-							</StyledNavLink>
-						))}
-					</Box>
+					<AnimatedNavMenuButton/>
 				</Toolbar>
 			</Container>
 		</AppBar>

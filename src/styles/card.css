@@ -1,0 +1,63 @@
+.card {
+    max-width: 500px;       /* keeps lines from stretching too far */
+    text-align: left;       /* consistent with “instrument panel” style */
+    margin: 2rem auto;      /* centers the card in its container */
+    padding: 2rem;          /* generous whitespace around content */
+   
+  }
+
+  .card h1 {
+    font-family: 'Audiowide', sans-serif;
+    font-size: 2.4rem;
+    letter-spacing: 0.08em;      /* airy, technical feel */
+    line-height: 1.2;             /* tight but readable */
+    margin-bottom: 1rem;
+  }
+  .card h2 {
+    font-family: 'Audiowide', sans-serif;
+    font-size: 1.2rem;
+    letter-spacing: 0.1em;        /* more tracking for the ALL‑CAPS line */
+    line-height: 1.4;
+    margin-bottom: 1.5rem;
+  }
+  .card p {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+    line-height: 1.6;             /* comfortable for longer text */
+    letter-spacing: 0.02em;       /* slight, for clarity */
+    color: #eceff4;               /* off‑white for less glare */
+  }
+  
+  button {
+    font-family: 'Audiowide', sans-serif;
+    font-weight: 600;
+    text-transform: uppercase;
+    padding: 0.75em 1.5em;
+    border-radius: 8px;
+    letter-spacing: 0.05em;
+    background-color: #d9dcde; 
+    color: #2d2c2c;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    max-width: 300px;
+  }
+  
+  /* Hover Effect */
+  button:hover {
+    background-color: #2d2c2c; 
+    color: #d9dcde; 
+  }
+
+  /* .modal-container{
+    border: 1px solid black;
+    background-color: aqua;
+    max-width: 300px;
+
+  }
+
+  .modal-container:hover{
+    background-color: #2d2c2c; 
+    color: #d9dcde; 
+    border: 2px solid aqua;
+  } */

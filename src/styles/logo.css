@@ -1,0 +1,48 @@
+.logo-container{
+    color: azure;
+   
+    margin-top: 60px;
+    z-index: 10;
+    overflow: hidden;
+    
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    padding-left: 70px;
+    padding-right: 70px;
+    gap: 1rem;
+}
+
+.logo-container button{
+    max-width: 100px;
+    max-height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 20px;
+    
+}
+
+.menu-container {
+    display: flex;
+    align-items: center;
+    gap: 8px; /* Space between icon and button */
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    position: relative; /* Add this */
+    width: 6rem; /* Fixed width equal to collapsed menu */
+    height: 3rem; /* Fixed height equal to collapsed menu */
+  
+   
+  }
+  
+  .menu-icon {
+    width: 16px; /* Adjust size as needed */
+    height: 16px;
+  }
+
+  
