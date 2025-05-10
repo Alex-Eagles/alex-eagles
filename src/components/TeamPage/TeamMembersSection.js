@@ -4,35 +4,29 @@ import { motion, AnimatePresence } from "framer-motion";
 import TeamMemberCard from "./TeamMemberCard";
 import { teamMemberData as initialData } from "../../assets/data/teamMemberData";
 import SectionHeading from "../SectionHeading/SectionHeading";
+import logo from "../../assets/icons/logo.webp";
+import { useEffect, useState } from "react";
 
-const MotionBox = motion(Box);
+const shuffleArray = (array) => {
+	return [...array].sort(() => Math.random() - 0.5);
+};
 
 const TeamMembersSection = () => {
-	const [data, setData] = useState([...initialData]);
-	const [swappedIndices, setSwappedIndices] = useState(null); // Track swapped indices
-
+	const [shuffledMembers, setShuffledMembers] = useState(teamMemberData);
+	// Shuffle team members periodically at random intervals
 	useEffect(() => {
-		const interval = setInterval(() => {
-			// Randomly select two indices
-			const i = Math.floor(Math.random() * data.length);
-			let j = Math.floor(Math.random() * data.length);
-			while (j === i) {
-				j = Math.floor(Math.random() * data.length);
-			}
+		const shufflePeriodically = () => {
+			const delay = Math.random() * 3000 + 3000; // Between 3s and 6s
+			const timeoutId = setTimeout(() => {
+				setShuffledMembers(shuffleArray);
+				shufflePeriodically(); // Repeat
+			}, delay);
+			return () => clearTimeout(timeoutId);
+		};
 
-			// Save swapped indices to state
-			setSwappedIndices([i, j]);
-
-			// Swap elements
-			setData(prevData => {
-				const newData = [...prevData];
-				[newData[i], newData[j]] = [newData[j], newData[i]];
-				return newData;
-			});
-		}, 10000);
-
-		return () => clearInterval(interval);
-	}, [data]);
+		const cancel = shufflePeriodically();
+		return cancel;
+	}, []);
 
 	return (
 		<Container maxWidth="false">
@@ -47,43 +41,34 @@ const TeamMembersSection = () => {
 					flexDirection: "row",
 					justifyContent: window.innerWidth > 600 ? "center" : "space-between",
 				}}>
-				<AnimatePresence>
-					{data.map((member, index) => {
-						const isSwapped = swappedIndices && (swappedIndices[0] === index || swappedIndices[1] === index);
-						const initialAnimProps = isSwapped
-							? { opacity: 0, scale: 0.8 }
-							: { opacity: 1, scale: 1 };
-
-						const animateAnimProps = isSwapped
-							? { opacity: 1, scale: 1 }
-							: { opacity: 1, scale: 1 };
-
-						const exitAnimProps = isSwapped
-							? { opacity: 0, scale: 0.8 }
-							: { opacity: 1, scale: 1 };
-
-						return (
-							<motion.div
-								key={member.name + member.role + index}
-								layout
-								initial={initialAnimProps}
-								animate={animateAnimProps}
-								exit={exitAnimProps}
-								transition={{ duration: 0.5 }}
-							>
-								<TeamMemberCard
-									name={member.name}
-									role={member.role}
-									image={member.image}
-									email={member.email}
-									linkedInLink={member.linkedInLink}
-									gitHubLink={member.gitHubLink}
-								/>
-							</motion.div>
-						);
-					})}
-				</AnimatePresence>
-			</MotionBox>
+				{/* TODO: Remove after adding team member data */}
+				{shuffledMembers.length === 0 && (
+					<Typography
+						variant="h5"
+						component="span"
+						color="primary"
+						sx={{
+							textAlign: "center",
+							width: "100%",
+							my: 8,
+						}}>
+						Coming Soon!
+					</Typography>
+				)}
+				{/* TODO: Remove after adding team member data */}
+				{shuffledMembers.map((member, index) => (
+					<TeamMemberCard
+						key={index}
+						name={member.name}
+						role={member.role}
+						mainImage={member.mainImage}
+						SecondaryImage={logo}
+						email={member.email}
+						linkedInLink={member.linkedInLink}
+						gitHubLink={member.gitHubLink}
+					/>
+				))}
+			</Box>
 		</Container>
 	);
 };

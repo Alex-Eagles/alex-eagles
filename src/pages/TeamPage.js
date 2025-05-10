@@ -5,7 +5,7 @@ import HomeSection from "../components/HomeSection/HomeSection";
 import Footer from "../components/Footer/Footer";
 import Background from "../components/Background/Background";
 import TeamMembersSection from "../components/TeamPage/TeamMembersSection";
-
+import TeamSection from "../components/TeamPage/TeamSection";
 
 const TeamPage = () => {
 	return (
@@ -26,7 +26,7 @@ const TeamPage = () => {
 						justifyItems: "center",
 						alignItems: "center",
 					}}>
-					<TeamMembersSection/>
+					<TeamSection />
 				</Box>
 				<Footer />
 			</AnimatedPage>
