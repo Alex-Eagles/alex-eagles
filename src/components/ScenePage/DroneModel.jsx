@@ -9,9 +9,19 @@ import { Clone } from '@react-three/drei';
 import "../../styles/dronemodel.css"
 import { useThree } from '@react-three/fiber';
 import Info from './Info';
-
+import componentsData from '../../assets/data/componentsData';
 // Utility function
 const lerp = (start, end, t) => start * (1 - t) + end * t;
+
+// Create a mapping from 3D model object names to componentsData entries
+const componentMapping = {
+  'camera': 'SIYI A8 Mini',
+  'propeller': 'Propellers',
+  'herelink': 'GPS HERE3+',
+  'lidar': 'Lidar sf45',
+  'hub': 'P80 Brushless Motors',   // Assuming the motor/hub is what we want to map
+   
+};
 
 function DroneModel({position, onClick, setScrollEnabled, ScrollEnabled}) {
   const { state, setIsLoading, applyScrollDecay, updatePhaseTransition } = useDroneAnimation();
@@ -22,7 +32,7 @@ function DroneModel({position, onClick, setScrollEnabled, ScrollEnabled}) {
   const [selectedMesh, setSelectedMesh] = useState(null); // Track the clicked part
   
    // Define interactive components
-  const interactiveParts = ['camera', 'hub', 'propeller', 'lidar', 'herelink', 'body4'];
+  const interactiveParts = ['camera', 'hub', 'propeller', 'lidar', 'herelink'];
   // states for info panels pop ups
   const [clickedMesh, setClickedMesh] = useState(null);
   const [showInfoPanel, setShowInfoPanel] = useState(false);
@@ -34,6 +44,7 @@ function DroneModel({position, onClick, setScrollEnabled, ScrollEnabled}) {
   const propellersRef = useRef([]);
   const mixer = useRef(null);
   const navAnimationStartedRef = useRef(false);
+
 
   // Load the model
   const gltf = useLoader(GLTFLoader, CONFIG.modelPath, () => {
@@ -389,6 +400,8 @@ function DroneModel({position, onClick, setScrollEnabled, ScrollEnabled}) {
     }
   }, [ScrollEnabled]);
   
+
+
   // If the model isn't loaded yet, don't render anything
   if (!gltf) return null;
   
@@ -412,8 +425,8 @@ function DroneModel({position, onClick, setScrollEnabled, ScrollEnabled}) {
         <Html
           
           position={[
-            clickedMesh.getWorldPosition(new THREE.Vector3()).x + 0.6,
-            clickedMesh.getWorldPosition(new THREE.Vector3()).y + 0.2,
+            clickedMesh.getWorldPosition(new THREE.Vector3()).x + 0.3,
+            clickedMesh.getWorldPosition(new THREE.Vector3()).y + 0.85,
             clickedMesh.getWorldPosition(new THREE.Vector3()).z
           ]}
           center
@@ -426,22 +439,40 @@ function DroneModel({position, onClick, setScrollEnabled, ScrollEnabled}) {
             pointerEvents: "auto", // Ensure clicks work on the panel
             transform: "translateZ(0)", // Enable hardware acceleration
             perspective: "1000px", // Enable 3D transforms
-            transformStyle: "preserve-3d" // Better 3D animations
+            transformStyle: "preserve-3d", // Better 3D animations
+            transition: "transform 0.5s ease-in-out", // Smooth transition
+            
           }}
         >
           <div 
             ref={infoPanelRef}
             className="info-panel"
-            style={{
-               // Start invisible - will be animated by GSAP
-              
-            }}
+           
           >
-            <Info 
-              setScrollEnabled={setScrollEnabled} 
-              onClose={handleInfoClose}
-              name={clickedMesh.name}
-            />
+            
+           {/* Find the matching component data using the mapping */}
+            {(() => {
+              // Find which interactive part this clicked mesh corresponds to
+              const partKey = interactiveParts.find(part => 
+                clickedMesh.name.toLowerCase().includes(part.toLowerCase())
+              );
+              
+              // Use the mapping to find the component name in componentsData
+              const componentName = partKey ? componentMapping[partKey] : null;
+              
+              // Find the component data
+              const component = componentsData.find(comp => comp.name === componentName);
+              
+              return (
+                <Info 
+                  setScrollEnabled={setScrollEnabled} 
+                  onClose={handleInfoClose}
+                  name={component ? component.name : clickedMesh.name}
+                  description={component ? component.description : "No description available."}
+                  image={component ? component.image : "/Images/DroneComponents/default.jpg"}
+                />
+              );
+            })()}
           </div>
         </Html>
       )}
