@@ -1,5 +1,4 @@
 // import person1 from '../persons/person_1.png';
-import member1 from '../Members/Abdelrahman Arafat.jpg';
 import person2 from '../persons/person_2.png';
 import person3 from '../persons/person_3.png';
 import person4 from '../persons/person_4.png';
@@ -20,26 +19,62 @@ import person18 from '../persons/person_18.png';
 import person19 from '../persons/person_19.png';
 import person20 from '../persons/person_20.png';
 
+import AbdelghfourAlaa from '../Members/Abdelghfour Alaa.jpg';
+import AbdelrahmanArafat from '../Members/Abdelrahman Arafat.jpg';
+import Adham from '../Members/Adham.jpeg';
+import AhmedIbrahimAnan from '../Members/Ahmed Ibrahim Anan.jpg';
+import AhmedSaeed from '../Members/Ahmed Saeed.jpg';
+import AhmedSaleh from '../Members/Ahmed Saleh.jpeg';
+import EhdaaFarahat from '../Members/Ehdaa Farahat.jpg';
+import EsraaAhmed from '../Members/Esraa Ahmed.jpeg';
+import EyadAshraf from '../Members/eyad ashraf.jpg';
+import FarahHarfoush from '../Members/Farah Harfoush.jpeg';
+import HossamEldeen from '../Members/Hossam Eldeen.jpg';
+import IbrahimMohamed from '../Members/Ibrahim Mohamed.jpg';
+import JohnAyman from '../Members/John Ayman.jpg';
+import MaramWael from '../Members/Maram Wael.jpg';
+import MennaEzzat from '../Members/Menna Ezzat.jpg';
+import MoamenAshraf from '../Members/Momen Ashraf.png';
+import MoamenNawara from '../Members/Moamen Nawara.jpeg';
+import MohamedBrbry from '../Members/mohamed brbry.jpeg';
+import MohamedElzayat from '../Members/Mohamed Elzayat.jpeg';
+import NorhanMohammed from '../Members/Norhan Mohammed.jpg';
+import OsamaMohamed from '../Members/Osama Mohamed.jpg';
+import PeterAyoub from '../Members/Peter Ayoub.jpeg';
+import Rana from '../Members/Rana.jpg';
+import ReemEldalil from '../Members/Reem Eldalil.jpeg';
+import SaraGharib from '../Members/Sara Gharib.jpg';
+import YoussefHozayen from '../Members/Youssef Hozayen.jpeg';
+import YoussefIbrahim from '../Members/Youssef Ibrahim.jpeg';
+
 const teamMemberData = [
-  { name: "Amanda", role: "Co-Founder1", image: member1, email: "", linkedInLink: "https://www.linkedin.com/in/amanda-chen-9a9b1a1b6/", gitHubLink: "" },
-  { name: "Amanda", role: "Co-Founder2", image: person2, email: "", linkedInLink: "https://www.linkedin.com/in/amanda-chen-9a9b1a1b6/", gitHubLink: "" },
-  { name: "Amanda", role: "Co-Founder3", image: person3, email: "", linkedInLink: "https://www.linkedin.com/in/amanda-chen-9a9b1a1b6/", gitHubLink: "" },
-  { name: "Amanda", role: "Co-Founder4", image: person4, email: "", linkedInLink: "https://www.linkedin.com/in/amanda-chen-9a9b1a1b6/", gitHubLink: "" },
-  { name: "Amanda", role: "Co-Founder5", image: person5, email: "", linkedInLink: "https://www.linkedin.com/in/amanda-chen-9a9b1a1b6/", gitHubLink: "" },
-  { name: "Amanda", role: "Co-Founder6", image: person6, email: "", linkedInLink: "https://www.linkedin.com/in/amanda-chen-9a9b1a1b6/", gitHubLink: "" },
-  { name: "Amanda", role: "Co-Founder7", image: person7, email: "", linkedInLink: "https://www.linkedin.com/in/amanda-chen-9a9b1a1b6/", gitHubLink: "" },
-  { name: "Amanda", role: "Co-Founder8", image: person8, email: "", linkedInLink: "https://www.linkedin.com/in/amanda-chen-9a9b1a1b6/", gitHubLink: "" },
-  { name: "Amanda", role: "Co-Founder9", image: person9, email: "", linkedInLink: "https://www.linkedin.com/in/amanda-chen-9a9b1a1b6/", gitHubLink: "" },
-  { name: "Amanda", role: "Co-Founder10", image: person10, email: "", linkedInLink: "https://www.linkedin.com/in/amanda-chen-9a9b1a1b6/", gitHubLink: "" },
-  { name: "Amanda", role: "Co-Founder11", image: person11, email: "", linkedInLink: "https://www.linkedin.com/in/amanda-chen-9a9b1a1b6/", gitHubLink: "" },
-  { name: "Amanda", role: "Co-Founder12", image: person12, email: "", linkedInLink: "https://www.linkedin.com/in/amanda-chen-9a9b1a1b6/", gitHubLink: "" },
-  { name: "Amanda", role: "Co-Founder13", image: person13, email: "", linkedInLink: "https://www.linkedin.com/in/amanda-chen-9a9b1a1b6/", gitHubLink: "" },
-  { name: "Amanda", role: "Co-Founder14", image: person14, email: "", linkedInLink: "https://www.linkedin.com/in/amanda-chen-9a9b1a1b6/", gitHubLink: "" },
-  { name: "Amanda", role: "Co-Founder15", image: person15, email: "", linkedInLink: "https://www.linkedin.com/in/amanda-chen-9a9b1a1b6/", gitHubLink: "" },
-  { name: "Amanda", role: "Co-Founder16", image: person16, email: "", linkedInLink: "https://www.linkedin.com/in/amanda-chen-9a9b1a1b6/", gitHubLink: "" },
-  { name: "Amanda", role: "Co-Founder17", image: person17, email: "", linkedInLink: "https://www.linkedin.com/in/amanda-chen-9a9b1a1b6/", gitHubLink: "" },
-  { name: "Amanda", role: "Co-Founder18", image: person18, email: "", linkedInLink: "https://www.linkedin.com/in/amanda-chen-9a9b1a1b6/", gitHubLink: "" },
-  { name: "Amanda", role: "Co-Founder19", image: person19, email: "", linkedInLink: "https://www.linkedin.com/in/amanda-chen-9a9b1a1b6/", gitHubLink: "" },
-  { name: "Amanda", role: "Co-Founder20", image: person20, email: "", linkedInLink: "https://www.linkedin.com/in/amanda-chen-9a9b1a1b6/", gitHubLink: "" },
+  { name: "Bor3e", role: "wing team lead - CFD ", image: AbdelghfourAlaa, email: "abdelghfouralaa@gmail.com", GraduationYear: "2025" },
+  { name: "Abdelrahman", role: "Head of wing subteam", image: AbdelrahmanArafat, email: "abdelrahmanarafat84@gmail.com", GraduationYear: "2025" },
+  { name: "Doma", role: "Head of propulsion sub-team", image: Adham, email: "adhameme22@gmail.com", GraduationYear: "2025" },
+  { name: "Ahmed Anan", role: "Hardware team lead", image: AhmedIbrahimAnan, email: "ahmed.anan301001@gmail.com", GraduationYear: "2025" }, // last edited entry
+  { name: "Ahmed Saeed", role: "Team Member", image: AhmedSaeed, email: "abdelrahmanarafat84@gmail.com", GraduationYear: "2024" },
+  { name: "Ahmed Saleh", role: "Team Member", image: AhmedSaleh, email: "abdelrahmanarafat84@gmail.com", GraduationYear: "2024" },
+  { name: "Ehdaa Farahat", role: "Team Member", image: EhdaaFarahat, email: "abdelrahmanarafat84@gmail.com", GraduationYear: "2024" },
+  { name: "Esraa Ahmed", role: "Team Member", image: EsraaAhmed, email: "abdelrahmanarafat84@gmail.com", GraduationYear: "2024" },
+  { name: "Eyad Ashraf", role: "Team Member", image: EyadAshraf, email: "abdelrahmanarafat84@gmail.com", GraduationYear: "2024" },
+  { name: "Farah Harfoush", role: "Team Member", image: FarahHarfoush, email: "abdelrahmanarafat84@gmail.com", GraduationYear: "2024" },
+  { name: "Hossam Eldeen", role: "Team Member", image: HossamEldeen, email: "abdelrahmanarafat84@gmail.com", GraduationYear: "2024" },
+  { name: "Ibrahim Mohamed", role: "Team Member", image: IbrahimMohamed, email: "abdelrahmanarafat84@gmail.com", GraduationYear: "2024" },
+  { name: "John Ayman", role: "Team Member", image: JohnAyman, email: "abdelrahmanarafat84@gmail.com", GraduationYear: "2024" },
+  { name: "Maram Wael", role: "Team Member", image: MaramWael, email: "abdelrahmanarafat84@gmail.com", GraduationYear: "2024" },
+  { name: "Menna Ezzat", role: "Team Member", image: MennaEzzat, email: "abdelrahmanarafat84@gmail.com", GraduationYear: "2024" },
+  { name: "Mo'men Ashraf", role: "Team Member", image: MoamenAshraf, email: "abdelrahmanarafat84@gmail.com", GraduationYear: "2024" },
+  { name: "Moamen Nawara", role: "Team Member", image: MoamenNawara, email: "abdelrahmanarafat84@gmail.com", GraduationYear: "2024" },
+  { name: "Mohamed Brbry", role: "Team Member", image: MohamedBrbry, email: "abdelrahmanarafat84@gmail.com", GraduationYear: "2024" },
+  { name: "Mohamed Elzayat", role: "Team Member", image: MohamedElzayat, email: "abdelrahmanarafat84@gmail.com", GraduationYear: "2024" },
+  { name: "Norhan Mohammed", role: "Team Member", image: NorhanMohammed, email: "abdelrahmanarafat84@gmail.com", GraduationYear: "2024" },
+  { name: "Osama Mohamed", role: "Team Member", image: OsamaMohamed, email: "abdelrahmanarafat84@gmail.com", GraduationYear: "2024" },
+  { name: "Peter Ayoub", role: "Team Member", image: PeterAyoub, email: "abdelrahmanarafat84@gmail.com", GraduationYear: "2024" },
+  { name: "Rana", role: "Team Member", image: Rana, email: "abdelrahmanarafat84@gmail.com", GraduationYear: "2024" },
+  { name: "Reem Eldalil", role: "Team Member", image: ReemEldalil, email: "abdelrahmanarafat84@gmail.com", GraduationYear: "2024" },
+  { name: "Sara Gharib", role: "Team Member", image: SaraGharib, email: "abdelrahmanarafat84@gmail.com", GraduationYear: "2024" },
+  { name: "Youssef Hozayen", role: "Team Member", image: YoussefHozayen, email: "abdelrahmanarafat84@gmail.com", GraduationYear: "2024" },
+  { name: "Youssef Ibrahim", role: "Team Member", image: YoussefIbrahim, email: "abdelrahmanarafat84@gmail.com", GraduationYear: "2024" }
 ];
+
 export default teamMemberData;

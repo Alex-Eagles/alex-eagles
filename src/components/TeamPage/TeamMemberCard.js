@@ -9,11 +9,6 @@ const iconStyle = {
 	cursor: "pointer",
 };
 
-const iconHoverStyle = {
-	transform: "translateY(-10%)",
-	fill: "#305fb0",
-};
-
 const InlineIcon = ({ type }) => {
 	switch (type) {
 		case "email":
@@ -60,58 +55,17 @@ const InlineIcon = ({ type }) => {
 	}
 };
 
-const TeamMemberCard = ({ name, role, image, email, linkedInLink, gitHubLink }) => {
+const TeamMemberCard = ({ name, role, image, email, graduationYear}) => {
 	return (
-		/*<div
-			style={{
-				width: 180,
-				margin: 16,
-				textAlign: "center",
-				display: "flex",
-				flexDirection: "column",
-				alignItems: "center",
-				transition: "opacity 1s ease",
-			}}>
-			<img
-				src={image}
-				alt={name}
-				style={{
-					width: 150,
-					height: 150,
-					borderRadius: "50%",
-					objectFit: "cover",
-				}}
-			/>
-			<div style={{ marginTop: 12 }}>
-				<h3 style={{ margin: 4 }}>{name}</h3>
-				<p style={{ color: "#777", marginBottom: 12 }}>{role}</p>
-				<div style={{ display: "flex", justifyContent: "center", gap: 12 }}>
-					<a href={email} target="_blank" rel="noreferrer" title="Email">
-						<InlineIcon type="email" />
-					</a>
-					<a href={gitHubLink} target="_blank" rel="noreferrer" title="GitHub">
-						<InlineIcon type="github" />
-					</a>
-					<a href={linkedInLink} target="_blank" rel="noreferrer" title="LinkedIn">
-						<InlineIcon type="linkedin" />
-					</a>
-				</div>
-			</div>
-		</div>*/
 		<div class="container">
 			<img src={image} alt="Avatar" class="image" />
 			<div class="overlay">
 				<h3 style={{ margin: 4 }}>{name}</h3>
 				<p style={{ color: "#777", marginBottom: 12 }}>{role}</p>
+				<p style={{ color: "#777", marginBottom: 12 }}>Graduation Year: {graduationYear}</p>
 				<div style={{ display: "flex", justifyContent: "center", gap: 12 }}>
 					<a href={email} target="_blank" rel="noreferrer" title="Email">
 						<InlineIcon type="email" />
-					</a>
-					<a href={gitHubLink} target="_blank" rel="noreferrer" title="GitHub">
-						<InlineIcon type="github" />
-					</a>
-					<a href={linkedInLink} target="_blank" rel="noreferrer" title="LinkedIn">
-						<InlineIcon type="linkedin" />
 					</a>
 				</div></div>
 		</div>

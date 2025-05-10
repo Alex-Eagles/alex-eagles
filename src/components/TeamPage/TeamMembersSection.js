@@ -5,48 +5,36 @@ import teamMemberData from "../../assets/data/teamMemberData";
 import SectionHeading from "../SectionHeading/SectionHeading";
 import { useEffect, useState } from "react";
 
-const shuffleArray = (array) => {
-	return [...array].sort(() => Math.random() - 0.5);
-};
-
 const TeamMembersSection = () => {
 	const [shuffledMembers, setShuffledMembers] = useState(teamMemberData);
 	const [animatingIds, setAnimatingIds] = useState([]);
 
 	useEffect(() => {
-		const shuffleTwoRandom = () => {
-			const delay = Math.random() * 3000 + 6000; // Between 6s and 9s
-			const timeoutId = setTimeout(() => {
-				setShuffledMembers(prevMembers => {
-					if (prevMembers.length < 2) return prevMembers;
+		if (shuffledMembers.length < 2) return;
 
-					const newArray = [...prevMembers];
-					let i = Math.floor(Math.random() * newArray.length);
-					let j = Math.floor(Math.random() * newArray.length);
-					while (j === i) {
-						j = Math.floor(Math.random() * newArray.length);
-					}
-					// Swap elements
-					const swappedIds = [newArray[i].role, newArray[j].role];
-					setAnimatingIds(swappedIds);
+		const intervalId = setInterval(() => {
+			const i = Math.floor(Math.random() * shuffledMembers.length);
+			let j = Math.floor(Math.random() * shuffledMembers.length);
+			while (j === i) j = Math.floor(Math.random() * shuffledMembers.length);
 
+			const id1 = shuffledMembers[i].name;
+			const id2 = shuffledMembers[j].name;
+
+			// Step 1: Fade out
+			setAnimatingIds([id1, id2]);
+
+			// Step 2: Swap after fade out
+			setTimeout(() => {
+				setShuffledMembers((prev) => {
+					const newArray = [...prev];
 					[newArray[i], newArray[j]] = [newArray[j], newArray[i]];
-
-					// Clear animation flags after fade duration (500ms)
-					setTimeout(() => setAnimatingIds([]), 500);
 					return newArray;
 				});
-				shuffleTwoRandom(); // Repeat
-			}, delay);
-			return () => clearTimeout(timeoutId);
-		};
+				setAnimatingIds([]);
+			}, 500); // Match fade-out duration
+		}, Math.random() * 3000 + 6000); // Every 6-9 seconds
 
-		const cancel = shuffleTwoRandom();
-		return cancel;
-	}, []);
-
-	useEffect(() => {
-		console.log("Shuffled:", shuffledMembers.map(m => m.name));
+		return () => clearInterval(intervalId);
 	}, [shuffledMembers]);
 
 	return (
@@ -79,27 +67,23 @@ const TeamMembersSection = () => {
 				)}
 				<AnimatePresence>
 					{shuffledMembers.map((member, index) => {
-						const isAnimating = animatingIds.includes(member.role);
-						return(
-						<motion.div
-							key={member.role} // use a stable unique key
-							layout
-							initial={{ opacity: 0 }}
-							animate={{ opacity: isAnimating ? 0 : 1}}
-							exit={{ opacity: 0 }}
-							transition={{ duration: isAnimating ? 0.5 : 0 }}
-						// style={{ margin: 8 }} // optional spacing
-						>
-							<TeamMemberCard
-								key={index}
-								name={member.name}
-								role={member.role}
-								image={member.image}
-								email={member.email}
-								linkedInLink={member.linkedInLink}
-								gitHubLink={member.gitHubLink}
-							/>
-						</motion.div>
+						return (
+							<motion.div
+								key={member.name}
+								initial={{ opacity: 0 }}
+								animate={{ opacity: animatingIds.includes(member.name) ? 0 : 1 }}
+								exit={{ opacity: 0 }}
+								transition={{ duration: 0.5 }}
+							>
+								<TeamMemberCard
+									key={index}
+									name={member.name}
+									role={member.role}
+									image={member.image}
+									email={member.email}
+									graduationYear={member.GraduationYear}
+								/>
+							</motion.div>
 						);
 					})}
 				</AnimatePresence>
