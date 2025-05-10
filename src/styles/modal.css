@@ -1,26 +1,26 @@
-/* CSS for the modal.css file */
+/* Modal container styling */
 .modal-overlay {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent dark background */
+  background-color: rgba(0, 0, 0, 0.85); /* Dark background */
   display: flex;
   justify-content: center;
   align-items: center;
   z-index: 1000; /* Ensure it's above other content */
-  backdrop-filter: blur(3px); /* Optional: adds a slight blur effect to the background */
+  backdrop-filter: blur(3px); /* Adds a slight blur effect to the background */
 }
 
 .modal-content {
-  background-color: rgba(56, 60, 69, 0.9); /* Semi-transparent dark background */
-  border-radius: 8px;
+  background-color: #121212; /* Dark background */
   width: 90%;
+  max-width: 1200px;
   height: 90vh;
   overflow-y: auto;
   color: white;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
   border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
@@ -34,7 +34,10 @@
 
 .modal-header h2 {
   margin: 0;
-  font-size: 1.5rem;
+  font-size: 2rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: -0.5px;
 }
 
 .modal-close {
@@ -52,7 +55,6 @@
 
 .modal-body {
   padding: 20px;
-  line-height: 1.6;
 }
 
 /* Animation for modal appearance */
@@ -65,55 +67,145 @@
   animation: fadeIn 0.3s ease-out;
 }
 
-/* Styling for sections with hover animation */
+/* Expandable sections styling */
 .section {
+  position: relative;
   height: 80px;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  margin-bottom: 15px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  margin-bottom: 0;
   transition: height 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94), 
-              border-color 0.4s ease,
-              background-color 0.4s ease,
-              transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275),
-              box-shadow 0.5s ease;
-  background-color: rgba(70, 75, 85, 0.6);
-  border-radius: 20px;
+              background-color 0.4s ease;
+  background-color: transparent;
   overflow: hidden;
   cursor: pointer;
-  position: relative;
 }
 
-/* Video section styling */
-.video-section {
+/* Section header styling */
+.section-header {
+  height: 80px;
   display: flex;
-  justify-content: center;
   align-items: center;
+  padding: 0 15px;
+  position: relative;
+  z-index: 2;
+  font-family: 'Audiowide', sans-serif;
 }
 
-.section-video {
+.section-category {
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: -0.5px;
+  transition: transform 0.5s ease, opacity 0.3s ease;
+}
+
+/* Content area that becomes visible when expanded */
+.section-content {
+  display: flex;
+  height: calc(100% - 80px);
+  opacity: 0;
+  transition: opacity 0.3s 0.1s ease;
+  padding: 0 15px 15px;
+}
+
+.content-text {
+  flex: 1;
+  padding-right: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.section-title {
+  font-size: 1.5rem;
+  margin: 0 0 10px;
+  font-weight: 500;
+}
+
+.section-caption {
+  font-size: 1rem;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.6;
+}
+
+.content-media {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.section-video,
+.section-image {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  opacity: 0.85;
-  transition: opacity 0.4s ease;
 }
 
-.section:hover {
-  height: 400px; /* Expanded height on hover */
-  border-color: rgba(255, 255, 255, 0.5);
-  background-color: rgba(80, 85, 95, 0.8);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-  transform: translateY(-5px);
-  
+/* Expanded state */
+.section.expanded {
+  height: 350px;
+  background-color: rgba(40, 40, 40, 0.5);
 }
 
-/* Enhance video section on hover */
-.video-section:hover .section-video {
+.section.expanded .section-header {
+  height: 60px;
+}
+
+.section.expanded .section-category {
+  transform: translateY(-5px) scale(0.9);
+  opacity: 0.9;
+}
+
+.section.expanded .section-content {
   opacity: 1;
 }
 
-.section img {
-  width: 100%;       /* Make the image fill the width of the parent */
-  height: 100%;      /* Make the image fill the height of the parent */
-  object-fit: cover; /* Ensure the image covers the entire container */
-  display: block;    /* Remove any inline spacing issues */
+/* Hover state for non-expanded sections */
+.section:not(.expanded):hover {
+  background-color: rgba(40, 40, 40, 0.3);
+}
+
+.section:not(.expanded):hover .section-category {
+  transform: translateX(10px);
+}
+
+/* Yellow highlight section - add class 'highlight' to any section you want in yellow */
+.section.highlight {
+  background-color: #f0e100;
+  color: #000;
+}
+
+.section.highlight .section-caption {
+  color: rgba(0, 0, 0, 0.7);
+}
+
+/* Media queries for responsive design */
+@media (max-width: 768px) {
+  .section-content {
+    flex-direction: column;
+  }
+  
+  .content-text {
+    width: 100%;
+    padding-right: 0;
+    padding-bottom: 15px;
+  }
+  
+  .content-media {
+    width: 100%;
+    height: 180px;
+  }
+  
+  .section.expanded {
+    height: 450px;
+  }
+  
+  .section-category {
+    font-size: 1.8rem;
+    
+  }
 }
