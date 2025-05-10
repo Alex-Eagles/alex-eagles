@@ -1,4 +1,5 @@
-import person1 from '../persons/person_1.png';
+// import person1 from '../persons/person_1.png';
+import member1 from '../Members/Abdelrahman Arafat.jpg';
 import person2 from '../persons/person_2.png';
 import person3 from '../persons/person_3.png';
 import person4 from '../persons/person_4.png';
@@ -19,8 +20,8 @@ import person18 from '../persons/person_18.png';
 import person19 from '../persons/person_19.png';
 import person20 from '../persons/person_20.png';
 
-export const teamMemberData = [
-  { name: "Amanda", role: "Co-Founder1", image: person1, email: "", linkedInLink: "https://www.linkedin.com/in/amanda-chen-9a9b1a1b6/", gitHubLink: "" },
+const teamMemberData = [
+  { name: "Amanda", role: "Co-Founder1", image: member1, email: "", linkedInLink: "https://www.linkedin.com/in/amanda-chen-9a9b1a1b6/", gitHubLink: "" },
   { name: "Amanda", role: "Co-Founder2", image: person2, email: "", linkedInLink: "https://www.linkedin.com/in/amanda-chen-9a9b1a1b6/", gitHubLink: "" },
   { name: "Amanda", role: "Co-Founder3", image: person3, email: "", linkedInLink: "https://www.linkedin.com/in/amanda-chen-9a9b1a1b6/", gitHubLink: "" },
   { name: "Amanda", role: "Co-Founder4", image: person4, email: "", linkedInLink: "https://www.linkedin.com/in/amanda-chen-9a9b1a1b6/", gitHubLink: "" },
@@ -41,3 +42,4 @@ export const teamMemberData = [
   { name: "Amanda", role: "Co-Founder19", image: person19, email: "", linkedInLink: "https://www.linkedin.com/in/amanda-chen-9a9b1a1b6/", gitHubLink: "" },
   { name: "Amanda", role: "Co-Founder20", image: person20, email: "", linkedInLink: "https://www.linkedin.com/in/amanda-chen-9a9b1a1b6/", gitHubLink: "" },
 ];
+export default teamMemberData;

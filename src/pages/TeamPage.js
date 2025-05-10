@@ -26,7 +26,7 @@ const TeamPage = () => {
 						justifyItems: "center",
 						alignItems: "center",
 					}}>
-					<TeamSection />
+					<TeamMembersSection />
 				</Box>
 				<Footer />
 			</AnimatedPage>
