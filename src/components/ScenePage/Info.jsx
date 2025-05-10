@@ -1,7 +1,7 @@
 import React from 'react';
 import "../../styles/info.css";
 import Typewriter from "typewriter-effect";
-function Info({ setScrollEnabled, onClose, name }) {
+function Info({ setScrollEnabled, onClose, name, description, image }) {
      
     // Function to handle the back button click
     const handleBackClick = () => {
@@ -28,13 +28,13 @@ function Info({ setScrollEnabled, onClose, name }) {
       {/* Content area */}
       <div className="image-area">
         <img 
-          src={ "/Images/DroneComponents/camera.jpg"} 
+          src={ image  } 
           alt={"System Diagram"} 
         />
       </div>
       
       <p className="description">
-        { "We use the camera to capture images of the environment. The camera is mounted on the drone and is used to take pictures and videos during the flight." }
+        { description }
       </p>
       
       <button className="restart-btn" onClick={handleBackClick}>⟵ Back</button>
