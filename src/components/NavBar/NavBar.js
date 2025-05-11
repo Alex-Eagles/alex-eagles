@@ -17,6 +17,9 @@ import logo from "../../assets/icons/logo.webp";
 import { NavLink, useLocation } from "react-router-dom";
 import { styled } from "@mui/material/styles";
 import AnimatedNavMenuButton from "../AnimatedMenu/AnimatedNavMenuButton";
+import SearchBar from "../SearchBar/SearchBar";
+import BinarySearchTree from "../../utils/BinarySearchTree";
+
 const pages = ["History", "Publications", "Team", "Sponsors", "Contact"];
 
 const StyledNavLink = styled(NavLink)((theme) => ({
@@ -25,11 +28,10 @@ const StyledNavLink = styled(NavLink)((theme) => ({
 	textDecoration: "none",
 	"&:hover": {
 		color: "#305fb0",
-		// textDecoration: "underline",
 	},
 }));
 
-const NavBar = () => {
+const NavBar = ({ bst, onSearch }) => {
 	const [anchorElNav, setAnchorElNav] = React.useState(null);
 	const navBarRef = useAnimate("animate-navbar", false);
 	const contentRef = useAnimate("animate", false);
@@ -42,24 +44,19 @@ const NavBar = () => {
 		setAnchorElNav(null);
 	};
 
-	
-  
-
 	return (
 		<AppBar
 			ref={navBarRef}
 			position="fixed"
 			sx={{
-				zIndex: (theme) => theme.zIndex.modal + 1,   // or theme.zIndex.drawer + 1
+				zIndex: (theme) => theme.zIndex.modal + 1,
 				backgroundColor: "transparent",
 				boxShadow: "none",
 				transition: "all 0.5s ease",
 				color: "secondary.main",
 				"&::before": {
 					content: "''",
-					// backgroundColor: "#305fb0",
 					backgroundColor: "white",
-
 					transition: "all 0.4s ease",
 					transitionDelay: "1.25s",
 					zIndex: -1,
@@ -114,7 +111,6 @@ const NavBar = () => {
 								gap: 0,
 								borderLeft: "1px solid #000000",
 								display: { xs: "none", md: "flex" },
-								// my: 2,
 							}}>
 							<Typography
 								variant="h6"
@@ -123,9 +119,8 @@ const NavBar = () => {
 									mx: 2,
 									my: 0,
 									display: { xs: "none", md: "flex" },
-									fontWeight: 600, //500,
+									fontWeight: 600,
 									lineHeight: 0.95,
-									// letterSpacing: ".1rem",
 									color: "inherit",
 									textDecoration: "none",
 								}}>
@@ -138,9 +133,8 @@ const NavBar = () => {
 									mx: 2,
 									my: 0,
 									display: { xs: "none", md: "flex" },
-									fontWeight: 300, //100,
+									fontWeight: 300,
 									lineHeight: 0.95,
-									// letterSpacing: ".1rem",
 									color: "primary.main",
 									textDecoration: "none",
 								}}>
@@ -148,7 +142,8 @@ const NavBar = () => {
 							</Typography>
 						</Stack>
 					</NavLink>
-					<AnimatedNavMenuButton/>
+					<SearchBar bst={bst} onSearch={onSearch} />
+					<AnimatedNavMenuButton />
 				</Toolbar>
 			</Container>
 		</AppBar>
