@@ -6,7 +6,7 @@
     line-height: 1.5;  /* Adjust line spacing */
     display: flex;
     flex-direction: column;
-    border: 1px;
+    
     
    
 }
@@ -15,29 +15,29 @@
     white-space: pre-line; /* Preserves line breaks in the text */
   }
   
-  button {
-    background-color: #495570;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 4px;
-    font-weight: 600;
-    cursor: pointer;
-    max-width: 200px;
-    transition: background-color 0.2s;
-    
-  }
   
-  button:hover {
-    background-color: #1d4ed8;
-  }
-  
-  button:active {
-    background-color: #1e40af;
-  }
 
 
   .info{
     
     margin-left: 20px;
+  }
+
+
+  @media screen and (max-width: 768px) {
+    .desc{
+        font-size: 1rem; /* Adjust font size for smaller screens */
+        line-height: 1.4;  /* Adjust line spacing */
+       
+    }
+    button {
+        padding: 8px 16px; /* Adjust padding for smaller screens */
+        font-size: 0.9rem; /* Adjust font size for smaller screens */
+    }
+
+    .info{
+        margin-left: 0px;
+        padding: 0px;
+    } 
+    
   }

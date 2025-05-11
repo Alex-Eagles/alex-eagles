@@ -13,6 +13,19 @@
   width: 6rem;
   height: 3rem;
 }
+@media screen and (max-width: 768px) {
+  .animated-menu {
+    width: 3rem; /* Adjust width for smaller screens */
+    height: 2rem; /* Adjust height for smaller screens */
+    top: 30px;
+    right: 30px;
+    display: flex;
+    flex-direction: column;
+   align-content: center;
+   z-index: 1000000;
+  }
+  
+}
 
 .animated-menu.open {
   width: 24rem;
@@ -192,6 +205,7 @@
   .menu-icon {
     width: 14px;
     height: 14px;
+    margin-bottom: 15px;
   }
    .button-text {
     display: none;

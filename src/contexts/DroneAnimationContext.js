@@ -3,6 +3,8 @@ import React, { createContext, useContext, useState, useEffect, useRef } from 'r
 export const CONFIG = {
   modelPath: '/drone_model/Itay6.gltf',
   fixedwingmodelPath: '/drone_model/AE_Fixed2.gltf',
+  mobileDronePath: '/drone_model/ItayMobileNoComponents2.gltf',
+  mobileFixedWingPath: '/drone_model/fixedMobile.gltf',
   takeoffDuration: 2.5, // seconds
   hoverHeight: 2,
   transitionDuration: 0.8,

@@ -8,12 +8,14 @@ import Logo from '../components/ScenePage/Logo';
 import Desc from '../components/ScenePage/Desc';
 import "../styles/scenepage.css";
 import LoadingScreen from '../components/ScenePage/LoadingScreen';
-
+import ScrollIndicator from '../components/ScenePage/ScrollIndicator';
 
 function ScenePage() {
   const [page, setPage] = useState(0);
   const [scrollEnabled, setScrollEnabled] = useState(true);
 
+  
+  
   return (
     
     <div id="container">
@@ -35,7 +37,7 @@ function ScenePage() {
               zIndex: 2,
             }}
             camera={{ fov: 75, near: 0.1, far: 2000, position: [4, 3, 8] }}
-            gl={{ antialias: true, pixelRatio: Math.min(window.devicePixelRatio, 1.5) }}
+            gl={{ antialias: true, pixelRatio: Math.min(window.devicePixelRatio, 0.5), powerPreference: "high-performance",  }}
           >
             <AdaptiveDpr pixelated />
             <ScrollControls pages={2} damping={2} html={false} enabled={scrollEnabled}>
@@ -49,6 +51,8 @@ function ScenePage() {
             </ScrollControls>
           </Canvas>
         </DroneAnimationProvider>
+         {/* Add the scroll indicator */}
+        <ScrollIndicator scrollEnabled={scrollEnabled} />
       </div>
     </div>
     
