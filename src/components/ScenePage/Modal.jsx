@@ -23,11 +23,17 @@ function Modal({ isOpen, onClose, title, componentsModal }) {
   else if (title === "Itay" && componentsModal) {
     mediaItems = componentsData;
   }
-  else if (title === "Fixed Wing" && !componentsModal) {
+  else if (title === "Taco" && !componentsModal) {
     mediaItems = fixedMediaItems;
   }
-  else if (title === "Fixed Wing" && componentsModal) {
+  else if (title === "Taco" && componentsModal) {
     mediaItems = fixedcomponentsData;
+  }
+  else if (title === "Test Drone" && !componentsModal) {
+    mediaItems = droneMediaItems;
+  }
+  else if (title === "Test Drone" && componentsModal) {
+    mediaItems = componentsData;
   }
 
   // Close modal when Escape key is pressed

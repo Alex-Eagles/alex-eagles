@@ -5,6 +5,7 @@ import { useFrame, useThree } from '@react-three/fiber';
 import { OrbitControls, Grid, useScroll } from '@react-three/drei';
 import DroneModel from './DroneModel';
 import FixedWing from './FixedWing';
+import TestDrone from './TestDrone';
 import { PerspectiveCamera } from '@react-three/drei';
 
 import Ground from './Ground';
@@ -15,6 +16,7 @@ function Scene({ setPage, setScrollEnabled, scrollEnabled }) {
   const mainLightRef = useRef();
   const ambientLightRef = useRef();
   const fixedWingSpotlightRef = useRef();
+  const testDroneSpotlightRef = useRef(); 
   const [introComplete, setIntroComplete] = useState(false);
   const [isTransitioning, setIsTransitioning] = useState(false);
   const { camera, size } = useThree();
@@ -36,10 +38,16 @@ function Scene({ setPage, setScrollEnabled, scrollEnabled }) {
   const introCamStartTarget = new Vector3(0, (-1.05 + yOffset) * combinedScale, 0);
   const introCamEndTarget = new Vector3(0, (-1.05 + yOffset) * combinedScale, 2.5 * combinedScale);
   
+  // camera for the the first drone (Itay)
   const camPos1 = new Vector3(2 * combinedScale, (3 + yOffset) * combinedScale, 8 * combinedScale);
   const camTarget1 = new Vector3(0, (-1.05 + yOffset) * combinedScale, 2.5 * combinedScale);
+  // camera for the second drone (fixed wing)
   const camPos2 = new Vector3(4 * combinedScale, (2 + yOffset) * combinedScale, -21 * combinedScale);
   const camTarget2 = new Vector3(5 * combinedScale, (-1.05 + yOffset) * combinedScale, -30 * combinedScale);
+
+  // camera for the third drone (fixed wing)
+  const camPos3 = new Vector3(6 * combinedScale, (3 + yOffset) * combinedScale, -51 * combinedScale);
+  const camTarget3 = new Vector3(5 * combinedScale, (-4.05 + yOffset) * combinedScale, -61 * combinedScale);
   
   useEffect(() => {
     camera.position.copy(introCamStartPos);
@@ -72,24 +80,75 @@ function Scene({ setPage, setScrollEnabled, scrollEnabled }) {
         fixedWingSpotlightRef.current.target.position.set(4 * combinedScale, -6 * combinedScale, -31 * combinedScale);
         fixedWingSpotlightRef.current.target.updateMatrixWorld();
       }
+      // Initialize TestDrone spotlight
+      if (testDroneSpotlightRef.current) {
+        testDroneSpotlightRef.current.intensity = t * 0.5; // Start with dim light
+        testDroneSpotlightRef.current.target.position.set(5 * combinedScale, -6 * combinedScale, -60 * combinedScale);
+        testDroneSpotlightRef.current.target.updateMatrixWorld();
+      }
     } else if (scrollEnabled) {
       const t = scroll.offset;
-      const newPage = Math.floor(t * 2);
+      const newPage = Math.floor(t * 3);
       setPage(newPage);
 
-      camera.position.lerpVectors(camPos1, camPos2, t);
-      const lookAt = camTarget1.clone().lerp(camTarget2, t);
-      camera.lookAt(lookAt);
+      // camera.position.lerpVectors(camPos1, camPos2, t);
+      // const lookAt = camTarget1.clone().lerp(camTarget2, t);
+      // camera.lookAt(lookAt);
 
-      if (fixedWingSpotlightRef.current) {
-        const currentIntensity = fixedWingSpotlightRef.current.intensity;
-        const targetIntensity = 1 + t * 6;
-        fixedWingSpotlightRef.current.intensity = currentIntensity + (targetIntensity - currentIntensity) * 0.1;
+      // if (fixedWingSpotlightRef.current) {
+      //   const currentIntensity = fixedWingSpotlightRef.current.intensity;
+      //   const targetIntensity = 1 + t * 6;
+      //   fixedWingSpotlightRef.current.intensity = currentIntensity + (targetIntensity - currentIntensity) * 0.1;
 
-        const currentAngle = fixedWingSpotlightRef.current.angle;
-        const targetAngle = 0.4 + t * 0.1;
-        fixedWingSpotlightRef.current.angle = currentAngle + (targetAngle - currentAngle) * 0.1;
+      //   const currentAngle = fixedWingSpotlightRef.current.angle;
+      //   const targetAngle = 0.4 + t * 0.1;
+      //   fixedWingSpotlightRef.current.angle = currentAngle + (targetAngle - currentAngle) * 0.1;
+      // }
+        // Handle camera positions for three models
+      if (t < 0.5) {
+        // First half of scrolling: DroneModel to FixedWing
+        const segmentT = t * 2; // Normalize 0-0.5 to 0-1
+        camera.position.lerpVectors(camPos1, camPos2, segmentT);
+        const lookAt = camTarget1.clone().lerp(camTarget2, segmentT);
+        camera.lookAt(lookAt);
+
+        // Handle FixedWing spotlight intensity
+        if (fixedWingSpotlightRef.current) {
+          const currentIntensity = fixedWingSpotlightRef.current.intensity;
+          const targetIntensity = 1 + segmentT * 6;
+          fixedWingSpotlightRef.current.intensity = currentIntensity + (targetIntensity - currentIntensity) * 0.1;
+
+          const currentAngle = fixedWingSpotlightRef.current.angle;
+          const targetAngle = 0.4 + segmentT * 0.1;
+          fixedWingSpotlightRef.current.angle = currentAngle + (targetAngle - currentAngle) * 0.1;
+        }
+        
+        // Keep TestDrone spotlight dim during first half
+        if (testDroneSpotlightRef.current) {
+          const currentIntensity = testDroneSpotlightRef.current.intensity;
+          testDroneSpotlightRef.current.intensity = currentIntensity + (0.5 - currentIntensity) * 0.1;
+        }
+      } else {
+        // Second half of scrolling: FixedWing to TestDrone
+        const segmentT = (t - 0.5) * 2; // Normalize 0.5-1 to 0-1
+        camera.position.lerpVectors(camPos2, camPos3, segmentT);
+        const lookAt = camTarget2.clone().lerp(camTarget3, segmentT);
+        camera.lookAt(lookAt);
+
+        // Gradually increase TestDrone spotlight intensity as we approach
+        if (testDroneSpotlightRef.current) {
+          const currentIntensity = testDroneSpotlightRef.current.intensity;
+          const targetIntensity = 0.5 + segmentT * 6; // Increase as we approach
+          testDroneSpotlightRef.current.intensity = currentIntensity + (targetIntensity - currentIntensity) * 0.1;
+          
+          const currentAngle = testDroneSpotlightRef.current.angle;
+          const targetAngle = 0.4 + segmentT * 0.2;
+          testDroneSpotlightRef.current.angle = currentAngle + (targetAngle - currentAngle) * 0.1;
+        }
       }
+
+      
+
     }
   });
 
@@ -177,6 +236,20 @@ function Scene({ setPage, setScrollEnabled, scrollEnabled }) {
         target-position={[1 * combinedScale, -6 * combinedScale, -31 * combinedScale]}
       />
 
+         {/* Add TestDrone spotlight */}
+      <spotLight
+        castShadow={!isMobile}
+        ref={testDroneSpotlightRef}
+        position={[5 * combinedScale, 19 * combinedScale, -55 * combinedScale]}
+        intensity={isMobile ? 0.2 : 0.5} // Start dim
+        angle={0.4}
+        penumbra={isMobile ? 0.3 : 0.4}
+        distance={100 * combinedScale}
+        color={0xffffff}
+        target-position={[5 * combinedScale, -6 * combinedScale, -60 * combinedScale]}
+      />
+
+
       <DroneModel
         position={isMobile ? [0, -1 * combinedScale, 1.5 * combinedScale] : [0, -1 * combinedScale, 2.5 * combinedScale]}
         onClick={(targetPosition, lookAtPosition) => handleCameraAnimation(targetPosition, lookAtPosition)}
@@ -199,6 +272,23 @@ function Scene({ setPage, setScrollEnabled, scrollEnabled }) {
           [5 * combinedScale, 5 * combinedScale, 5 * combinedScale]
         }
         isMobile={isMobile}
+      />
+
+        {/* Add TestDrone component */}
+      <TestDrone
+       position={isMobile ? [9, 0.2 * combinedScale, -55 * combinedScale] : [5.5*combinedScale, 0.2 * combinedScale, -56 * combinedScale]}
+        // position={isMobile ? [5 * combinedScale, -5.5 * combinedScale, -59 * combinedScale] : [5 * combinedScale, -6 * combinedScale, -60 * combinedScale]}
+        rotation={[0, 250 * (Math.PI / 180), 0]}
+        scale={isMobile ?
+          [6 * combinedScale, 6 * combinedScale, 6 * combinedScale] :
+          [8 * combinedScale, 8 * combinedScale, 9 * combinedScale]
+        }
+        isMobile={isMobile}
+        onClick={(targetPosition, lookAtPosition) => handleCameraAnimation(targetPosition, lookAtPosition)}
+         onReturnToMain={handleReturnToMain}
+  setScrollEnabled={setScrollEnabled}
+  scrollEnabled={scrollEnabled}
+  isTransitioning={isTransitioning}
       />
 
       <Ground position={[0, -1 * combinedScale, 0]} rotation={[-Math.PI / 2, 0, 0]} />
