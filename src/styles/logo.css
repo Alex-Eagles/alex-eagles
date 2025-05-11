@@ -1,8 +1,9 @@
 .logo-container{
     color: azure;
     margin-top: 60px;
-    z-index: 10;
-    overflow: hidden;
+    position: relative;
+    z-index: 1000;
+    
     width: 100%;
     display: flex;
     justify-content: space-between;

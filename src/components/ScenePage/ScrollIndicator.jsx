@@ -20,18 +20,7 @@ const ScrollIndicator = ({ scrollEnabled }) => {
   }, []);
 
   // Hide indicator when user starts scrolling
-  useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 50) {
-        setVisible(false);
-      } else {
-        setVisible(true);
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+ 
 
  // Don't show if scrolling is disabled or on mobile devices
   if (!scrollEnabled || isMobile) return null;
@@ -40,7 +29,7 @@ const ScrollIndicator = ({ scrollEnabled }) => {
       <div className="chevron"></div>
       <div className="chevron"></div>
       <div className="chevron"></div>
-      <span>{isMobile ? '' : 'Scroll down or explore the vehicle components'}</span>
+      <span>{isMobile ? '' : 'Scroll down or click on the vehicle components to explore'}</span>
     </div>
   );
 };

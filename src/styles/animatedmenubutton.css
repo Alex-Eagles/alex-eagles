@@ -1,15 +1,15 @@
 /* AnimatedMenuButton.css */
 .animated-menu {
-  position: fixed;
+  position: fixed !important;
   top: 70px;
   right: 70px;
   z-index: 1000;
   background-color: #d9dcde;
   color: #fff;
   border-radius: 0.375rem;
-  overflow: hidden;
+  overflow: visible;
  
-  transition: width 0.5s ease-in-out, height 0.5s ease-in-out, border 0.5s ease-in-out;
+  transition: width 0.5s ease-in-out, height 0.5s ease-in-out;
   width: 6rem;
   height: 3rem;
 }
@@ -22,7 +22,7 @@
     display: flex;
     flex-direction: column;
    align-content: center;
-   z-index: 1000000;
+   
   }
   
 }
@@ -30,6 +30,8 @@
 .animated-menu.open {
   width: 24rem;
   height: 36rem;
+  z-index: 10001;
+
 }
 
 .menu-header {
@@ -192,6 +194,7 @@
   .animated-menu.open {
     width: 50vw;
     height: 50vh;
+    
   }
 
   .menu-item a {
@@ -217,6 +220,11 @@
 }
 
 @media (max-width: 480px) {
+   .animated-menu.open {
+    width: 50vw;
+    height: 50vh;
+    
+  }
 
   .menu-item a {
     font-size: 1.2rem;

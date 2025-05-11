@@ -62,8 +62,8 @@ export default function FixedWing({ position, rotation, scale,isMobile }) {
       scale={scale || [1, 1, 1]}
       castShadow
       receiveShadow
-      onPointerOver={onPointerOver}
-      onPointerOut={onPointerOut}
+      // onPointerOver={onPointerOver}
+      // onPointerOut={onPointerOut}
     />
   );
 }

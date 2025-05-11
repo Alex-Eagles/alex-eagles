@@ -3,6 +3,8 @@ import "../../styles/modal.css";
 import {mediaItems as droneMediaItems} from "../../assets/data/droneMedia"; // Adjust the import path as necessary
 import { mediaItems as fixedMediaItems } from "../../assets/data/fixedwingMedia"; // Adjust the import path as necessary
 import componentsData  from "../../assets/data/componentsData"; // Adjust the import path as necessary
+import fixedcomponentsData from "../../assets/data/fixedwingComponentsData";
+
 function Modal({ isOpen, onClose, title, componentsModal }) {
   const [expandedId, setExpandedId,type] = useState(null);
   const sectionRefs = useRef({});
@@ -25,7 +27,7 @@ function Modal({ isOpen, onClose, title, componentsModal }) {
     mediaItems = fixedMediaItems;
   }
   else if (title === "Fixed Wing" && componentsModal) {
-    mediaItems = componentsData;
+    mediaItems = fixedcomponentsData;
   }
 
   // Close modal when Escape key is pressed

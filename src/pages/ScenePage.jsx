@@ -19,8 +19,9 @@ function ScenePage() {
   return (
     
     <div id="container">
-      <Logo />
+     
       
+      <Logo />
       <div className="info">
         <Desc page={page} />
       </div>
@@ -40,7 +41,7 @@ function ScenePage() {
             gl={{ antialias: true, pixelRatio: Math.min(window.devicePixelRatio, 0.5), powerPreference: "high-performance",  }}
           >
             <AdaptiveDpr pixelated />
-            <ScrollControls pages={2} damping={2} html={false} enabled={scrollEnabled}>
+            <ScrollControls pages={3} damping={2} html={false} enabled={scrollEnabled}>
               <Suspense fallback={<LoadingScreen />}>
                 <Scene
                   setPage={setPage}
@@ -54,6 +55,8 @@ function ScenePage() {
          {/* Add the scroll indicator */}
         <ScrollIndicator scrollEnabled={scrollEnabled} />
       </div>
+       
+
     </div>
     
   );

@@ -192,10 +192,10 @@ function Scene({ setPage, setScrollEnabled, scrollEnabled }) {
       />
 
       <FixedWing
-        position={isMobile ? [3 * combinedScale, -5.8 * combinedScale, -26 * combinedScale] : [4 * combinedScale, -6 * combinedScale, -28 * combinedScale]}
+        position={isMobile ? [5 * combinedScale, -5.5 * combinedScale, -29 * combinedScale] : [4 * combinedScale, -6 * combinedScale, -28 * combinedScale]}
         rotation={[0, 210 * (Math.PI / 180), 0]}
         scale={isMobile ?
-          [5* combinedScale , 5 * combinedScale , 5 * combinedScale] :
+          [4.5* combinedScale , 4.5 * combinedScale , 4.2* combinedScale] :
           [5 * combinedScale, 5 * combinedScale, 5 * combinedScale]
         }
         isMobile={isMobile}

@@ -1,6 +1,7 @@
 import flyingVideo from "../videos/fixed-wing-videos/FixedWingFlying.mp4"
 import fixedOnLand from "../videos/fixed-wing-videos/fixedWingOnLand.mp4"
-import image1 from "../images/suas.png"
+import section2Image from "../images/fixedwingImages/section2.jpg"
+import section3Image from "../images/fixedwingImages/section3.jpg"
 // src/data/media.js
 export const mediaItems = [
   {
@@ -14,8 +15,8 @@ export const mediaItems = [
   {
     id: 2,
     category: "Design Process",
-    type: "video",
-    src: flyingVideo,
+    type: "image",
+    src: section2Image,
     title: "",
     caption: "The mechanical design process is based on the iterative methodology described in Aircraft Design: A Systems Engineer Approach by Mohamed H. Sydray.  A constraint analysis is done to find the initial sizing of the aircraft followed by iterations of design and optimization of the wing, tail and propulsion system to achieve the required flight performance with the highest efficiency."
     
@@ -23,8 +24,8 @@ export const mediaItems = [
     {
     id: 3,
     category: "Simulation",
-    type: "video",
-    src: flyingVideo,
+    type: "image",
+    src: section3Image,
     title: "",
     caption: "In Taco’s final stages of design and optimization the aero dynamic forces, stability and performance are verified in flow simulation tool Flow5 and finally CFD simulation tool Simscale."
     
