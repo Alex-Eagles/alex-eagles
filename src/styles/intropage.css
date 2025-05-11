@@ -1,0 +1,74 @@
+/* src/styles/intropage.css */
+.intro-container {
+  width: 100vw;
+  height: 100vh;
+  background-color: #000;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.logo-container {
+  margin-bottom: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo {
+  font-size: 120px;
+  font-weight: bold;
+  color: #305fb0; /* Using the primary color from your theme */
+}
+
+.words-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 15px;
+}
+
+.word {
+  font-family: "Montserrat", sans-serif;
+  font-size: 32px;
+  font-weight: 600;
+  letter-spacing: 8px;
+  color: white;
+}
+
+.design {
+  color: #ffffff;
+}
+
+.build {
+  color: #ffffff;
+}
+
+.innovate {
+  color: #ffffff;
+}
+
+.black-transition {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  z-index: 10;
+}
+
+/* Add some responsive styles */
+@media (max-width: 768px) {
+  .logo {
+    font-size: 80px;
+  }
+  
+  .word {
+    font-size: 24px;
+    letter-spacing: 6px;
+  }
+}

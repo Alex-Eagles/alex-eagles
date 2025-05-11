@@ -1,9 +1,34 @@
 import React, { useEffect, useState, useRef } from "react";
 import "../../styles/modal.css";
-import {mediaItems} from "../../assets/data/droneMedia"; // Adjust the import path as necessary
-function Modal({ isOpen, onClose, title }) {
-  const [expandedId, setExpandedId] = useState(null);
+import {mediaItems as droneMediaItems} from "../../assets/data/droneMedia"; // Adjust the import path as necessary
+import { mediaItems as fixedMediaItems } from "../../assets/data/fixedwingMedia"; // Adjust the import path as necessary
+import componentsData  from "../../assets/data/componentsData"; // Adjust the import path as necessary
+import fixedcomponentsData from "../../assets/data/fixedwingComponentsData";
+
+function Modal({ isOpen, onClose, title, componentsModal }) {
+  const [expandedId, setExpandedId,type] = useState(null);
   const sectionRefs = useRef({});
+  //const mediaItems = title === "Itay" ? droneMediaItems : fixedMediaItems;
+  let mediaItems= null;
+  // 4 conidition for the modal content 
+  // 1. If the title is "Itay" and the component modal is false then show the droneMediaItems
+  // 2. If the title is "Itay" and the component modal is true then show the the dronecomponents
+  // 3. If the title is "Fixed-Wing" and the component modal is false then show the fixedMediaItems
+  // 4. If the title is "Fixed-Wing" and the component modal is true then show the fixedwingcomponents
+  if (title === "Itay" && !componentsModal) {
+    mediaItems = droneMediaItems;
+    
+
+  }
+  else if (title === "Itay" && componentsModal) {
+    mediaItems = componentsData;
+  }
+  else if (title === "Fixed Wing" && !componentsModal) {
+    mediaItems = fixedMediaItems;
+  }
+  else if (title === "Fixed Wing" && componentsModal) {
+    mediaItems = fixedcomponentsData;
+  }
 
   // Close modal when Escape key is pressed
   useEffect(() => {
@@ -78,7 +103,7 @@ function Modal({ isOpen, onClose, title }) {
               <div className="section-content">
                 <div className="content-text">
                   <h4 className="section-title">{item.title}</h4>
-                  <p className="section-caption">{item.caption}</p>
+                  <p className="section-caption">{item.caption || item.description}</p>
                 </div>
                 
                 <div className="content-media">

@@ -1,6 +1,6 @@
 import "./App.css";
 import { Box } from "@mui/material";
-import { Routes, Route, useLocation } from "react-router-dom";
+import { Routes, Route, useLocation,Navigate } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import NavBar from "./components/NavBar/NavBar";
@@ -11,13 +11,64 @@ import PublicationsPage from "./pages/PublicationsPage";
 import SponsorsPage from "./pages/SponsorsPage";
 import ContactPage from "./pages/ContactPage";
 import ScenePage from "./pages/ScenePage";
+
 // import Background from "./components/Background/Background";
 // import background from "./assets/images/UAVs-help2.jpg";
 import ScrollToTop from "./pages/ScrollToTop";
+import SearchBar from "./components/SearchBar/SearchBar";
+import BinarySearchTree from "./utils/BinarySearchTree";
+import SearchResults from "./components/SearchResults/SearchResults";
+import { useState } from "react";
+import competitionData from "./assets/data/competitionData";
+import mediaCoverageData from "./assets/data/mediaCoverageData";
+import projectData from "./assets/data/projectData";
+import sponsorData from "./assets/data/sponsorData";
+import teamMemberData from "./assets/data/teamMemberData";
+
+const bst = new BinarySearchTree();
+
+// Populate the BST with page content
+bst.insert("Team", "The Eagles: Our team are ambitious, creative and innovative engineers who are passionate about what they do.");
+bst.insert("Sponsors", "Our Backers: Our sponsors help us every step of the way.");
+bst.insert("Publications", "Our Written Work: Read our contributions.");
+bst.insert("Contact", "Get in Touch: Want to join our team, become a sponsor, ask a question or just say hi? Reach out now.");
+bst.insert("History", "Our History: Learn about our journey and achievements.");
+
+// Populate the BST with additional data
+competitionData.forEach((item) => {
+  bst.insert(item.name.props.children, item.description.props.children);
+});
+
+mediaCoverageData.forEach((item) => {
+  item.media.forEach((mediaItem) => {
+    bst.insert(item.image, mediaItem.link);
+  });
+});
+
+projectData.forEach((item) => {
+  bst.insert(item.name, item.description);
+});
+
+sponsorData.forEach((item) => {
+  bst.insert(item.name, "Sponsor");
+});
+
+teamMemberData.forEach((item) => {
+  if (item.name) {
+    bst.insert(item.name, item.role || "Team Member");
+  }
+});
 
 const App = () => {
-	 const location = useLocation();
+	const location = useLocation();
+	const [searchResults, setSearchResults] = useState([]);
+	const [query, setQuery] = useState("");
 
+	const handleSearchResults = (results, searchTerm) => {
+		setSearchResults(results);
+		setQuery(searchTerm);
+	};
+	
 	const theme = createTheme({
 		palette: {
 			primary: {
@@ -72,8 +123,10 @@ const App = () => {
 			<Box sx={{ minWidth: "100vw !important", overflowX: "hidden" }}>
 				{/* <Background background={background} /> */}
 				{/* only show NavBar on non‑home routes */}
-        		{location.pathname !== "/" && <NavBar />}
-
+				<Box sx={{ position: "relative", zIndex: 1 }}>
+					{location.pathname !== "/" && <NavBar bst={bst} onSearch={(results, searchTerm) => handleSearchResults(results, searchTerm)} />}
+				</Box>
+				<SearchResults results={searchResults} query={query} />
 				<AnimatePresence mode="wait">
 					<ScrollToTop />
 					<Routes

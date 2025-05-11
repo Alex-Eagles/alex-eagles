@@ -4,12 +4,20 @@ import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
 import { Clone } from '@react-three/drei';
 import { CONFIG } from '../../contexts/DroneAnimationContext';
 
-export default function FixedWing({ position, rotation, scale }) {
+export default function FixedWing({ position, rotation, scale,isMobile }) {
   const modelRef = useRef();
   const [hoveredMesh, setHoveredMesh] = useState(null);
 
+
+  let path = ""
+  if (isMobile) {
+    path = CONFIG.mobileFixedWingPath
+  }
+  else {
+    path = CONFIG.fixedwingmodelPath
+  }
   // Load the GLTF model
-  const gltf = useLoader(GLTFLoader, CONFIG.fixedwingmodelPath);
+  const gltf = useLoader(GLTFLoader, path);
   console.log('Loaded Fixed Wing Model:', gltf);
   //load animation clips
   useEffect(() => {
@@ -54,8 +62,8 @@ export default function FixedWing({ position, rotation, scale }) {
       scale={scale || [1, 1, 1]}
       castShadow
       receiveShadow
-      onPointerOver={onPointerOver}
-      onPointerOut={onPointerOut}
+      // onPointerOver={onPointerOver}
+      // onPointerOut={onPointerOut}
     />
   );
 }

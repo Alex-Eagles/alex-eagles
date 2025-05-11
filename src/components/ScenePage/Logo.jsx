@@ -78,14 +78,8 @@ function Logo() {
 						</Stack>
 					</NavLink>
       
-      <div className="menu-container">
-        {/* <button><span><img 
-          src="/menu2.svg" 
-          alt="Menu Icon" 
-          className="menu-icon" 
-        /></span>Menu</button> */}
+      
         <AnimatedMenuButton />
-      </div>
     </div>
   );
 }

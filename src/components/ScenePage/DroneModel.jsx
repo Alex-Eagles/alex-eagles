@@ -23,7 +23,7 @@ const componentMapping = {
    
 };
 
-function DroneModel({position, onClick, setScrollEnabled, ScrollEnabled}) {
+function DroneModel({position, onClick, setScrollEnabled, ScrollEnabled, scale, isMobile}) {
   const { state, setIsLoading, applyScrollDecay, updatePhaseTransition } = useDroneAnimation();
   const prevEmissives = useRef(new Map());
   const [hoveredMesh, setHoveredMesh] = useState(null);
@@ -44,10 +44,15 @@ function DroneModel({position, onClick, setScrollEnabled, ScrollEnabled}) {
   const propellersRef = useRef([]);
   const mixer = useRef(null);
   const navAnimationStartedRef = useRef(false);
-
-
+  let path = '';
+  if (isMobile) {
+    path = CONFIG. mobileDronePath;
+  }
+  else {
+    path = CONFIG.modelPath;
+  }
   // Load the model
-  const gltf = useLoader(GLTFLoader, CONFIG.modelPath, () => {
+  const gltf = useLoader(GLTFLoader, path, () => {
     setIsLoading(false);
   });
   
@@ -410,7 +415,7 @@ function DroneModel({position, onClick, setScrollEnabled, ScrollEnabled}) {
       <Clone
         ref={modelRef}
         object={gltf.scene}
-        scale={[5, 5, 5]}
+        scale={[scale[0], scale[1], scale[2]]}
         position={position}
         rotation={[0, Math.PI, 0]}
         receiveShadow

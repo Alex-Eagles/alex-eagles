@@ -1,9 +1,8 @@
 .logo-container{
     color: azure;
-   
     margin-top: 60px;
-    z-index: 10;
-    overflow: hidden;
+    position: relative;
+    z-index: 1000;
     
     width: 100%;
     display: flex;
@@ -13,6 +12,20 @@
     padding-left: 70px;
     padding-right: 70px;
     gap: 1rem;
+    
+}
+
+@media screen and (max-width: 768px) {
+    .logo-container {
+     margin-top: 20px;
+     
+     margin-left: -30px;
+    
+        
+    }
+
+    
+  
 }
 
 .logo-container button{
@@ -38,6 +51,15 @@
     height: 3rem; /* Fixed height equal to collapsed menu */
   
    
+  }
+
+  @media screen and (max-width: 768px) {
+    .menu-container {
+      width: 4rem; /* Adjust width for smaller screens */
+      height: 2rem; /* Adjust height for smaller screens */
+
+    }
+    
   }
   
   .menu-icon {

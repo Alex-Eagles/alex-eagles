@@ -3,6 +3,7 @@
     text-align: left;       /* consistent with “instrument panel” style */
     margin: 2rem auto;      /* centers the card in its container */
     padding: 2rem;          /* generous whitespace around content */
+    width: 90%;           /* shrink on narrow screens */
    
   }
 
@@ -28,6 +29,15 @@
     color: #eceff4;               /* off‑white for less glare */
   }
   
+  .buttons-container{
+    display: flex;
+    
+    align-items: center;
+    gap: 1rem; /* space between buttons */
+    margin-top: 2rem; /* space above the buttons */
+  }
+
+
   button {
     font-family: 'Audiowide', sans-serif;
     font-weight: 600;
@@ -61,3 +71,47 @@
     color: #d9dcde; 
     border: 2px solid aqua;
   } */
+
+
+  /* 2. Responsive typography + spacing */
+@media (max-width: 768px) {
+  .card {
+   padding: 0;
+  }
+  .card h1 {
+    font-size: 2rem;    /* down from 2.4rem */
+  }
+  .card h2 {
+    font-size: 1.1rem;  /* down from 1.2rem */
+  }
+  .card p {
+    font-size: 0.95rem; /* down from 1rem */
+  }
+  .buttons-container {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  button {
+    width: 100%;        /* fill width on tablets/phones */
+    padding: 0.75em;
+    font-size: 0.9rem;
+  }
+}
+
+/* 3. Even smaller phones */
+@media (max-width: 480px) {
+  .card h1 {
+    font-size: 1.6rem;
+  }
+  .card h2 {
+    font-size: 1rem;
+  }
+  .card p {
+    font-size: 0.9rem;
+    line-height: 1.4;
+  }
+  button {
+    font-size: 0.85rem;
+    padding: 0.6em;
+  }
+}
