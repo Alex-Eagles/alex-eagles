@@ -212,8 +212,8 @@ function Scene({ setPage, setScrollEnabled, scrollEnabled }) {
 
   return (
     <>
-      <ambientLight intensity={15} />
-      {/* <spotLight
+      {/* <ambientLight intensity={15} /> */}
+      <spotLight
         castShadow={!isMobile}
         ref={mainLightRef}
         position={[17 * combinedScale, 25 * combinedScale, 8 * combinedScale]}
@@ -221,9 +221,9 @@ function Scene({ setPage, setScrollEnabled, scrollEnabled }) {
         distance={100 * combinedScale}
         angle={0.3}
        penumbra={isMobile ? 0.3 : 0.4}
-        shadowBias={-0.0001}
-        shadow-mapSize={isMobile ? [1, 1] : [512, 512]}
-      /> */}
+        // shadowBias={-0.0001}
+        // shadow-mapSize={isMobile ? [1, 1] : [512, 512]}
+      />
 
       {/* <spotLight
         castShadow={!isMobile}
