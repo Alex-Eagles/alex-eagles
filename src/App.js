@@ -1,6 +1,6 @@
 import "./App.css";
 import { Box } from "@mui/material";
-import { Routes, Route, useLocation } from "react-router-dom";
+import { Routes, Route, useLocation,Navigate } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import NavBar from "./components/NavBar/NavBar";
@@ -11,6 +11,7 @@ import PublicationsPage from "./pages/PublicationsPage";
 import SponsorsPage from "./pages/SponsorsPage";
 import ContactPage from "./pages/ContactPage";
 import ScenePage from "./pages/ScenePage";
+
 // import Background from "./components/Background/Background";
 // import background from "./assets/images/UAVs-help2.jpg";
 import ScrollToTop from "./pages/ScrollToTop";
@@ -67,7 +68,7 @@ const App = () => {
 		setSearchResults(results);
 		setQuery(searchTerm);
 	};
-
+	
 	const theme = createTheme({
 		palette: {
 			primary: {

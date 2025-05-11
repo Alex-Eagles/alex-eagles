@@ -1,5 +1,5 @@
 import video from "../videos/oldDrone.MOV"
-import image1 from "../images/suas.png"
+import video2 from "../videos/Drone.MOV"
 // src/data/media.js
 export const mediaItems = [
   {
@@ -12,11 +12,11 @@ export const mediaItems = [
   },
   {
     id: 2,
-    category: "Frame Design",
-    type: "image",
-    src: image1,
-    title: "CAD Layout",
-    caption: "3D CAD of our composite frame"
+    category: "Drone assembly",
+    type: "video",
+    src: video2,
+    title: "Drone layout before true size",
+    caption: ""
   },
   // …and so on for each stage
 ];

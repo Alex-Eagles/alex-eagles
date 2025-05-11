@@ -4,7 +4,8 @@ import "../../styles/card.css";
 import Modal from "./Modal";
 function Card({ name, location, description }) {
   // State to control modal visibility
-    const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isComponentsModalOpen, setisComponentsModalOpen] = useState(false);
   const nameTW = useRef(null);
   const locTW = useRef(null);
   const descTW = useRef(null);
@@ -101,13 +102,21 @@ function Card({ name, location, description }) {
           }}
         />
       </p>
-      <button onClick={() => setIsModalOpen(true)}> More of {name}</button> 
+      <div className="buttons-container">
+        <button onClick={() => setIsModalOpen(true)}> More of {name}</button> 
+        <button onClick={() => {
+          setIsModalOpen(true);
+          setisComponentsModalOpen(true);
+  }}    >{name} components</button>
+
+      </div>
       {/* Modal component */}
       <div className="modal-container">
             <Modal 
               isOpen={isModalOpen} 
-              onClose={() => setIsModalOpen(false)}
-              
+              onClose={() => {setIsModalOpen(false); setisComponentsModalOpen(false);}}
+              title={name}
+              componentsModal = {isComponentsModalOpen}
             >
               <div className="details-content">
                

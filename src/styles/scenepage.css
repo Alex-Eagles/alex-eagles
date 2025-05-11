@@ -79,3 +79,24 @@ div[scroll]::-webkit-scrollbar {
   display: none !important;               /* Chrome, Safari, Edge */
 }
 
+#container,
+.scene-container canvas {
+  touch-action: pan-y;
+  /* optional: prevent browser overscroll glow */
+  overscroll-behavior-y: contain;
+}
+
+.desc, 
+.desc  {
+  pointer-events: none;
+}
+/* But buttons still need to be clickable… */
+.desc button {
+  pointer-events: auto;
+  cursor: pointer;
+}
+
+.modal-container{
+  pointer-events: auto;
+  cursor: pointer;
+}
