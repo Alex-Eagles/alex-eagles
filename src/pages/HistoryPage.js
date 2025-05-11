@@ -1,7 +1,7 @@
 import HomeSection from "../components/HomeSection/HomeSection";
 import AnimatedPage from "./AnimatedPage";
 import backgroundPhoto from "../assets/images/team-2025.jpg";
-import background from "../assets/images/bgnd-white.png"; // Corrected path or replaced file
+import background from "../assets/images/bgnd-black.png"; // Corrected path or replaced file
 import { Box, Container } from "@mui/material";
 import Footer from "../components/Footer/Footer";
 import Background from "../components/Background/Background";

@@ -44,7 +44,8 @@ const Footer = () => {
 		<Box
 			component="footer"
 			sx={{
-				backgroundColor: "#03101c",
+				backgroundColor: "black", // for the black background
+				//backgroundColor: "#03101c", // for the navy blue background
 				color: "#FFFFFF", // Set all text color to white
 				padding: "50px 0",
 			}}>

@@ -3,7 +3,7 @@ import HomeSection from "../components/HomeSection/HomeSection";
 import ContactSection from "../components/ContactPage/ContactSection";
 import Footer from "../components/Footer/Footer";
 import { Box } from "@mui/material";
-import background from "../assets/images/bgnd-white.png"; // Import background
+import background from "../assets/images/bgnd-black.png"; // Import background
 import backgroundPhoto from "../assets/images/team-2025.jpg"; // Import backgroundPhoto
 import Background from "../components/Background/Background"; // Ensure Background is imported
 
