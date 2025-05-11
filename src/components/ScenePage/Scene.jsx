@@ -212,7 +212,8 @@ function Scene({ setPage, setScrollEnabled, scrollEnabled }) {
 
   return (
     <>
-      <spotLight
+      <ambientLight intensity={15} />
+      {/* <spotLight
         castShadow={!isMobile}
         ref={mainLightRef}
         position={[17 * combinedScale, 25 * combinedScale, 8 * combinedScale]}
@@ -220,11 +221,11 @@ function Scene({ setPage, setScrollEnabled, scrollEnabled }) {
         distance={100 * combinedScale}
         angle={0.3}
        penumbra={isMobile ? 0.3 : 0.4}
-        shadow-bias={-0.0001}
+        shadowBias={-0.0001}
         shadow-mapSize={isMobile ? [1, 1] : [512, 512]}
-      />
+      /> */}
 
-      <spotLight
+      {/* <spotLight
         castShadow={!isMobile}
         ref={fixedWingSpotlightRef}
         position={[5 * combinedScale, 19 * combinedScale, -25 * combinedScale]}
@@ -234,10 +235,10 @@ function Scene({ setPage, setScrollEnabled, scrollEnabled }) {
         distance={100 * combinedScale}
         color={0xffffff}
         target-position={[1 * combinedScale, -6 * combinedScale, -31 * combinedScale]}
-      />
+      /> */}
 
          {/* Add TestDrone spotlight */}
-      <spotLight
+      {/* <spotLight
         castShadow={!isMobile}
         ref={testDroneSpotlightRef}
         position={[5 * combinedScale, 19 * combinedScale, -55 * combinedScale]}
@@ -247,7 +248,7 @@ function Scene({ setPage, setScrollEnabled, scrollEnabled }) {
         distance={100 * combinedScale}
         color={0xffffff}
         target-position={[5 * combinedScale, -6 * combinedScale, -60 * combinedScale]}
-      />
+      /> */}
 
 
       <DroneModel
