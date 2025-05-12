@@ -191,9 +191,9 @@ export default function TestDrone({ position, rotation, scale, isMobile, onClick
         scale={scale || [1, 1, 1]}
         castShadow
         receiveShadow
-        onPointerOver={onPointerOver}
-        onPointerOut={onPointerOut}
-        onClick={handleClick}
+        // onPointerOver={onPointerOver}
+        // onPointerOut={onPointerOut}
+        // onClick={handleClick}
       />
       
       {/* Component Info Panel */}
@@ -201,9 +201,9 @@ export default function TestDrone({ position, rotation, scale, isMobile, onClick
         
         <Html
           position={[
-            clickedMesh.getWorldPosition(new THREE.Vector3()).x + 4.5  ,
-            clickedMesh.getWorldPosition(new THREE.Vector3()).y - 1050 , 
-            clickedMesh.getWorldPosition(new THREE.Vector3()).z + 650
+            clickedMesh.getWorldPosition(new THREE.Vector3()).x   ,
+            clickedMesh.getWorldPosition(new THREE.Vector3()).y  , 
+            clickedMesh.getWorldPosition(new THREE.Vector3()).z ,
           ]}
           // console.log the position of the clicked mesh
 
