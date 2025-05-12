@@ -313,21 +313,21 @@ function Scene({ setPage, setScrollEnabled, scrollEnabled }) {
       {/* Fill light */}
     <pointLight
       position={[-1 * combinedScale, 4 * combinedScale, 3 * combinedScale]}
-      intensity={700}
+      intensity={100}
       distance={150 * combinedScale}
       decay={2}
       // color="#a0c0ff"
     />
     
       
-     {/* Rim/back light
+     {/* Rim/back light */}
     <pointLight
       position={[0, 3 * combinedScale, 0]}
       intensity={100.25}
       distance={10 * combinedScale}
       decay={2.5}
       color="#f0f8ff"
-    /> */}
+    /> 
     {/* "Pool of light" on ground under drone */}
     <pointLight
       position={[0, -0.9 * combinedScale, 2.5 * combinedScale]}
