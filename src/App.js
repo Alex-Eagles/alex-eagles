@@ -329,12 +329,12 @@ return (
 				<AnimatePresence mode="wait">
 					<ScrollToTop />
 					<Routes key={location.pathname} location={location}>
-						<Route path="/HomePage" element={<ScenePage />} exact />
-						<Route path="/TeamPage" element={<TeamPage />} exact />
-						<Route path="/HistoryPage" element={<HistoryPage />} exact />
-						<Route path="/PublicationsPage" element={<PublicationsPage />} exact />
-						<Route path="/SponsersPage" element={<SponsorsPage />} exact />
-						<Route path="/ContactPage" element={<ContactPage />} exact />
+						<Route path="/" element={<ScenePage />} exact />
+						<Route path="/team" element={<TeamPage />} exact />
+						<Route path="/history" element={<HistoryPage />} exact />
+						<Route path="/publications" element={<PublicationsPage />} exact />
+						<Route path="/sponsors" element={<SponsorsPage />} exact />
+						<Route path="/contact" element={<ContactPage />} exact />
 						<Route path="/intro" element={<IntroPage />} exact />
 					</Routes>
 				</AnimatePresence>
