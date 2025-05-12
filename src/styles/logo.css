@@ -1,9 +1,9 @@
 .logo-container{
     color: azure;
     margin-top: 60px;
+    margin-right: 1200px;
     position: relative;
     z-index: 1000;
-    
     width: 100%;
     display: flex;
     justify-content: space-between;
@@ -18,8 +18,7 @@
 @media screen and (max-width: 768px) {
     .logo-container {
      margin-top: 20px;
-     
-     margin-left: -30px;
+     margin-left: 0px;
     
         
     }

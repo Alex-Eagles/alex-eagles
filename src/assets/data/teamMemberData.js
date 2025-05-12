@@ -22,6 +22,7 @@ import MoamenNawara from '../Members/Moamen Nawara.jpeg';
 import MohamedBassem from '../Members/Mohamed Bassem.png';
 import MohamedBrbry from '../Members/mohamed brbry.jpeg';
 import MohamedElzayat from '../Members/Mohamed Elzayat.jpeg';
+import MohamedFathallah from '../Members/Mohamed Fathallah.jpeg';
 import NorhanMohammed from '../Members/Norhan Mohammed.jpg';
 import OsamaMohamed from '../Members/Osama Mohamed.jpg';
 import PeterAyoub from '../Members/Peter Ayoub.jpeg';
@@ -53,6 +54,7 @@ const mechanicalLead = [
   { name: "Adham", role: "Head of propulsion sub-team", image: Adham },
   { name: "Ehdaa Farahat", role: "Structure team head", image: EhdaaFarahat },
   { name: "Osama Mohamed", role: "Vice head of Tail and Stability Sub-Team", image: OsamaMohamed },
+  {name: "Mohamed Fathallah", role: "Mechanical lead", image: MohamedFathallah}
 ];
 
 const autonomous = [
