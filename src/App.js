@@ -259,7 +259,7 @@ const searchDictionary = {
   "Rana": "/team",
   "Reem Eldalil": "/team",
   "Youssef Ibrahim": "/team",
-
+  "Lina Tarek": "/team",
   "sponsors": "/sponsors",
   "sponsor": "/sponsors",
   "mathworks": "/sponsors",
