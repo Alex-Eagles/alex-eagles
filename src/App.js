@@ -35,23 +35,31 @@ bst.insert("Publications", "/PublicationsPage"); // Correct path for Publication
 bst.insert("Contact", "/ContactPage"); // Correct path for ContactPage
 bst.insert("History", "/HistoryPage"); // Correct path for HistoryPage
 
-// Populate the BST with additional data
+// Ensure valid paths are inserted into the BST
 competitionData.forEach((item) => {
-  bst.insert(item.name.props.children, item.description.props.children);
+  if (item.name?.props?.children && item.route) {
+    bst.insert(item.name.props.children, item.route); // Use `item.route` instead of description
+  }
 });
 
 mediaCoverageData.forEach((item) => {
   item.media.forEach((mediaItem) => {
-    bst.insert(item.image, mediaItem.link);
+    if (item.image && mediaItem.link) {
+      bst.insert(item.image, mediaItem.link);
+    }
   });
 });
 
 projectData.forEach((item) => {
-  bst.insert(item.name, item.description);
+  if (item.name && item.description) {
+    bst.insert(item.name, item.description);
+  }
 });
 
 sponsorData.forEach((item) => {
-  bst.insert(item.name, "Sponsor");
+  if (item.name) {
+    bst.insert(item.name, "Sponsor");
+  }
 });
 
 teamMemberData.forEach((item) => {
@@ -247,14 +255,29 @@ Object.entries(searchDictionary).forEach(([key, value]) => {
   bst.insert(key, value);
 });
 
+// Debug log to verify BST population
+console.log("BST populated with:", bst);
+
 const App = () => {
 	const location = useLocation();
 	const [searchResults, setSearchResults] = useState([]);
 	const [query, setQuery] = useState("");
 
 	const handleSearchResults = (results, searchTerm) => {
+		console.log("Search term:", searchTerm);
+		console.log("Search results:", results);
 		setSearchResults(results);
 		setQuery(searchTerm);
+	};
+
+	const handleCloseSearchResults = (result) => {
+		if (result) {
+			// Handle individual result close
+			setSearchResults((prevResults) => prevResults.filter((r) => r !== result));
+		} else {
+			// Handle closing the entire search results card
+			setSearchResults([]);
+		}
 	};
 	
 	const theme = createTheme({
@@ -324,17 +347,17 @@ return (
 					)}
 				</Box>
 
-				<SearchResults results={searchResults} query={query} />
+				<SearchResults results={searchResults} query={query} onClose={handleCloseSearchResults} />
 
-				<AnimatePresence mode="wait">
+				<AnimatePresence>
 					<ScrollToTop />
 					<Routes key={location.pathname} location={location}>
-						<Route path="/" element={<ScenePage />} exact />
-						<Route path="/team" element={<TeamPage />} exact />
-						<Route path="/history" element={<HistoryPage />} exact />
-						<Route path="/publications" element={<PublicationsPage />} exact />
-						<Route path="/sponsors" element={<SponsorsPage />} exact />
-						<Route path="/contact" element={<ContactPage />} exact />
+						<Route path="/HomePage" element={<ScenePage />} exact />
+						<Route path="/TeamPage" element={<TeamPage />} exact />
+						<Route path="/HistoryPage" element={<HistoryPage />} exact />
+						<Route path="/PublicationsPage" element={<PublicationsPage />} exact />
+						<Route path="/SponsersPage" element={<SponsorsPage />} exact />
+						<Route path="/ContactPage" element={<ContactPage />} exact />
 						<Route path="/intro" element={<IntroPage />} exact />
 					</Routes>
 				</AnimatePresence>

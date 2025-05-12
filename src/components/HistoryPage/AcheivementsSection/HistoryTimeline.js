@@ -18,9 +18,10 @@ import HistoryTimelineItem from "./HistoryTimelineItem";
 import achievementData from "../../../assets/data/achievementData";
 
 const HistoryTimeline = () => {
+	const position = window.innerWidth > 1200 ? "alternate" : "left";
 	return (
 		<Timeline
-			position={window.innerWidth > 1200 ? "alternate" : ""}
+			position={position}
 			sx={{
 				color: "#FFFFFF", // Set text color to white
 				[`& .${timelineOppositeContentClasses.root}`]:
