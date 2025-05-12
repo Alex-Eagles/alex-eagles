@@ -7,11 +7,16 @@ import DroneModel from './DroneModel';
 import FixedWing from './FixedWing';
 import TestDrone from './TestDrone';
 import { PerspectiveCamera } from '@react-three/drei';
-
+import { Object3D } from 'three'; // Add this import at the top
 import Ground from './Ground';
 import gsap from 'gsap';
 
 function Scene({ setPage, setScrollEnabled, scrollEnabled }) {
+ 
+  // testing vercel
+
+  const mainLightTargetRef = useRef(new Object3D());
+  
   const spotlightRef = useRef();
   const mainLightRef = useRef();
   const ambientLightRef = useRef();
@@ -19,7 +24,7 @@ function Scene({ setPage, setScrollEnabled, scrollEnabled }) {
   const testDroneSpotlightRef = useRef(); 
   const [introComplete, setIntroComplete] = useState(false);
   const [isTransitioning, setIsTransitioning] = useState(false);
-  const { camera, size } = useThree();
+  const { camera, size,scene } = useThree();
   
   const scroll = useScroll();
 
@@ -210,6 +215,23 @@ function Scene({ setPage, setScrollEnabled, scrollEnabled }) {
     }
   };
 
+  // Set up target in useEffect
+  useEffect(() => {
+    // Position the target object where you want the light to point
+    mainLightTargetRef.current.position.set(
+      0,
+      -1 * combinedScale, 
+      0
+    );
+    
+    // Make sure to add this to the scene
+    scene.add(mainLightTargetRef.current);
+    
+    return () => {
+      scene.remove(mainLightTargetRef.current);
+    };
+  }, [combinedScale]);
+
   return (
     <>
       {/* <ambientLight intensity={15} /> */}
@@ -221,6 +243,7 @@ function Scene({ setPage, setScrollEnabled, scrollEnabled }) {
         distance={100 * combinedScale}
         angle={0.3}
        penumbra={isMobile ? 0.3 : 0.4}
+        target={mainLightTargetRef.current} // Add this line
         // shadowBias={-0.0001}
         // shadow-mapSize={isMobile ? [1, 1] : [512, 512]}
       />
