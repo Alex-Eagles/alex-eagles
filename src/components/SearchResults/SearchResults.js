@@ -42,19 +42,28 @@ const SearchResults = ({ results }) => {
           }}
         >
           {results.map((result, index) => (
-            <Typography
-              key={index}
-              variant="body1"
-              onClick={() => handleClick(result)}
-              sx={{
-                mb: 1,
-                backgroundColor: index % 2 === 0 ? "#f0f0f0" : "#ffffff",
-                cursor: "pointer"
-              }}
-
+            <Box key={index} sx={{ mb: 2 }}>
+              <Typography
+                variant="body1"
+                onClick={() => handleClick(result)}
+                sx={{
+                  cursor: "pointer",
+                  fontWeight: "bold",
+                }}
+  
             >
-              {result.key}
-            </Typography>
+                {result.key}
+              </Typography>
+              <Typography
+                variant="body2"
+                sx={{
+                  color: "gray",
+                  opacity: 0.7,
+                }}
+              >
+                {result.value}
+              </Typography>
+            </Box>
           ))}
         </CardContent>
       </Card>
