@@ -100,3 +100,30 @@ div[scroll]::-webkit-scrollbar {
   pointer-events: auto;
   cursor: pointer;
 }
+
+@media not all and (min-resolution: 0.001dpcm) {
+  @supports (-webkit-appearance: none) {
+    /* 1) Lift the menu out of any stacking context or overflow */
+    .animated-menu {
+      position: fixed !important;
+      top: 45px !important;
+      right: 70px !important;
+      overflow: visible !important;
+      z-index: 100000 !important;
+      transform: none !important;
+      will-change: auto !important;
+    }
+    .animated-menu.open {
+      z-index: 100001 !important;
+    }
+
+    /* 2) Let the logo sit fully above the Canvas */
+    .logo-container {
+      position: relative !important;
+      overflow: visible !important;
+      z-index: 100002 !important;
+      transform: none !important;
+      will-change: auto !important;
+    }
+  }
+}
