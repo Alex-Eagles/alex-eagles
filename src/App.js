@@ -1,6 +1,6 @@
 import "./App.css";
 import { Box } from "@mui/material";
-import { Routes, Route, useLocation,Navigate } from "react-router-dom";
+import { Routes, Route, useLocation } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import NavBar from "./components/NavBar/NavBar";
@@ -12,7 +12,6 @@ import SponsorsPage from "./pages/SponsorsPage";
 import ContactPage from "./pages/ContactPage";
 import ScenePage from "./pages/ScenePage";
 import IntroPage from "./pages/IntroPage";
-
 
 // import Background from "./components/Background/Background";
 // import background from "./assets/images/UAVs-help2.jpg";
@@ -337,7 +336,6 @@ return (
 						<Route path="/SponsersPage" element={<SponsorsPage />} exact />
 						<Route path="/ContactPage" element={<ContactPage />} exact />
 						<Route path="/intro" element={<IntroPage />} exact />
-						<Route path="*" element={<ScenePage />} />
 					</Routes>
 				</AnimatePresence>
 			</Box>
