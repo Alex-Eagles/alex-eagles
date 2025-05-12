@@ -3,8 +3,10 @@ import React, { useEffect, useState, useRef } from "react";
 import "../../styles/modal.css";
 import { mediaItems as droneMediaItems } from "../../assets/data/droneMedia";
 import { mediaItems as fixedMediaItems } from "../../assets/data/fixedwingMedia";
+import {testDroneMediaItems as testMediaItems} from "../../assets/data/testDroneMediaItems";
 import componentsData from "../../assets/data/componentsData";
 import fixedcomponentsData from "../../assets/data/fixedwingComponentsData";
+import testDroneComponentsData from "../../assets/data/testDroneComponentsData";
 
 /**
  * Modal component: shows sections of media items.
@@ -22,7 +24,7 @@ function Modal({ isOpen, onClose, title, componentsModal }) {
   } else if (title === "Taco") {
     items = componentsModal ? fixedcomponentsData : fixedMediaItems;
   } else {
-    items = componentsModal ? componentsData : droneMediaItems;
+    items = componentsModal ? testDroneComponentsData : testMediaItems;
   }
 
   // Normalize each item to have a media[] array
