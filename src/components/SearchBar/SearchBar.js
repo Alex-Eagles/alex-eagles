@@ -4,14 +4,12 @@ import BinarySearchTree from "../../utils/BinarySearchTree";
 
 const SearchBar = ({ bst, onSearch }) => {
   const [query, setQuery] = useState("");
-  const [results, setResults] = useState([]);
 
   const handleSearch = (event) => {
     const searchTerm = event.target.value;
     setQuery(searchTerm);
 
     if (searchTerm.trim() === "") {
-      setResults([]);
       onSearch([]); // Notify parent of empty results
       return;
     }
@@ -19,11 +17,10 @@ const SearchBar = ({ bst, onSearch }) => {
     const searchResults = [];
     bst.inOrderTraversal((node) => {
       if (node.key.toLowerCase().includes(searchTerm.toLowerCase())) {
-        searchResults.push(node.value);
+        searchResults.push({ key: node.key, value: node.value });
       }
     });
 
-    setResults(searchResults);
     onSearch(searchResults); // Notify parent of results
   };
 
