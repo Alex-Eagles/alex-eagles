@@ -393,13 +393,13 @@ function Scene({ setPage, setScrollEnabled, scrollEnabled }) {
       intensity={200} // Start very dim
       distance={85 * combinedScale}
       decay={2}
-      color="#a0c0ff"
+      color="#a0c0ff" // light blue color
     />
     
     {/* Rim/back light */}
     <pointLight
       position={[5.5 * combinedScale, 1 * combinedScale, -53 * combinedScale]}
-      intensity={300} // Start very dim
+      intensity={100} // Start very dim
       distance={28 * combinedScale}
       decay={2.5}
       color="#f8f8ff"
