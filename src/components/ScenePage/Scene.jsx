@@ -2,7 +2,7 @@
 import React, { useRef, Suspense, useEffect, useState } from 'react';
 import { Color, Vector3, FogExp2 } from 'three';
 import { useFrame, useThree } from '@react-three/fiber';
-import { OrbitControls, Grid, useScroll } from '@react-three/drei';
+import { OrbitControls, Grid, useScroll, SpotLight, useDepthBuffer } from '@react-three/drei';
 import DroneModel from './DroneModel';
 import FixedWing from './FixedWing';
 import TestDrone from './TestDrone';
@@ -11,12 +11,25 @@ import { PerspectiveCamera } from '@react-three/drei';
 import Ground from './Ground';
 import gsap from 'gsap';
 
+// Custom MovingSpot component similar to the example
+function MovingDroneSpot({ vec = new Vector3(), ...props }) {
+  const light = useRef();
+  
+  useFrame(() => {
+    if (light.current && light.current.target) {
+      // Static target position instead of mouse-based
+      light.current.target.position.lerp(vec, 0.1);
+      light.current.target.updateMatrixWorld();
+    }
+  });
+  
+  return <SpotLight castShadow ref={light} penumbra={1} distance={10} angle={0.35} attenuation={5} anglePower={4} intensity={2} {...props} />;
+}
+
 function Scene({ setPage, setScrollEnabled, scrollEnabled }) {
  
   // testing vercel
 
- 
-  
   const spotlightRef = useRef();
   const mainLightRef = useRef();
   const ambientLightRef = useRef();
@@ -25,6 +38,9 @@ function Scene({ setPage, setScrollEnabled, scrollEnabled }) {
   const [introComplete, setIntroComplete] = useState(false);
   const [isTransitioning, setIsTransitioning] = useState(false);
   const { camera, size } = useThree();
+  
+  // Create depth buffer for the spotlights
+  const depthBuffer = useDepthBuffer({ frames: 1 });
   
   const scroll = useScroll();
 
@@ -53,6 +69,11 @@ function Scene({ setPage, setScrollEnabled, scrollEnabled }) {
   // camera for the third drone (fixed wing)
   const camPos3 = new Vector3(6 * combinedScale, (3 + yOffset) * combinedScale, -51 * combinedScale);
   const camTarget3 = new Vector3(5 * combinedScale, (-4.05 + yOffset) * combinedScale, -61 * combinedScale);
+  
+  // Define spotlight target vectors
+  const droneSpotTargetVec = new Vector3(0, -1 * combinedScale, 2.5 * combinedScale);
+  const fixedWingSpotTargetVec = new Vector3(4 * combinedScale, -6 * combinedScale, -31 * combinedScale);
+  const testDroneSpotTargetVec = new Vector3(5 * combinedScale, -6 * combinedScale, -60 * combinedScale);
   
   useEffect(() => {
     camera.position.copy(introCamStartPos);
@@ -151,9 +172,6 @@ function Scene({ setPage, setScrollEnabled, scrollEnabled }) {
           testDroneSpotlightRef.current.angle = currentAngle + (targetAngle - currentAngle) * 0.1;
         }
       }
-
-      
-
     }
   });
 
@@ -217,44 +235,54 @@ function Scene({ setPage, setScrollEnabled, scrollEnabled }) {
 
   return (
     <>
-      {/* <ambientLight intensity={15} /> */}
-      <spotLight
+      <ambientLight intensity={0.3} ref={ambientLightRef} />
+      
+      {/* Main light - kept as is */}
+      {/* <spotLight
         castShadow={!isMobile}
         ref={mainLightRef}
-        // position={[17 * combinedScale, 25 * combinedScale, 8 * combinedScale]}
+        position={[17 * combinedScale, 25 * combinedScale, 8 * combinedScale]}
         intensity={isMobile ? 0.3 : 0.5}
         distance={100 * combinedScale}
-        angle={5}
+        angle={0.3}
         penumbra={isMobile ? 0.3 : 0.4}
-        // shadowBias={-0.0001}
-        // shadow-mapSize={isMobile ? [1, 1] : [512, 512]}
+      /> */}
+      
+      {/* Drei SpotLight for DroneModel - will work in Vercel */}
+      <MovingDroneSpot 
+        depthBuffer={depthBuffer}
+        color="#ffffff"
+        position={[5 * combinedScale, 15 * combinedScale, 10 * combinedScale]}
+        distance={25 * combinedScale}
+        intensity={isMobile ? 1 : 30.5}
+        angle={0.5}
+        penumbra={0.8}
+        vec={droneSpotTargetVec}
       />
-
-      {/* <spotLight
-        castShadow={!isMobile}
-        ref={fixedWingSpotlightRef}
+      
+      {/* Drei SpotLight for FixedWing - will work in Vercel */}
+      <MovingDroneSpot 
+        depthBuffer={depthBuffer}
+        color="#ffffff"
         position={[5 * combinedScale, 19 * combinedScale, -25 * combinedScale]}
-        intensity={isMobile ? 0.3 : 1}
-        angle={0.4}
-        penumbra={isMobile ? 0.3 : 0.4}
-        distance={100 * combinedScale}
-        color={0xffffff}
-        target-position={[1 * combinedScale, -6 * combinedScale, -31 * combinedScale]}
-      /> */}
-
-         {/* Add TestDrone spotlight */}
-      {/* <spotLight
-        castShadow={!isMobile}
-        ref={testDroneSpotlightRef}
+        distance={30 * combinedScale}
+        intensity={isMobile ? 1 : 30.5}
+        angle={0.5}
+        penumbra={0.8}
+        vec={fixedWingSpotTargetVec}
+      />
+      
+      {/* Drei SpotLight for TestDrone - will work in Vercel */}
+      <MovingDroneSpot 
+        depthBuffer={depthBuffer}
+        color="#ffffff"
         position={[5 * combinedScale, 19 * combinedScale, -55 * combinedScale]}
-        intensity={isMobile ? 0.2 : 0.5} // Start dim
-        angle={0.4}
-        penumbra={isMobile ? 0.3 : 0.4}
-        distance={100 * combinedScale}
-        color={0xffffff}
-        target-position={[5 * combinedScale, -6 * combinedScale, -60 * combinedScale]}
-      /> */}
-
+        distance={30 * combinedScale}
+        intensity={isMobile ? 0.5 : 30.5}
+        angle={0.5}
+        penumbra={0.8}
+        vec={testDroneSpotTargetVec}
+      />
 
       <DroneModel
         position={isMobile ? [0, -1 * combinedScale, 1.5 * combinedScale] : [0, -1 * combinedScale, 2.5 * combinedScale]}
