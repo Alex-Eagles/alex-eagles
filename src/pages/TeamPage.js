@@ -38,7 +38,7 @@ const TeamPage = () => {
 					<Background background={backgroundPhoto} />
 					<HomeSection
 						title="The Eagles"
-						subtitle="Our team are ambitious, creative and innovative engineers who are passionate about what they do."
+						subtitle="Meet the team who make the magic happen."
 					/>
 				</Box>
 				<Box
