@@ -267,6 +267,7 @@ function DroneModel({position, onClick, setScrollEnabled, ScrollEnabled, scale, 
 
   // pointer handlers
   function onPointerOver(e) {
+    if (isMobile) return;
     e.stopPropagation();
     const mesh = e.object;
 
@@ -292,6 +293,7 @@ function DroneModel({position, onClick, setScrollEnabled, ScrollEnabled, scale, 
   }
 
   function onPointerOut(e) {
+    if (isMobile) return;
     e.stopPropagation();
     const mesh = e.object;
 
@@ -309,6 +311,7 @@ function DroneModel({position, onClick, setScrollEnabled, ScrollEnabled, scale, 
   
   // Improved click handler for info panel animation
   const handleClick = (e) => {
+    if (isMobile) return;
     e.stopPropagation();
     const mesh = e.object;
 
