@@ -301,23 +301,23 @@ function Scene({ setPage, setScrollEnabled, scrollEnabled }) {
       /> */}
        <fog attach="fog" args={['#000010', 50, 90]} />
       {/* Model-specific point lights */}
-        <pointLight
+        {/* <pointLight
       ref={droneLightRef}
       position={[2 * combinedScale, 7 * combinedScale, 6 * combinedScale]}
       intensity={1505.9}
       distance={10 * combinedScale}
       decay={1.8}
       color="#ffffff"
-    />
+    /> */}
       
       {/* Fill light */}
-    {/* <pointLight
+    <pointLight
       position={[-1 * combinedScale, 4 * combinedScale, 3 * combinedScale]}
       intensity={505.3}
       distance={12 * combinedScale}
       decay={2}
       color="#a0c0ff"
-    /> */}
+    />
     
       
      {/* Rim/back light
@@ -350,7 +350,7 @@ function Scene({ setPage, setScrollEnabled, scrollEnabled }) {
     {/* Fill light */}
     <pointLight
       position={[2 * combinedScale, 4 * combinedScale, -30 * combinedScale]}
-      intensity={100.05} // Start dim
+      intensity={200.05} // Start dim
       distance={150 * combinedScale}
       decay={2}
       
@@ -359,7 +359,7 @@ function Scene({ setPage, setScrollEnabled, scrollEnabled }) {
     {/* Rim/back light */}
     <pointLight
       position={[4 * combinedScale, 1 * combinedScale, -25 * combinedScale]}
-      intensity={100} // Start dim
+      intensity={300} // Start dim
       distance={100 * combinedScale}
       decay={2.5}
       color="#f8f8ff"
@@ -368,7 +368,7 @@ function Scene({ setPage, setScrollEnabled, scrollEnabled }) {
     {/* "Pool of light" on ground */}
     <pointLight
       position={[4 * combinedScale, -0.9 * combinedScale, -28 * combinedScale]}
-      intensity={100.05} // Start dim
+      intensity={40.05} // Start dim
       distance={100 * combinedScale}
       decay={3}
       color="#ffffff"
@@ -379,7 +379,7 @@ function Scene({ setPage, setScrollEnabled, scrollEnabled }) {
     <pointLight
       ref={testDroneLightRef}
       position={[7 * combinedScale, 7 * combinedScale, -54 * combinedScale]}
-      intensity={400} // Start very dim
+      intensity={200} // Start very dim
       distance={22 * combinedScale}
       decay={1.8}
       color="#f0f8ff"
@@ -388,7 +388,7 @@ function Scene({ setPage, setScrollEnabled, scrollEnabled }) {
     {/* Fill light */}
     <pointLight
       position={[3 * combinedScale, 4 * combinedScale, -58 * combinedScale]}
-      intensity={400} // Start very dim
+      intensity={200} // Start very dim
       distance={55 * combinedScale}
       decay={2}
       color="#a0c0ff"
@@ -397,7 +397,7 @@ function Scene({ setPage, setScrollEnabled, scrollEnabled }) {
     {/* Rim/back light */}
     <pointLight
       position={[5.5 * combinedScale, 1 * combinedScale, -53 * combinedScale]}
-      intensity={500} // Start very dim
+      intensity={300} // Start very dim
       distance={28 * combinedScale}
       decay={2.5}
       color="#f8f8ff"
