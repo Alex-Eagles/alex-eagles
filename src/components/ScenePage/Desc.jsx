@@ -10,19 +10,19 @@ function Desc({ page }) {
       name: "Itay",
       location: "SUAS, USA",
       description:
-        "Itay is spearheading our next-gen VTOL research with a focus on hybrid propulsion.",
+        "Alex Eagles' competition vehicle for SUAS 2025",
     },
     {
       name: "Taco",
       location: "UAVC, Egypt",
       description:
-        "Our Fixed Wing platform delivers exceptional endurance and payload flexibility.",
+        "Our Fixed Wing vehicle delivers exceptional endurance and payload flexibility.",
     },
     {
       name: "Test Drone",
       location: "Alexandria, Faculty of Engineering, Egypt",
       description:
-        "Our test drone where we test our new components and technologies.",
+        "Our test drone where we test our new components and technologies before large scale deployment.",
     }
   ];
 
