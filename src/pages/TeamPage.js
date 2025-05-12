@@ -52,11 +52,11 @@ const TeamPage = () => {
 						alignItems: "center",
 					}}>
 
-					<SectionHeading
+					{/* /* /* <SectionHeading
 						title="Our Team"
-						subtitle="Meet the visionaries who guide our mission, set our goals, and inspire the team to achieve excellence."
+						subtitle=""
 						mainSection="true"
-					/>
+					/> */  }
 					<br />
 					<TeamMembersSection
 						title="Heads"
