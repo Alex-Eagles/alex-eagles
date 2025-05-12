@@ -7,7 +7,7 @@ import * as THREE from 'three';
 import Info from './Info';
 import gsap from 'gsap';
 import testDroneComponentsData from '../../assets/data/testDroneComponentsData';
-
+import { useFrame } from '@react-three/fiber';
 // Create a mapping from 3D model object names to componentsData entries
 const componentMapping = {
  'camera': 'SIYI A8 Mini',
@@ -36,6 +36,7 @@ export default function TestDrone({ position, rotation, scale, isMobile, onClick
     path = CONFIG.testDronePath;
   }
   
+  
   // Load the GLTF model
   const gltf = useLoader(GLTFLoader, path);
 
@@ -44,8 +45,7 @@ export default function TestDrone({ position, rotation, scale, isMobile, onClick
     e.stopPropagation();
     const mesh = e.object;
 
-    // console.log the name of the hovered mesh
-    console.log(mesh.name);
+   
     //Check if this is one of our interactive parts
     const isInteractive = interactiveParts.some(part => 
       mesh.name.toLowerCase().includes(part.toLowerCase())
@@ -154,9 +154,32 @@ export default function TestDrone({ position, rotation, scale, isMobile, onClick
       handleInfoClose();
     }
   }, [scrollEnabled]);
+  // useFrame(() => {
+  //   if (clickedMesh && !scrollEnabled) {
+  //     // We're in zoom mode (scrolling disabled)
+  //     const worldPos = clickedMesh.getWorldPosition(new THREE.Vector3());
+      
+  //     // Project 3D position to 2D screen coordinates
+  //     const screenPosition = worldPos.clone().project(camera);
+      
+  //     console.log('Component Position:', {
+  //       world: {
+  //         x: worldPos.x.toFixed(2),
+  //         y: worldPos.y.toFixed(2),
+  //         z: worldPos.z.toFixed(2),
+  //       },
+  //       screen: {
+  //         x: screenPosition.x.toFixed(2),
+  //         y: screenPosition.y.toFixed(2),
+  //       },
+  //       timestamp: Date.now() % 10000 // Short timestamp for easier reading
+  //     });
+  //   }
+  // });
 
-  // If the model isn't loaded yet, don't render anything
+
   if (!gltf) return null;
+  // Add this in your TestDrone component
 
   return (
     <group>
@@ -175,12 +198,15 @@ export default function TestDrone({ position, rotation, scale, isMobile, onClick
       
       {/* Component Info Panel */}
       {clickedMesh && showInfoPanel && (
+        
         <Html
           position={[
-            clickedMesh.getWorldPosition(new THREE.Vector3()).x +0.5 ,
-            clickedMesh.getWorldPosition(new THREE.Vector3()).y - 0.2,
-            clickedMesh.getWorldPosition(new THREE.Vector3()).z
+            clickedMesh.getWorldPosition(new THREE.Vector3()).x + 4.5  ,
+            clickedMesh.getWorldPosition(new THREE.Vector3()).y - 1050 , 
+            clickedMesh.getWorldPosition(new THREE.Vector3()).z + 650
           ]}
+          // console.log the position of the clicked mesh
+
           center
           zIndexRange={[100, 0]}
           className="info-panel-container"
@@ -204,7 +230,8 @@ export default function TestDrone({ position, rotation, scale, isMobile, onClick
               const partKey = interactiveParts.find(part => 
                 clickedMesh.name.toLowerCase().includes(part.toLowerCase())
               );
-              
+              // log thr position
+              console.log(clickedMesh.getWorldPosition(new THREE.Vector3()));
               // Use the mapping to find the component name
               const componentName = partKey ? componentMapping[partKey] : null;
               
