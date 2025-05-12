@@ -10,12 +10,10 @@ import testDroneComponentsData from '../../assets/data/testDroneComponentsData';
 
 // Create a mapping from 3D model object names to componentsData entries
 const componentMapping = {
-  'body': 'Main Body',
-  'wing': 'Main Wing',
-  'motor': 'Motors',
-  'propeller': 'Propellers',
-  'camera': 'Camera System',
-  'radar': 'Radar System',
+ 'camera': 'SIYI A8 Mini',
+  'Body1440_1': 'PixHawk',
+  'Body1406_3': 'GPS HERE3+',
+  'herelink': 'SIYI Herelink',
   // Add more mappings as needed for your model parts
 };
 
@@ -29,7 +27,7 @@ export default function TestDrone({ position, rotation, scale, isMobile, onClick
   const { camera } = useThree();
   
   // Define interactive components - update these to match your model's part names
-  const interactiveParts = ['pix', 'herelink', 'gps', 'camera'];
+  const interactiveParts = [ 'herelink',  'camera','Body1440_1','Body1406_3'];
 
   let path = "";
   if (isMobile) {
@@ -46,6 +44,8 @@ export default function TestDrone({ position, rotation, scale, isMobile, onClick
     e.stopPropagation();
     const mesh = e.object;
 
+    // console.log the name of the hovered mesh
+    console.log(mesh.name);
     //Check if this is one of our interactive parts
     const isInteractive = interactiveParts.some(part => 
       mesh.name.toLowerCase().includes(part.toLowerCase())
@@ -177,8 +177,8 @@ export default function TestDrone({ position, rotation, scale, isMobile, onClick
       {clickedMesh && showInfoPanel && (
         <Html
           position={[
-            clickedMesh.getWorldPosition(new THREE.Vector3()).x + 0.3,
-            clickedMesh.getWorldPosition(new THREE.Vector3()).y + 0.85,
+            clickedMesh.getWorldPosition(new THREE.Vector3()).x +0.5 ,
+            clickedMesh.getWorldPosition(new THREE.Vector3()).y - 0.2,
             clickedMesh.getWorldPosition(new THREE.Vector3()).z
           ]}
           center

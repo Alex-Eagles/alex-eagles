@@ -1,54 +1,58 @@
 
-
+import a8mini from "../images/a8mini.png";
+import gps from "../images/herelink.png";
+import motor from "../images/motors.png";
+import lidar from "../images/lidar.png";
+import prop from "../images/propellers.jpg";
+import herelink from "../images/herelinkunit.png"
+import pix from "../images/pixhawk.png"
+import esc from "../images/esc.png"
 const testDroneComponentsData = [
   {
-    id: 1,
-    name: "Main Body",
-    description: "The aerodynamic fuselage houses the central processing unit, power management systems, and navigation electronics while providing optimal airflow for improved flight characteristics.",
-    
-    type: "image",
-    category: "Frame",
-  },
+		id: 1,
+		name: "PixHawk",
+		description:"The Cube Orange Pixhawk is a high-performance flight controller with a fast STM32H7 processor, triple redundant IMUs, and support for PX4 and ArduPilot. It offers reliable performance, multiple interfaces, and is ideal for advanced autonomous UAVs.",
+		image:  pix,
+		type: "image",
+		category: "Pixhawk (Flight Controller)",
+		src: pix,
+		
+
+	},
   {
-    id: 2,
-    name: "Main Wing",
-    description: "This advanced wing design features a custom airfoil for maximum lift-to-drag ratio with integrated control surfaces for precise maneuvering at various speeds.",
-    
-    type: "image",
-    category: "Aerodynamics",
-  },
+		id: 2,
+		name: "SIYI A8 Mini",
+		description:
+			"The SIYI A8 Mini is a compact 3-axis gimbal camera with a 4K 8MP Sony sensor, 6X digital zoom, and smooth FOC stabilization. It offers outputs like HDMI and Ethernet for versatile UAV use.",
+		image:  a8mini,
+		type: "image",
+		category: "Camera",
+		src: a8mini,
+		
+	},
   {
-    id: 3, 
-    name: "Motors",
-    description: "High-efficiency brushless motors provide powerful thrust while maintaining exceptional power efficiency for extended flight times.",
-    
-    type: "image", 
-    category: "Propulsion",
-  },
+		id: 3,
+        name: "GPS HERE3+",
+		description:
+			"The Here3+ GPS is a high-precision GNSS module that supports multiple satellite constellations and features RTK capability for centimeter-level accuracy. It includes a built-in compass, and supports CAN protocol for reliable, low-latency communication.",
+		image: gps,
+		type: "image",
+		category: "GPS",
+		src: gps,
+
+
+    },
   {
-    id: 4,
-    name: "Propellers",
-    description: "Custom-designed composite propellers optimize thrust and noise characteristics with a folding mechanism for compact storage.",
-    
-    type: "image",
-    category: "Propulsion",
-  },
-  {
-    id: 5,
-    name: "Camera System",
-    description: "The integrated gimbal camera system features 4K video capture with stabilization and object tracking capabilities for high-quality aerial imagery.",
-    
-    type: "image",
-    category: "Sensors",
-  },
-  {
-    id: 6,
-    name: "Radar System",
-    description: "Advanced radar technology provides terrain mapping, obstacle detection, and collision avoidance in all weather conditions.",
-    
-    type: "image",
-    category: "Sensors",
-  },
+		id: 4,
+		name: "SIYI Herelink",
+		description:
+			"The Herelink system is an all-in-one ground control system that combines RC control, HD video transmission, telemetry, and Wi-Fi over a single 2.4GHz digital link, making it ideal for long-range UAV operations.",
+		image: herelink,
+		type: "image",
+		category: "Herelink",
+		src: herelink,
+	}
+  
 ];
 
 export default testDroneComponentsData;

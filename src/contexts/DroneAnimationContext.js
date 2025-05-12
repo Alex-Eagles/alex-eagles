@@ -3,9 +3,9 @@ import React, { createContext, useContext, useState, useEffect, useRef } from 'r
 export const CONFIG = {
   modelPath: '/drone_model/Itay6.gltf',
   fixedwingmodelPath: '/drone_model/AE_Fixed3.gltf',
-  testDronePath: '/drone_model/testDrone5.gltf',
+  testDronePath: '/drone_model/testDrone6.gltf',
   mobileDronePath: '/drone_model/ItayMobileNoComponents2.gltf',
-  mobileFixedWingPath: '/drone_model/fixedMobile.gltf',
+  mobileFixedWingPath: '/drone_model/fixedMobile3.gltf',
   mobileTestDronePath: '/drone_model/mobileTestDronenolid_and_nohere.gltf',
   takeoffDuration: 2.5, // seconds
   hoverHeight: 2,
