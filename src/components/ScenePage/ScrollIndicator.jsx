@@ -20,12 +20,12 @@ const ScrollIndicator = ({ scrollEnabled }) => {
 
   return (
     <div
-      className={`scroll-indicator ${visible ? 'visible' : 'hidden'}${isMobile ? ' mobile-bottom' : ''}`}
+      className={`scroll-indicator ${visible ? 'visible' : 'hidden'}${isMobile ? ' mobile-top' : ''}`}
     >
       <div className="chevron"></div>
       <div className="chevron"></div>
       <div className="chevron"></div>
-      <span>{isMobile ? 'Scroll down' : 'Scroll down or click on the vehicle components to explore'}</span>
+      <span>Scroll down</span>
     </div>
   );
 };

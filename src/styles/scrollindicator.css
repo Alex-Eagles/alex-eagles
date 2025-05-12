@@ -135,10 +135,10 @@
 }
 
 
-.scroll-indicator.mobile-bottom {
-  bottom: 30px;
+.scroll-indicator.mobile-top {
+  top: 30px;
   left: 50%;
-  top: auto;
+  right: auto;
+  bottom: auto;
   transform: translateX(-50%);
-  /* Remove rotation for mobile bottom */
 }
