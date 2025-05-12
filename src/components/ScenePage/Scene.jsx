@@ -305,7 +305,7 @@ function Scene({ setPage, setScrollEnabled, scrollEnabled }) {
       ref={droneLightRef}
       position={[2 * combinedScale, 7 * combinedScale, 6 * combinedScale]}
       intensity={505.9}
-      distance={80 * combinedScale}
+      distance={10 * combinedScale}
       decay={1.8}
       color="#ffffff"
     />
