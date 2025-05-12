@@ -7,7 +7,7 @@ import DroneModel from './DroneModel';
 import FixedWing from './FixedWing';
 import TestDrone from './TestDrone';
 import { PerspectiveCamera } from '@react-three/drei';
-import { SpotLight } from '@react-three/drei';
+
 import Ground from './Ground';
 import gsap from 'gsap';
 
@@ -15,10 +15,13 @@ function Scene({ setPage, setScrollEnabled, scrollEnabled }) {
  
   // testing vercel
 
- 
+  const mainLightRef = useRef();
+  const droneLightRef = useRef();  
+  const fixedWingLightRef = useRef();
+  const testDroneLightRef = useRef();
   
   const spotlightRef = useRef();
-  const mainLightRef = useRef();
+ //const mainLightRef = useRef();
   const ambientLightRef = useRef();
   const fixedWingSpotlightRef = useRef();
   const testDroneSpotlightRef = useRef(); 
@@ -71,26 +74,31 @@ function Scene({ setPage, setScrollEnabled, scrollEnabled }) {
       const lookAtPos = introCamStartTarget.clone().lerp(introCamEndTarget, easeT);
       camera.lookAt(lookAtPos);
 
-      if (spotlightRef.current) {
-        spotlightRef.current.target.position.set(15 * combinedScale, 15 * combinedScale, -28 * combinedScale);
-        spotlightRef.current.target.updateMatrixWorld();
-        spotlightRef.current.intensity = t * 0.1;
-      }
+      // if (spotlightRef.current) {
+      //   spotlightRef.current.target.position.set(15 * combinedScale, 15 * combinedScale, -28 * combinedScale);
+      //   spotlightRef.current.target.updateMatrixWorld();
+      //   spotlightRef.current.intensity = t * 0.1;
+      // }
 
-      if (mainLightRef.current) mainLightRef.current.intensity = t * 15;
-      if (ambientLightRef.current) ambientLightRef.current.intensity = t * 0.3;
+      // if (mainLightRef.current) mainLightRef.current.intensity = t * 15;
+      // if (ambientLightRef.current) ambientLightRef.current.intensity = t * 0.3;
 
-      if (fixedWingSpotlightRef.current) {
-        fixedWingSpotlightRef.current.intensity = t * 3;
-        fixedWingSpotlightRef.current.target.position.set(4 * combinedScale, -6 * combinedScale, -31 * combinedScale);
-        fixedWingSpotlightRef.current.target.updateMatrixWorld();
-      }
-      // Initialize TestDrone spotlight
-      if (testDroneSpotlightRef.current) {
-        testDroneSpotlightRef.current.intensity = t * 0.5; // Start with dim light
-        testDroneSpotlightRef.current.target.position.set(5 * combinedScale, -6 * combinedScale, -60 * combinedScale);
-        testDroneSpotlightRef.current.target.updateMatrixWorld();
-      }
+      // if (fixedWingSpotlightRef.current) {
+      //   fixedWingSpotlightRef.current.intensity = t * 3;
+      //   fixedWingSpotlightRef.current.target.position.set(4 * combinedScale, -6 * combinedScale, -31 * combinedScale);
+      //   fixedWingSpotlightRef.current.target.updateMatrixWorld();
+      // }
+      // // Initialize TestDrone spotlight
+      // if (testDroneSpotlightRef.current) {
+      //   testDroneSpotlightRef.current.intensity = t * 0.5; // Start with dim light
+      //   testDroneSpotlightRef.current.target.position.set(5 * combinedScale, -6 * combinedScale, -60 * combinedScale);
+      //   testDroneSpotlightRef.current.target.updateMatrixWorld();
+      // }
+      // Animate lights
+      if (mainLightRef.current) mainLightRef.current.intensity = t * 1;
+      if (droneLightRef.current) droneLightRef.current.intensity = t * 0.8;
+      if (fixedWingLightRef.current) fixedWingLightRef.current.intensity = t * 0.2;
+      if (testDroneLightRef.current) testDroneLightRef.current.intensity = t * 0.1;
     } else if (scrollEnabled) {
       const t = scroll.offset;
       const newPage = Math.floor(t * 3);
@@ -118,21 +126,29 @@ function Scene({ setPage, setScrollEnabled, scrollEnabled }) {
         camera.lookAt(lookAt);
 
         // Handle FixedWing spotlight intensity
-        if (fixedWingSpotlightRef.current) {
-          const currentIntensity = fixedWingSpotlightRef.current.intensity;
-          const targetIntensity = 1 + segmentT * 6;
-          fixedWingSpotlightRef.current.intensity = currentIntensity + (targetIntensity - currentIntensity) * 0.1;
+        // if (fixedWingSpotlightRef.current) {
+        //   const currentIntensity = fixedWingSpotlightRef.current.intensity;
+        //   const targetIntensity = 1 + segmentT * 6;
+        //   fixedWingSpotlightRef.current.intensity = currentIntensity + (targetIntensity - currentIntensity) * 0.1;
 
-          const currentAngle = fixedWingSpotlightRef.current.angle;
-          const targetAngle = 0.4 + segmentT * 0.1;
-          fixedWingSpotlightRef.current.angle = currentAngle + (targetAngle - currentAngle) * 0.1;
+        //   const currentAngle = fixedWingSpotlightRef.current.angle;
+        //   const targetAngle = 0.4 + segmentT * 0.1;
+        //   fixedWingSpotlightRef.current.angle = currentAngle + (targetAngle - currentAngle) * 0.1;
+        // }
+        
+        // // Keep TestDrone spotlight dim during first half
+        // if (testDroneSpotlightRef.current) {
+        //   const currentIntensity = testDroneSpotlightRef.current.intensity;
+        //   testDroneSpotlightRef.current.intensity = currentIntensity + (0.5 - currentIntensity) * 0.1;
+        // }
+        if (droneLightRef.current) {
+          droneLightRef.current.intensity = 0.8 * (1 - segmentT);
         }
         
-        // Keep TestDrone spotlight dim during first half
-        if (testDroneSpotlightRef.current) {
-          const currentIntensity = testDroneSpotlightRef.current.intensity;
-          testDroneSpotlightRef.current.intensity = currentIntensity + (0.5 - currentIntensity) * 0.1;
+        if (fixedWingLightRef.current) {
+          fixedWingLightRef.current.intensity = 0.2 + (segmentT * 0.8);
         }
+
       } else {
         // Second half of scrolling: FixedWing to TestDrone
         const segmentT = (t - 0.5) * 2; // Normalize 0.5-1 to 0-1
@@ -141,14 +157,21 @@ function Scene({ setPage, setScrollEnabled, scrollEnabled }) {
         camera.lookAt(lookAt);
 
         // Gradually increase TestDrone spotlight intensity as we approach
-        if (testDroneSpotlightRef.current) {
-          const currentIntensity = testDroneSpotlightRef.current.intensity;
-          const targetIntensity = 0.5 + segmentT * 6; // Increase as we approach
-          testDroneSpotlightRef.current.intensity = currentIntensity + (targetIntensity - currentIntensity) * 0.1;
+        // if (testDroneSpotlightRef.current) {
+        //   const currentIntensity = testDroneSpotlightRef.current.intensity;
+        //   const targetIntensity = 0.5 + segmentT * 6; // Increase as we approach
+        //   testDroneSpotlightRef.current.intensity = currentIntensity + (targetIntensity - currentIntensity) * 0.1;
           
-          const currentAngle = testDroneSpotlightRef.current.angle;
-          const targetAngle = 0.4 + segmentT * 0.2;
-          testDroneSpotlightRef.current.angle = currentAngle + (targetAngle - currentAngle) * 0.1;
+        //   const currentAngle = testDroneSpotlightRef.current.angle;
+        //   const targetAngle = 0.4 + segmentT * 0.2;
+        //   testDroneSpotlightRef.current.angle = currentAngle + (targetAngle - currentAngle) * 0.1;
+        // }
+         if (fixedWingLightRef.current) {
+          fixedWingLightRef.current.intensity = 1.0 * (1 - segmentT);
+        }
+        
+        if (testDroneLightRef.current) {
+          testDroneLightRef.current.intensity = 0.1 + (segmentT * 0.9);
         }
       }
 
@@ -217,20 +240,33 @@ function Scene({ setPage, setScrollEnabled, scrollEnabled }) {
 
   return (
     <>
-      {/* <ambientLight intensity={8}   /> */}
-      <SpotLight
+     {/* Base lighting that works everywhere */}
+      <ambientLight intensity={0.3} color="#b0c4de" />
+      {/* <ambientLight intensity={15} /> */}
+      {/* <spotLight
         castShadow={!isMobile}
         ref={mainLightRef}
         // position={[17 * combinedScale, 25 * combinedScale, 8 * combinedScale]}
-        intensity={isMobile ? 0.3 : 0.4}
+        intensity={isMobile ? 0.3 : 30.5}
         distance={100 * combinedScale}
-        angle={0.4}
+        angle={40}
         penumbra={isMobile ? 0.3 : 0.4}
         // shadowBias={-0.0001}
         // shadow-mapSize={isMobile ? [1, 1] : [512, 512]}
-      />
+      /> */}
+        {/* <spotLight
+        castShadow={!isMobile}
+        ref={fixedWingSpotlightRef}
+        // position={[17 * combinedScale, 25 * combinedScale, 8 * combinedScale]}
+        intensity={isMobile ? 0.3 : 30.5}
+        distance={60 * combinedScale}
+        angle={150}
+        penumbra={isMobile ? 0.3 : 0.4}
+        // shadowBias={-0.0001}
+        // shadow-mapSize={isMobile ? [1, 1] : [512, 512]}
+      /> */}
 
-      <SpotLight
+      {/* <spotLight
         castShadow={!isMobile}
         ref={fixedWingSpotlightRef}
         position={[5 * combinedScale, 19 * combinedScale, -25 * combinedScale]}
@@ -240,10 +276,10 @@ function Scene({ setPage, setScrollEnabled, scrollEnabled }) {
         distance={100 * combinedScale}
         color={0xffffff}
         target-position={[1 * combinedScale, -6 * combinedScale, -31 * combinedScale]}
-      />
+      /> */}
 
          {/* Add TestDrone spotlight */}
-      <SpotLight
+      {/* <spotLight
         castShadow={!isMobile}
         ref={testDroneSpotlightRef}
         position={[5 * combinedScale, 19 * combinedScale, -55 * combinedScale]}
@@ -253,8 +289,47 @@ function Scene({ setPage, setScrollEnabled, scrollEnabled }) {
         distance={100 * combinedScale}
         color={0xffffff}
         target-position={[5 * combinedScale, -6 * combinedScale, -60 * combinedScale]}
+      /> */}
+    {/* Main directional light - reliable across platforms */}
+      <directionalLight
+        ref={mainLightRef}
+        position={[10 * combinedScale, 20 * combinedScale, 5 * combinedScale]}
+        intensity={1.0}
+        castShadow
+        shadow-mapSize={[1024, 1024]}
+        shadow-bias={-0.0001}
       />
-
+      
+      {/* Model-specific point lights */}
+      <pointLight
+        ref={droneLightRef}
+        position={[2 * combinedScale, 6 * combinedScale, 5 * combinedScale]}
+        intensity={0.8}
+        distance={20 * combinedScale}
+        decay={2}
+        color="#ffffff"
+      />
+      
+      <pointLight
+        ref={fixedWingLightRef}
+        position={[5 * combinedScale, 8 * combinedScale, -29 * combinedScale]}
+        intensity={0.2} // Start dim and increase when near
+        distance={30 * combinedScale}
+        decay={1.5}
+        color="#f0f8ff"
+      />
+      
+      <pointLight
+        ref={testDroneLightRef}
+        position={[6 * combinedScale, 8 * combinedScale, -55 * combinedScale]}
+        intensity={0.1} // Start very dim
+        distance={35 * combinedScale}
+        decay={1.5}
+        color="#f0f8ff"
+      />
+      
+      {/* Optional - environment lighting for more realistic rendering */}
+      {/* <Environment preset="city" intensity={0.2} /> */}
 
       <DroneModel
         position={isMobile ? [0, -1 * combinedScale, 1.5 * combinedScale] : [0, -1 * combinedScale, 2.5 * combinedScale]}
