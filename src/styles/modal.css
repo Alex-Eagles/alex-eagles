@@ -212,4 +212,52 @@
     font-size: 1.8rem;
     
   }
+   .section.expanded {
+    height: auto !important;
+    max-height: none !important;
+  }
+
+    .section {
+    overflow: visible !important;
+  }
+  .content-media {
+    height: auto !important;
+    min-height: 180px; /* keeps it at least your previous mobile size */
+  }
+
+  /* Ensure the overall modal can still scroll if content is very tall */
+  .modal-content {
+    overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+/* Layout class for multiple media assets */
+
+
+.multi-media-row {
+     display: grid;
+  /* Create as many equal columns as there are items, each at least 0 wide, sharing space */
+  grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
+  gap: 0.5rem;
+  padding: 0.5rem 0;
+  
+}
+
+/* Base thumbnail style */
+.multi-media-row .section-image.small,
+.multi-media-row .section-video.small {
+  width: 100%;
+  aspect-ratio: 4/3;       /* keeps a uniform shape—adjust as you like */
+  object-fit: cover;
+  border-radius: 0.25rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover‐grow effect */
+.multi-media-row .section-image.small:hover,
+.multi-media-row .section-video.small:hover {
+   transform: scale(2.2);
+  z-index: 10;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
 }
