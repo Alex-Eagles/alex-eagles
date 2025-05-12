@@ -11,6 +11,7 @@ import EsraaAhmed from '../Members/Esraa Ahmed.jpeg';
 import EyadAshraf from '../Members/eyad ashraf.jpg';
 import FarahHarfoush from '../Members/Farah Harfoush.jpeg';
 import hanaWaleed from '../Members/Hana Waleed.jpeg';
+import HattanYosry from '../Members/Hattan Yosry.jpeg';
 import HossamEldeen from '../Members/Hossam Eldeen.jpg';
 import IbrahimMohamed from '../Members/Ibrahim Mohamed.jpg';
 import JohnAyman from '../Members/John Ayman.jpg';
@@ -52,6 +53,7 @@ const mechanicalLead = [
   { name: "Abdelrahman Arafat", role: "Wing Team Leader", image: AbdelrahmanArafat },
   { name: "Adham Amr", role: "Propulsion Team Leader", image: Adham },
   { name: "Ehdaa Farahat", role: "Structure Team Leader", image: EhdaaFarahat },
+  {name: "Hattan Yosry", role: "Aerodesign Team Leader", image: HattanYosry},
   { name: "Osama Mohamed", role: "Tail and Stability Vice Team Leader", image: OsamaMohamed },
   {name: "Mohamed Fathallah", role: "Mechanical Team Leader", image: MohamedFathallah},
   { name: "Youssef Hozayen", role: "Propulsion Vice Team Leader", image: YoussefHozayen }
