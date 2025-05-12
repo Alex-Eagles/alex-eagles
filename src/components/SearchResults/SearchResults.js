@@ -12,6 +12,7 @@ const SearchResults = ({ results, onClose }) => {
     console.log("Navigating to:", result.value || "No valid path"); // Debug log
     if (result.value) {
       navigate(result.value);
+      onClose(); // Automatically close search results after navigation
     } else {
       alert(`No valid path for: ${result.key}`);
     }
