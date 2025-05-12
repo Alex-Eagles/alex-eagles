@@ -11,6 +11,8 @@ import PublicationsPage from "./pages/PublicationsPage";
 import SponsorsPage from "./pages/SponsorsPage";
 import ContactPage from "./pages/ContactPage";
 import ScenePage from "./pages/ScenePage";
+import IntroPage from "./pages/IntroPage";
+
 
 // import Background from "./components/Background/Background";
 // import background from "./assets/images/UAVs-help2.jpg";
@@ -57,6 +59,68 @@ teamMemberData.forEach((item) => {
   if (item.name) {
     bst.insert(item.name, item.role || "Team Member");
   }
+});
+
+const searchDictionary = {
+  "home": "/",
+  "landing page": "/",
+  "team": "/team",
+  "members": "/team",
+  "memberships": "/team",
+  "member": "/team",
+  "history": "/history",
+  "competitions": "/history",
+  "media coverage": "/history",
+  "publications": "/publications",
+  "publication": "/publications",
+  "papers": "/publications",
+  "sponsors": "/sponsors",
+  "contact": "/contact",
+  "contact form": "/contact",
+  "email": "/contact",
+  "phone": "/contact",
+
+  "competition": "/history",
+  "sae": "/history",
+  "suas": "/history",
+  "uavc": "/history",
+  "drone competitions": "/history",
+  "fixed wing competitions": "/history",
+  "tv interviews": "/history",
+  "news articles": "/history",
+
+  "design and fabrication of a fixed-wing unmanned aerial vehicle": "/publications",
+  "low reynolds number wing design": "/publications",
+  "flare-free images": "/publications",
+  "flare-free vision": "/publications",
+  "uformer": "/publications",
+  "depth insights": "/publications",
+  "icassp2024": "/publications",
+
+  "lead": "/team",
+  "vice lead": "/team",
+  "subteam lead": "/team",
+  "autonomous subteam": "/team",
+  "hardware": "/team",
+  "computer vision": "/team",
+  "software": "/team",
+  "mechanical subteam": "/team",
+  "wing": "/team",
+  "cad": "/team",
+  "design": "/team",
+  "propulsion": "/team",
+  "fuselage": "/team",
+
+  "mathworks": "/sponsors",
+  "dualsky": "/sponsors",
+  "mejzlik": "/sponsors",
+  "tyto robotics": "/sponsors",
+  "t-motor": "/sponsors",
+  "scorpion": "/sponsors",
+};
+
+Object.entries(searchDictionary).forEach(([key, value]) => {
+  bst.insert(key, value);
 });
 
 const App = () => {
@@ -118,42 +182,36 @@ const App = () => {
 		},
 	});
 
-	return (
+return (
 		<ThemeProvider theme={theme}>
 			<Box sx={{ minWidth: "100vw !important", overflowX: "hidden" }}>
+				{/* Optional background layer */}
 				{/* <Background background={background} /> */}
-				{/* only show NavBar on non‑home routes */}
+
+				{/* Show NavBar on non-home routes */}
 				<Box sx={{ position: "relative", zIndex: 1 }}>
-					{location.pathname !== "/" && <NavBar bst={bst} onSearch={(results, searchTerm) => handleSearchResults(results, searchTerm)} />}
+					{location.pathname !== "/" && (
+						<NavBar
+							bst={bst}
+							onSearch={(results, searchTerm) =>
+								handleSearchResults(results, searchTerm)
+							}
+						/>
+					)}
 				</Box>
+
 				<SearchResults results={searchResults} query={query} />
+
 				<AnimatePresence mode="wait">
 					<ScrollToTop />
-					<Routes
-						key={useLocation().pathname}
-						location={useLocation()}>
-						<Route path="/" element={<ScenePage/>} exact />
+					<Routes key={location.pathname} location={location}>
+						<Route path="/" element={<ScenePage />} exact />
 						<Route path="/team" element={<TeamPage />} exact />
-						<Route
-							path="/history"
-							element={<HistoryPage />}
-							exact
-						/>
-						<Route
-							path="/publications"
-							element={<PublicationsPage />}
-							exact
-						/>
-						<Route
-							path="/sponsors"
-							element={<SponsorsPage />}
-							exact
-						/>
-						<Route
-							path="/contact"
-							element={<ContactPage />}
-							exact
-						/>
+						<Route path="/history" element={<HistoryPage />} exact />
+						<Route path="/publications" element={<PublicationsPage />} exact />
+						<Route path="/sponsors" element={<SponsorsPage />} exact />
+						<Route path="/contact" element={<ContactPage />} exact />
+						<Route path="/intro" element={<IntroPage />} exact />
 						<Route path="*" element={<ScenePage />} />
 					</Routes>
 				</AnimatePresence>

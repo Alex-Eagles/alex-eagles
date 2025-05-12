@@ -2,55 +2,29 @@ import React from "react";
 import { Box, Card, CardContent, Typography } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 
-const SearchResults = ({ results, query }) => {
+const SearchResults = ({ results }) => {
   const navigate = useNavigate();
 
   if (!results || results.length === 0) return null;
 
-  const highlightText = (text, query) => {
-    if (!query) return text;
-    const parts = text.split(new RegExp(`(${query})`, "gi"));
-    return parts.map((part, index) => (
-      <span
-        key={index}
-        style={{
-          backgroundColor: part.toLowerCase() === query.toLowerCase() ? "yellow" : "transparent",
-          fontWeight: part.toLowerCase() === query.toLowerCase() ? "bold" : "normal",
-        }}
-      >
-        {part}
-      </span>
-    ));
-  };
-
   const handleClick = (result) => {
-    // Example navigation logic based on the result
-    if (result.includes("Team")) {
-      navigate("/team");
-    } else if (result.includes("Sponsors")) {
-      navigate("/sponsors");
-    } else if (result.includes("Publications")) {
-      navigate("/publications");
-    } else if (result.includes("Contact")) {
-      navigate("/contact");
-    } else if (result.includes("History")) {
-      navigate("/history");
+    if (result.value) {
+      navigate(result.value);
     } else {
-      alert(`No specific page found for: ${result}`);
+      alert(`No results found for: ${result.key}`);
     }
   };
 
   return (
     <Box
       sx={{
-        position: "absolute", // Ensure it is positioned independently
-        top: "64px", // Adjust based on NavBar height
+        position: "absolute",
+        top: "64px",
         left: 0,
         width: "100%",
-        zIndex: 10, // Ensure it appears above other content
+        zIndex: 10,
         display: "flex",
         justifyContent: "center",
-        pointerEvents: "auto", // Ensure it is interactive
       }}
     >
       <Card
@@ -70,13 +44,10 @@ const SearchResults = ({ results, query }) => {
               sx={{
                 mb: 1,
                 backgroundColor: index % 2 === 0 ? "#f0f0f0" : "#ffffff",
-                overflow: "hidden",
-                textOverflow: "ellipsis",
-                whiteSpace: "nowrap",
                 cursor: "pointer",
               }}
             >
-              {highlightText(result, query)}
+              {result.key}
             </Typography>
           ))}
         </CardContent>
