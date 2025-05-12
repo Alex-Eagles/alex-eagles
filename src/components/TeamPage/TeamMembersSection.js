@@ -17,7 +17,7 @@ const TeamMembersSection = ({ title, subtitle, members }) => {
 					display: "flex",
 					flexWrap: "wrap",
 					flexDirection: "row",
-					justifyContent: "center" 
+					justifyContent: "center",
 				}}>
 				{members.length === 0 && (
 					<Typography
