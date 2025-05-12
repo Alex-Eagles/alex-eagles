@@ -224,42 +224,48 @@ const searchDictionary = {
   "stability": "/team",
 
   // team members
-  "Ahmed Baheyeldin": "/team",
-  "Norhan Mohammed": "/team",
-  "Peter Ayoub": "/team",
-  "Ahmed Anan": "/team",
-  "Ahmed Saleh": "/team",
-  "Ann Tarek": "/team",
-  "Maram Wael": "/team",
-  "Ibrahem Mohamed": "/team",
   "Abdelghafour Alaa": "/team",
   "Abdelrahman Arafat": "/team",
-  "Adham Amr": "/team",
-  "Ehdaa Farahat": "/team",
-  "Hattan Yousry": "/team",
-  "Osama Mohamed": "/team",
-  "Mohamed Fathallah": "/team",
-  "Youssef Hozayen": "/team",
+  "Adham": "/team",
+  "Ahmed Baheyeldin": "/team",
+  "Ahmed Ibrahim Anan": "/team",
+  "Ahmed Saber": "/team",
   "Ahmed Saeed": "/team",
-  "John Ayman": "/team",
-  "Mazen Nazeih": "/team",
-  "Menna Ezzat": "/team",
-  "Sara Gharib": "/team",
-  "Eyad Ashraf": "/team",
-  "Mohamed Bassem": "/team",
-  "Peter Mina": "/team",
+  "Ahmed Saleh": "/team",
+  "Ann Tarek": "/team",
+  "Ehdaa Farahat": "/team",
   "Esraa Ahmed": "/team",
-  "Farah harfoush": "/team",
+  "Eyad Ashraf": "/team",
+  "Farah Harfoush": "/team",
   "Hana Waleed": "/team",
+  "Hattan Yosry": "/team",
   "Hossam Eldeen": "/team",
-  "Mo'men Ashraf": "/team",
+  "Ibrahim Mohamed": "/team",
+  "John Ayman": "/team",
+  "Lina Tarek": "/team",
+  "Maram Wael": "/team",
+  "Mazen Amr": "/team",
+  "Mazen Asser": "/team",
+  "Menna Ezzat": "/team",
+  "Mira Barsoum": "/team",
+  "Moamen Ashraf": "/team",
   "Moamen Nawara": "/team",
+  "Mohamed Bassem": "/team",
   "Mohamed Brbry": "/team",
   "Mohamed Elzayat": "/team",
+  "Mohamed Fathallah": "/team",
+  "Norhan Mohammed": "/team",
+  "Osama Mohamed": "/team",
+  "Peter Ayoub": "/team",
+  "Peter Mina": "/team",
   "Rana": "/team",
   "Reem Eldalil": "/team",
+  "Rodyna Amr": "/team",
+  "Sara Gharib": "/team",
+  "Youssef Hozayen": "/team",
   "Youssef Ibrahim": "/team",
-  "Lina Tarek": "/team",
+  "Zeyad Essam": "/team",
+
   "sponsors": "/sponsors",
   "sponsor": "/sponsors",
   "mathworks": "/sponsors",
@@ -282,111 +288,111 @@ Object.entries(searchDictionary).forEach(([key, value]) => {
 console.log("BST populated with:", bst);
 
 const App = () => {
-	const location = useLocation();
-	const [searchResults, setSearchResults] = useState([]);
-	const [query, setQuery] = useState("");
+  const location = useLocation();
+  const [searchResults, setSearchResults] = useState([]);
+  const [query, setQuery] = useState("");
 
-	const handleSearchResults = (results, searchTerm) => {
-		console.log("Search term:", searchTerm);
-		console.log("Search results:", results);
-		setSearchResults(results);
-		setQuery(searchTerm);
-	};
+  const handleSearchResults = (results, searchTerm) => {
+    console.log("Search term:", searchTerm);
+    console.log("Search results:", results);
+    setSearchResults(results);
+    setQuery(searchTerm);
+  };
 
-	const handleCloseSearchResults = (result) => {
-		if (result) {
-			// Handle individual result close
-			setSearchResults((prevResults) => prevResults.filter((r) => r !== result));
-		} else {
-			// Handle closing the entire search results card
-			setSearchResults([]);
-		}
-	};
-	
-	const theme = createTheme({
-		palette: {
-			primary: {
-				main: "#305fb0",
-			},
-			secondary: {
-				main: "#000000",
-			},
-		},
-		typography: {
-			// fontFamily: "Archivo, Roboto, sans-serif",
-			fontFamily: "Montserrat, Roboto, sans-serif",
-			h1: {
-				fontWeight: 500,
-				letterSpacing: "0rem",
-				textTransform: "none",
-			},
-			h2: {
-				fontWeight: 500,
-				letterSpacing: "0rem",
-				textTransform: "none",
-			},
-			h3: {
-				fontWeight: 500,
-				letterSpacing: "0rem",
-				textTransform: "none",
-			},
-			h4: {
-				fontWeight: 400,
-				letterSpacing: "0rem",
-				textTransform: "none",
-			},
-			h5: {
-				fontWeight: 400,
-				letterSpacing: "0rem",
-				textTransform: "none",
-			},
-			h6: {
-				fontWeight: 300,
-				letterSpacing: "0rem",
-				textTransform: "none",
-			},
+  const handleCloseSearchResults = (result) => {
+    if (result) {
+      // Handle individual result close
+      setSearchResults((prevResults) => prevResults.filter((r) => r !== result));
+    } else {
+      // Handle closing the entire search results card
+      setSearchResults([]);
+    }
+  };
 
-			button: {
-				textTransform: "none",
-			},
-		},
-	});
+  const theme = createTheme({
+    palette: {
+      primary: {
+        main: "#305fb0",
+      },
+      secondary: {
+        main: "#000000",
+      },
+    },
+    typography: {
+      // fontFamily: "Archivo, Roboto, sans-serif",
+      fontFamily: "Montserrat, Roboto, sans-serif",
+      h1: {
+        fontWeight: 500,
+        letterSpacing: "0rem",
+        textTransform: "none",
+      },
+      h2: {
+        fontWeight: 500,
+        letterSpacing: "0rem",
+        textTransform: "none",
+      },
+      h3: {
+        fontWeight: 500,
+        letterSpacing: "0rem",
+        textTransform: "none",
+      },
+      h4: {
+        fontWeight: 400,
+        letterSpacing: "0rem",
+        textTransform: "none",
+      },
+      h5: {
+        fontWeight: 400,
+        letterSpacing: "0rem",
+        textTransform: "none",
+      },
+      h6: {
+        fontWeight: 300,
+        letterSpacing: "0rem",
+        textTransform: "none",
+      },
 
-return (
-		<ThemeProvider theme={theme}>
-			<Box sx={{ minWidth: "100vw !important", overflowX: "hidden" }}>
-				{/* Optional background layer */}
-				{/* <Background background={background} /> */}
+      button: {
+        textTransform: "none",
+      },
+    },
+  });
 
-				{/* Show NavBar on non-home routes */}
-				<Box sx={{ position: "relative", zIndex: 1 }}>
-					{location.pathname !== "/" && (
-						<NavBar
-							bst={bst}
-							onSearch={(results, searchTerm) =>
-								handleSearchResults(results, searchTerm)
-							}
-						/>
-					)}
-				</Box>
+  return (
+    <ThemeProvider theme={theme}>
+      <Box sx={{ minWidth: "100vw !important", overflowX: "hidden" }}>
+        {/* Optional background layer */}
+        {/* <Background background={background} /> */}
 
-				<SearchResults results={searchResults} query={query} onClose={handleCloseSearchResults} />
+        {/* Show NavBar on non-home routes */}
+        <Box sx={{ position: "relative", zIndex: 1 }}>
+          {location.pathname !== "/" && (
+            <NavBar
+              bst={bst}
+              onSearch={(results, searchTerm) =>
+                handleSearchResults(results, searchTerm)
+              }
+            />
+          )}
+        </Box>
 
-				<AnimatePresence>
-					<ScrollToTop />
-					<Routes key={location.pathname} location={location}>
-						<Route path="/" element={<ScenePage />} exact />
-						<Route path="/team" element={<TeamPage />} exact />
-						<Route path="/history" element={<HistoryPage />} exact />
-						<Route path="/publications" element={<PublicationsPage />} exact />
-						<Route path="/sponsors" element={<SponsorsPage />} exact />
-						<Route path="/contact" element={<ContactPage />} exact />
-						<Route path="/intro" element={<IntroPage />} exact />
-					</Routes>
-				</AnimatePresence>
-			</Box>
-		</ThemeProvider>
-	);
+        <SearchResults results={searchResults} query={query} onClose={handleCloseSearchResults} />
+
+        <AnimatePresence>
+          <ScrollToTop />
+          <Routes key={location.pathname} location={location}>
+            <Route path="/" element={<ScenePage />} exact />
+            <Route path="/team" element={<TeamPage />} exact />
+            <Route path="/history" element={<HistoryPage />} exact />
+            <Route path="/publications" element={<PublicationsPage />} exact />
+            <Route path="/sponsors" element={<SponsorsPage />} exact />
+            <Route path="/contact" element={<ContactPage />} exact />
+            <Route path="/intro" element={<IntroPage />} exact />
+          </Routes>
+        </AnimatePresence>
+      </Box>
+    </ThemeProvider>
+  );
 };
 
 export default App;

@@ -3,6 +3,7 @@ import AbdelrahmanArafat from '../Members/Abdelrahman Arafat.jpg';
 import Adham from '../Members/Adham.jpeg';
 import AhmedBaheyeldin from '../Members/Ahmed Baheyeldin.jpeg';
 import AhmedIbrahimAnan from '../Members/Ahmed Ibrahim Anan.jpg';
+import AhmedSaber from '../Members/Ahmed Saber.jpeg';
 import AhmedSaeed from '../Members/Ahmed Saeed.jpg';
 import AhmedSaleh from '../Members/Ahmed Saleh.jpeg';
 import AnnTarek from '../Members/Ann Tarek.jpeg';
@@ -15,9 +16,12 @@ import HattanYosry from '../Members/Hattan Yosry.jpeg';
 import HossamEldeen from '../Members/Hossam Eldeen.jpg';
 import IbrahimMohamed from '../Members/Ibrahim Mohamed.jpg';
 import JohnAyman from '../Members/John Ayman.jpg';
+import LinaTarek from '../Members/Lina Tarek.png';
 import MaramWael from '../Members/Maram Wael.jpg';
 import MazenAmr from '../Members/Mazen Amr.jpeg';
+import MazenAsser from '../Members/Mazen Asser.jpeg';
 import MennaEzzat from '../Members/Menna Ezzat.jpg';
+import MiraBarsoum from '../Members/Mira Barsoum.jpg';
 import MoamenAshraf from '../Members/Momen Ashraf.png';
 import MoamenNawara from '../Members/Moamen Nawara.jpeg';
 import MohamedBassem from '../Members/Mohamed Bassem.png';
@@ -30,10 +34,11 @@ import PeterAyoub from '../Members/Peter Ayoub.jpeg';
 import peterMina from '../Members/Peter Mina.png';
 import Rana from '../Members/Rana.jpg';
 import ReemEldalil from '../Members/Reem Eldalil.jpeg';
+import RodynaAmr from '../Members/Rodyna Amr.jpeg';
 import SaraGharib from '../Members/Sara Gharib.jpg';
 import YoussefHozayen from '../Members/Youssef Hozayen.jpeg';
 import YoussefIbrahim from '../Members/Youssef Ibrahim.jpeg';
-import LinaTarek from '../Members/Lina Tarek.png';
+import ZeyadEssam from '../Members/Zeyad Essam.jpg';
 
 const heads = [
   { name: "Ahmed Baheyeldin", role: "Team Leader", image: AhmedBaheyeldin },
@@ -61,28 +66,33 @@ const mechanicalLead = [
 ];
 
 const autonomous = [
+  { name: "Ahmed Saber", role: "Hardware Engineer", image: AhmedSaber },
   { name: "Ahmed Saeed", role: "Hardware Engineer", image: AhmedSaeed },
   { name: "John Ayman", role: "Software Engineer", image: JohnAyman },
   { name: "Mazen Nazeih", role: "Software Engineer", image: MazenAmr },
   { name: "Menna Ezzat", role: "Hardware Engineer", image: MennaEzzat },
   { name: "Sara Gharib", role: "Software Engineer", image: SaraGharib },
   { name: "Eyad Ashraf", role: "Computer Vision Engineer", image: EyadAshraf },
+  { name: "Mazen Asser", role: "Hardware / Computer Vision Engineer", image: MazenAsser },
   { name: "Mohamed Bassem", role: "Computer Vision Engineer ", image: MohamedBassem },
   { name: "Peter Mina", role: "Computer Vision Engineer", image: peterMina },
   { name: "Mohamed Elzayat", role: "Computer Vision Engineer", image: MohamedElzayat },
+  { name: "Zeyad Essam", role: "Software Engineer", image: ZeyadEssam },
 ];
 
 const mechanical = [
   { name: "Esraa Ahmed", role: "Mechanical Engineer", image: EsraaAhmed },
   { name: "Farah Harfoush", role: "Mechanical Engineer", image: FarahHarfoush },
   { name: "Hana Waleed", role: "Mechanical Engineer", image: hanaWaleed },
+  { name: "Hossam Eldeen", role: "Mechanical Engineer", image: HossamEldeen },
+  { name: "Lina Tarek", role: "Mechanical Engineer", image: LinaTarek},
+  { name: "Mira Barsoum", role: "Mechanical Engineer", image: MiraBarsoum },
   { name: "Mo'men Ashraf", role: "Mechanical Engineer", image: MoamenAshraf },
   { name: "Moamen Nawara", role: "Mechanical Engineer", image: MoamenNawara },
   { name: "Mohamed Brbry", role: "Mechanical Engineer", image: MohamedBrbry },
   { name: "Rana", role: "Mechanical Engineer", image: Rana },
   { name: "Reem Eldalil", role: "Mechanical Engineer", image: ReemEldalil },
-  { name: "Lina Tarek", role: "Mechanical Engineer", image: LinaTarek},
-  { name: "Hossam Eldeen", role: "Mechanical Engineer", image: HossamEldeen },
+  {name: "Rodyna Amr", role: "Mechanical Engineer", image: RodynaAmr},
   { name: "Youssef Ibrahim", role: "Mechanical Engineer", image: YoussefIbrahim } 
 ];
 
