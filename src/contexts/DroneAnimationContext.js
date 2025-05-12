@@ -2,7 +2,7 @@ import React, { createContext, useContext, useState, useEffect, useRef } from 'r
 // Configuration constants
 export const CONFIG = {
   modelPath: '/drone_model/Itay6.gltf',
-  fixedwingmodelPath: '/drone_model/AE_Fixed2.gltf',
+  fixedwingmodelPath: '/drone_model/AE_Fixed3.gltf',
   testDronePath: '/drone_model/testDrone5.gltf',
   mobileDronePath: '/drone_model/ItayMobileNoComponents2.gltf',
   mobileFixedWingPath: '/drone_model/fixedMobile.gltf',
