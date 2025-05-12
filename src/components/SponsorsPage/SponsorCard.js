@@ -43,14 +43,6 @@ const SponsorCard = (props) => {
                     justifyContent: "center",
                     textAlign: "center",
                 }}>
-                <Typography
-                    variant="h6"
-                    sx={{
-                        fontWeight: 500,
-                        color: "#000000", // Black text for contrast
-                    }}>
-                    {name}
-                </Typography>
             </CardContent>
         </Card>
     );
