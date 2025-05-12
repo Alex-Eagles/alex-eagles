@@ -25,7 +25,11 @@ const ScrollIndicator = ({ scrollEnabled }) => {
       <div className="chevron"></div>
       <div className="chevron"></div>
       <div className="chevron"></div>
-      <span>Scroll down</span>
+      <span>
+        {isMobile
+          ? 'Scroll up'
+          : 'Scroll down or click on the components to explore the vehicle'}
+      </span>
     </div>
   );
 };
