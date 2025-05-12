@@ -15,10 +15,23 @@
 .card {
   width: 100%;
   max-width: 25rem !important;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   transition: 0.3s;
 }
 
-.card:hover {
-  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+.img-container {
+  overflow: hidden;
+  /* border-radius: 10px; */
+  border-radius: 100%;
+  border: 1px solid #ccc;
+}
+
+.card img {
+  width: 100%;
+  display: block;
+  transition: transform 0.3s ease-in-out;
+}
+
+.card img:hover {
+  transform: scale(1.1);
+  /* Zoom in the image */
 }

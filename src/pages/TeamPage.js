@@ -57,31 +57,26 @@ const TeamPage = () => {
 						subtitle=""
 						mainSection="true"
 					/> */  }
-					<br />
 					<TeamMembersSection
 						title="Heads"
 						subtitle="Meet the visionaries who guide our mission, set our goals, and inspire the team to achieve excellence."
 						members={heads}
 					/>
-					<br />
 					<TeamMembersSection
 						title="Autonomus Lead"
 						subtitle="Leading the charge in innovation, our autonomous team heads push the boundaries of intelligence and automation."
 						members={autonomusLead}
 					/>
-					<br />
 					<TeamMembersSection
 						title="Mechanical Lead"
 						subtitle="At the forefront of engineering excellence, our mechanical heads transform imagination into mechanical reality."
 						members={mechanicalLead}
 					/>
-					<br />
 					<TeamMembersSection
 						title="Autonomous Team"
 						subtitle="The tech innovators coding, wiring, and empowering the brain behind our autonomous systems."
 						members={autonomous}
 					/>
-					<br />
 					<TeamMembersSection
 						title="Mechanical Team"
 						subtitle="The builders and makers who craft ideas into precision-engineered reality, shaping the future piece by piece."
