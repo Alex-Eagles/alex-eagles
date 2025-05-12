@@ -7,7 +7,7 @@ import DroneModel from './DroneModel';
 import FixedWing from './FixedWing';
 import TestDrone from './TestDrone';
 import { PerspectiveCamera } from '@react-three/drei';
-
+import { SpotLight } from '@react-three/drei';
 import Ground from './Ground';
 import gsap from 'gsap';
 
@@ -217,20 +217,20 @@ function Scene({ setPage, setScrollEnabled, scrollEnabled }) {
 
   return (
     <>
-      {/* <ambientLight intensity={15} /> */}
-      <spotLight
+      {/* <ambientLight intensity={8}   /> */}
+      <SpotLight
         castShadow={!isMobile}
         ref={mainLightRef}
         // position={[17 * combinedScale, 25 * combinedScale, 8 * combinedScale]}
-        intensity={isMobile ? 0.3 : 30.5}
+        intensity={isMobile ? 0.3 : 0.4}
         distance={100 * combinedScale}
-        angle={40}
+        angle={0.4}
         penumbra={isMobile ? 0.3 : 0.4}
         // shadowBias={-0.0001}
         // shadow-mapSize={isMobile ? [1, 1] : [512, 512]}
       />
 
-      {/* <spotLight
+      <SpotLight
         castShadow={!isMobile}
         ref={fixedWingSpotlightRef}
         position={[5 * combinedScale, 19 * combinedScale, -25 * combinedScale]}
@@ -240,10 +240,10 @@ function Scene({ setPage, setScrollEnabled, scrollEnabled }) {
         distance={100 * combinedScale}
         color={0xffffff}
         target-position={[1 * combinedScale, -6 * combinedScale, -31 * combinedScale]}
-      /> */}
+      />
 
          {/* Add TestDrone spotlight */}
-      {/* <spotLight
+      <SpotLight
         castShadow={!isMobile}
         ref={testDroneSpotlightRef}
         position={[5 * combinedScale, 19 * combinedScale, -55 * combinedScale]}
@@ -253,7 +253,7 @@ function Scene({ setPage, setScrollEnabled, scrollEnabled }) {
         distance={100 * combinedScale}
         color={0xffffff}
         target-position={[5 * combinedScale, -6 * combinedScale, -60 * combinedScale]}
-      /> */}
+      />
 
 
       <DroneModel
