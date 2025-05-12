@@ -241,7 +241,7 @@ function Scene({ setPage, setScrollEnabled, scrollEnabled }) {
   return (
     <>
      {/* Base lighting that works everywhere */}
-      <ambientLight intensity={0.3} color="#b0c4de" />
+      <ambientLight intensity={0.02} color="#080810" />
       {/* <ambientLight intensity={15} /> */}
       {/* <spotLight
         castShadow={!isMobile}
@@ -291,42 +291,126 @@ function Scene({ setPage, setScrollEnabled, scrollEnabled }) {
         target-position={[5 * combinedScale, -6 * combinedScale, -60 * combinedScale]}
       /> */}
     {/* Main directional light - reliable across platforms */}
-      <directionalLight
+      {/* <directionalLight
         ref={mainLightRef}
         position={[10 * combinedScale, 20 * combinedScale, 5 * combinedScale]}
         intensity={1.0}
         castShadow
         shadow-mapSize={[1024, 1024]}
         shadow-bias={-0.0001}
-      />
-      
+      /> */}
+       <fog attach="fog" args={['#000010', 50, 90]} />
       {/* Model-specific point lights */}
-      <pointLight
-        ref={droneLightRef}
-        position={[2 * combinedScale, 6 * combinedScale, 5 * combinedScale]}
-        intensity={0.8}
-        distance={20 * combinedScale}
-        decay={2}
-        color="#ffffff"
-      />
+        <pointLight
+      ref={droneLightRef}
+      position={[2 * combinedScale, 7 * combinedScale, 6 * combinedScale]}
+      intensity={5.9}
+      distance={17 * combinedScale}
+      decay={1.8}
+      color="#ffffff"
+    />
       
-      <pointLight
-        ref={fixedWingLightRef}
-        position={[5 * combinedScale, 8 * combinedScale, -29 * combinedScale]}
-        intensity={0.2} // Start dim and increase when near
-        distance={30 * combinedScale}
-        decay={1.5}
-        color="#f0f8ff"
-      />
+      {/* Fill light */}
+    <pointLight
+      position={[-1 * combinedScale, 4 * combinedScale, 3 * combinedScale]}
+      intensity={5.3}
+      distance={12 * combinedScale}
+      decay={2}
+      color="#a0c0ff"
+    />
+    
       
-      <pointLight
-        ref={testDroneLightRef}
-        position={[6 * combinedScale, 8 * combinedScale, -55 * combinedScale]}
-        intensity={0.1} // Start very dim
-        distance={35 * combinedScale}
-        decay={1.5}
-        color="#f0f8ff"
-      />
+     {/* Rim/back light */}
+    <pointLight
+      position={[0, 3 * combinedScale, 0]}
+      intensity={0.25}
+      distance={10 * combinedScale}
+      decay={2.5}
+      color="#f0f8ff"
+    />
+    {/* "Pool of light" on ground under drone */}
+    <pointLight
+      position={[0, -0.9 * combinedScale, 2.5 * combinedScale]}
+      intensity={2.15}
+      distance={5 * combinedScale}
+      decay={3}
+      color="#ffffff"
+    />
+    {/* FIXED WING LIGHTING - same 3-point approach */}
+    {/* Main light */}
+    <pointLight
+      ref={fixedWingLightRef}
+      position={[6 * combinedScale, 7 * combinedScale, -28 * combinedScale]}
+      intensity={12.2} // Start dim
+      distance={60 * combinedScale}
+      decay={1.8}
+      color="#f0f8ff"
+    />
+    
+    {/* Fill light */}
+    <pointLight
+      position={[2 * combinedScale, 4 * combinedScale, -30 * combinedScale]}
+      intensity={10.05} // Start dim
+      distance={15 * combinedScale}
+      decay={2}
+      
+    />
+    
+    {/* Rim/back light */}
+    <pointLight
+      position={[4 * combinedScale, 1 * combinedScale, -25 * combinedScale]}
+      intensity={0.1} // Start dim
+      distance={8 * combinedScale}
+      decay={2.5}
+      color="#f8f8ff"
+    />
+    
+    {/* "Pool of light" on ground */}
+    <pointLight
+      position={[4 * combinedScale, -0.9 * combinedScale, -28 * combinedScale]}
+      intensity={0.05} // Start dim
+      distance={6 * combinedScale}
+      decay={3}
+      color="#ffffff"
+    />
+    
+    {/* TEST DRONE LIGHTING - same approach */}
+    {/* Main light */}
+    <pointLight
+      ref={testDroneLightRef}
+      position={[7 * combinedScale, 7 * combinedScale, -54 * combinedScale]}
+      intensity={0.1} // Start very dim
+      distance={22 * combinedScale}
+      decay={1.8}
+      color="#f0f8ff"
+    />
+    
+    {/* Fill light */}
+    <pointLight
+      position={[3 * combinedScale, 4 * combinedScale, -58 * combinedScale]}
+      intensity={0.03} // Start very dim
+      distance={15 * combinedScale}
+      decay={2}
+      color="#a0c0ff"
+    />
+    
+    {/* Rim/back light */}
+    <pointLight
+      position={[5.5 * combinedScale, 1 * combinedScale, -53 * combinedScale]}
+      intensity={0.05} // Start very dim
+      distance={8 * combinedScale}
+      decay={2.5}
+      color="#f8f8ff"
+    />
+    
+    {/* "Pool of light" on ground */}
+    <pointLight
+      position={[5.5 * combinedScale, -0.9 * combinedScale, -56 * combinedScale]}
+      intensity={0.02} // Start very dim
+      distance={6 * combinedScale}
+      decay={3}
+      color="#ffffff"
+    />
       
       {/* Optional - environment lighting for more realistic rendering */}
       {/* <Environment preset="city" intensity={0.2} /> */}
