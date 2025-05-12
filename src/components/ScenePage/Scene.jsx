@@ -313,7 +313,7 @@ function Scene({ setPage, setScrollEnabled, scrollEnabled }) {
       {/* Fill light */}
     <pointLight
       position={[-1 * combinedScale, 4 * combinedScale, 3 * combinedScale]}
-      intensity={505.3}
+      intensity={1005.3}
       distance={12 * combinedScale}
       decay={2}
       color="#a0c0ff"
