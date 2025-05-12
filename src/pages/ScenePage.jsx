@@ -13,7 +13,7 @@ import ScrollIndicator from '../components/ScenePage/ScrollIndicator';
 function ScenePage() {
   const [page, setPage] = useState(0);
   const [scrollEnabled, setScrollEnabled] = useState(true);
-
+  const [loading, setLoading] = useState(true);
   
   
   return (
@@ -47,13 +47,14 @@ function ScenePage() {
                   setPage={setPage}
                   setScrollEnabled={setScrollEnabled}
                   scrollEnabled={scrollEnabled}
+                  onLoaded={() => setLoading(false)}
                 />
               </Suspense>
             </ScrollControls>
           </Canvas>
         </DroneAnimationProvider>
          {/* Add the scroll indicator */}
-        <ScrollIndicator scrollEnabled={scrollEnabled} />
+        {!loading && <ScrollIndicator scrollEnabled={scrollEnabled} />}
       </div>
        
 

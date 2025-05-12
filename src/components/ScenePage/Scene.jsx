@@ -11,7 +11,7 @@ import { PerspectiveCamera } from '@react-three/drei';
 import Ground from './Ground';
 import gsap from 'gsap';
 
-function Scene({ setPage, setScrollEnabled, scrollEnabled }) {
+function Scene({ setPage, setScrollEnabled, scrollEnabled,onLoaded }) {
  
   // testing vercel
 
@@ -237,7 +237,9 @@ function Scene({ setPage, setScrollEnabled, scrollEnabled }) {
       setScrollEnabled(true);
     }
   };
-
+useEffect(() => {
+    if (onLoaded) onLoaded();
+  }, [onLoaded]);
   return (
     <>
      {/* Base lighting that works everywhere */}
