@@ -21,8 +21,8 @@ const SearchResults = ({ results, onClose }) => {
   return (
     <Box
       sx={{
-        position: "absolute",
-        top: "64px",
+        position: "fixed", // Make the search results fixed
+        top: "64px", // Position it under the navbar
         left: 0,
         width: "100%",
         zIndex: 10,
