@@ -1,132 +1,133 @@
+// src/components/Modal.js
 import React, { useEffect, useState, useRef } from "react";
 import "../../styles/modal.css";
-import {mediaItems as droneMediaItems} from "../../assets/data/droneMedia"; // Adjust the import path as necessary
-import { mediaItems as fixedMediaItems } from "../../assets/data/fixedwingMedia"; // Adjust the import path as necessary
-import componentsData  from "../../assets/data/componentsData"; // Adjust the import path as necessary
+import { mediaItems as droneMediaItems } from "../../assets/data/droneMedia";
+import { mediaItems as fixedMediaItems } from "../../assets/data/fixedwingMedia";
+import componentsData from "../../assets/data/componentsData";
 import fixedcomponentsData from "../../assets/data/fixedwingComponentsData";
 
+/**
+ * Modal component: shows sections of media items.
+ * If an item has a .media array, use it;
+ * otherwise wrap its single src/image/video into media[].
+ */
 function Modal({ isOpen, onClose, title, componentsModal }) {
-  const [expandedId, setExpandedId,type] = useState(null);
+  const [expandedId, setExpandedId] = useState(null);
   const sectionRefs = useRef({});
-  //const mediaItems = title === "Itay" ? droneMediaItems : fixedMediaItems;
-  let mediaItems= null;
-  // 4 conidition for the modal content 
-  // 1. If the title is "Itay" and the component modal is false then show the droneMediaItems
-  // 2. If the title is "Itay" and the component modal is true then show the the dronecomponents
-  // 3. If the title is "Fixed-Wing" and the component modal is false then show the fixedMediaItems
-  // 4. If the title is "Fixed-Wing" and the component modal is true then show the fixedwingcomponents
-  if (title === "Itay" && !componentsModal) {
-    mediaItems = droneMediaItems;
-    
 
-  }
-  else if (title === "Itay" && componentsModal) {
-    mediaItems = componentsData;
-  }
-  else if (title === "Taco" && !componentsModal) {
-    mediaItems = fixedMediaItems;
-  }
-  else if (title === "Taco" && componentsModal) {
-    mediaItems = fixedcomponentsData;
-  }
-  else if (title === "Test Drone" && !componentsModal) {
-    mediaItems = droneMediaItems;
-  }
-  else if (title === "Test Drone" && componentsModal) {
-    mediaItems = componentsData;
+  // Select dataset based on title & componentsModal
+  let items = [];
+  if (title === "Itay") {
+    items = componentsModal ? componentsData : droneMediaItems;
+  } else if (title === "Taco") {
+    items = componentsModal ? fixedcomponentsData : fixedMediaItems;
+  } else {
+    items = componentsModal ? componentsData : droneMediaItems;
   }
 
-  // Close modal when Escape key is pressed
+  // Normalize each item to have a media[] array
+  const normalized = items.map(item => {
+    if (Array.isArray(item.media)) return item;
+    // determine type and source
+    const type = item.type || (item.src && item.src.match(/\.(mp4|mov)$/i) ? 'video' : 'image');
+    const src  = item.src || item.image;
+    return {
+      ...item,
+      media: [{ type, src, caption: item.caption || '' }]
+    };
+  });
+
+  // Close on Escape key
   useEffect(() => {
-    const handleKeyDown = (event) => {
-      if (event.key === "Escape") {
-        onClose();
-      }
-    };
-
-    if (isOpen) {
-      document.addEventListener("keydown", handleKeyDown);
-    }
-
-    return () => {
-      document.removeEventListener("keydown", handleKeyDown);
-    };
+    const handler = e => { if (e.key === 'Escape') onClose(); };
+    if (isOpen) document.addEventListener('keydown', handler);
+    return () => document.removeEventListener('keydown', handler);
   }, [isOpen, onClose]);
 
-  // Handle section expansion
-  const handleSectionClick = (id) => {
-    setExpandedId(expandedId === id ? null : id);
-  };
-
-  // Handle video playback
-  const handleMouseEnter = (id) => {
-    const section = sectionRefs.current[id];
-    if (!section) return;
-    
-    const video = section.querySelector('video');
-    if (video) {
-      video.play();
-    }
-  };
-
-  const handleMouseLeave = (id) => {
-    if (expandedId === id) return; // Don't pause if section is expanded
-    
-    const section = sectionRefs.current[id];
-    if (!section) return;
-    
-    const video = section.querySelector('video');
-    if (video) {
-      video.pause();
-      video.currentTime = 0;
-    }
-  };
-
-  // Don't render anything if modal is not open
   if (!isOpen) return null;
+
+  const handleClickSection = id => {
+    setExpandedId(prev => (prev === id ? null : id));
+  };
+
+  const handleMouse = (id, play) => {
+    const el = sectionRefs.current[id];
+    if (!el) return;
+    const vids = el.querySelectorAll('video');
+    vids.forEach(video => {
+      if (play) video.play();
+      else { video.pause(); video.currentTime = 0; }
+    });
+  };
 
   return (
     <div className="modal-overlay" onClick={onClose}>
-      <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+      <div className="modal-content" onClick={e => e.stopPropagation()}>
         <div className="modal-header">
           <h2>{title}</h2>
           <button className="modal-close" onClick={onClose}>×</button>
         </div>
         <div className="modal-body">
-          {mediaItems.map((item) => (
+          {normalized.map(item => (
             <div
               key={item.id}
-              ref={(el) => (sectionRefs.current[item.id] = el)}
-              className={`section ${expandedId === item.id ? "expanded" : ""}`}
-              onClick={() => handleSectionClick(item.id)}
-              onMouseEnter={() => handleMouseEnter(item.id)}
-              onMouseLeave={() => handleMouseLeave(item.id)}
+              ref={el => (sectionRefs.current[item.id] = el)}
+              className={`section ${expandedId === item.id ? 'expanded' : ''}`}
+              onClick={() => handleClickSection(item.id)}
+              onMouseEnter={() => handleMouse(item.id, true)}
+              onMouseLeave={() => handleMouse(item.id, false)}
             >
               <div className="section-header">
                 <h3 className="section-category">{item.category}</h3>
               </div>
-              
               <div className="section-content">
                 <div className="content-text">
                   <h4 className="section-title">{item.title}</h4>
-                  <p className="section-caption">{item.caption || item.description}</p>
+                  <p className="section-caption">
+                    {item.caption || item.description}
+                  </p>
                 </div>
-                
                 <div className="content-media">
-                  {item.type === "video" ? (
-                    <video 
-                      src={item.src} 
-                      className="section-video" 
-                      loop 
-                      muted
-                      preload="metadata"
-                    />
+                  {item.media.length === 1 ? (
+                    // single media
+                    item.media[0].type === 'video' ? (
+                      <video
+                        src={item.media[0].src}
+                        loop
+                        muted
+                        preload="metadata"
+                        className="section-video"
+                      />
+                    ) : (
+                      <img
+                        src={item.media[0].src}
+                        alt={item.title}
+                        className="section-image"
+                      />
+                    )
                   ) : (
-                    <img 
-                      src={item.src} 
-                      alt={item.title} 
-                      className="section-image" 
-                    />
+                    // multiple media side-by-side
+                    <div className="multi-media-row">
+                      {item.media.map((m, idx) => (
+                        m.type === 'video' ? (
+                          <video
+                            key={idx}
+                            src={m.src}
+                            loop
+                            muted
+                            preload="metadata"
+                            className="section-video small"
+                          />
+                        ) : (
+                          <img
+                            key={idx}
+                            src={m.src}
+                            alt={`${item.title} ${idx+1}`}
+                            className="section-image small"
+                          />
+                        )
+                      ))}
+                    </div>
                   )}
                 </div>
               </div>
