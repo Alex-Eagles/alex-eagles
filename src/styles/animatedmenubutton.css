@@ -202,7 +202,8 @@
 
   /* optional mobile tweaks */
   .animated-menu.open .menu-item a {
-    font-size: 1.5rem !important;
+    font-size: 1.1rem !important;
+    margin-top: 0.7rem !important;
   }
   .button-text {
     font-size: 12px !important;
