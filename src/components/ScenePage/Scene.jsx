@@ -1,6 +1,6 @@
 // src/components/ScenePage/Scene.js
 import React, { useRef, Suspense, useEffect, useState } from 'react';
-import { Color, Vector3, FogExp2, Object3D } from 'three';
+import { Color, Vector3, FogExp2 } from 'three';
 import { useFrame, useThree } from '@react-three/fiber';
 import { OrbitControls, Grid, useScroll } from '@react-three/drei';
 import DroneModel from './DroneModel';
@@ -12,10 +12,10 @@ import Ground from './Ground';
 import gsap from 'gsap';
 
 function Scene({ setPage, setScrollEnabled, scrollEnabled }) {
-  // Create refs for spotlight targets
-  const mainLightTargetRef = useRef(new Object3D());
-  const fixedWingTargetRef = useRef(new Object3D());
-  const testDroneTargetRef = useRef(new Object3D());
+ 
+  // testing vercel
+
+ 
   
   const spotlightRef = useRef();
   const mainLightRef = useRef();
@@ -24,7 +24,7 @@ function Scene({ setPage, setScrollEnabled, scrollEnabled }) {
   const testDroneSpotlightRef = useRef(); 
   const [introComplete, setIntroComplete] = useState(false);
   const [isTransitioning, setIsTransitioning] = useState(false);
-  const { camera, size, scene } = useThree();
+  const { camera, size } = useThree();
   
   const scroll = useScroll();
 
@@ -54,34 +54,15 @@ function Scene({ setPage, setScrollEnabled, scrollEnabled }) {
   const camPos3 = new Vector3(6 * combinedScale, (3 + yOffset) * combinedScale, -51 * combinedScale);
   const camTarget3 = new Vector3(5 * combinedScale, (-4.05 + yOffset) * combinedScale, -61 * combinedScale);
   
-  // Add targets to scene on mount
   useEffect(() => {
-    // Add spotlight targets to the scene
-    scene.add(mainLightTargetRef.current);
-    scene.add(fixedWingTargetRef.current);
-    scene.add(testDroneTargetRef.current);
-    
-    // Set initial target positions
-    mainLightTargetRef.current.position.set(15 * combinedScale, 15 * combinedScale, -28 * combinedScale);
-    fixedWingTargetRef.current.position.set(4 * combinedScale, -6 * combinedScale, -31 * combinedScale);
-    testDroneTargetRef.current.position.set(5 * combinedScale, -6 * combinedScale, -60 * combinedScale);
-    
-    // Initial camera position
     camera.position.copy(introCamStartPos);
     camera.lookAt(introCamStartTarget);
-    
     const introTimer = setTimeout(() => setIntroComplete(true), 5000);
-    
-    return () => {
-      clearTimeout(introTimer);
-      // Clean up by removing targets from scene
-      scene.remove(mainLightTargetRef.current);
-      scene.remove(fixedWingTargetRef.current);
-      scene.remove(testDroneTargetRef.current);
-    };
-  }, [camera, scene]);
+    return () => clearTimeout(introTimer);
+  }, [camera]);
 
   useFrame(({ clock }) => {
+    
     if (!introComplete) {
       const t = Math.min(clock.getElapsedTime() / 5, 1);
       const easeT = 1 - Math.pow(1 - t, 3);
@@ -91,34 +72,44 @@ function Scene({ setPage, setScrollEnabled, scrollEnabled }) {
       camera.lookAt(lookAtPos);
 
       if (spotlightRef.current) {
+        spotlightRef.current.target.position.set(15 * combinedScale, 15 * combinedScale, -28 * combinedScale);
+        spotlightRef.current.target.updateMatrixWorld();
         spotlightRef.current.intensity = t * 0.1;
       }
 
-      if (mainLightRef.current) {
-        mainLightRef.current.intensity = t * 15;
-        mainLightRef.current.target = mainLightTargetRef.current;
-      }
-      
-      if (ambientLightRef.current) {
-        ambientLightRef.current.intensity = t * 0.3;
-      }
+      if (mainLightRef.current) mainLightRef.current.intensity = t * 15;
+      if (ambientLightRef.current) ambientLightRef.current.intensity = t * 0.3;
 
       if (fixedWingSpotlightRef.current) {
         fixedWingSpotlightRef.current.intensity = t * 3;
-        fixedWingSpotlightRef.current.target = fixedWingTargetRef.current;
+        fixedWingSpotlightRef.current.target.position.set(4 * combinedScale, -6 * combinedScale, -31 * combinedScale);
+        fixedWingSpotlightRef.current.target.updateMatrixWorld();
       }
-      
       // Initialize TestDrone spotlight
       if (testDroneSpotlightRef.current) {
         testDroneSpotlightRef.current.intensity = t * 0.5; // Start with dim light
-        testDroneSpotlightRef.current.target = testDroneTargetRef.current;
+        testDroneSpotlightRef.current.target.position.set(5 * combinedScale, -6 * combinedScale, -60 * combinedScale);
+        testDroneSpotlightRef.current.target.updateMatrixWorld();
       }
     } else if (scrollEnabled) {
       const t = scroll.offset;
       const newPage = Math.floor(t * 3);
       setPage(newPage);
 
-      // Handle camera positions for three models
+      // camera.position.lerpVectors(camPos1, camPos2, t);
+      // const lookAt = camTarget1.clone().lerp(camTarget2, t);
+      // camera.lookAt(lookAt);
+
+      // if (fixedWingSpotlightRef.current) {
+      //   const currentIntensity = fixedWingSpotlightRef.current.intensity;
+      //   const targetIntensity = 1 + t * 6;
+      //   fixedWingSpotlightRef.current.intensity = currentIntensity + (targetIntensity - currentIntensity) * 0.1;
+
+      //   const currentAngle = fixedWingSpotlightRef.current.angle;
+      //   const targetAngle = 0.4 + t * 0.1;
+      //   fixedWingSpotlightRef.current.angle = currentAngle + (targetAngle - currentAngle) * 0.1;
+      // }
+        // Handle camera positions for three models
       if (t < 0.5) {
         // First half of scrolling: DroneModel to FixedWing
         const segmentT = t * 2; // Normalize 0-0.5 to 0-1
@@ -160,6 +151,9 @@ function Scene({ setPage, setScrollEnabled, scrollEnabled }) {
           testDroneSpotlightRef.current.angle = currentAngle + (targetAngle - currentAngle) * 0.1;
         }
       }
+
+      
+
     }
   });
 
@@ -223,22 +217,20 @@ function Scene({ setPage, setScrollEnabled, scrollEnabled }) {
 
   return (
     <>
-      <ambientLight ref={ambientLightRef} intensity={0.3} />
-      
+      {/* <ambientLight intensity={15} /> */}
       <spotLight
         castShadow={!isMobile}
         ref={mainLightRef}
-        position={[17 * combinedScale, 25 * combinedScale, 8 * combinedScale]}
+        // position={[17 * combinedScale, 25 * combinedScale, 8 * combinedScale]}
         intensity={isMobile ? 0.3 : 0.5}
         distance={100 * combinedScale}
-        angle={0.3}
+        angle={5}
         penumbra={isMobile ? 0.3 : 0.4}
-        target={mainLightTargetRef.current}
         // shadowBias={-0.0001}
         // shadow-mapSize={isMobile ? [1, 1] : [512, 512]}
       />
 
-      <spotLight
+      {/* <spotLight
         castShadow={!isMobile}
         ref={fixedWingSpotlightRef}
         position={[5 * combinedScale, 19 * combinedScale, -25 * combinedScale]}
@@ -247,11 +239,11 @@ function Scene({ setPage, setScrollEnabled, scrollEnabled }) {
         penumbra={isMobile ? 0.3 : 0.4}
         distance={100 * combinedScale}
         color={0xffffff}
-        target={fixedWingTargetRef.current}
-      />
+        target-position={[1 * combinedScale, -6 * combinedScale, -31 * combinedScale]}
+      /> */}
 
-      {/* Add TestDrone spotlight */}
-      <spotLight
+         {/* Add TestDrone spotlight */}
+      {/* <spotLight
         castShadow={!isMobile}
         ref={testDroneSpotlightRef}
         position={[5 * combinedScale, 19 * combinedScale, -55 * combinedScale]}
@@ -260,8 +252,9 @@ function Scene({ setPage, setScrollEnabled, scrollEnabled }) {
         penumbra={isMobile ? 0.3 : 0.4}
         distance={100 * combinedScale}
         color={0xffffff}
-        target={testDroneTargetRef.current}
-      />
+        target-position={[5 * combinedScale, -6 * combinedScale, -60 * combinedScale]}
+      /> */}
+
 
       <DroneModel
         position={isMobile ? [0, -1 * combinedScale, 1.5 * combinedScale] : [0, -1 * combinedScale, 2.5 * combinedScale]}
@@ -287,9 +280,10 @@ function Scene({ setPage, setScrollEnabled, scrollEnabled }) {
         isMobile={isMobile}
       />
 
-      {/* Add TestDrone component */}
+        {/* Add TestDrone component */}
       <TestDrone
-        position={isMobile ? [9, 0.2 * combinedScale, -55 * combinedScale] : [5.5*combinedScale, 0.2 * combinedScale, -56 * combinedScale]}
+       position={isMobile ? [9, 0.2 * combinedScale, -55 * combinedScale] : [5.5*combinedScale, 0.2 * combinedScale, -56 * combinedScale]}
+        // position={isMobile ? [5 * combinedScale, -5.5 * combinedScale, -59 * combinedScale] : [5 * combinedScale, -6 * combinedScale, -60 * combinedScale]}
         rotation={[0, 250 * (Math.PI / 180), 0]}
         scale={isMobile ?
           [6 * combinedScale, 6 * combinedScale, 6 * combinedScale] :
@@ -297,10 +291,10 @@ function Scene({ setPage, setScrollEnabled, scrollEnabled }) {
         }
         isMobile={isMobile}
         onClick={(targetPosition, lookAtPosition) => handleCameraAnimation(targetPosition, lookAtPosition)}
-        onReturnToMain={handleReturnToMain}
-        setScrollEnabled={setScrollEnabled}
-        scrollEnabled={scrollEnabled}
-        isTransitioning={isTransitioning}
+         onReturnToMain={handleReturnToMain}
+  setScrollEnabled={setScrollEnabled}
+  scrollEnabled={scrollEnabled}
+  isTransitioning={isTransitioning}
       />
 
       <Ground position={[0, -1 * combinedScale, 0]} rotation={[-Math.PI / 2, 0, 0]} />
