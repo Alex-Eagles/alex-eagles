@@ -7,7 +7,7 @@ function Desc({ page }) {
   
   const pages = [
     {
-      name: "Itayy",
+      name: "Itttay",
       location: "SUAS, USA",
       description:
         "Itay is spearheading our next-gen VTOL research with a focus on hybrid propulsion.",

@@ -304,7 +304,7 @@ function Scene({ setPage, setScrollEnabled, scrollEnabled }) {
         <pointLight
       ref={droneLightRef}
       position={[2 * combinedScale, 7 * combinedScale, 6 * combinedScale]}
-      intensity={505.9}
+      intensity={1505.9}
       distance={10 * combinedScale}
       decay={1.8}
       color="#ffffff"
@@ -379,7 +379,7 @@ function Scene({ setPage, setScrollEnabled, scrollEnabled }) {
     <pointLight
       ref={testDroneLightRef}
       position={[7 * combinedScale, 7 * combinedScale, -54 * combinedScale]}
-      intensity={600} // Start very dim
+      intensity={400} // Start very dim
       distance={22 * combinedScale}
       decay={1.8}
       color="#f0f8ff"
@@ -389,7 +389,7 @@ function Scene({ setPage, setScrollEnabled, scrollEnabled }) {
     <pointLight
       position={[3 * combinedScale, 4 * combinedScale, -58 * combinedScale]}
       intensity={400} // Start very dim
-      distance={15 * combinedScale}
+      distance={55 * combinedScale}
       decay={2}
       color="#a0c0ff"
     />
@@ -398,7 +398,7 @@ function Scene({ setPage, setScrollEnabled, scrollEnabled }) {
     <pointLight
       position={[5.5 * combinedScale, 1 * combinedScale, -53 * combinedScale]}
       intensity={500} // Start very dim
-      distance={8 * combinedScale}
+      distance={28 * combinedScale}
       decay={2.5}
       color="#f8f8ff"
     />
@@ -406,7 +406,7 @@ function Scene({ setPage, setScrollEnabled, scrollEnabled }) {
     {/* "Pool of light" on ground */}
     <pointLight
       position={[5.5 * combinedScale, -0.9 * combinedScale, -56 * combinedScale]}
-      intensity={30} // Start very dim
+      intensity={20} // Start very dim
       distance={6 * combinedScale}
       decay={3}
       color="#ffffff"
