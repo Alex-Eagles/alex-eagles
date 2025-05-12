@@ -313,7 +313,7 @@ function Scene({ setPage, setScrollEnabled, scrollEnabled }) {
       {/* Fill light */}
     <pointLight
       position={[-1 * combinedScale, 4 * combinedScale, 3 * combinedScale]}
-      intensity={550}
+      intensity={350}
       distance={150 * combinedScale}
       decay={2}
       // color="#a0c0ff"
@@ -344,7 +344,8 @@ function Scene({ setPage, setScrollEnabled, scrollEnabled }) {
       intensity={100.2} // Start dim
       distance={100 * combinedScale}
       decay={1.8}
-      color="#f0f8ff"
+      // color="#f0f8ff"
+      color="#D50005"
     />
     
     {/* Fill light */}
@@ -353,7 +354,7 @@ function Scene({ setPage, setScrollEnabled, scrollEnabled }) {
       intensity={100.05} // Start dim
       distance={150 * combinedScale}
       decay={2}
-      
+      color="#D91AFF"
     />
     
     {/* Rim/back light */}
@@ -362,7 +363,8 @@ function Scene({ setPage, setScrollEnabled, scrollEnabled }) {
       intensity={100} // Start dim
       distance={100 * combinedScale}
       decay={2.5}
-      color="#f8f8ff"
+      // color="#f8f8ff"
+      color="#1CE81A"
     />
     
     {/* "Pool of light" on ground */}
