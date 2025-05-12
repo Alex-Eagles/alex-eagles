@@ -373,7 +373,8 @@ function Scene({ setPage, setScrollEnabled, scrollEnabled }) {
       intensity={40.05} // Start dim
       distance={100 * combinedScale}
       decay={3}
-      color="#ffffff"
+      // color="#ffffff"
+      color="#f8f8ff"
     />
     
     {/* TEST DRONE LIGHTING - same approach */}
