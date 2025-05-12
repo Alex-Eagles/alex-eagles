@@ -33,6 +33,7 @@ import ReemEldalil from '../Members/Reem Eldalil.jpeg';
 import SaraGharib from '../Members/Sara Gharib.jpg';
 import YoussefHozayen from '../Members/Youssef Hozayen.jpeg';
 import YoussefIbrahim from '../Members/Youssef Ibrahim.jpeg';
+import LinaTarek from '../Members/Lina Tarek.png';
 
 const heads = [
   { name: "Ahmed Baheyeldin", role: "Team Leader", image: AhmedBaheyeldin },
@@ -67,21 +68,22 @@ const autonomous = [
   { name: "Sara Gharib", role: "Software Engineer", image: SaraGharib },
   { name: "Eyad Ashraf", role: "Computer Vision Engineer", image: EyadAshraf },
   { name: "Mohamed Bassem", role: "Computer Vision Engineer ", image: MohamedBassem },
-  { name: "Peter Mina", role: "Computer Vision Engineer", image: peterMina }
+  { name: "Peter Mina", role: "Computer Vision Engineer", image: peterMina },
+  { name: "Mohamed Elzayat", role: "Computer Vision Engineer", image: MohamedElzayat },
 ];
 
 const mechanical = [
   { name: "Esraa Ahmed", role: "Mechanical Engineer", image: EsraaAhmed },
   { name: "Farah Harfoush", role: "Mechanical Engineer", image: FarahHarfoush },
   { name: "Hana Waleed", role: "Mechanical Engineer", image: hanaWaleed },
-  { name: "Hossam Eldeen", role: "Mechanical Engineer", image: HossamEldeen },
   { name: "Mo'men Ashraf", role: "Mechanical Engineer", image: MoamenAshraf },
   { name: "Moamen Nawara", role: "Mechanical Engineer", image: MoamenNawara },
   { name: "Mohamed Brbry", role: "Mechanical Engineer", image: MohamedBrbry },
-  { name: "Mohamed Elzayat", role: "Mechanical Engineer", image: MohamedElzayat },
   { name: "Rana", role: "Mechanical Engineer", image: Rana },
   { name: "Reem Eldalil", role: "Mechanical Engineer", image: ReemEldalil },
-  { name: "Youssef Ibrahim", role: "Mechanical Engineer", image: YoussefIbrahim }
+  { name: "Lina Tarek", role: "Mechanical Engineer", image: LinaTarek},
+  { name: "Hossam Eldeen", role: "Mechanical Engineer", image: HossamEldeen },
+  { name: "Youssef Ibrahim", role: "Mechanical Engineer", image: YoussefIbrahim } 
 ];
 
 const teamMemberData = [heads, autonomusLead, mechanicalLead, autonomous, mechanical];
