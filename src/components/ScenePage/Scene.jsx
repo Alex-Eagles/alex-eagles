@@ -351,8 +351,8 @@ function Scene({ setPage, setScrollEnabled, scrollEnabled }) {
     {/* Fill light */}
     <pointLight
       position={[2 * combinedScale, 4 * combinedScale, -30 * combinedScale]}
-      intensity={100.05} // Start dim
-      distance={150 * combinedScale}
+      intensity={70.05} // Start dim
+      distance={190 * combinedScale}
       decay={2}
       // purple color
     />
@@ -360,8 +360,8 @@ function Scene({ setPage, setScrollEnabled, scrollEnabled }) {
     {/* Rim/back light color the front of the taco*/} 
     <pointLight
       position={[4 * combinedScale, 1 * combinedScale, -25 * combinedScale]}
-      intensity={70} // Start dim
-      distance={150 * combinedScale}
+      intensity={50} // Start dim
+      distance={180 * combinedScale}
       decay={2.5}
       // color="#f8f8ff"
        // green color
@@ -373,8 +373,7 @@ function Scene({ setPage, setScrollEnabled, scrollEnabled }) {
       intensity={40.05} // Start dim
       distance={100 * combinedScale}
       decay={3}
-      // color="#ffffff"
-      color="#f8f8ff"
+      color="#ffffff"
     />
     
     {/* TEST DRONE LIGHTING - same approach */}
