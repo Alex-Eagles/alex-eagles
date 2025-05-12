@@ -354,17 +354,17 @@ function Scene({ setPage, setScrollEnabled, scrollEnabled }) {
       intensity={100.05} // Start dim
       distance={150 * combinedScale}
       decay={2}
-      color="#D91AFF"
+      // purple color
     />
     
-    {/* Rim/back light */}
+    {/* Rim/back light color the front of the taco*/} 
     <pointLight
       position={[4 * combinedScale, 1 * combinedScale, -25 * combinedScale]}
-      intensity={100} // Start dim
-      distance={100 * combinedScale}
+      intensity={70} // Start dim
+      distance={150 * combinedScale}
       decay={2.5}
       // color="#f8f8ff"
-      color="#1CE81A"
+       // green color
     />
     
     {/* "Pool of light" on ground */}
