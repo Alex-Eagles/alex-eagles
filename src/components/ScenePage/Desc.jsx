@@ -7,7 +7,7 @@ function Desc({ page }) {
   
   const pages = [
     {
-      name: "Ittay",
+      name: "Itaay",
       location: "SUAS, USA",
       description:
         "Itay is spearheading our next-gen VTOL research with a focus on hybrid propulsion.",
@@ -27,7 +27,7 @@ function Desc({ page }) {
   ];
 
   // Pick page 0 or 1 (fallback to 0)
-  const current = useMemo(() => pages[page] || pages[1], [page, pages]);
+  const current = useMemo(() => pages[page] || pages[2], [page, pages]);
   
 
   return (
