@@ -35,7 +35,12 @@ const SearchResults = ({ results }) => {
           boxShadow: 3,
         }}
       >
-        <CardContent>
+        <CardContent
+          sx={{
+            maxHeight: "300px", // Set the maximum height
+            overflowY: "auto", // Enable vertical scrolling if content exceeds max height
+          }}
+        >
           {results.map((result, index) => (
             <Box key={index} sx={{ mb: 2 }}>
               <Typography
@@ -45,7 +50,8 @@ const SearchResults = ({ results }) => {
                   cursor: "pointer",
                   fontWeight: "bold",
                 }}
-              >
+  
+            >
                 {result.key}
               </Typography>
               <Typography

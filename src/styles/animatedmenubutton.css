@@ -1,25 +1,21 @@
-/* AnimatedMenuButton.css */
+/* ==========================================================================
+   animatedmenubutton.css
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   Base (collapsed) state for all viewports
+   -------------------------------------------------------------------------- */
 .animated-menu {
   position: fixed !important;
-  top: 45px;
+  top: 35px;
   right: 70px;
   z-index: 1000;
   background-color: #d9dcde;
-  color: #fff;
   border-radius: 0.375rem;
   overflow: visible;
- 
-  transition: width 0.5s ease-in-out, height 0.5s ease-in-out;
   width: 6rem;
   height: 3rem;
-}
-
-
-.animated-menu.open {
-  width: 24rem;
-  height: 36rem;
-  z-index: 10001;
-
+  transition: width 0.5s ease-in-out, height 0.5s ease-in-out;
 }
 
 .menu-header {
@@ -28,61 +24,49 @@
   align-items: center;
   height: 3rem;
   background-color: #d9dcde;
-  color: #2d2c2c;
 }
 
-
 .menu-toggle-button {
- 
   background: none;
   border: none;
   cursor: pointer;
-  
   border-radius: 0.25rem;
-  color: #2d2c2c; /* Default text/icon color */
+  color: #2d2c2c;
   transition: all 0.3s ease;
-  
 }
-
-/* Only apply hover effect when menu is closed */
-.menu-toggle-button:not(.is-open):hover  {
-  
-  background-color: #2d2c2c; /* Inverted background */
-  color: #d9dcde; /* Inverted text color */
+.menu-toggle-button:not(.is-open):hover {
+  background-color: #2d2c2c;
+  color: #d9dcde;
   transform: scale(1.05);
 }
 
-
-
-/* Menu icon styles */
 .menu-icon {
   width: 16px;
   height: 16px;
   transition: filter 0.3s ease;
 }
-
-/* This will invert the SVG colors when hovering */
 .menu-toggle-button:not(.is-open):hover .menu-icon {
   filter: invert(100%);
 }
 
-
 .button-text {
   font-size: 14px;
   font-family: 'Montserrat', sans-serif;
- 
 }
 
+.close-icon {
+  display: none;
+}
 
-
-
+/* --------------------------------------------------------------------------
+   CONTENT hidden when collapsed
+   -------------------------------------------------------------------------- */
 .menu-content {
   opacity: 0;
   pointer-events: none;
-  transition: opacity 0.3s ease;
+  /* transition: opacity 0.3s ease; */
   padding: 0 1rem;
 }
-
 .animated-menu.open .menu-content {
   opacity: 1;
   pointer-events: auto;
@@ -94,7 +78,6 @@
   margin: 1rem 0;
   padding: 0;
 }
-
 .menu-item {
   display: flex;
   align-items: baseline;
@@ -102,7 +85,6 @@
   opacity: 0;
   transition: transform 0.5s ease, opacity 0.5s ease;
 }
-
 .animated-menu.open .menu-item {
   transform: translateY(0);
   opacity: 1;
@@ -112,12 +94,9 @@
   text-decoration: none;
   color: #2d2c2c;
   font-size: 2rem;
-  margin-bottom: 10px;
   font-family: 'Audiowide', sans-serif;
 }
-
 .menu-item a:hover {
-  
   text-decoration: underline;
 }
 
@@ -131,111 +110,112 @@
   padding-top: 1rem;
   border-top: 1px solid #444;
 }
-
-.footer-links {
-  display: flex;
-  gap: 1rem;
-  margin-bottom: 1rem;
-  list-style: none;
-  padding: 0;
-}
-
-.footer-link {
-  font-size: 0.75rem;
-  color: #888;
-  transform: translateY(1rem);
-  opacity: 0;
-  transition: transform 0.5s ease, opacity 0.5s ease;
-}
-
-.animated-menu.open .footer-link {
-  transform: translateY(0);
-  opacity: 1;
-}
-
+/* .footer-link,
 .social-link {
   display: flex;
   justify-content: flex-end;
-  transform: translateY(1rem);
+  gap: 1rem;
   opacity: 0;
+  transform: translateY(1rem);
   transition: transform 0.5s ease, opacity 0.5s ease;
-}
-
+} */
+.animated-menu.open .footer-link,
 .animated-menu.open .social-link {
-  transform: translateY(0);
-  opacity: 1;
+  /* transform: translateY(0);
+  opacity: 1; */
 }
 
-.external-icon {
-  width: 0.75rem;
-  height: 0.75rem;
-  
-  fill: #ccc;
-}
-
-
-.close-icon {
-  display: none;
-}
-
-@media screen and (max-width: 768px) {
-  .animated-menu {
-    width: 3rem; /* Adjust width for smaller screens */
-    height: 2rem; /* Adjust height for smaller screens */
-    top: 10px;
-    right: 30px;
-    display: flex;
-    flex-direction: column;
-    align-content: center;
-   
-  }
-  
-}
-
-@media (max-width: 768px) {
+/* --------------------------------------------------------------------------
+   DESKTOP/LAPTOP (≥768px): ONLY HORIZONTAL BAR
+   -------------------------------------------------------------------------- */
+@media screen and (min-width: 768px) {
   .animated-menu.open {
-    width: 50vw;
-    height: 50vh;
-    
+    /* keep original collapsed height, grow width */
+    height: 3rem !important;
+    width: auto !important;
+    max-width: 90vw !important;
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    padding: 0 1rem !important;
+    gap: 1rem !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
   }
 
-  .menu-item a {
-    font-size: 1.5rem;
+  /* ensure close button stays at start */
+  .animated-menu.open .menu-header {
+    flex: 0 0 auto !important;
+    margin-right: 1rem !important;
   }
 
-  .button-text {
-    font-size: 12px;
+  /* lay out links side-by-side */
+  .animated-menu.open .menu-content {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    gap: 1rem !important;
+    padding: 0 !important;
   }
 
-  .menu-icon {
-    width: 14px;
-    height: 14px;
-    
+  .animated-menu.open .menu-items {
+    display: flex !important;
+    flex-direction: row !important;
+    gap: 1rem !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    list-style: none !important;
   }
-   .button-text {
-    display: none;
+  .animated-menu.open .menu-item {
+    transform: none !important;
+    opacity: 1 !important;
+    margin: 0 !important;
   }
-   .close-icon {
-    display: inline;
-    margin-left: 0.25rem;
+  .animated-menu.open .menu-item a {
+    white-space: nowrap !important;
+    font-size: 1.1rem !important;
+  }
+
+  /* footer icons remain horizontal */
+  .animated-menu.open .footer,
+  .animated-menu.open .social-link {
+    flex-direction: row !important;
+    padding-top: 0 !important;
   }
 }
 
-@media (max-width: 480px) {
-   .animated-menu.open {
-    width: 50vw;
-    height: 50vh;
-    
+/* --------------------------------------------------------------------------
+   MOBILE/TABLET (<768px): EXISTING VERTICAL EXPANSION
+   -------------------------------------------------------------------------- */
+@media screen and (max-width: 767px) {
+  .animated-menu {
+    width: 3rem !important;
+    height: 2rem !important;
+    top: 10px !important;
+    right: 30px !important;
   }
 
-  .menu-item a {
-    font-size: 1.2rem;
+  .animated-menu.open {
+    width: 50vw !important;
+    height: 50vh !important;
   }
 
+  /* optional mobile tweaks */
+  .animated-menu.open .menu-item a {
+    font-size: 1.5rem !important;
+  }
   .button-text {
-    font-size: 10px;
+    font-size: 12px !important;
   }
-   .button-text {
-    display: none;
+  .menu-icon {
+    width: 14px !important;
+    height: 14px !important;
+  }
+  .button-text {
+    display: none !important;
+  }
+  .close-icon {
+    display: inline !important;
+    margin-left: 0.25rem !important;
   }
 }
