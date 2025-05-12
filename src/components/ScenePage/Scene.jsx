@@ -304,7 +304,7 @@ function Scene({ setPage, setScrollEnabled, scrollEnabled }) {
         <pointLight
       ref={droneLightRef}
       position={[2 * combinedScale, 7 * combinedScale, 6 * combinedScale]}
-      intensity={5.9}
+      intensity={105.9}
       distance={17 * combinedScale}
       decay={1.8}
       color="#ffffff"
@@ -313,7 +313,7 @@ function Scene({ setPage, setScrollEnabled, scrollEnabled }) {
       {/* Fill light */}
     <pointLight
       position={[-1 * combinedScale, 4 * combinedScale, 3 * combinedScale]}
-      intensity={5.3}
+      intensity={105.3}
       distance={12 * combinedScale}
       decay={2}
       color="#a0c0ff"
