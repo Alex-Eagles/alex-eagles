@@ -266,7 +266,7 @@ const Footer = () => {
 						/>
 					</StyledNavLink>
 					<StyledNavLink
-						to="https://www.instagram.com/ae_alexuaero/"
+						to="https://www.instagram.com/alex_eagles.aerodesign/"
 						color="inherit"
 						target="_blank"
 						rel="noopener noreferrer">
