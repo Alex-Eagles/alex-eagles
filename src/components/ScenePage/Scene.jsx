@@ -313,10 +313,10 @@ function Scene({ setPage, setScrollEnabled, scrollEnabled }) {
       {/* Fill light */}
     <pointLight
       position={[-1 * combinedScale, 4 * combinedScale, 3 * combinedScale]}
-      intensity={1005.3}
-      distance={12 * combinedScale}
+      intensity={700}
+      distance={150 * combinedScale}
       decay={2}
-      color="#a0c0ff"
+      // color="#a0c0ff"
     />
     
       
@@ -341,7 +341,7 @@ function Scene({ setPage, setScrollEnabled, scrollEnabled }) {
     <pointLight
       ref={fixedWingLightRef}
       position={[6 * combinedScale, 7 * combinedScale, -28 * combinedScale]}
-      intensity={200.2} // Start dim
+      intensity={100.2} // Start dim
       distance={100 * combinedScale}
       decay={1.8}
       color="#f0f8ff"
@@ -350,7 +350,7 @@ function Scene({ setPage, setScrollEnabled, scrollEnabled }) {
     {/* Fill light */}
     <pointLight
       position={[2 * combinedScale, 4 * combinedScale, -30 * combinedScale]}
-      intensity={200.05} // Start dim
+      intensity={100.05} // Start dim
       distance={150 * combinedScale}
       decay={2}
       
@@ -359,7 +359,7 @@ function Scene({ setPage, setScrollEnabled, scrollEnabled }) {
     {/* Rim/back light */}
     <pointLight
       position={[4 * combinedScale, 1 * combinedScale, -25 * combinedScale]}
-      intensity={300} // Start dim
+      intensity={100} // Start dim
       distance={100 * combinedScale}
       decay={2.5}
       color="#f8f8ff"
@@ -389,7 +389,7 @@ function Scene({ setPage, setScrollEnabled, scrollEnabled }) {
     <pointLight
       position={[3 * combinedScale, 4 * combinedScale, -58 * combinedScale]}
       intensity={200} // Start very dim
-      distance={55 * combinedScale}
+      distance={85 * combinedScale}
       decay={2}
       color="#a0c0ff"
     />
@@ -406,7 +406,7 @@ function Scene({ setPage, setScrollEnabled, scrollEnabled }) {
     {/* "Pool of light" on ground */}
     <pointLight
       position={[5.5 * combinedScale, -0.9 * combinedScale, -56 * combinedScale]}
-      intensity={20} // Start very dim
+      intensity={10} // Start very dim
       distance={6 * combinedScale}
       decay={3}
       color="#ffffff"
