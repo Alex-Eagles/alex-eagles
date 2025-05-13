@@ -1,4 +1,4 @@
-import testVideo from "../videos/test-drone-videos/testDroneVideo - Trim2.mp4"
+import testVideo from "../videos/test-drone-videos/testDroneVideo3 - Trim.mp4"
 // src/data/media.js
 export const testDroneMediaItems = [
   {

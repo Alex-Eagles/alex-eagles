@@ -35,7 +35,7 @@ const componentsData = [
 		id: 3,
 		name: "P80 Brushless Motors",
 		description:
-			"T-Motor brushless motors are high-efficiency, high-reliability motors widely used in drones and robotics. They offer strong thrust-to-weight ratios, smooth operation, and long service life, making them ideal for professional UAV applications.",
+			"Our state-of-the-art propulsion system utilizes T-motors P80III 120kv waterproof, Dust resistant, and extremely durable motors compatible for a UAV of this scale, providing more than enough thrust to effectively maneuver our drone at high speeds.",
 		image:  motor,
 		type: "image",
 		category: "Motor",
@@ -69,7 +69,7 @@ const componentsData = [
 		id: 6,
         name: "Propellers",
         description:
-            "Propellers are crucial components of drones, converting motor power into thrust. They come in various sizes and materials, affecting flight performance, efficiency, and stability. Proper selection is essential for optimal drone operation.",
+            "We paired our motors with T-Motor MF3016 polymer propellers to provide us with the required thrust.",
         image: prop,
 		type: "image",
 		category: "Propellers",
@@ -80,7 +80,7 @@ const componentsData = [
 		id: 7,
 		name: "ESCS",
 		description:
-			"ESCs (Electronic Speed Controllers) regulate the speed, direction, and braking of brushless DC motors in UAVs. They receive commands from the flight controller and adjust motor power accordingly, ensuring stable and responsive flight.",
+			" We used Alpha Series 80A electronic speed controllers (ESCs) to drive each of the motors. These ESCs offer precise throttle control and high current handling.",
 		image: esc,
 		type: "image",
 		category: "ESCS",

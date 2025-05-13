@@ -2,10 +2,10 @@ import React, { createContext, useContext, useState, useEffect, useRef } from 'r
 // Configuration constants
 export const CONFIG = {
   modelPath: '/drone_model/Itay6.gltf',
-  fixedwingmodelPath: '/drone_model/AE_Fixed3.gltf',
+  fixedwingmodelPath: '/drone_model/AE_Fixed5.gltf',
   testDronePath: '/drone_model/testDrone6.gltf',
   mobileDronePath: '/drone_model/ItayMobileNoComponents2.gltf',
-  mobileFixedWingPath: '/drone_model/fixedMobile3.gltf',
+  mobileFixedWingPath: '/drone_model/AE_Fixed5.gltf',
   mobileTestDronePath: '/drone_model/mobileTestDronenolid_and_nohere.gltf',
   takeoffDuration: 2.5, // seconds
   hoverHeight: 2,

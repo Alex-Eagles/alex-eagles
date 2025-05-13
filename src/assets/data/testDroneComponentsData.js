@@ -58,7 +58,7 @@ const testDroneComponentsData = [
 		id: 5,
 		name: "Motors",
 		description:
-			"We're using a small 2200KV brushless motor in our test drone for its high RPM and efficiency, making it ideal for lightweight, responsive flight.",
+			"We're using a small 1400KV brushless motor in our test drone for its high RPM and efficiency, making it ideal for lightweight, responsive flight.",
 		image: testMotors,
 		type: "image",
 		category: "Motors",
@@ -69,7 +69,7 @@ const testDroneComponentsData = [
 		id: 6,
 		name: "ESC",
 		description:
-			"We're using 30A brushless ESCs to control the 2200KV motors on our test drone. These ESCs efficiently regulate power delivery, ensuring smooth throttle response and stable flight performance.",
+			"We're using 30A brushless ESCs to control the 1400KV motors on our test drone. These ESCs efficiently regulate power delivery, ensuring smooth throttle response and stable flight performance.",
 		image: testEsc,
 		type: "image",
 		category: "ESC",
