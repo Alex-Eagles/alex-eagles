@@ -7,10 +7,10 @@ const TeamMembersSection = ({ title, subtitle, members }) => {
 
 	return (
 		<Container maxWidth="false" >
-			<SectionHeading
+			{title !== "" && subtitle !== "" && (<SectionHeading
 				title={title}
 				subtitle={subtitle}
-			/>
+			/>)}
 			<Box
 				sx={{
 					// mt: 4,

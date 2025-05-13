@@ -47,37 +47,37 @@ const heads = [
 ];
 
 const autonomusLead = [
-  { name: "Ahmed Anan", role: "Hardware Team Leader", image: AhmedIbrahimAnan },
   { name: "Ahmed Saleh", role: "Autonomous Team Leader", image: AhmedSaleh },
-  { name: "Ann Tarek", role: "Software Vice Team Leader", image: AnnTarek },
-  { name: "Maram Wael", role: "Software Team Leader", image: MaramWael },
   { name: "Ibrahim Mohamed", role: "Computer Vision / Autonomous Vice Team Leader", image: IbrahimMohamed },
+  { name: "Ahmed Anan", role: "Hardware Team Leader", image: AhmedIbrahimAnan },
+  { name: "Maram Wael", role: "Software Team Leader", image: MaramWael },
+  { name: "Ann Tarek", role: "Software Vice Team Leader", image: AnnTarek },
 ];
 
 const mechanicalLead = [
-  { name: "Abdelghfour Alaa", role: "Wing Vice Team Leader", image: AbdelghfourAlaa },
-  { name: "Abdelrahman Arafat", role: "Wing Team Leader", image: AbdelrahmanArafat },
-  { name: "Adham Amr", role: "Propulsion Team Leader", image: Adham },
-  { name: "Ehdaa Farahat", role: "Structure Team Leader", image: EhdaaFarahat },
-  {name: "Hattan Yosry", role: "Aerodesign Team Leader", image: HattanYosry},
-  { name: "Osama Mohamed", role: "Tail and Stability Vice Team Leader", image: OsamaMohamed },
   {name: "Mohamed Fathallah", role: "Mechanical Team Leader", image: MohamedFathallah},
+  {name: "Hattan Yosry", role: "Aerodesign Team Leader", image: HattanYosry},
+  { name: "Ehdaa Farahat", role: "Structure Team Leader", image: EhdaaFarahat },
+  { name: "Osama Mohamed", role: "Tail and Stability Vice Team Leader", image: OsamaMohamed },
+  { name: "Abdelrahman Arafat", role: "CFD / Wing Team Leader", image: AbdelrahmanArafat },
+  { name: "Adham Amr", role: "Propulsion Team Leader", image: Adham },
+  { name: "Abdelghfour Alaa", role: "Wing Vice Team Leader", image: AbdelghfourAlaa },
   { name: "Youssef Hozayen", role: "Propulsion Vice Team Leader", image: YoussefHozayen }
 ];
 
 const autonomous = [
+  { name: "Mazen Nazeih", role: "Software Engineer", image: MazenAmr },
+  { name: "Sara Gharib", role: "Software Engineer", image: SaraGharib },
+  { name: "Zeyad Essam", role: "Software Engineer", image: ZeyadEssam },
+  { name: "John Ayman", role: "Software Engineer", image: JohnAyman },
   { name: "Ahmed Saber", role: "Hardware Engineer", image: AhmedSaber },
   { name: "Ahmed Saeed", role: "Hardware Engineer", image: AhmedSaeed },
-  { name: "John Ayman", role: "Software Engineer", image: JohnAyman },
-  { name: "Mazen Nazeih", role: "Software Engineer", image: MazenAmr },
   { name: "Menna Ezzat", role: "Hardware Engineer", image: MennaEzzat },
-  { name: "Sara Gharib", role: "Software Engineer", image: SaraGharib },
-  { name: "Eyad Ashraf", role: "Computer Vision Engineer", image: EyadAshraf },
   { name: "Mazen Asser", role: "Hardware / Computer Vision Engineer", image: MazenAsser },
+  { name: "Eyad Ashraf", role: "Computer Vision Engineer", image: EyadAshraf },
   { name: "Mohamed Bassem", role: "Computer Vision Engineer ", image: MohamedBassem },
   { name: "Peter Mina", role: "Computer Vision Engineer", image: peterMina },
   { name: "Mohamed Elzayat", role: "Computer Vision Engineer", image: MohamedElzayat },
-  { name: "Zeyad Essam", role: "Software Engineer", image: ZeyadEssam },
 ];
 
 const mechanical = [
