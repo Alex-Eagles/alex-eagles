@@ -94,7 +94,8 @@
   text-decoration: none;
   color: #2d2c2c;
   font-size: 2rem;
-  font-family: 'Audiowide', sans-serif;
+  /* font-family: 'Audiowide', sans-serif; */
+  font-family: 'Montserrat', sans-serif;
 }
 .menu-item a:hover {
   text-decoration: underline;
