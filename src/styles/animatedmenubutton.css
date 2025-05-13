@@ -37,7 +37,7 @@
 .menu-toggle-button:not(.is-open):hover {
   background-color: #2d2c2c;
   color: #d9dcde;
-  transform: scale(1.05);
+  transform: scale(1.15);
 }
 
 .menu-icon {
@@ -96,6 +96,7 @@
   font-size: 2rem;
   /* font-family: 'Audiowide', sans-serif; */
   font-family: 'Montserrat', sans-serif;
+  
 }
 .menu-item a:hover {
   text-decoration: underline;
