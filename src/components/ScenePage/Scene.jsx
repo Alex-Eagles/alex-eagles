@@ -434,7 +434,7 @@ useEffect(() => {
       />
 
       <FixedWing
-        position={isMobile ? [5 * combinedScale, -5.5 * combinedScale, -29 * combinedScale] : [1.5 * combinedScale, 0.7 * combinedScale, -28 * combinedScale]}
+        position={isMobile ? [1.5 * combinedScale, 0.6 * combinedScale, -29 * combinedScale] : [1.5 * combinedScale, 0.6 * combinedScale, -28 * combinedScale]}
         rotation={[0, 210 * (Math.PI / 180), 0]}
         scale={isMobile ?
           [4.5* combinedScale , 4.5 * combinedScale , 4.2* combinedScale] :
