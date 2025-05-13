@@ -63,7 +63,7 @@ const TeamPage = () => {
 						members={heads}
 					/>
 					<TeamMembersSection
-						title="Autonomus Lead"
+						title="Autonomous Lead"
 						subtitle="Leading the charge in innovation, our autonomous team heads push the boundaries of intelligence and automation."
 						members={autonomusLead}
 					/>
