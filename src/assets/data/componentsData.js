@@ -2,7 +2,7 @@ import a8mini from "../images/a8mini.png";
 import gps from "../images/herelink.png";
 import motor from "../images/motors.png";
 import lidar from "../images/lidar.png";
-import prop from "../images/propellers.jpg";
+import prop from "../images/propellers2.jpg";
 import herelink from "../images/herelinkunit.png"
 import pix from "../images/pixhawk.png"
 import esc from "../images/esc.png"
