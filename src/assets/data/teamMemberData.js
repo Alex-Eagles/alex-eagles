@@ -55,13 +55,13 @@ const autonomusLead = [
 ];
 
 const mechanicalLead = [
-  {name: "Mohamed Fathallah", role: "Mechanical Team Leader", image: MohamedFathallah},
-  {name: "Hattan Yosry", role: "Aerodesign Team Leader", image: HattanYosry},
+  { name: "Mohamed Fathallah", role: "Mechanical Team Leader", image: MohamedFathallah },
+  { name: "Hattan Yosry", role: "Aerodesign Team Leader", image: HattanYosry },
   { name: "Ehdaa Farahat", role: "Structure Team Leader", image: EhdaaFarahat },
   { name: "Osama Mohamed", role: "Tail and Stability Vice Team Leader", image: OsamaMohamed },
-  { name: "Abdelrahman Arafat", role: "CFD / Wing Team Leader", image: AbdelrahmanArafat },
+  { name: "Abdelrahman Arafat", role: "Wing Team Leader", image: AbdelrahmanArafat },
+  { name: "Abdelghfour Alaa", role: "CFD / Wing Team Leader", image: AbdelghfourAlaa },
   { name: "Adham Amr", role: "Propulsion Team Leader", image: Adham },
-  { name: "Abdelghfour Alaa", role: "Wing Vice Team Leader", image: AbdelghfourAlaa },
   { name: "Youssef Hozayen", role: "Propulsion Vice Team Leader", image: YoussefHozayen }
 ];
 
@@ -75,7 +75,7 @@ const autonomous = [
   { name: "Menna Ezzat", role: "Hardware Engineer", image: MennaEzzat },
   { name: "Mazen Asser", role: "Hardware / Computer Vision Engineer", image: MazenAsser },
   { name: "Eyad Ashraf", role: "Computer Vision Engineer", image: EyadAshraf },
-  { name: "Mohamed Bassem", role: "Computer Vision Engineer ", image: MohamedBassem },
+  { name: "Mohamed Bassem", role: "Computer Vision Engineer", image: MohamedBassem },
   { name: "Peter Mina", role: "Computer Vision Engineer", image: peterMina },
   { name: "Mohamed Elzayat", role: "Computer Vision Engineer", image: MohamedElzayat },
 ];
@@ -85,15 +85,15 @@ const mechanical = [
   { name: "Farah Harfoush", role: "Mechanical Engineer", image: FarahHarfoush },
   { name: "Hana Waleed", role: "Mechanical Engineer", image: hanaWaleed },
   { name: "Hossam Eldeen", role: "Mechanical Engineer", image: HossamEldeen },
-  { name: "Lina Tarek", role: "Mechanical Engineer", image: LinaTarek},
+  { name: "Lina Tarek", role: "Mechanical Engineer", image: LinaTarek },
   { name: "Mira Barsoum", role: "Mechanical Engineer", image: MiraBarsoum },
   { name: "Mo'men Ashraf", role: "Mechanical Engineer", image: MoamenAshraf },
   { name: "Moamen Nawara", role: "Mechanical Engineer", image: MoamenNawara },
   { name: "Mohamed Brbry", role: "Mechanical Engineer", image: MohamedBrbry },
   { name: "Rana", role: "Mechanical Engineer", image: Rana },
   { name: "Reem Eldalil", role: "Mechanical Engineer", image: ReemEldalil },
-  {name: "Rodyna Amr", role: "Mechanical Engineer", image: RodynaAmr},
-  { name: "Youssef Ibrahim", role: "Mechanical Engineer", image: YoussefIbrahim } 
+  { name: "Rodyna Amr", role: "Mechanical Engineer", image: RodynaAmr },
+  { name: "Youssef Ibrahim", role: "Mechanical Engineer", image: YoussefIbrahim }
 ];
 
 const teamMemberData = [heads, autonomusLead, mechanicalLead, autonomous, mechanical];
