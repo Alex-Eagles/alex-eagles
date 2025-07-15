@@ -1,3 +1,4 @@
+import suas2025 from "../images/suas-2025.png";
 import uavc2024 from "../images/uavc-2024.jpg";
 import suas2023 from "../images/suas-2023.jpg";
 import sae20221 from "../images/sae-2022-1.jpeg";
@@ -9,7 +10,16 @@ import sae2018 from "../images/sae-2018.png";
 import sae2017 from "../images/sae-2017.png";
 
 const achievementData = [
-	
+	{
+		achievements: [
+			{
+				title: "1st Place - Best Technical Design Report",
+				competition: <span style={{ color: "#FFFFFF" }}>SUAS</span>,
+				images: [suas2025],
+			},
+		],
+		year: "2025",
+	},
 	{
 		achievements: [
 			{
