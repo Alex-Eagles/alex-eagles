@@ -13,7 +13,7 @@ const achievementData = [
 	{
 		achievements: [
 			{
-				title: "1st Place - Best Technical Design Report",
+				title: "Best Technical Design Report",
 				competition: <span style={{ color: "#FFFFFF" }}>SUAS</span>,
 				images: [suas2025],
 			},
