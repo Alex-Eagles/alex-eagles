@@ -5,8 +5,14 @@ import tytoRobotics from "../icons/tyto-robotics.webp";
 import tMotor from "../icons/t-motor.png";
 import scorpion from "../icons/scorpion.png";
 import airDefenceCollege from "../icons/air-defence-college.png";
+import techneSummit from "../icons/TechneSummit.png";
 
 const sponsorData = [
+	{
+		name: "Techne Summit",
+		image: techneSummit,
+		url:"https://www.technesummit.com/2025",
+	},
 	{
 		name: "MathWorks",
 		image: mathWorks,
@@ -31,6 +37,7 @@ const sponsorData = [
 		name: "Scorpion",
 		image: scorpion,
 	},
+	
 	// {
 	// 	name: "Egyptian Air Defence College",
 	// 	image: airDefenceCollege,

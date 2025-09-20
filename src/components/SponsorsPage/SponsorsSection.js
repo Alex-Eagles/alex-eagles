@@ -25,6 +25,7 @@ const SponsorsSection = () => {
                             key={index}
                             name={sponsor.name}
                             image={sponsor.image}
+                            url={sponsor.url}
                         />
                     );
                 })}

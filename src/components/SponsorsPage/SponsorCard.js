@@ -2,8 +2,14 @@ import { Card, CardContent, Typography, CardMedia } from "@mui/material";
 import useAnimate from "../../hooks/use-animate";
 
 const SponsorCard = (props) => {
-    const { name, image } = props;
+    const { name, image, url } = props;
     const elementRef = useAnimate("animate", false);
+
+    const handleClick = () => {
+        if (url) {
+            window.open(url, '_blank', 'noopener,noreferrer');
+        }
+    };
 
     return (
         <Card
@@ -28,11 +34,17 @@ const SponsorCard = (props) => {
                 component="img"
                 alt={name}
                 src={image}
+                onClick={handleClick}
                 sx={{
                     width: "80%", // Adjust image size
                     height: "auto",
                     objectFit: "contain",
                     borderRadius: "8px", // Optional: round the image corners slightly
+                    cursor: url ? "pointer" : "default", // Show pointer cursor if URL exists
+                    transition: "transform 0.2s ease-in-out",
+                    "&:hover": url ? {
+                        transform: "scale(1.05)", // Slight scale on hover if clickable
+                    } : {},
                 }}
             />
             <CardContent
