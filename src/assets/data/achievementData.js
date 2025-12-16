@@ -1,3 +1,4 @@
+import uavc2025 from "../images/uavc-2025.jpeg";
 import suas2025 from "../images/suas-2025.png";
 import uavc2024 from "../images/uavc-2024.jpg";
 import suas2023 from "../images/suas-2023.jpg";
@@ -13,9 +14,17 @@ const achievementData = [
 	{
 		achievements: [
 			{
+				title: "5th Place - Overall",
+				competition: <span style={{ color: "#FFFFFF" }}>UAVC</span>,
+			},
+			{
+				title: "Best Technical Design Report",
+				competition: <span style={{ color: "#FFFFFF" }}>UAVC</span>,
+			},
+			{
 				title: "Best Technical Design Report",
 				competition: <span style={{ color: "#FFFFFF" }}>SUAS</span>,
-				images: [suas2025],
+				images: [suas2025,uavc2025],
 			},
 		],
 		year: "2025",
