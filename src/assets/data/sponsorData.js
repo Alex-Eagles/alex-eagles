@@ -1,3 +1,5 @@
+import hitec from "../icons/hitec.png";
+import altium from "../icons/altium.png";
 import mathWorks from "../icons/mathworks.jpeg";
 import dualsky from "../icons/dualsky.webp";
 import mejzlik from "../icons/mejzlik.png";
@@ -8,6 +10,14 @@ import airDefenceCollege from "../icons/air-defence-college.png";
 import techneSummit from "../icons/TechneSummit.png";
 
 const sponsorData = [
+	{
+		name: "HiTEC",
+		image: hitec,
+	},
+	{
+		name: "Altium",
+		image: altium,
+	},
 	{
 		name: "Techne Summit",
 		image: techneSummit,
