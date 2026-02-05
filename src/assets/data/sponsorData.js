@@ -9,8 +9,14 @@ import tMotor from "../icons/t-motor.png";
 import scorpion from "../icons/scorpion.png";
 import airDefenceCollege from "../icons/air-defence-college.png";
 import techneSummit from "../icons/TechneSummit.png";
+import rjxhobby from "../icons/rjxhobby.png";
 
 const sponsorData = [
+	{
+		name: "rjxhobby",
+		image: rjxhobby,
+		url: "https://www.rjxhobby.com/",
+	},
 	{
 		name: "easycomposites",
 		image: easycomposites,
@@ -19,6 +25,7 @@ const sponsorData = [
 	{
 		name: "HiTEC",
 		image: hitec,
+		url: "https://hitecrcd.com/",
 	},
 	{
 		name: "Altium",
