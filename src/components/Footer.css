@@ -1,0 +1,91 @@
+.footer {
+  background: #0b1a2f;
+  color: #fff;
+  padding: 50px 20px 20px;
+  font-family: Arial, sans-serif;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between; /* pushes left & right apart */
+  align-items: flex-start;
+  max-width: 1100px;
+  margin: auto;
+  gap: 40px;
+}
+
+/* Brand */
+.footer-brand h2 {
+  font-size: 24px;
+}
+
+/* Social (RIGHT SIDE) */
+.footer-social {
+  text-align: right;
+  margin-left: auto;
+}
+
+.footer-links h4,
+.footer-social h4 {
+  margin-bottom: 15px;
+}
+
+/* Social icons */
+.social-icons {
+  display: flex;
+  justify-content: flex-end; /* pushes icons to right */
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.social-icons svg {
+  background: #13294b;
+  padding: 10px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 18px;
+  transition: 0.3s;
+}
+
+.social-icons svg:hover {
+  background: #2563eb;
+}
+
+/* Email */
+.footer-email {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 10px;
+  color: #bbb;
+}
+
+/* Bottom */
+.footer-bottom {
+  border-top: 1px solid #1f2f4a;
+  margin-top: 30px;
+  padding-top: 15px;
+  text-align: center;
+  color: #aaa;
+  font-size: 14px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .social-icons {
+    justify-content: center;
+  }
+
+  .footer-email {
+    justify-content: center;
+  }
+
+  .footer-social {
+    text-align: center;
+  }
+}
