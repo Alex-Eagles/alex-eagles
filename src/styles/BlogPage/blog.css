@@ -1,0 +1,91 @@
+.blog-header {
+  background: linear-gradient(180deg, #242610 0%, #0a0a08 100%);
+  /* OR use the blue from Figma: */
+  background: #0d1b6e;
+  min-height: 100vh;
+  color: white;
+  text-align: center;
+  padding: 80px 40px;
+}
+
+.blog-header h1 {
+  font-size: 96px;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+
+.blog-header p {
+  color: #a0aec0;
+  font-size: 18px;
+}
+
+/* Filter buttons */
+.blog-filters {
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.filter-btn {
+  padding: 10px 24px;
+  border-radius: 999px;
+  border: 2px solid rgba(255,255,255,0.3);
+  background: transparent;
+  color: white;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.filter-btn.active {
+  background: #4f5de4;
+  border-color: #4f5de4;
+}
+
+/* Cards grid */
+.blog-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  max-width: 1200px;
+  margin: 48px auto;
+  padding: 0 40px;
+}
+
+.blog-card {
+  transition: background 0.3s ease, transform 0.2s ease;
+  cursor: pointer;
+}
+
+.blog-card:hover {
+  background: #2a3590;        /* lighter shade of your card color */
+  transform: translateY(-4px); /* subtle lift effect */
+}
+
+.blog-card-body {
+  padding: 20px;
+}
+
+.blog-card-body h3 {
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.category-badge {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: #4f5de4;
+  padding: 4px 12px;
+  border-radius: 999px;
+  font-size: 12px;
+}
+.blog-filters {
+  display: flex;      /* puts buttons side by side */
+  gap: 12px;          /* space between buttons */
+  flex-wrap: wrap;    /* wraps to next line on small screens */
+  margin: 24px 0;     /* spacing above and below */
+}
