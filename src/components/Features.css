@@ -1,0 +1,44 @@
+.features {
+  padding: 100px 10%;
+  text-align: center;
+}
+
+.title {
+  font-size: 42px;
+  margin-bottom: 10px;
+  letter-spacing: 2px;
+}
+
+.subtitle {
+  max-width: 700px;
+  margin: 0 auto 60px;
+  opacity: 0.7;
+  line-height: 1.6;
+}
+
+/* layout */
+.features-content {
+  display: flex;
+  align-items: center;
+  gap: 60px;
+  text-align: left;
+}
+
+/* image */
+.features-image img {
+  width: 100%;
+  max-width: 500px;
+  border-radius: 12px;
+}
+
+/* text */
+.features-text h3 {
+  font-size: 28px;
+  margin-bottom: 15px;
+}
+
+.features-text p {
+  line-height: 1.7;
+  opacity: 0.8;
+  margin-bottom: 15px;
+}

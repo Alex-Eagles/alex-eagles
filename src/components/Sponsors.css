@@ -1,0 +1,73 @@
+.sponsors {
+  padding: 60px 20px;
+  background: #f5f6f8;
+  text-align: center;
+  font-family: Arial, sans-serif;
+}
+
+/* Header */
+.sponsors-header h2 {
+  font-size: 36px;
+  margin-bottom: 10px;
+}
+
+.sponsors-header p {
+  color: #666;
+  max-width: 600px;
+  margin: 0 auto 40px;
+}
+
+/* Grid */
+.sponsors-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+  max-width: 900px;
+  margin: auto;
+}
+
+.sponsor-card {
+  background: #fff;
+  padding: 30px;
+  border-radius: 12px;
+  font-weight: bold;
+  font-size: 20px;
+  border: 1px solid #eee;
+  transition: all 0.3s ease;
+}
+
+.sponsor-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Footer */
+.sponsors-footer {
+  margin-top: 40px;
+}
+
+.sponsors-footer p {
+  color: #666;
+  margin-bottom: 15px;
+}
+
+.sponsors-footer button {
+  padding: 12px 25px;
+  background: #2563eb;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.sponsors-footer button:hover {
+  background: #1e4ed8;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .sponsors-grid {
+    grid-template-columns: 1fr;
+  }
+}

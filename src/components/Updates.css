@@ -1,0 +1,44 @@
+.updates {
+  padding: 100px 10%;
+  text-align: center;
+  background: #fff;
+}
+
+.updates-title {
+  font-size: 42px;
+  margin-bottom: 50px;
+  letter-spacing: 2px;
+}
+
+/* container */
+.updates-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* each bar */
+.update-item {
+  background: #f5f5f5;
+  padding: 20px 30px;
+  border-radius: 10px;
+  text-align: left;
+  transition: 0.3s;
+  border-left: 5px solid #2f6df6;
+}
+
+.update-item:hover {
+  transform: translateX(5px);
+}
+
+/* text styles */
+.update-item h4 {
+  margin-bottom: 5px;
+  font-size: 16px;
+  color: #333;
+}
+
+.update-item p {
+  margin: 0;
+  opacity: 0.8;
+}
