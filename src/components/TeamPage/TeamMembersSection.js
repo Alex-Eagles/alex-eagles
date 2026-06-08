@@ -1,50 +1,62 @@
-import { Box, Container, Typography } from "@mui/material";
-import TeamMemberCard from "./TeamMemberCard";
-import SectionHeading from "../SectionHeading/SectionHeading";
+import React from 'react';
+import TeamMemberCard from './TeamMemberCard';
+import './TeamMembersSection.css';
 
+const TeamMembersSection = ({ members }) => {
+  /* Handle empty state if no members match the filter */
+  if (!members || members.length === 0) {
+    return (
+      <section className="empty-state">
+        <p>No team members found for this filter.</p>
+      </section>
+    );
+  }
 
-const TeamMembersSection = ({ title, subtitle, members }) => {
+  /* Separate leads from members */
+  const leads = members.filter((m) => m.role === 'Lead' || m.role === 'Vice Lead');
+  const regularMembers = members.filter((m) => m.role === 'Member');
 
-	return (
-		<Container maxWidth="false" >
-			{title !== "" && subtitle !== "" && (<SectionHeading
-				title={title}
-				subtitle={subtitle}
-			/>)}
-			<Box
-				sx={{
-					// mt: 4,
-					display: "flex",
-					flexWrap: "wrap",
-					flexDirection: "row",
-					justifyContent: "center",
-				}}>
-				{members.length === 0 && (
-					<Typography
-						variant="h5"
-						component="span"
-						color="primary"
-						sx={{
-							textAlign: "center",
-							width: "100%",
-							my: 8,
-						}}>
-						Coming Soon!
-					</Typography>
-				)}
-				{members.map((member, index) => {
-					return (
-						<TeamMemberCard
-							key={index}
-							name={member.name}
-							role={member.role}
-							image={member.image}
-						/>
-					);
-				})}
-			</Box>
-		</Container>
-	);
+  /* Sort leadership */
+  const sortedLeads = [...leads].sort((a, b) => {
+    const order = { 'Lead': 1, 'Vice Lead': 2, 'Member': 3 };
+    return (order[a.role] || 4) - (order[b.role] || 4);
+  });
+
+  return (
+    <section className="team-members-container">
+      {/* Leadership Section */}
+      {sortedLeads.length > 0 && (
+        <div className="members-group">
+          <div className="group-header">
+            <h2>Leadership</h2>
+            <div className="header-line" />
+          </div>
+          <div className="members-grid">
+            {sortedLeads.map((member, index) => (
+              <TeamMemberCard key={`lead-${index}`} member={member} size="large" />
+            ))}
+          </div>
+        </div>
+      )}
+
+      {/* Members Section */}
+      {regularMembers.length > 0 && (
+        <div className="members-group">
+          {sortedLeads.length > 0 && (
+            <div className="group-header">
+              <h2>Members</h2>
+              <div className="header-line" />
+            </div>
+          )}
+          <div className="members-grid">
+            {regularMembers.map((member, index) => (
+              <TeamMemberCard key={`member-${index}`} member={member} />
+            ))}
+          </div>
+        </div>
+      )}
+    </section>
+  );
 };
 
 export default TeamMembersSection;

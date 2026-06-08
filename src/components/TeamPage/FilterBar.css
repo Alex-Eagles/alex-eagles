@@ -1,0 +1,250 @@
+/* Dynamic Underline Animation for Active Buttons */
+@keyframes slideUnderline {
+  from {
+    width: 0;
+    opacity: 0;
+  }
+  to {
+    width: 100%;
+    opacity: 1;
+  }
+}
+
+/* Spring-like Click Feedback */
+@keyframes springPress {
+  0% { transform: scale(1); }
+  50% { transform: scale(0.95); }
+  100% { transform: scale(1); }
+}
+
+/* Button Glow on Click */
+@keyframes buttonGlow {
+  0% { box-shadow: 0 0 0 0 rgba(30, 58, 138, 0.7); }
+  70% { box-shadow: 0 0 0 8px rgba(30, 58, 138, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(30, 58, 138, 0); }
+}
+
+.filter-section {
+  background: linear-gradient(180deg, #f9fafb 0%, #ffffff 100%);
+  padding: 1.5rem 0;
+  border-bottom: 1px solid rgba(229, 231, 235, 0.6);
+  backdrop-filter: blur(12px);
+  background-color: rgba(255, 255, 255, 0.85);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Subtle animated background pattern */
+.filter-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(90deg, transparent 0%, rgba(30, 58, 138, 0.02) 50%, transparent 100%);
+  pointer-events: none;
+}
+
+.filter-container {
+  max-width: 80rem;
+  margin: 0 auto;
+  padding: 0 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  position: relative;
+  z-index: 1;
+}
+
+.main-filters {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem;
+}
+
+.filter-btn {
+  padding: 0.625rem 1.5rem;
+  border-radius: 9999px;
+  font-weight: 600;
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  cursor: pointer;
+  border: 1px solid transparent;
+  font-family: inherit;
+  font-size: 1rem;
+  letter-spacing: 0.3px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Shimmer effect on active button */
+.filter-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+  transition: left 0.5s ease;
+}
+
+.filter-btn:active {
+  animation: springPress 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.active-main-btn {
+  background: linear-gradient(135deg, #1e3a8a 0%, #1d4ed8 100%);
+  color: white;
+  box-shadow: 0 12px 24px rgba(30, 58, 138, 0.25);
+  border: 1px solid rgba(29, 78, 216, 0.3);
+}
+
+.active-main-btn:hover {
+  box-shadow: 0 16px 32px rgba(30, 58, 138, 0.35);
+  transform: translateY(-2px);
+}
+
+.inactive-btn {
+  background: linear-gradient(135deg, #ffffff 0%, #f9fafb 100%);
+  color: #374151;
+  border-color: rgba(209, 213, 219, 0.6);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.inactive-btn:hover {
+  border-color: #1e3a8a;
+  color: #1e3a8a;
+  box-shadow: 0 4px 12px rgba(30, 58, 138, 0.12);
+  transform: translateY(-1px);
+}
+
+/* Sub-filters Styles */
+.sub-filters {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+  padding: 0.75rem 1rem;
+  background: linear-gradient(135deg, rgba(255,255,255,0.5) 0%, rgba(249,250,251,0.5) 100%);
+  border-radius: 12px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.8);
+  box-shadow: inset 0 1px 2px rgba(255,255,255,0.5);
+}
+
+.sub-filter-btn {
+  padding: 0.375rem 1rem;
+  border-radius: 9999px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  cursor: pointer;
+  border: 1px solid transparent;
+  letter-spacing: 0.3px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Active Sub-button Glow */
+.sub-filter-btn::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s ease, height 0.6s ease;
+}
+
+.sub-filter-btn:active::after {
+  width: 300px;
+  height: 300px;
+}
+
+.sub-filter-btn {
+  padding: 0.375rem 1rem;
+  border-radius: 9999px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  border: 1px solid transparent;
+}
+
+/* Mechanical Sub-buttons (Teal) */
+.active-sub-mech {
+  background: linear-gradient(135deg, #0d9488 0%, #06b6d4 100%);
+  color: white;
+  box-shadow: 0 6px 16px rgba(13, 148, 136, 0.3);
+  border: 1px solid rgba(13, 148, 136, 0.4);
+}
+
+.active-sub-mech:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(13, 148, 136, 0.4);
+}
+
+.inactive-sub-mech {
+  background: linear-gradient(135deg, #f0fdfa 0%, #ecfdf5 100%);
+  color: #0f766e;
+  border-color: rgba(94, 234, 212, 0.6);
+  box-shadow: 0 2px 4px rgba(13, 148, 136, 0.06);
+}
+
+.inactive-sub-mech:hover {
+  background: #f0fdfa;
+  border-color: #0d9488;
+  color: #0d9488;
+  box-shadow: 0 4px 12px rgba(13, 148, 136, 0.15);
+  transform: translateY(-1px);
+}
+
+/* Autonomous Sub-buttons (Cyan) */
+.active-sub-auto {
+  background: linear-gradient(135deg, #0891b2 0%, #06b6d4 100%);
+  color: white;
+  box-shadow: 0 6px 16px rgba(8, 145, 178, 0.3);
+  border: 1px solid rgba(8, 145, 178, 0.4);
+}
+
+.active-sub-auto:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(8, 145, 178, 0.4);
+}
+
+.inactive-sub-auto {
+  background: linear-gradient(135deg, #ecfdf5 0%, #ecfeff 100%);
+  color: #0e7490;
+  border-color: rgba(103, 232, 249, 0.6);
+  box-shadow: 0 2px 4px rgba(8, 145, 178, 0.06);
+}
+
+.inactive-sub-auto:hover {
+  background: #ecfeff;
+  border-color: #0891b2;
+  color: #0891b2;
+  box-shadow: 0 4px 12px rgba(8, 145, 178, 0.15);
+  transform: translateY(-1px);
+}
+
+/* Smooth Fade-In Animation for Sub-Filters */
+@keyframes fadeIn {
+  from { 
+    opacity: 0; 
+    transform: translateY(-8px); 
+  }
+  to { 
+    opacity: 1; 
+    transform: translateY(0); 
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}

@@ -1,108 +1,110 @@
+import React, { useState, useMemo } from "react";
+import { Box } from "@mui/material";
 import HomeSection from "../components/HomeSection/HomeSection";
 import AnimatedPage from "./AnimatedPage";
 import backgroundPhoto from "../assets/images/team-2025.jpg";
-import background from "../assets/images/bgnd-logo.png"; // Corrected path or replaced file
-import { Box } from "@mui/material";
+import background from "../assets/images/bgnd-logo.png";
 import Footer from "../components/Footer/Footer";
 import Background from "../components/Background/Background";
+import FilterBar from "../components/TeamPage/FilterBar";
 import TeamMembersSection from "../components/TeamPage/TeamMembersSection";
-import SectionHeading from "../components/SectionHeading/SectionHeading";
 import teamMemberData from "../assets/data/teamMemberData";
 
-const [heads, autonomusLead, mechanicalLead, autonomous, mechanical] = teamMemberData;
-
 const TeamPage = () => {
-	return (
-		<>
-			<Box
-				sx={{
-					position: "fixed",
-					top: 0,
-					left: 0,
-					width: "100%",
-					height: "100%",
-					backgroundImage: `url(${background})`,
-					backgroundSize: "cover",
-					backgroundPosition: "center",
-					backgroundRepeat: "no-repeat",
-					zIndex: -2,
-				}}
-			/>
-			<AnimatedPage>
-				<Box
-					sx={{
-						position: "relative",
-						height: "71.5vh",
-					}}
-				>
-					<Background background={backgroundPhoto} />
-					<HomeSection
-						title="The Eagles"
-						subtitle="Meet the team who make the magic happen."
-					/>
-				</Box>
-				<Box
-					sx={{
-						color: "#FFFFFF",
-						px: 2,
-						py: 5,
-						display: "flex",
-						flexDirection: "column",
-						justifyItems: "center",
-						alignItems: "center",
-					}}>
+    const [activeTeam, setActiveTeam] = useState("All");
+    const [activeSubTeam, setActiveSubTeam] = useState(null);
 
+    const handleTeamChange = (team) => {
+        setActiveTeam(team);
+        setActiveSubTeam(null);
+    };
 
-					{/* Heads Section */}
-					<TeamMembersSection
-						title="Heads"
-						subtitle="Meet the visionaries who guide our mission, set our goals, and inspire the team to achieve excellence."
-						members={heads}
-					/>
+    // Normalize data: If the old data is an array of arrays, flatten it to a single array
+    const normalizedData = useMemo(() => {
+        if (!teamMemberData || teamMemberData.length === 0) return [];
+        if (Array.isArray(teamMemberData[0])) {
+            return teamMemberData.flat();
+        }
+        return teamMemberData;
+    }, []);
 
+    // Filter members based on selected categories
+    const filteredMembers = useMemo(() => {
+        let filtered = normalizedData;
 
-					{/* Autonomous Lead Section */}
-					<TeamMembersSection
-						title="Autonomous Lead"
-						subtitle="Leading the charge in innovation, our autonomous team heads push the boundaries of intelligence and automation."
-						members={autonomusLead.slice(0, 2)}
-					/>
-					<TeamMembersSection
-						title=""
-						subtitle=""
-						members={autonomusLead.filter(x => !autonomusLead.slice(0, 2).includes(x))}
-					/>
+        if (activeTeam !== "All") {
+            filtered = filtered.filter((m) => m?.team === activeTeam);
+        }
 
-					{/* Mechanical Lead Section */}
-					<TeamMembersSection
-						title="Mechanical Lead"
-						subtitle="At the forefront of engineering excellence, our mechanical heads transform imagination into mechanical reality."
-						members={mechanicalLead.slice(0, 2)}
-					/>
-					<TeamMembersSection
-						title=""
-						subtitle=""
-						members={mechanicalLead.filter(x => !mechanicalLead.slice(0, 2).includes(x))}
-					/>
+        if (activeSubTeam) {
+            filtered = filtered.filter((m) => m?.subTeam === activeSubTeam);
+        }
 
-					{/* Autonomous Team Section */}
-					<TeamMembersSection
-						title="Autonomous Team"
-						subtitle="The tech innovators coding, wiring, and empowering the brain behind our autonomous systems."
-						members={autonomous}
-					/>
+        return filtered;
+    }, [activeTeam, activeSubTeam, normalizedData]);
 
-					{/* Mechanical Team Section */}
-					<TeamMembersSection
-						title="Mechanical Team"
-						subtitle="The builders and makers who craft ideas into precision-engineered reality, shaping the future piece by piece."
-						members={mechanical}
-					/>
-				</Box>
-				<Footer />
-			</AnimatedPage>
-		</>
-	);
+    return (
+        <>
+            {/* Fixed Background */}
+            <Box
+                sx={{
+                    position: "fixed",
+                    top: 0,
+                    left: 0,
+                    width: "100%",
+                    height: "100%",
+                    backgroundImage: `url(${background})`,
+                    backgroundSize: "cover",
+                    backgroundPosition: "center",
+                    backgroundRepeat: "no-repeat",
+                    zIndex: -2,
+                }}
+            />
+            
+            <AnimatedPage>
+                {/* Hero Section */}
+                <Box
+                    sx={{
+                        position: "relative",
+                        height: "71.5vh",
+                    }}
+                >
+                    <Background background={backgroundPhoto} />
+                    <HomeSection
+                        title="The Eagles"
+                        subtitle="Meet the team who make the magic happen."
+                    />
+                </Box>
+
+                {/* Main Content Area */}
+                <Box
+                    sx={{
+                        width: "100%",
+                        display: "flex",
+                        flexDirection: "column",
+                        alignItems: "center",
+                        minHeight: "50vh",
+                        backgroundColor: "#ffffff", // Added solid background for the grid area to match the new clean design
+                    }}
+                >
+                    <div style={{ width: "100%" }}>
+                        <FilterBar
+                            activeTeam={activeTeam}
+                            activeSubTeam={activeSubTeam}
+                            onTeamChange={handleTeamChange}
+                            onSubTeamChange={setActiveSubTeam}
+                        />
+                    </div>
+                    
+                    <div style={{ width: "100%" }}>
+                        <TeamMembersSection members={filteredMembers} />
+                    </div>
+                </Box>
+
+                <Footer />
+            </AnimatedPage>
+        </>
+    );
 };
 
 export default TeamPage;
