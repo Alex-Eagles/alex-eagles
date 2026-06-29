@@ -25,7 +25,8 @@ function AnimatedNavMenuButton() {
     { index: '03.', text: 'Publications', link: '/publications', external: false },
     { index: '04.', text: 'Team', link: '/team', external: false },
     { index: '05.', text: 'Sponsors', link: '/sponsors', external: false },
-    { index: '06.', text: 'Contact', link: '/contact', external: false }
+    { index: '06.', text: 'Contact', link: '/contact', external: false },
+    { index: '07.', text: 'HOMEPAGE', link: '/home', external: false }
   ];
 
   const footerLinks = [
