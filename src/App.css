@@ -14,3 +14,12 @@
 	width: 100% !important;
 	left: 0 !important;
 }
+
+
+.home-page {
+  color: white;
+}
+
+.home-page * {
+  color: inherit;
+}
