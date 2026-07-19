@@ -13,16 +13,10 @@ import SponsorsPage from "./pages/SponsorsPage";
 import ContactPage from "./pages/ContactPage";
 import ScenePage from "./pages/ScenePage";
 import IntroPage from "./pages/IntroPage";
+import HomePage from "./pages/HomePage";
 
 
-// YOUR PAGE COMPONENTS
-import Hero from "./pages/Hero";
-import Features from "./pages/Features";
-import Video from "./pages/Video";
-import Updates from "./pages/Updates";
-import Contact from "./pages/Contact";
-import Sponsors from "./pages/Sponsors";
-import Footer from "./pages/Footer";
+// HomePage (composed in ./pages/HomePage) already imports these sections.
 
 
 import ScrollToTop from "./pages/ScrollToTop";
@@ -142,31 +136,6 @@ Object.entries(searchDictionary).forEach(([key,value])=>{
 
 
 
-const HomePage = () => {
-
-return (
-
-<div>
-
-<Hero />
-
-<Features />
-
-<Video />
-
-<Updates />
-
-<Contact />
-
-<Sponsors />
-
-<Footer />
-
-</div>
-
-);
-
-};
 
 
 
